@@ -27,11 +27,6 @@ def get_all_empty_lands(csvloc):
         # print(csv.iloc[i,0])
 get_all_empty_lands(emptylands_path)
 def extract_area_data(filename):
-    """
-    Parses the file and returns:
-    - list of area names (formatted, no '_area', title cased)
-    - list of lists containing province IDs for each area
-    """
     state_names = []
     province_id_lists = []
 
@@ -44,16 +39,16 @@ def extract_area_data(filename):
     buffer = []
 
     for line in lines:
-        m = re.match(r'\s*([a-zA-Z0-9_]+_area)\s*=\s*\{', line)
+        line = line.strip()
+
+        # Match any area name followed by '=' and '{'
+        m = re.match(r'^([a-zA-Z0-9_]+)\s*=\s*\{', line)
         if m and not in_block:
             current_area = m.group(1)
-            # formatted_name = current_area.replace('_area', '').replace('_', ' ').title()
-            # state_names.append(formatted_name)
             state_names.append(current_area)
-
             in_block = True
             brace_depth = 1
-            buffer = [line.split('{', 1)[1]]
+            buffer = []
             continue
 
         if in_block:
@@ -62,9 +57,10 @@ def extract_area_data(filename):
             buffer.append(line)
 
             if brace_depth == 0:
-                province_lines = [l for l in buffer if re.match(r'^\s*\d+', l)]
-                nums = re.findall(r'\b\d+\b', ''.join(province_lines))
-                province_id_lists.append([int(n) for n in nums])
+                # Extract all integers across the buffered lines
+                all_lines = '\n'.join(buffer)
+                numbers = re.findall(r'\b\d+\b', all_lines)
+                province_id_lists.append([int(n) for n in numbers])
                 in_block = False
 
     return state_names, province_id_lists
@@ -115,69 +111,222 @@ def extract_and_resize():
     #             if states[j] == area:
     #                 region_provinces.extend(ids[j])
     #                 break
+    print(width,height)
     for i in range(len(regions)):
-            
-        mask = Image.new("RGBA", (width, height), (0, 0, 0, 0)) 
-        for regionid in regionids[i]:
-                 # print()
-                rgb_color = (land_rgbs["red"][regionid-1], land_rgbs["green"][regionid-1], land_rgbs["blue"][regionid-1])
-                # print(rgb_color,id)
-                land_pixels_for_province = land_pixel_data.get(rgb_color, [])
-                # print(land_pixels_for_province)
-                if not land_pixels_for_province:
-                    print(f"Warning: No land pixels found for color {rgb_color}. Skipping this province.")
-                    continue
+    # for i in range(57,60):
+        if(i == 58):
+            mask = Image.new("RGBA", (width, height), (0, 0, 0, 0)) 
+            for regionid in regionids[i]:
+                    # print()
+                    rgb_color = (land_rgbs["red"][regionid-1], land_rgbs["green"][regionid-1], land_rgbs["blue"][regionid-1])
+                    # print(rgb_color,id)
+                    land_pixels_for_province = land_pixel_data.get(rgb_color, [])
+                    # print(land_pixels_for_province)
+                    if not land_pixels_for_province:
+                        print(f"Warning: No land pixels found for color {rgb_color}. Skipping this province.")
+                        continue
 
-                graytone = math.floor(0.299 * rgb_color[0] + 0.587 * rgb_color[1] + 0.114 * rgb_color[2])
-                for j in land_pixels_for_province:
-                    mask.putpixel(j, (graytone, graytone, graytone, 255))
-        for area in areas[i]:
-            for j in range(len(states)):
-                if states[j] == area:
-                    thatsdumb = []
-                    for id in ids[j]:
-                         # print()
-                        thatsdumb.append(id)
-                        rgb_color = (land_rgbs["red"][id-1], land_rgbs["green"][id-1], land_rgbs["blue"][id-1])
-                        # print(rgb_color,id)
-                        land_pixels_for_province = land_pixel_data.get(rgb_color, [])
-                        # print(land_pixels_for_province)
-                        if not land_pixels_for_province:
-                            print(f"Warning: No land pixels found for color {rgb_color}. Skipping this province.")
-                            continue
+                    graytone = 255 - math.floor((0.299 * rgb_color[0] + 0.587 * rgb_color[1] + 0.114 * rgb_color[2])/2)
+                    for j in land_pixels_for_province:
+                        anotherone = (j[0]-2000,j[1])
+                        mask.putpixel(anotherone, (graytone, graytone, graytone, 255))
+            mask.size
+            bbox = mask.getbbox()
+            cropped = mask.crop(bbox)
+            notwidth,notheight = cropped.size
+            widths.append(notwidth)
+            heights.append(notheight)
+            for area in areas[i]:
+                for j in range(len(states)):
+                    if states[j] == area:
+                        thatsdumb = []
+                        for id in ids[j]:
+                            # print()
+                            thatsdumb.append(id)
+                            rgb_color = (land_rgbs["red"][id-1], land_rgbs["green"][id-1], land_rgbs["blue"][id-1])
+                            # print(rgb_color,id)
+                            land_pixels_for_province = land_pixel_data.get(rgb_color, [])
+                            # print(land_pixels_for_province)
+                            if not land_pixels_for_province:
+                                print(f"Warning: No land pixels found for color {rgb_color}. Skipping this province.")
+                                continue
+                            
+                            # graytone = math.floor(0.299 * rgb_color[0] + 0.587 * rgb_color[1] + 0.114 * rgb_color[2])
+                            lightness = (0.2126 * land_rgbs["red"][id-1] + 0.7152 * land_rgbs["green"][id-1] + 0.0722 * land_rgbs["blue"][id-1])/255
+                            for k in land_pixels_for_province:
+                                another = (k[0]-2000,k[1])
+                                mask.putpixel(another, (math.floor(140*lightness),math.floor(140*lightness),255, 255))
+                    
+                        bbox = mask.getbbox()
+                        cropped = mask.crop(bbox)
+                        notwidth,notheight = cropped.size
+                        widths.append(notwidth)
+                        heights.append(notheight)
+                        # Resize and center
+                        cropped.thumbnail((TARGET_WIDTH, TARGET_HEIGHT), Image.LANCZOS)
+                        centered = Image.new("RGBA", (TARGET_WIDTH, TARGET_HEIGHT), (0, 0, 0, 0))
+                        paste_x = (TARGET_WIDTH - cropped.width) // 2
+                        paste_y = (TARGET_HEIGHT - cropped.height) // 2
+                        centered.paste(cropped, (paste_x, paste_y))
+                        # cropped = mask.crop(bbox)
+                        centered.save(f"states/{j}.png")
+                        print(f"Saved states/{j}.png",notwidth,notheight,area,regions[i])
+                        # print(ids)
+                        for id in thatsdumb:
+                            # print()
+                            rgb_color = (land_rgbs["red"][id-1], land_rgbs["green"][id-1], land_rgbs["blue"][id-1])
+                            # print(rgb_color,id)
+                            land_pixels_for_province = land_pixel_data.get(rgb_color, [])
+                            # print(land_pixels_for_province)
+                            if not land_pixels_for_province:
+                                print(f"Warning: No land pixels found for color {rgb_color}. Skipping this province.")
+                                continue
+
+                            graytone = math.floor(0.299 * rgb_color[0] + 0.587 * rgb_color[1] + 0.114 * rgb_color[2])
+                            for k in land_pixels_for_province:
+                                anotheroneone = (k[0]-2000,k[1])
+                                mask.putpixel(anotheroneone, (graytone, graytone, graytone, 255))
+                        break
+        else:
+            mask = Image.new("RGBA", (width, height), (0, 0, 0, 0)) 
+            for regionid in regionids[i]:
+                    # print()
+                    rgb_color = (land_rgbs["red"][regionid-1], land_rgbs["green"][regionid-1], land_rgbs["blue"][regionid-1])
+                    # print(rgb_color,id)
+                    land_pixels_for_province = land_pixel_data.get(rgb_color, [])
+                    # print(land_pixels_for_province)
+                    if not land_pixels_for_province:
+                        print(f"Warning: No land pixels found for color {rgb_color}. Skipping this province.")
+                        continue
+
+                    graytone = math.floor(0.299 * rgb_color[0] + 0.587 * rgb_color[1] + 0.114 * rgb_color[2])
+                    for j in land_pixels_for_province:
+                        mask.putpixel(j, (graytone, graytone, graytone, 255))
+            mask.size
+            bbox = mask.getbbox()
+            cropped = mask.crop(bbox)
+            notwidth,notheight = cropped.size
+            widths.append(notwidth)
+            heights.append(notheight)
+            for area in areas[i]:
+                for j in range(len(states)):
+                    if states[j] == area:
+                        thatsdumb = []
+                        for id in ids[j]:
+                            # print()
+                            thatsdumb.append(id)
+                            rgb_color = (land_rgbs["red"][id-1], land_rgbs["green"][id-1], land_rgbs["blue"][id-1])
+                            # print(rgb_color,id)
+                            land_pixels_for_province = land_pixel_data.get(rgb_color, [])
+                            # print(land_pixels_for_province)
+                            if not land_pixels_for_province:
+                                print(f"Warning: No land pixels found for color {rgb_color}. Skipping this province.")
+                                continue
+                            
+                            # graytone = math.floor(0.299 * rgb_color[0] + 0.587 * rgb_color[1] + 0.114 * rgb_color[2])
+                            lightness = (0.2126 * land_rgbs["red"][id-1] + 0.7152 * land_rgbs["green"][id-1] + 0.0722 * land_rgbs["blue"][id-1])/255
+                            for k in land_pixels_for_province:
+                                mask.putpixel(k, (math.floor(140*lightness),math.floor(140*lightness),255, 255))
+                    
+                        bbox = mask.getbbox()
+                        cropped = mask.crop(bbox)
+                        notwidth,notheight = cropped.size
+                        widths.append(notwidth)
+                        heights.append(notheight)
+                        # Resize and center
+                        cropped.thumbnail((TARGET_WIDTH, TARGET_HEIGHT), Image.LANCZOS)
+                        centered = Image.new("RGBA", (TARGET_WIDTH, TARGET_HEIGHT), (0, 0, 0, 0))
+                        paste_x = (TARGET_WIDTH - cropped.width) // 2
+                        paste_y = (TARGET_HEIGHT - cropped.height) // 2
+                        centered.paste(cropped, (paste_x, paste_y))
+                        # cropped = mask.crop(bbox)
+                        centered.save(f"states/{j}.png")
+                        print(f"Saved states/{j}.png",notwidth,notheight,area,regions[i])
+                        # print(ids)
+                        for id in thatsdumb:
+                            # print()
+                            rgb_color = (land_rgbs["red"][id-1], land_rgbs["green"][id-1], land_rgbs["blue"][id-1])
+                            # print(rgb_color,id)
+                            land_pixels_for_province = land_pixel_data.get(rgb_color, [])
+                            # print(land_pixels_for_province)
+                            if not land_pixels_for_province:
+                                print(f"Warning: No land pixels found for color {rgb_color}. Skipping this province.")
+                                continue
+
+                            graytone = math.floor(0.299 * rgb_color[0] + 0.587 * rgb_color[1] + 0.114 * rgb_color[2])
+                            for k in land_pixels_for_province:
+                                mask.putpixel(k, (graytone, graytone, graytone, 255))
+                        break
+        
+        # mask = Image.new("RGBA", (width, height), (0, 0, 0, 0)) 
+        # for regionid in regionids[i]:
+        #          # print()
+        #         rgb_color = (land_rgbs["red"][regionid-1], land_rgbs["green"][regionid-1], land_rgbs["blue"][regionid-1])
+        #         # print(rgb_color,id)
+        #         land_pixels_for_province = land_pixel_data.get(rgb_color, [])
+        #         # print(land_pixels_for_province)
+        #         if not land_pixels_for_province:
+        #             print(f"Warning: No land pixels found for color {rgb_color}. Skipping this province.")
+        #             continue
+
+        #         graytone = math.floor(0.299 * rgb_color[0] + 0.587 * rgb_color[1] + 0.114 * rgb_color[2])
+        #         for j in land_pixels_for_province:
+        #             mask.putpixel(j, (graytone, graytone, graytone, 255))
+        # mask.size
+        # bbox = mask.getbbox()
+        # cropped = mask.crop(bbox)
+        # notwidth,notheight = cropped.size
+        # widths.append(notwidth)
+        # heights.append(notheight)
+        # for area in areas[i]:
+        #     for j in range(len(states)):
+        #         if states[j] == area:
+        #             thatsdumb = []
+        #             for id in ids[j]:
+        #                  # print()
+        #                 thatsdumb.append(id)
+        #                 rgb_color = (land_rgbs["red"][id-1], land_rgbs["green"][id-1], land_rgbs["blue"][id-1])
+        #                 # print(rgb_color,id)
+        #                 land_pixels_for_province = land_pixel_data.get(rgb_color, [])
+        #                 # print(land_pixels_for_province)
+        #                 if not land_pixels_for_province:
+        #                     print(f"Warning: No land pixels found for color {rgb_color}. Skipping this province.")
+        #                     continue
                         
-                        # graytone = math.floor(0.299 * rgb_color[0] + 0.587 * rgb_color[1] + 0.114 * rgb_color[2])
-                        lightness = (0.2126 * land_rgbs["red"][id-1] + 0.7152 * land_rgbs["green"][id-1] + 0.0722 * land_rgbs["blue"][id-1])/255
-                        for k in land_pixels_for_province:
-                            mask.putpixel(k, (math.floor(140*lightness),math.floor(140*lightness),255, 255))
+        #                 # graytone = math.floor(0.299 * rgb_color[0] + 0.587 * rgb_color[1] + 0.114 * rgb_color[2])
+        #                 lightness = (0.2126 * land_rgbs["red"][id-1] + 0.7152 * land_rgbs["green"][id-1] + 0.0722 * land_rgbs["blue"][id-1])/255
+        #                 for k in land_pixels_for_province:
+        #                     mask.putpixel(k, (math.floor(140*lightness),math.floor(140*lightness),255, 255))
                    
-                    bbox = mask.getbbox()
-                    cropped = mask.crop(bbox)
+        #             bbox = mask.getbbox()
+        #             cropped = mask.crop(bbox)
+        #             notwidth,notheight = cropped.size
+        #             widths.append(notwidth)
+        #             heights.append(notheight)
+        #             # Resize and center
+        #             cropped.thumbnail((TARGET_WIDTH, TARGET_HEIGHT), Image.LANCZOS)
+        #             centered = Image.new("RGBA", (TARGET_WIDTH, TARGET_HEIGHT), (0, 0, 0, 0))
+        #             paste_x = (TARGET_WIDTH - cropped.width) // 2
+        #             paste_y = (TARGET_HEIGHT - cropped.height) // 2
+        #             centered.paste(cropped, (paste_x, paste_y))
+        #             # cropped = mask.crop(bbox)
+        #             centered.save(f"states/{j}.png")
+        #             print(f"Saved states/{j}.png")
+        #             # print(ids)
+        #             for id in thatsdumb:
+        #                  # print()
+        #                 rgb_color = (land_rgbs["red"][id-1], land_rgbs["green"][id-1], land_rgbs["blue"][id-1])
+        #                 # print(rgb_color,id)
+        #                 land_pixels_for_province = land_pixel_data.get(rgb_color, [])
+        #                 # print(land_pixels_for_province)
+        #                 if not land_pixels_for_province:
+        #                     print(f"Warning: No land pixels found for color {rgb_color}. Skipping this province.")
+        #                     continue
 
-                    # Resize and center
-                    cropped.thumbnail((TARGET_WIDTH, TARGET_HEIGHT), Image.LANCZOS)
-                    centered = Image.new("RGBA", (TARGET_WIDTH, TARGET_HEIGHT), (0, 0, 0, 0))
-                    paste_x = (TARGET_WIDTH - cropped.width) // 2
-                    paste_y = (TARGET_HEIGHT - cropped.height) // 2
-                    centered.paste(cropped, (paste_x, paste_y))
-                    # cropped = mask.crop(bbox)
-                    centered.save(f"states/{j}.png")
-                    print(f"Saved states/{j}.png")
-                    # print(ids)
-                    for id in thatsdumb:
-                         # print()
-                        rgb_color = (land_rgbs["red"][id-1], land_rgbs["green"][id-1], land_rgbs["blue"][id-1])
-                        # print(rgb_color,id)
-                        land_pixels_for_province = land_pixel_data.get(rgb_color, [])
-                        # print(land_pixels_for_province)
-                        if not land_pixels_for_province:
-                            print(f"Warning: No land pixels found for color {rgb_color}. Skipping this province.")
-                            continue
-
-                        graytone = math.floor(0.299 * rgb_color[0] + 0.587 * rgb_color[1] + 0.114 * rgb_color[2])
-                        for k in land_pixels_for_province:
-                            mask.putpixel(k, (graytone, graytone, graytone, 255))
-                    break
+        #                 graytone = math.floor(0.299 * rgb_color[0] + 0.587 * rgb_color[1] + 0.114 * rgb_color[2])
+        #                 for k in land_pixels_for_province:
+        #                     mask.putpixel(k, (graytone, graytone, graytone, 255))
+        #             break
         
         # for j in range(len(states)):  # For each state
         #     # graytone = 
@@ -260,22 +409,43 @@ def foundidsforregion():
         for area in areas[i]:
             for j in range(len(states)):
                 if states[j] == area:
+                    # print(area,states[j])
                     region_provinces.extend(ids[j])
                     break  
 
         regionids.append(region_provinces)
 foundidsforregion()
 # print(regionids)
-# for i in range(len(regions)):             
-#         for area in areas[i]:
-#             # print(area)
-#             for j in range(len(states)):
-#                 if states[j] == area:
-#                     # print(states[j],area,ids[j])
-#                     # print(ids[j])
-#                     for id in ids[j]:
-#                         print(id-1)
+for i in range(len(regions)):             
+        for area in areas[i]:
+            foundone = False
+            # print(area)
+            for j in range(len(states)):
+                if states[j] == area:
+                    foundone = True
+                    # print(states[j],area)
+            if(not foundone):
+                print(area)
 
+widths = []
+heights = []
 land_pixel_data = extract_land_pixels()
 print("Found all land pixels.")
 extract_and_resize()
+maxwidth = max(widths)
+maxheight = max(heights)
+print(maxwidth,maxheight,widths.index(maxwidth),heights.index(maxheight))
+# def findlenofareas():
+#     a = 0
+#     for area in areas:
+#         # print(area)
+#         a+= len(area) 
+#         # print(area)
+#     print(a)
+# findlenofareas()
+# print(areas)
+# print(states)
+# print(len(areas))
+# print(states[323])
+
+

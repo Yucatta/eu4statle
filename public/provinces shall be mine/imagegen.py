@@ -27,6 +27,11 @@ def get_all_empty_lands(csvloc):
         # print(csv.iloc[i,0])
 get_all_empty_lands(emptylands_path)
 def extract_area_data(filename):
+    """
+    Parses the file and returns:
+    - list of area names (formatted, no '_area', title cased)
+    - list of lists containing province IDs for each area
+    """
     state_names = []
     province_id_lists = []
 
@@ -39,16 +44,16 @@ def extract_area_data(filename):
     buffer = []
 
     for line in lines:
-        line = line.strip()
-
-        # Match any area name followed by '=' and '{'
-        m = re.match(r'^([a-zA-Z0-9_]+)\s*=\s*\{', line)
+        m = re.match(r'\s*([a-zA-Z0-9_]+_area)\s*=\s*\{', line)
         if m and not in_block:
             current_area = m.group(1)
+            # formatted_name = current_area.replace('_area', '').replace('_', ' ').title()
+            # state_names.append(formatted_name)
             state_names.append(current_area)
+
             in_block = True
             brace_depth = 1
-            buffer = []
+            buffer = [line.split('{', 1)[1]]
             continue
 
         if in_block:
@@ -57,10 +62,9 @@ def extract_area_data(filename):
             buffer.append(line)
 
             if brace_depth == 0:
-                # Extract all integers across the buffered lines
-                all_lines = '\n'.join(buffer)
-                numbers = re.findall(r'\b\d+\b', all_lines)
-                province_id_lists.append([int(n) for n in numbers])
+                province_lines = [l for l in buffer if re.match(r'^\s*\d+', l)]
+                nums = re.findall(r'\b\d+\b', ''.join(province_lines))
+                province_id_lists.append([int(n) for n in nums])
                 in_block = False
 
     return state_names, province_id_lists
@@ -159,17 +163,17 @@ def extract_and_resize():
                     
                         bbox = mask.getbbox()
                         cropped = mask.crop(bbox)
-                        notwidth,notheight = cropped.size
-                        widths.append(notwidth)
-                        heights.append(notheight)
-                        # Resize and center
-                        cropped.thumbnail((TARGET_WIDTH, TARGET_HEIGHT), Image.LANCZOS)
-                        centered = Image.new("RGBA", (TARGET_WIDTH, TARGET_HEIGHT), (0, 0, 0, 0))
-                        paste_x = (TARGET_WIDTH - cropped.width) // 2
-                        paste_y = (TARGET_HEIGHT - cropped.height) // 2
-                        centered.paste(cropped, (paste_x, paste_y))
+                        # notwidth,notheight = cropped.size
+                        # widths.append(notwidth)
+                        # heights.append(notheight)
+                        # # Resize and center
+                        # cropped.thumbnail((TARGET_WIDTH, TARGET_HEIGHT), Image.LANCZOS)
+                        # centered = Image.new("RGBA", (TARGET_WIDTH, TARGET_HEIGHT), (0, 0, 0, 0))
+                        # paste_x = (TARGET_WIDTH - cropped.width) // 2
+                        # paste_y = (TARGET_HEIGHT - cropped.height) // 2
+                        # centered.paste(cropped, (paste_x, paste_y))
                         # cropped = mask.crop(bbox)
-                        centered.save(f"states/{j}.png")
+                        cropped.save(f"states/{j}.png")
                         print(f"Saved states/{j}.png",notwidth,notheight,area,regions[i])
                         # print(ids)
                         for id in thatsdumb:
@@ -230,17 +234,16 @@ def extract_and_resize():
                     
                         bbox = mask.getbbox()
                         cropped = mask.crop(bbox)
-                        notwidth,notheight = cropped.size
-                        widths.append(notwidth)
-                        heights.append(notheight)
-                        # Resize and center
-                        cropped.thumbnail((TARGET_WIDTH, TARGET_HEIGHT), Image.LANCZOS)
-                        centered = Image.new("RGBA", (TARGET_WIDTH, TARGET_HEIGHT), (0, 0, 0, 0))
-                        paste_x = (TARGET_WIDTH - cropped.width) // 2
-                        paste_y = (TARGET_HEIGHT - cropped.height) // 2
-                        centered.paste(cropped, (paste_x, paste_y))
+                        # notwidth,notheight = cropped.size
+                        # widths.append(notwidth)
+                        # # Resize and center
+                        # cropped.thumbnail((TARGET_WIDTH, TARGET_HEIGHT), Image.LANCZOS)
+                        # centered = Image.new("RGBA", (TARGET_WIDTH, TARGET_HEIGHT), (0, 0, 0, 0))
+                        # paste_x = (TARGET_WIDTH - cropped.width) // 2
+                        # paste_y = (TARGET_HEIGHT - cropped.height) // 2
+                        # centered.paste(cropped, (paste_x, paste_y))
                         # cropped = mask.crop(bbox)
-                        centered.save(f"states/{j}.png")
+                        cropped.save(f"states/{j}.png")
                         print(f"Saved states/{j}.png",notwidth,notheight,area,regions[i])
                         # print(ids)
                         for id in thatsdumb:

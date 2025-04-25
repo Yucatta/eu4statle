@@ -1,12 +1,15 @@
 import Image from "next/image";
+import States from "./Components/States";
+import StateGuesses from "./Components/StateGuesses";
 
 export default function Home() {
   setTimeout(() => {}, 5);
   return (
     <>
-      <div className="w-screen h-screen bg-[rgba(5,5,5)] flex justify-center items-center ">
-        <div className="w-3/4 h-screen bg-[rgb(24,24,24)] flex justify-center  ">
-          <img src={"states/01.png"}></img>
+      <div className="w-screen h-screen bg-neutral-950 flex justify-center items-center ">
+        <div className="w-2/4 h-screen bg-neutral-900 flex flex-col items-center ">
+          <States></States>
+          <StateGuesses></StateGuesses>
         </div>
       </div>
     </>

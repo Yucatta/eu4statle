@@ -42,10 +42,7 @@ def extract_area_data(filename):
     return state_names, province_id_lists
 
 names, ids = extract_area_data("states.txt")
-print(names)
-# ['Wallonia', 'Holland', 'Flanders', 'Frisia', 'Brabant', 'North Brabant']
 
-print(ids)
 
 # if __name__ == "__main__":
 #     areas = extract_areas('states.txt')
@@ -54,3 +51,40 @@ print(ids)
 #     # for name, provinces in list(areas.items())[:5]:
 #     #     print(f"{name} → {provinces}")
 #     # print(f"...and {len(areas)} total areas.")
+
+def get_all_rgb(csvloc,emptylands):
+    with open(csvloc, encoding="windows-1254", errors="replace") as f:
+        csv = pd.read_csv(f, delimiter=';')
+    for i in range(len(csv)):
+        currentprovinceid = csv.iloc[i,0]
+        # if(currentprovinceid>1170 and currentprovinceid<2003):
+        #     skip = False
+        #     for j in range(0,574):
+        #         currentwastelandid = emptylands[j]
+        #         if(currentprovinceid ==currentwastelandid):
+        #             skip = True
+        #             break
+        #     if(skip):
+        #         continue
+        # if(currentprovinceid>2125 and currentprovinceid<2960):
+        #     skip = False
+        #     for j in range(572,586):
+        #         currentwastelandid = emptylands[j]
+        #         if(currentprovinceid ==currentwastelandid):
+        #             skip = True
+        #             break
+        #     if(skip):
+        #         continue
+        # if(currentprovinceid>4130 and currentprovinceid<4950):
+        #     skip = False
+        #     for j in range(584,len(emptylands)):
+        #         currentwastelandid = emptylands[j]
+        #         if(currentprovinceid ==currentwastelandid):
+        #             skip = True
+        #             break
+        #     if(skip):
+        #         continue
+        land_rgbs["id"].append(currentprovinceid)
+        land_rgbs["red"].append(csv.iloc[i,1])   
+        land_rgbs["green"].append(csv.iloc[i,2])   
+        land_rgbs["blue"].append(csv.iloc[i,3]) 

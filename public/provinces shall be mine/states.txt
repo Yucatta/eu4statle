@@ -158,7 +158,7 @@ baleares_area = {
 	333 4559 4560
 }
 
-basque_country = { #3
+basque_country_area = { #3
 	209 210 2989
 }
 
@@ -365,19 +365,19 @@ karelia_area = { #4
 	30 33 34 1961
 }
 
-north_karelia = { #3
+north_karelia_area = { #3
 	32 309 4124
 }
 
-northern_norway = { #3
+northern_norway_area = { #3
 	10 20 21
 }
 
-eastern_norway = { #4
+eastern_norway_area = { #4
 	17 22 4143 4144
 }
 
-western_norway = { #4
+western_norway_area = { #4
 	23 24 2752 4145
 }
 
@@ -1191,7 +1191,7 @@ sakalava_area = { #5
 	1193 1194 4022 4031 4032
 }
 
-southern_madagascar = { #4
+southern_madagascar_area = { #4
 	color = { 232 29 34 }
 	4026 4028 4029 4030
 }
@@ -1309,7 +1309,7 @@ sankuru_area = { #3
 	4089 4090 4096
 }
 
-lower_kasai = { #4
+lower_kasai_area = { #4
 	color = { 66 114 224 }
 	4081 4085 4086 4088
 }
@@ -1628,7 +1628,7 @@ matamba_area = { #3
 	2948 4082 4084
 }
 
-coastal_kongo = { #5
+coastal_kongo_area = { #5
 	1166 1168 4078 4079 4080
 }
 
@@ -1728,7 +1728,7 @@ kerman_area = { #4
 	432 2220 2234 4345
 }
 
-persian_gulf_coast = { #4
+persian_gulf_coast_area = { #4
 	430 2219 2223 4332 
 }
 
@@ -2305,7 +2305,7 @@ kyushu_area = { #4 #Southern Kyushu
 	1012 1015 4180 4181
 }
 
-northern_kyushu = {
+northern_kyushu_area = {
 	1014 1818 4182 4651
 }
 
@@ -2467,7 +2467,7 @@ ordos_area = { #4 (Western Inner Mongolia)
 	701 709 2191 4223 4676
 }
 
-eastern_mongolia = { #5
+eastern_mongolia_area = { #5
 	2109 2187 4202 4674
 }
 
@@ -2538,7 +2538,7 @@ tsang_area = { #5
 	677 2130 4205 4517 4519
 }
 
-north_zungaria = { #3
+north_zungaria_area = { #3
 	714 2118 2119 4681 4684
 }
 
@@ -2758,7 +2758,7 @@ bahia_blanca_area = { #3
 	780 786 2868
 }
 
-patagonian_andes = { #4
+patagonian_andes_area = { #4
 	2863 2870 2875 2876
 }
 
@@ -2826,11 +2826,11 @@ maracaibo_area = { #5
 	830 2807 4609 4610 4611
 }
 
-eastern_llanos = { #4
+eastern_llanos_area = { #4
 	2805 2809 2939 4615
 }
 
-western_llanos = { #4
+western_llanos_area = { #4
 	2812 2814 2815 4608
 }
 
@@ -2878,7 +2878,7 @@ kuntisuyu_area = { #4
 	807 808 2829 2830
 }
 
-peruan_coast = { #3
+peruan_coast_area = { #3
 	805 806 2828
 }
 
@@ -2906,7 +2906,7 @@ moxos_area = { #3
 	803 2832 2833
 }
 
-upper_peru = { #4
+upper_peru_area = { #4
 	2835 2838 2941 2942
 }
 

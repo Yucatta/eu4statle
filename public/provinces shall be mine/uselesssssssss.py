@@ -279,8 +279,8 @@ foundidsforregion()
 #                     for id in ids[j]:
 #                         print(id-1)
 
-# land_pixel_data = extract_land_pixels()
-# print("Found all land pixels.")
-print(regions[58])
-# extract_and_resize()
-print(max(widths),max(heights))
+land_pixel_data = extract_land_pixels()
+print("Found all land pixels.")
+# print(regions[58])
+extract_and_resize()
+# print(max(widths),max(heights))

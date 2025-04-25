@@ -31,9 +31,9 @@ scandinavia_region = {
 		jutland_area
 		denmark_area
 		finland_area
-		northern_norway
-		eastern_norway
-		western_norway
+		northern_norway_area
+		eastern_norway_area
+		western_norway_area
 		bothnia_area
 		subarctic_islands_area
 		laponia_area
@@ -137,7 +137,7 @@ russia_region = {
 		karelia_area
 		ryazan_area
 		tambov_area
-		north_karelia
+		north_karelia_area
 		tver_area
 		yaroslavl_area
 		vladimir_area
@@ -175,7 +175,7 @@ iberia_region = {
 		leon_area
 		alentejo_area
 		beieras_area
-		basque_country
+		basque_country_area
 		galicia_area
 		baleares_area
 		extremadura_area
@@ -360,7 +360,7 @@ persia_region = {
 		azerbaijan_area
 		isfahan_area
 		kerman_area
-		persian_gulf_coast
+		persian_gulf_coast_area
 		tabriz_area
 		khuzestan_area
 		shahrizor_area
@@ -512,7 +512,7 @@ east_africa_region = {
 		madagascar_highlands_area
 		betsimasaraka_area
 		sakalava_area
-		southern_madagascar
+		southern_madagascar_area
 		uticulo_makuana_area
 		jubba_area
 		shire_area
@@ -555,11 +555,11 @@ central_africa_region = {
 
 kongo_region = {
 	areas = {
-		coastal_kongo
+		coastal_kongo_area
 		kongo_area
 		angola_namibia_area
 		matamba_area
-		lower_kasai
+		lower_kasai_area
 		kasai_area
 	}
 	monsoon = {
@@ -639,9 +639,9 @@ mongolia_region = {
 		inner_mongolia_area
 		ordos_area
 		zungaria_area
-		north_zungaria
+		north_zungaria_area
 		altai_sayan_area
-		eastern_mongolia
+		eastern_mongolia_area
 		central_mongolia_area
 		uliastai_area
 		turpan_kumul_area
@@ -831,7 +831,7 @@ japan_region = {
 		saigoku_area
 		sanindo_area
 		shikoku_area
-		northern_kyushu
+		northern_kyushu_area
 	}
 	monsoon = {
 		00.06.01
@@ -957,7 +957,7 @@ la_plata_region = {
 		southern_chile_area
 		central_chile_area
 		misiones_area
-		patagonian_andes
+		patagonian_andes_area
 		bahia_blanca_area
 	}
 }
@@ -969,8 +969,8 @@ colombia_region = {
 		guyana_area
 		suriname_area
 		venezuela_area
-		eastern_llanos
-		western_llanos
+		eastern_llanos_area
+		western_llanos_area
 		coquivacoa_area
 		bogota_area
 		popayan_area
@@ -996,7 +996,7 @@ peru_region = {
 		antisuyu_area
 		quito_area
 		iquitos_area
-		peruan_coast
+		peruan_coast_area
 	}
 	monsoon = {
 		00.05.01
@@ -1007,7 +1007,7 @@ peru_region = {
 upper_peru_region = {
 	areas = {
 		beni_area
-		upper_peru
+		upper_peru_area
 		tucuman_area
 		chaco_area
 		paraguay_area

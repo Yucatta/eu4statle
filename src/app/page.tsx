@@ -3,7 +3,6 @@ import States from "./Components/States";
 import StateGuesses from "./Components/StateGuesses";
 
 export default function Home() {
-  setTimeout(() => {}, 5);
   return (
     <>
       <div className="w-screen h-screen bg-neutral-950 flex justify-center items-center ">

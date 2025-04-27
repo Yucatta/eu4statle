@@ -2,6 +2,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import Guesses from "./Guesses";
 import Papa from "papaparse";
+import { useGameState } from "@/context/gamecontext";
 const StateGuesses = () => {
   const inputref = useRef<HTMLInputElement | null>(null);
   const [query, setquery] = useState<string | undefined>(undefined);
@@ -10,6 +11,8 @@ const StateGuesses = () => {
   const [StateGuesses, setstateguesses] = useState<(string | number)[]>([
     0, 0, 0, 0, 0, 0, 0,
   ]);
+  const guessid = useRef(-1);
+  const { rndnum, setrndnum } = useGameState();
   useEffect(() => {
     async function fetchdata() {
       try {
@@ -19,8 +22,8 @@ const StateGuesses = () => {
           header: false,
           skipEmptyLines: true,
           complete: (result) => {
-            const tempids: any[] = [];
-            const tempnames: any[] = [];
+            const tempids: number[][] = [];
+            const tempnames: string[] = [];
             result.data.forEach((element) => {
               tempnames.push(element[0]);
               tempids.push([
@@ -46,25 +49,38 @@ const StateGuesses = () => {
   }, []);
   function handlesubmit() {
     if (statenames && query && inputref.current) {
-      let maybe = false;
       for (let i = 0; i < statenames.length; i++) {
-        if (statenames[i].toLowerCase() === query) {
-          maybe = true;
+        if (statenames[i].toLowerCase() === query.toLocaleLowerCase()) {
+          guessid.current = i;
+          console.log(guessid.current);
+
           break;
+        } else {
+          console.log("a");
+          guessid.current = -1;
         }
       }
-      console.log("this is available input");
-      setstateguesses(() => {
-        return [query, ...StateGuesses.slice(0, 5)];
-      });
-      console.log(StateGuesses);
-      setquery("");
-      inputref.current.value = "";
+      console.log(guessid.current);
+      if (guessid.current >= 0) {
+        console.log("this is available input");
+        setstateguesses(() => {
+          return [query, ...StateGuesses.slice(0, 5)];
+        });
+        console.log(StateGuesses);
+        setquery("");
+        inputref.current.value = "";
+      }
+      if (guessid.current === rndnum) {
+        alert("you won");
+      }
     }
   }
+  useEffect(() => {
+    setrndnum(Math.floor(Math.random() * 824));
+  }, []);
   return (
     <>
-      <div className="mt-3 w-[37.5vw]  justify-between items-center flex  relative">
+      <div className=" w-[37.5vw]  justify-between items-center flex  relative">
         <div className="w-3/4 relative group">
           <input
             type="search"
@@ -72,7 +88,7 @@ const StateGuesses = () => {
             onChange={() => {
               setquery(inputref.current?.value);
             }}
-            className="w-full h-10 border-2 border-white focus:"
+            className="w-full mt-3 h-10 border-2 border-white focus:"
             placeholder="aaaaaa"
           />
 
@@ -101,10 +117,10 @@ const StateGuesses = () => {
           </ul>
         </div>
         <button
-          className="bg-amber-600 w-25 rounded-2xl h-10 text-sm"
+          className=" w-30 rounded-2xl mt-2 h-11 text-sm border-5 border-gray-800 bg-gray-700"
           onClick={handlesubmit}
         >
-          this is important
+          GUESS
         </button>
       </div>
       <ol className="w-3/4  border-gray-300 border-1 h-2/5 flex items-center z-1 flex-col mt-2">

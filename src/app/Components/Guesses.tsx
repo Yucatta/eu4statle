@@ -1,4 +1,5 @@
-import React from "react";
+import { useGameState } from "@/context/gamecontext";
+import React, { useEffect } from "react";
 interface props {
   thisguess: string | number;
 }

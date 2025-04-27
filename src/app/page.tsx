@@ -1,4 +1,3 @@
-import Image from "next/image";
 import States from "./Components/States";
 import StateGuesses from "./Components/StateGuesses";
 

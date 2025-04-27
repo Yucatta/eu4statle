@@ -1,12 +1,20 @@
 import React from "react";
-interface props{
-  
+interface props {
+  thisguess: string | number;
 }
-const Guesses = () => {
+const Guesses = ({ thisguess }: props) => {
   return (
-    <div className="w-7/8 h-11 rounded-full mb-1 bg-neutral-700 text flex justify-center items-center">
-      <span>Ahmet</span>
-    </div>
+    <>
+      {typeof thisguess === "string" ? (
+        <div className="w-7/8 h-11 rounded-full mb-1 bg-neutral-700 text flex justify-center items-center">
+          <span>{thisguess}</span>
+        </div>
+      ) : (
+        <div className="w-7/8 h-11 rounded-full mb-1 bg-neutral-700 text flex justify-center items-center">
+          <span></span>
+        </div>
+      )}
+    </>
   );
 };
 

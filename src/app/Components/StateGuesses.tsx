@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Guesses from "./Guesses";
 import Papa from "papaparse";
 const StateGuesses = () => {
@@ -7,6 +7,9 @@ const StateGuesses = () => {
   const [query, setquery] = useState<string | undefined>(undefined);
   const [StateData, setStateData] = useState<number[][]>();
   const [statenames, setstatenames] = useState<string[]>();
+  const [StateGuesses, setstateguesses] = useState<(string | number)[]>([
+    0, 0, 0, 0, 0, 0, 0,
+  ]);
   useEffect(() => {
     async function fetchdata() {
       try {
@@ -27,6 +30,7 @@ const StateGuesses = () => {
                 +element[4],
                 +element[5],
                 +element[6],
+                +element[7],
               ]);
             });
             setstatenames(tempnames);
@@ -35,65 +39,79 @@ const StateGuesses = () => {
         });
       } catch (error) {
         console.error("Error loading CSV file:", error);
+        console.log(StateData);
       }
     }
     fetchdata();
   }, []);
-  function handleinput() {}
-  useEffect(() => {
-    if (query && statenames) {
-      const a = statenames.filter((state) => {
-        return state.toLowerCase().includes(query.toLowerCase());
+  function handlesubmit() {
+    if (statenames && query && inputref.current) {
+      let maybe = false;
+      for (let i = 0; i < statenames.length; i++) {
+        if (statenames[i].toLowerCase() === query) {
+          maybe = true;
+          break;
+        }
+      }
+      console.log("this is available input");
+      setstateguesses(() => {
+        return [query, ...StateGuesses.slice(0, 5)];
       });
-      console.log(a);
+      console.log(StateGuesses);
+      setquery("");
+      inputref.current.value = "";
     }
-    // console.log(StateData, query);
-  }, [statenames, query]);
+  }
   return (
     <>
-      <div className="mt-3 w-[37.5vw]  justify-between items-center flex  ">
-        <input
-          type="search"
-          ref={inputref}
-          onChange={() => {
-            setquery(inputref.current?.value);
-          }}
-          className="w-3/4 left-0 h-10 border-2   border-[rgb(255,255,255)]"
-          placeholder="  aaaaaa"
-        ></input>
+      <div className="mt-3 w-[37.5vw]  justify-between items-center flex  relative">
+        <div className="w-3/4 relative group">
+          <input
+            type="search"
+            ref={inputref}
+            onChange={() => {
+              setquery(inputref.current?.value);
+            }}
+            className="w-full h-10 border-2 border-white focus:"
+            placeholder="aaaaaa"
+          />
 
-        <button className="bg-amber-600 w-25 right-0 rounded-2xl h-10 text-sm">
+          <ul className="absolute top-full left-0  w-full bg-neutral-800  border-2 overflow-y-auto opacity-0 transition  text-sm z-10 max-h-40 group-focus-within:opacity-100">
+            {/* List items go here */}
+            {statenames && query
+              ? statenames
+                  .filter((state) => {
+                    return state.toLowerCase().includes(query.toLowerCase());
+                  })
+                  .map((item, index) => (
+                    <li
+                      className=" py-1 border-y-1 hover:bg-neutral-600 cursor-pointer "
+                      key={index}
+                      onClick={() => {
+                        setquery(item);
+                        if (inputref.current) {
+                          inputref.current.value = item;
+                        }
+                      }}
+                    >
+                      {item}
+                    </li>
+                  ))
+              : ""}
+          </ul>
+        </div>
+        <button
+          className="bg-amber-600 w-25 rounded-2xl h-10 text-sm"
+          onClick={handlesubmit}
+        >
           this is important
         </button>
       </div>
-      <ul
-        className={
-          query
-            ? "  text-sm z-5 size-[40vh] mt-5 border-2 overflow-y-auto from-neutral-50"
-            : "scale-0 transition-normal "
-        }
-      >
-        <li>AHMEADABADARASDA</li>
-        {statenames && query
-          ? statenames
-              .filter((state) => {
-                return state.toLowerCase().includes(query.toLowerCase());
-              })
-              .map((item, index) => (
-                // <div>
-                <li key={index}>{item}</li>
-                // </div>
-              ))
-          : ""}
-      </ul>
-      {/* <ol className="w-3/4  border-gray-300 border-1 h-2/5 flex items-center z-1 flex-col mt-2">
-        <Guesses></Guesses>
-        <Guesses></Guesses>
-        <Guesses></Guesses>
-        <Guesses></Guesses>
-        <Guesses></Guesses>
-        <Guesses></Guesses>
-      </ol> */}
+      <ol className="w-3/4  border-gray-300 border-1 h-2/5 flex items-center z-1 flex-col mt-2">
+        {StateGuesses.map((stateguess, index) => (
+          <Guesses thisguess={stateguess} key={index}></Guesses>
+        ))}
+      </ol>
     </>
   );
 };

@@ -1,5 +1,4 @@
-import { useGameState } from "@/context/gamecontext";
-import React, { useEffect, useMemo } from "react";
+import React, { useMemo } from "react";
 interface props {
   thisguess: [string | number, number];
   coordinates: number[];
@@ -26,7 +25,7 @@ const Guesses = ({ thisguess, coordinates }: props) => {
   return (
     <>
       {typeof thisguess[0] === "string" ? (
-        <div className="w-7/8 h-11 flex flex-row justify-between">
+        <div className="w-7/8 h-20 flex flex-row justify-between">
           <span className="h-full rounded-xl w-1/2 border-2 border-neutral-300 mb-1 bg-neutral-800 text flex justify-center items-center">
             {thisguess[0]}
           </span>
@@ -48,7 +47,7 @@ const Guesses = ({ thisguess, coordinates }: props) => {
           </span>
         </div>
       ) : (
-        <div className="w-7/8 h-11 rounded-full mb-1 bg-neutral-700 text flex justify-center items-center">
+        <div className="w-7/8 h-15 rounded-full mb-1 bg-neutral-700 text flex justify-center items-center">
           <span></span>
         </div>
       )}

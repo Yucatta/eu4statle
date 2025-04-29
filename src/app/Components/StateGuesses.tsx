@@ -1,17 +1,15 @@
 "use client";
-import React, {
-  AriaAttributes,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
-import Guesses from "./Guesses";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import Papa from "papaparse";
 import { useGameState } from "@/context/gamecontext";
+import GuessContainer from "./GuessContainer";
 const StateGuesses = () => {
-  const inputref = useRef<HTMLInputElement | null>(null);
-  const [query, setquery] = useState<string | undefined>(undefined);
+  const stateinputref = useRef<HTMLInputElement | null>(null);
+  const regioninputref = useRef<HTMLInputElement | null>(null);
+  const [statesquery, setstatequery] = useState<string | undefined>(undefined);
+  const [regionsquery, setregionsquery] = useState<string | undefined>(
+    undefined
+  );
   const [StateData, setStateData] = useState<number[][]>();
   const [statenames, setstatenames] = useState<string[]>();
   const [regionStateIds, setregionStateIds] = useState<number[][]>();
@@ -21,19 +19,44 @@ const StateGuesses = () => {
     [0, -1],
     [0, -1],
     [0, -1],
-    [0, -1],
-    [0, -1],
-    [0, -1],
   ]);
   const guessid = useRef([-1, -1]);
 
   const { rndnum, setrndnum } = useGameState();
   const filteredstatenames = useMemo(() => {
     // console.log(!!statenames, !!query);
+
     if (statenames) {
-      if (query) {
-        return statenames.filter((state) => {
-          return state.toLowerCase().includes(query.toLowerCase());
+      if (regionsquery) {
+        const regionindex = statenames
+          .slice(823, 896)
+          .findIndex((statename) => {
+            if (statename === regionsquery) {
+              return regionsquery;
+            }
+          });
+
+        if (regionindex + 1 && regionStateIds) {
+          const temp = [];
+          console.log(regionStateIds[regionindex]);
+          for (let i = 0; i < 21; i++) {
+            if (regionStateIds[regionindex][i] || !i) {
+              temp.push(statenames[regionStateIds[regionindex][i]]);
+              console.log(
+                statenames[regionStateIds[regionindex][i]],
+                regionStateIds[regionindex][i]
+              );
+            } else {
+              console.log(i, "this is breaking point");
+              break;
+            }
+          }
+          console.log(temp);
+          return temp;
+        }
+      } else if (statesquery) {
+        return statenames.slice(0, 823).filter((state) => {
+          return state.toLowerCase().includes(statesquery.toLowerCase());
         });
       } else {
         return statenames;
@@ -41,8 +64,27 @@ const StateGuesses = () => {
     } else {
       return;
     }
-  }, [statenames, query]);
+  }, [statenames, regionStateIds, statesquery, regionsquery]);
+
+  const filteredregionsnames = useMemo(() => {
+    // console.log(!!statenames, !!query);
+    if (statenames) {
+      if (regionsquery) {
+        return statenames.slice(823, 896).filter((state) => {
+          return state.toLowerCase().includes(regionsquery.toLowerCase());
+        });
+      } else {
+        return statenames.slice(823, 896);
+      }
+    } else {
+      return;
+    }
+  }, [statenames, regionsquery]);
   // console.log(StateData, regionStateIds);
+  if (statenames) {
+    // console.log(statenames.slice(823, statenames.length));
+    console.log(statenames.length);
+  }
   useEffect(() => {
     async function fetchdata() {
       try {
@@ -128,10 +170,10 @@ const StateGuesses = () => {
     setrndnum([temp, -1]);
   }, []);
   function handlesubmit() {
-    if (statenames && filteredstatenames && inputref.current && rndnum) {
-      if (query) {
+    if (statenames && filteredstatenames && stateinputref.current && rndnum) {
+      if (statesquery) {
         for (let i = 0; i < statenames.length; i++) {
-          if (statenames[i].toLowerCase() === query.toLocaleLowerCase()) {
+          if (statenames[i].toLowerCase() === statesquery.toLocaleLowerCase()) {
             guessid.current = [i, findRegion(i)];
             break;
           } else {
@@ -155,8 +197,8 @@ const StateGuesses = () => {
           }
           console.log(temp);
           setstateguesses(temp);
-          setquery("");
-          inputref.current.value = "";
+          setstatequery("");
+          stateinputref.current.value = "";
         }
         if (guessid.current[0] === rndnum[0]) {
           console.log("correct guess");
@@ -194,28 +236,27 @@ const StateGuesses = () => {
   return (
     <>
       <div className=" w-[37.5vw]  justify-between items-center flex  relative">
-        <div className="w-3/4 relative group">
+        <div className="w-3/6 relative group">
           <input
             type="search"
-            ref={inputref}
+            ref={stateinputref}
             onChange={() => {
-              setquery(inputref.current?.value);
+              setstatequery(stateinputref.current?.value);
             }}
             className="w-full mt-3 h-10 border-2 border-white focus:"
-            placeholder="Region or Area"
+            placeholder=" State (within region)"
           />
 
           <ul className="absolute top-full left-0  w-full bg-neutral-800  border-2 overflow-y-auto opacity-0 transition  text-sm z-10 max-h-40 group-focus-within:opacity-100">
-            {/* List items go here */}
-            {statenames && query && filteredstatenames
+            {statenames && statesquery && filteredstatenames
               ? filteredstatenames.map((item, index) => (
                   <li
                     className=" py-1 border-y-1 hover:bg-neutral-600 cursor-pointer "
                     key={index}
                     onClick={() => {
-                      setquery(item);
-                      if (inputref.current) {
-                        inputref.current.value = item;
+                      setstatequery(item);
+                      if (stateinputref.current) {
+                        stateinputref.current.value = item;
                       }
                     }}
                   >
@@ -228,9 +269,55 @@ const StateGuesses = () => {
                     className=" py-1 border-y-1 hover:bg-neutral-600 cursor-pointer "
                     key={index}
                     onClick={() => {
-                      setquery(item);
-                      if (inputref.current) {
-                        inputref.current.value = item;
+                      setstatequery(item);
+                      if (stateinputref.current) {
+                        stateinputref.current.value = item;
+                      }
+                    }}
+                  >
+                    {item}
+                  </li>
+                ))
+              : ""}
+          </ul>
+        </div>
+        <div className="w-3/11 relative group">
+          <input
+            type="search"
+            ref={regioninputref}
+            onChange={() => {
+              setregionsquery(regioninputref.current?.value);
+            }}
+            className="w-full mt-3 h-10 border-2 border-white focus:"
+            placeholder=" Specify Region"
+          />
+
+          <ul className="absolute top-full left-0  w-full bg-neutral-800  border-2 overflow-y-auto opacity-0 transition  text-sm z-10 max-h-40 group-focus-within:opacity-100">
+            {/* List items go here */}
+            {statenames && statesquery && filteredregionsnames
+              ? filteredregionsnames.map((item, index) => (
+                  <li
+                    className=" py-1 border-y-1 hover:bg-neutral-600 cursor-pointer "
+                    key={index}
+                    onClick={() => {
+                      setregionsquery(item);
+                      if (regioninputref.current) {
+                        regioninputref.current.value = item;
+                      }
+                    }}
+                  >
+                    {item}
+                  </li>
+                ))
+              : statenames && filteredregionsnames
+              ? filteredregionsnames.map((item, index) => (
+                  <li
+                    className=" py-1 border-y-1 hover:bg-neutral-600 cursor-pointer "
+                    key={index}
+                    onClick={() => {
+                      setregionsquery(item);
+                      if (regioninputref.current) {
+                        regioninputref.current.value = item;
                       }
                     }}
                   >
@@ -247,31 +334,12 @@ const StateGuesses = () => {
           GUESS
         </button>
       </div>
-      <ol className="w-3/4  border-gray-300 border-1 h-2/5 flex items-center z-1 flex-col mt-2">
-        {StateGuesses.map((stateguess, index) => (
-          <Guesses
-            thisguess={[stateguess[0], guessid.current[0]]}
-            coordinates={
-              rndnum && StateData && stateguess[1] > -1 && stateguess[1] < 823
-                ? [
-                    StateData[stateguess[1]][5],
-                    StateData[stateguess[1]][6],
-                    StateData[rndnum[0]][5],
-                    StateData[rndnum[0]][6],
-                  ]
-                : rndnum && StateData && stateguess[1] > 822 && regionStateIds
-                ? [
-                    regionStateIds[stateguess[1] - 823][21],
-                    regionStateIds[stateguess[1] - 823][22],
-                    StateData[rndnum[0]][5],
-                    StateData[rndnum[0]][6],
-                  ]
-                : []
-            }
-            key={index}
-          ></Guesses>
-        ))}
-      </ol>
+      <GuessContainer
+        StateData={StateData}
+        rndnum={rndnum}
+        guessid={guessid.current}
+        StateGuesses={StateGuesses}
+      ></GuessContainer>
     </>
   );
 };

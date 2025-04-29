@@ -15,7 +15,6 @@ const StateGuesses = () => {
   const [StateData, setStateData] = useState<number[][]>();
   const [statenames, setstatenames] = useState<string[]>();
   const [regionStateIds, setregionStateIds] = useState<number[][]>();
-  const [RegionNames, setRegionNames] = useState<string[]>();
   const [StateGuesses, setstateguesses] = useState<
     Array<[string | number, number]>
   >([
@@ -26,7 +25,8 @@ const StateGuesses = () => {
     [0, -1],
     [0, -1],
   ]);
-  const guessid = useRef(-1);
+  const guessid = useRef([-1, -1]);
+
   const { rndnum, setrndnum } = useGameState();
   const filteredstatenames = useMemo(() => {
     // console.log(!!statenames, !!query);
@@ -42,6 +42,7 @@ const StateGuesses = () => {
       return;
     }
   }, [statenames, query]);
+  // console.log(StateData, regionStateIds);
   useEffect(() => {
     async function fetchdata() {
       try {
@@ -102,61 +103,18 @@ const StateGuesses = () => {
                 +element[19],
                 +element[20],
                 +element[21],
+                +element[22],
+                +element[23],
               ]);
             });
+            console.log(tempnames.length);
             setstatenames(() => {
               return [...tempnames, ...tempnames2];
             });
             // console.log("aaaaa");
 
             // console.log(tempnames.length);
-            setregionStateIds(tempids);
-          },
-        });
-      } catch (error) {
-        console.error("Error loading CSV file:", error);
-        console.log(StateData);
-      }
-    }
-    async function fetchregiondis() {
-      try {
-        const response = await fetch("/regionids.csv");
-        const csvText = await response.text();
-        Papa.parse<string[]>(csvText, {
-          header: false,
-          skipEmptyLines: true,
-          complete: (result) => {
-            const tempids: number[][] = [];
-            const tempnames: string[] = [];
-            result.data.forEach((element) => {
-              tempnames.push(element[0]);
-              tempids.push([
-                +element[1],
-                +element[2],
-                +element[3],
-                +element[4],
-                +element[5],
-                +element[6],
-                +element[7],
-                +element[8],
-                +element[9],
-                +element[10],
-                +element[11],
-                +element[12],
-                +element[13],
-                +element[14],
-                +element[15],
-                +element[16],
-                +element[17],
-                +element[18],
-                +element[19],
-                +element[20],
-                +element[21],
-              ]);
-            });
-            setRegionNames(tempnames);
-            console.log(tempnames.length);
-            setregionStateIds(tempids);
+            setregionStateIds(tempids2);
           },
         });
       } catch (error) {
@@ -165,31 +123,31 @@ const StateGuesses = () => {
       }
     }
     fetchdata();
-    fetchregiondis();
+    // fetchregiondis();
+    const temp = Math.floor(Math.random() * 824);
+    setrndnum([temp, -1]);
   }, []);
   function handlesubmit() {
-    if (statenames && filteredstatenames && inputref.current) {
+    if (statenames && filteredstatenames && inputref.current && rndnum) {
       if (query) {
         for (let i = 0; i < statenames.length; i++) {
           if (statenames[i].toLowerCase() === query.toLocaleLowerCase()) {
-            guessid.current = i;
-            console.log(guessid.current);
-
+            guessid.current = [i, findRegion(i)];
             break;
           } else {
             console.log("a");
-            guessid.current = -1;
+            guessid.current[0] = -1;
           }
         }
         // console.log(guessid.current);
-        if (guessid.current >= 0) {
+        if (guessid.current[0] >= 0) {
           console.log("this is available input");
           const temp = StateGuesses;
           console.log(temp.length);
           for (let i = 0; i < temp.length; i++) {
             if (typeof temp[i][0] !== "string") {
-              temp[i][0] = statenames[guessid.current];
-              temp[i][1] = guessid.current;
+              temp[i][0] = statenames[guessid.current[0]];
+              temp[i][1] = guessid.current[0];
               console.log(guessid.current);
               console.log(i);
               break;
@@ -200,7 +158,7 @@ const StateGuesses = () => {
           setquery("");
           inputref.current.value = "";
         }
-        if (guessid.current === rndnum) {
+        if (guessid.current[0] === rndnum[0]) {
           console.log("correct guess");
           alert("you won");
         }
@@ -208,9 +166,31 @@ const StateGuesses = () => {
       }
     }
   }
+  function findRegion(stateid: number) {
+    if (regionStateIds && rndnum) {
+      if (stateid > 822) {
+        return stateid - 823;
+      } else {
+        for (let k = 0; k < regionStateIds.length; k++) {
+          for (let j = 0; j < regionStateIds[k].length; j++) {
+            if (regionStateIds[k][j] === rndnum[0]) {
+              return k;
+            }
+          }
+        }
+      }
+    }
+    return -1;
+  }
   useEffect(() => {
-    setrndnum(Math.floor(Math.random() * 824));
+    const temp = Math.floor(Math.random() * 824);
+    setrndnum([temp, -1]);
   }, []);
+  useEffect(() => {
+    if (rndnum) {
+      setrndnum([rndnum[0], findRegion(rndnum[0])]);
+    }
+  }, [regionStateIds]);
   return (
     <>
       <div className=" w-[37.5vw]  justify-between items-center flex  relative">
@@ -270,14 +250,21 @@ const StateGuesses = () => {
       <ol className="w-3/4  border-gray-300 border-1 h-2/5 flex items-center z-1 flex-col mt-2">
         {StateGuesses.map((stateguess, index) => (
           <Guesses
-            thisguess={[stateguess[0], guessid.current]}
+            thisguess={[stateguess[0], guessid.current[0]]}
             coordinates={
-              typeof rndnum === "number" && StateData && stateguess[1] > -1
+              rndnum && StateData && stateguess[1] > -1 && stateguess[1] < 823
                 ? [
                     StateData[stateguess[1]][5],
                     StateData[stateguess[1]][6],
-                    StateData[rndnum][5],
-                    StateData[rndnum][6],
+                    StateData[rndnum[0]][5],
+                    StateData[rndnum[0]][6],
+                  ]
+                : rndnum && StateData && stateguess[1] > 822 && regionStateIds
+                ? [
+                    regionStateIds[stateguess[1] - 823][21],
+                    regionStateIds[stateguess[1] - 823][22],
+                    StateData[rndnum[0]][5],
+                    StateData[rndnum[0]][6],
                   ]
                 : []
             }

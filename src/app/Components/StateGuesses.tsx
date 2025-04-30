@@ -103,7 +103,6 @@ const StateGuesses = () => {
           header: false,
           skipEmptyLines: true,
           complete: (result) => {
-            console.log("this");
             result.data.forEach((element) => {
               tempnames.push(element[0]);
               tempids.push([
@@ -156,13 +155,9 @@ const StateGuesses = () => {
                 +element[23],
               ]);
             });
-            console.log(tempnames.length);
             setstatenames(() => {
               return [...tempnames, ...tempnames2];
             });
-            // console.log("aaaaa");
-
-            // console.log(tempnames.length);
             setregionStateIds(tempids2);
           },
         });
@@ -242,8 +237,21 @@ const StateGuesses = () => {
   }, [regionStateIds]);
   return (
     <>
-      {StateGuesses[3][1] !== -1 ? (
-        ""
+      {StateGuesses[3][1] !== -1 && statenames && rndnum ? (
+        <div className=" w-2/4  h-15 rounded-xl mt-1.5 mb-1   bg-red-300 text-black items-center flex justify-evenly font-semibold">
+          <span>State: {statenames[rndnum[0]]} </span>
+          <span>Region:{statenames[823 + rndnum[1]]}</span>
+        </div>
+      ) : rndnum &&
+        (StateGuesses[0][1] === rndnum[0] ||
+          StateGuesses[1][1] === rndnum[0] ||
+          StateGuesses[2][1] === rndnum[0] ||
+          StateGuesses[3][1] === rndnum[0]) &&
+        statenames ? (
+        <div className=" w-2/4  h-15 rounded-xl mt-1.5 mb-1   bg-green-500 text-black items-center flex justify-evenly font-semibold">
+          <span>State: {statenames[rndnum[0]]} </span>
+          <span>Region:{statenames[823 + rndnum[1]]}</span>
+        </div>
       ) : (
         <div className=" w-3/4  justify-between items-center flex  relative">
           <div className="w-3/11 relative group">

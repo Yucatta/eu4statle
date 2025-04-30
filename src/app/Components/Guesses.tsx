@@ -36,11 +36,12 @@ const Guesses = ({ thisguess, coordinates }: props) => {
       const a =
         -(
           Math.atan2(
-            Math.sin(Δλ) * Math.cos(φ2),
-            Math.cos(φ1) * Math.sin(φ2) -
-              Math.sin(φ1) * Math.cos(φ2) * Math.cos(Δλ)
+            coordinates[1] - coordinates[3],
+            coordinates[0] - coordinates[2]
           ) * 180
         ) / Math.PI;
+      // console.log(a);
+      // console.log(coordinates);
       if (a >= 0) {
         if (a <= 22.5) {
           return "➡️";

@@ -24,13 +24,13 @@ const Guesses = ({ thisguess, coordinates }: props) => {
   }, [coordinates]);
   const direction = useMemo(() => {
     if (coordinates) {
-      const R = 6371;
+      // const R = 6371;
       const φ1 = (coordinates[0] * Math.PI) / 180; // φ, λ in radians
       const φ2 = (coordinates[2] * Math.PI) / 180;
-      const λ1 = (coordinates[1] * Math.PI) / 180;
-      const λ2 = (coordinates[3] * Math.PI) / 180;
+      // const λ1 = (coordinates[1] * Math.PI) / 180;
+      // const λ2 = (coordinates[3] * Math.PI) / 180;
 
-      const Δφ = ((coordinates[2] - coordinates[0]) * Math.PI) / 180;
+      // const Δφ = ((coordinates[2] - coordinates[0]) * Math.PI) / 180;
       const Δλ = ((coordinates[3] - coordinates[1]) * Math.PI) / 180;
 
       const a =

@@ -12,10 +12,10 @@ const GuessContainer = ({
   guessid,
   rndnum,
 }: Props) => {
-  console.log(StateData, rndnum, guessid, StateGuesses, "aaaa");
+  // console.log(StateData, rndnum, guessid, StateGuesses, "aaaa");
   // console.log(rndnum, "merhaba");
   return (
-    <ol className="w-3/4  border-gray-300 border-1 h-2/5 flex items-center z-1 flex-col mt-2">
+    <ol className="w-3/4  h-2/5 flex items-center z-1 flex-col mt-2">
       {StateGuesses.map((stateguess, index) => (
         <Guesses
           thisguess={[stateguess[0], guessid[0]]}

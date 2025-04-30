@@ -22,32 +22,74 @@ const Guesses = ({ thisguess, coordinates }: props) => {
       return;
     }
   }, [coordinates]);
+  const direction = useMemo(() => {
+    if (coordinates) {
+      const R = 6371;
+      const φ1 = (coordinates[0] * Math.PI) / 180; // φ, λ in radians
+      const φ2 = (coordinates[2] * Math.PI) / 180;
+      const λ1 = (coordinates[1] * Math.PI) / 180;
+      const λ2 = (coordinates[3] * Math.PI) / 180;
+
+      const Δφ = ((coordinates[2] - coordinates[0]) * Math.PI) / 180;
+      const Δλ = ((coordinates[3] - coordinates[1]) * Math.PI) / 180;
+
+      const a =
+        -(
+          Math.atan2(
+            Math.sin(Δλ) * Math.cos(φ2),
+            Math.cos(φ1) * Math.sin(φ2) -
+              Math.sin(φ1) * Math.cos(φ2) * Math.cos(Δλ)
+          ) * 180
+        ) / Math.PI;
+      if (a >= 0) {
+        if (a <= 22.5) {
+          return "➡️";
+        } else if (a <= 77.5) {
+          return "↗️";
+        } else if (a <= 112.5) {
+          return "⬆️";
+        } else if (a <= 157.5) {
+          return "↖️";
+        } else {
+          return "⬅️";
+        }
+      } else {
+        if (-a <= 22.5) {
+          return "➡️";
+        } else if (-a <= 77.5) {
+          return "↘️";
+        } else if (-a <= 112.5) {
+          return "⬇️";
+        } else if (-a < 157.5) {
+          return "↙️";
+        } else {
+          return "⬅️";
+        }
+      }
+    } else {
+      return;
+    }
+  }, [coordinates]);
+  // console.log(direction, "direction");
+
   return (
     <>
       {typeof thisguess[0] === "string" ? (
-        <div className="w-7/8 h-20 flex flex-row justify-between">
+        <div className="w-full h-15 flex flex-row justify-between">
           <span className="h-full rounded-xl w-1/2 border-2 border-neutral-300 mb-1 bg-neutral-800 text flex justify-center items-center">
             {thisguess[0]}
           </span>
           <span className="h-full rounded-xl w-3/14 border-2 border-neutral-300 mb-1 bg-neutral-800 text flex justify-center items-center">
             {distance}KM
           </span>
-          <span className="h-full rounded-xl w-1/10  border-2 border-neutral-300 mb-1 bg-neutral-800 text flex justify-center items-center">
-            {/* {thisguess} */}ok
-          </span>
-          <span className="h-full rounded-xl w-1/10  border-2 border-neutral-300 mb-1 bg-neutral-800 text flex justify-center items-center">
-            <img
-              src={
-                thisguess[1] < 823
-                  ? "/Icon_states.png"
-                  : "/Number_of_states.png"
-              }
-              className="size-5/6"
-            ></img>
+          {/* <span className="h-full rounded-xl w-1/10  border-2 border-neutral-300 mb-1 bg-neutral-800 text flex justify-center items-center">
+          </span> */}
+          <span className="h-full w-20 rounded-xl  border-2 border-neutral-300 mb-1 bg-neutral-800 text flex justify-center items-center">
+            {direction}
           </span>
         </div>
       ) : (
-        <div className="w-7/8 h-15 rounded-full mb-1 bg-neutral-700 text flex justify-center items-center">
+        <div className="w-full h-15 rounded-full mb-1 bg-neutral-700 text flex justify-center items-center">
           <span></span>
         </div>
       )}

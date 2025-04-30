@@ -19,6 +19,7 @@ const StateGuesses = () => {
     [0, -1],
     [0, -1],
     [0, -1],
+    [0, -1],
   ]);
   const guessid = useRef([-1, -1]);
 
@@ -52,7 +53,13 @@ const StateGuesses = () => {
             }
           }
           // console.log(temp);
-          return temp;
+          if (statesquery) {
+            return temp.filter((state) => {
+              return state.toLowerCase().includes(statesquery.toLowerCase());
+            });
+          } else {
+            return temp;
+          }
         }
       } else if (statesquery) {
         return statenames.slice(0, 823).filter((state) => {
@@ -235,105 +242,109 @@ const StateGuesses = () => {
   }, [regionStateIds]);
   return (
     <>
-      <div className=" w-3/4  justify-between items-center flex  relative">
-        <div className="w-3/11 relative group">
-          <input
-            type="search"
-            ref={regioninputref}
-            onChange={() => {
-              setregionsquery(regioninputref.current?.value);
-            }}
-            className="w-full mt-3 h-10 border-2 border-white focus:"
-            placeholder=" Specify Region"
-          />
+      {StateGuesses[3][1] !== -1 ? (
+        ""
+      ) : (
+        <div className=" w-3/4  justify-between items-center flex  relative">
+          <div className="w-3/11 relative group">
+            <input
+              type="search"
+              ref={regioninputref}
+              onChange={() => {
+                setregionsquery(regioninputref.current?.value);
+              }}
+              className="w-full mt-3 h-10 border-2 border-white focus:"
+              placeholder="Region"
+            />
 
-          <ul className="absolute top-full left-0  w-full bg-neutral-800  border-2 overflow-y-auto opacity-0 transition  text-sm z-10 max-h-40 group-focus-within:opacity-100">
-            {/* List items go here */}
-            {statenames && statesquery && filteredregionsnames
-              ? filteredregionsnames.map((item, index) => (
-                  <li
-                    className=" py-1 border-y-1 hover:bg-neutral-600 cursor-pointer "
-                    key={index}
-                    onClick={() => {
-                      setregionsquery(item);
-                      if (regioninputref.current) {
-                        regioninputref.current.value = item;
-                      }
-                    }}
-                  >
-                    {item}
-                  </li>
-                ))
-              : statenames && filteredregionsnames
-              ? filteredregionsnames.map((item, index) => (
-                  <li
-                    className=" py-1 border-y-1 hover:bg-neutral-600 cursor-pointer "
-                    key={index}
-                    onClick={() => {
-                      setregionsquery(item);
-                      if (regioninputref.current) {
-                        regioninputref.current.value = item;
-                      }
-                    }}
-                  >
-                    {item}
-                  </li>
-                ))
-              : ""}
-          </ul>
-        </div>
-        <div className="w-3/6 relative group">
-          <input
-            type="search"
-            ref={stateinputref}
-            onChange={() => {
-              setstatequery(stateinputref.current?.value);
-            }}
-            className="w-full mt-3 h-10 border-2 border-white focus:"
-            placeholder=" State (within region)"
-          />
+            <ul className="absolute top-full left-0  w-full bg-neutral-800  border-2 overflow-y-auto opacity-0 transition  text-sm z-10 max-h-40 group-focus-within:opacity-100">
+              {/* List items go here */}
+              {statenames && statesquery && filteredregionsnames
+                ? filteredregionsnames.map((item, index) => (
+                    <li
+                      className=" py-1 border-y-1 hover:bg-neutral-600 cursor-pointer "
+                      key={index}
+                      onClick={() => {
+                        setregionsquery(item);
+                        if (regioninputref.current) {
+                          regioninputref.current.value = item;
+                        }
+                      }}
+                    >
+                      {item}
+                    </li>
+                  ))
+                : statenames && filteredregionsnames
+                ? filteredregionsnames.map((item, index) => (
+                    <li
+                      className=" py-1 border-y-1 hover:bg-neutral-600 cursor-pointer "
+                      key={index}
+                      onClick={() => {
+                        setregionsquery(item);
+                        if (regioninputref.current) {
+                          regioninputref.current.value = item;
+                        }
+                      }}
+                    >
+                      {item}
+                    </li>
+                  ))
+                : ""}
+            </ul>
+          </div>
+          <div className="w-3/6 relative group">
+            <input
+              type="search"
+              ref={stateinputref}
+              onChange={() => {
+                setstatequery(stateinputref.current?.value);
+              }}
+              className="w-full mt-3 h-10 border-2 border-white focus:"
+              placeholder=" State (within region)"
+            />
 
-          <ul className="absolute top-full left-0  w-full bg-neutral-800  border-2 overflow-y-auto opacity-0 transition  text-sm z-10 max-h-40 group-focus-within:opacity-100">
-            {statenames && statesquery && filteredstatenames
-              ? filteredstatenames.map((item, index) => (
-                  <li
-                    className=" py-1 border-y-1 hover:bg-neutral-600 cursor-pointer "
-                    key={index}
-                    onClick={() => {
-                      setstatequery(item);
-                      if (stateinputref.current) {
-                        stateinputref.current.value = item;
-                      }
-                    }}
-                  >
-                    {item}
-                  </li>
-                ))
-              : statenames && filteredstatenames
-              ? filteredstatenames.map((item, index) => (
-                  <li
-                    className=" py-1 border-y-1 hover:bg-neutral-600 cursor-pointer "
-                    key={index}
-                    onClick={() => {
-                      setstatequery(item);
-                      if (stateinputref.current) {
-                        stateinputref.current.value = item;
-                      }
-                    }}
-                  >
-                    {item}
-                  </li>
-                ))
-              : ""}
-          </ul>
+            <ul className="absolute top-full left-0  w-full bg-neutral-800  border-2 overflow-y-auto opacity-0 transition  text-sm z-10 max-h-40 group-focus-within:opacity-100">
+              {statenames && statesquery && filteredstatenames
+                ? filteredstatenames.map((item, index) => (
+                    <li
+                      className=" py-1 border-y-1 hover:bg-neutral-600 cursor-pointer "
+                      key={index}
+                      onClick={() => {
+                        setstatequery(item);
+                        if (stateinputref.current) {
+                          stateinputref.current.value = item;
+                        }
+                      }}
+                    >
+                      {item}
+                    </li>
+                  ))
+                : statenames && filteredstatenames
+                ? filteredstatenames.map((item, index) => (
+                    <li
+                      className=" py-1 border-y-1 hover:bg-neutral-600 cursor-pointer "
+                      key={index}
+                      onClick={() => {
+                        setstatequery(item);
+                        if (stateinputref.current) {
+                          stateinputref.current.value = item;
+                        }
+                      }}
+                    >
+                      {item}
+                    </li>
+                  ))
+                : ""}
+            </ul>
+          </div>
+          <button
+            className=" w-2/11 rounded-2xl mt-2 h-11 text-sm border-5 border-gray-800 bg-gray-700"
+            onClick={handlesubmit}
+          >
+            GUESS
+          </button>
         </div>
-        <button
-          className=" w-2/11 rounded-2xl mt-2 h-11 text-sm border-5 border-gray-800 bg-gray-700"
-          onClick={handlesubmit}
-        >
-          GUESS
-        </button>
-      </div>
+      )}
 
       <GuessContainer
         StateData={StateData}

@@ -203,8 +203,8 @@ const StateGuesses = () => {
           stateinputref.current.value = "";
         }
         if (guessid.current[0] === rndnum[0]) {
-          console.log("correct guess");
-          alert("you won");
+          // console.log("correct guess");
+          // alert("you won");
         }
       } else {
       }
@@ -237,18 +237,18 @@ const StateGuesses = () => {
   }, [regionStateIds]);
   return (
     <>
-      {StateGuesses[3][1] !== -1 && statenames && rndnum ? (
-        <div className=" w-2/4  h-15 rounded-xl mt-1.5 mb-1   bg-red-300 text-black items-center flex justify-evenly font-semibold">
+      {rndnum &&
+      (StateGuesses[0][1] === rndnum[0] ||
+        StateGuesses[1][1] === rndnum[0] ||
+        StateGuesses[2][1] === rndnum[0] ||
+        StateGuesses[3][1] === rndnum[0]) &&
+      statenames ? (
+        <div className=" w-2/4  h-15 rounded-xl mt-1.5 mb-1   bg-green-500 text-black items-center flex justify-evenly font-semibold">
           <span>State: {statenames[rndnum[0]]} </span>
           <span>Region:{statenames[823 + rndnum[1]]}</span>
         </div>
-      ) : rndnum &&
-        (StateGuesses[0][1] === rndnum[0] ||
-          StateGuesses[1][1] === rndnum[0] ||
-          StateGuesses[2][1] === rndnum[0] ||
-          StateGuesses[3][1] === rndnum[0]) &&
-        statenames ? (
-        <div className=" w-2/4  h-15 rounded-xl mt-1.5 mb-1   bg-green-500 text-black items-center flex justify-evenly font-semibold">
+      ) : StateGuesses[3][1] !== -1 && statenames && rndnum ? (
+        <div className=" w-2/4  h-15 rounded-xl mt-1.5 mb-1   bg-red-300 text-black items-center flex justify-evenly font-semibold">
           <span>State: {statenames[rndnum[0]]} </span>
           <span>Region:{statenames[823 + rndnum[1]]}</span>
         </div>

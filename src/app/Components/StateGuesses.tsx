@@ -38,20 +38,20 @@ const StateGuesses = () => {
 
         if (regionindex + 1 && regionStateIds) {
           const temp = [];
-          console.log(regionStateIds[regionindex]);
+          // console.log(regionStateIds[regionindex]);
           for (let i = 0; i < 21; i++) {
             if (regionStateIds[regionindex][i] || !i) {
               temp.push(statenames[regionStateIds[regionindex][i]]);
-              console.log(
-                statenames[regionStateIds[regionindex][i]],
-                regionStateIds[regionindex][i]
-              );
+              // console.log(
+              //   statenames[regionStateIds[regionindex][i]],
+              //   regionStateIds[regionindex][i]
+              // );
             } else {
-              console.log(i, "this is breaking point");
+              // console.log(i, "this is breaking point");
               break;
             }
           }
-          console.log(temp);
+          // console.log(temp);
           return temp;
         }
       } else if (statesquery) {
@@ -83,7 +83,7 @@ const StateGuesses = () => {
   // console.log(StateData, regionStateIds);
   if (statenames) {
     // console.log(statenames.slice(823, statenames.length));
-    console.log(statenames.length);
+    // console.log(statenames.length);
   }
   useEffect(() => {
     async function fetchdata() {
@@ -235,52 +235,7 @@ const StateGuesses = () => {
   }, [regionStateIds]);
   return (
     <>
-      <div className=" w-[37.5vw]  justify-between items-center flex  relative">
-        <div className="w-3/6 relative group">
-          <input
-            type="search"
-            ref={stateinputref}
-            onChange={() => {
-              setstatequery(stateinputref.current?.value);
-            }}
-            className="w-full mt-3 h-10 border-2 border-white focus:"
-            placeholder=" State (within region)"
-          />
-
-          <ul className="absolute top-full left-0  w-full bg-neutral-800  border-2 overflow-y-auto opacity-0 transition  text-sm z-10 max-h-40 group-focus-within:opacity-100">
-            {statenames && statesquery && filteredstatenames
-              ? filteredstatenames.map((item, index) => (
-                  <li
-                    className=" py-1 border-y-1 hover:bg-neutral-600 cursor-pointer "
-                    key={index}
-                    onClick={() => {
-                      setstatequery(item);
-                      if (stateinputref.current) {
-                        stateinputref.current.value = item;
-                      }
-                    }}
-                  >
-                    {item}
-                  </li>
-                ))
-              : statenames && filteredstatenames
-              ? filteredstatenames.map((item, index) => (
-                  <li
-                    className=" py-1 border-y-1 hover:bg-neutral-600 cursor-pointer "
-                    key={index}
-                    onClick={() => {
-                      setstatequery(item);
-                      if (stateinputref.current) {
-                        stateinputref.current.value = item;
-                      }
-                    }}
-                  >
-                    {item}
-                  </li>
-                ))
-              : ""}
-          </ul>
-        </div>
+      <div className=" w-3/4  justify-between items-center flex  relative">
         <div className="w-3/11 relative group">
           <input
             type="search"
@@ -327,13 +282,59 @@ const StateGuesses = () => {
               : ""}
           </ul>
         </div>
+        <div className="w-3/6 relative group">
+          <input
+            type="search"
+            ref={stateinputref}
+            onChange={() => {
+              setstatequery(stateinputref.current?.value);
+            }}
+            className="w-full mt-3 h-10 border-2 border-white focus:"
+            placeholder=" State (within region)"
+          />
+
+          <ul className="absolute top-full left-0  w-full bg-neutral-800  border-2 overflow-y-auto opacity-0 transition  text-sm z-10 max-h-40 group-focus-within:opacity-100">
+            {statenames && statesquery && filteredstatenames
+              ? filteredstatenames.map((item, index) => (
+                  <li
+                    className=" py-1 border-y-1 hover:bg-neutral-600 cursor-pointer "
+                    key={index}
+                    onClick={() => {
+                      setstatequery(item);
+                      if (stateinputref.current) {
+                        stateinputref.current.value = item;
+                      }
+                    }}
+                  >
+                    {item}
+                  </li>
+                ))
+              : statenames && filteredstatenames
+              ? filteredstatenames.map((item, index) => (
+                  <li
+                    className=" py-1 border-y-1 hover:bg-neutral-600 cursor-pointer "
+                    key={index}
+                    onClick={() => {
+                      setstatequery(item);
+                      if (stateinputref.current) {
+                        stateinputref.current.value = item;
+                      }
+                    }}
+                  >
+                    {item}
+                  </li>
+                ))
+              : ""}
+          </ul>
+        </div>
         <button
-          className=" w-30 rounded-2xl mt-2 h-11 text-sm border-5 border-gray-800 bg-gray-700"
+          className=" w-2/11 rounded-2xl mt-2 h-11 text-sm border-5 border-gray-800 bg-gray-700"
           onClick={handlesubmit}
         >
           GUESS
         </button>
       </div>
+
       <GuessContainer
         StateData={StateData}
         rndnum={rndnum}

@@ -12,31 +12,27 @@ const GuessContainer = ({
   guessid,
   rndnum,
 }: Props) => {
+  console.log(StateData, rndnum, guessid, StateGuesses, "aaaa");
+  // console.log(rndnum, "merhaba");
   return (
     <ol className="w-3/4  border-gray-300 border-1 h-2/5 flex items-center z-1 flex-col mt-2">
       {StateGuesses.map((stateguess, index) => (
         <Guesses
           thisguess={[stateguess[0], guessid[0]]}
           coordinates={
-            typeof rndnum === "number" &&
-            StateData &&
-            stateguess[1] > -1 &&
-            stateguess[1] < 823
+            rndnum && StateData && stateguess[1] > -1 && stateguess[1] < 823
               ? [
                   StateData[stateguess[1]][5],
                   StateData[stateguess[1]][6],
-                  StateData[rndnum][5],
-                  StateData[rndnum][6],
+                  StateData[rndnum[0]][5],
+                  StateData[rndnum[0]][6],
                 ]
-              : typeof rndnum === "number" &&
-                StateData &&
-                stateguess[1] > -1 &&
-                stateguess[1] < 823
+              : rndnum && StateData && stateguess[1] > -1 && stateguess[1] < 823
               ? [
                   StateData[stateguess[1]][5],
                   StateData[stateguess[1]][6],
-                  StateData[rndnum][5],
-                  StateData[rndnum][6],
+                  StateData[rndnum[0]][5],
+                  StateData[rndnum[0]][6],
                 ]
               : []
           }
@@ -44,12 +40,6 @@ const GuessContainer = ({
         ></Guesses>
       ))}
     </ol>
-    // <GuessContainer
-    //         StateData={StateData}
-    //         rndnum={rndnum}
-    //         guessid={guessid.current}
-    //         StateGuesses={StateGuesses}
-    //       ></GuessContainer>
   );
 };
 

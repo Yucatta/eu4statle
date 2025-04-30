@@ -4,12 +4,12 @@ import { useGameState } from "@/context/gamecontext";
 const States = () => {
   const { rndnum } = useGameState();
   return (
-    <div className="w-[37.5vw] h-[45vh] mt-[4vh] bg-[rgb(0,0,0)] border-2 flex items-center justify-center border-gray-300">
+    <div className="w-3/4 h-[45vh] mt-[4vh] bg-[rgb(0,0,0)] border-2 flex items-center justify-center border-gray-300">
       {rndnum ? (
         <img
           src={`states/${rndnum[0]}.png`}
           // src={`states/173.png`}
-          className="w-auto   h-[40vh] flex justify-center "
+          className="max-w-full max-h-full object-contain "
         ></img>
       ) : (
         ""

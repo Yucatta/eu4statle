@@ -3,6 +3,8 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 import Papa from "papaparse";
 import { useGameState } from "@/context/gamecontext";
 import GuessContainer from "./GuessContainer";
+import InputandList from "./Input";
+import CardGuessContainer from "./CardContainer";
 const StateGuesses = () => {
   const stateinputref = useRef<HTMLInputElement | null>(null);
   const regioninputref = useRef<HTMLInputElement | null>(null);
@@ -87,11 +89,6 @@ const StateGuesses = () => {
       return;
     }
   }, [statenames, regionsquery]);
-  // console.log(StateData, regionStateIds);
-  if (statenames) {
-    // console.log(statenames.slice(823, statenames.length));
-    // console.log(statenames.length);
-  }
   useEffect(() => {
     async function fetchdata() {
       try {
@@ -187,7 +184,7 @@ const StateGuesses = () => {
         if (guessid.current[0] >= 0) {
           console.log("this is available input");
           const temp = StateGuesses;
-          console.log(temp.length);
+          // console.log(temp.length);
           for (let i = 0; i < temp.length; i++) {
             if (typeof temp[i][0] !== "string") {
               temp[i][0] = statenames[guessid.current[0]];
@@ -197,7 +194,7 @@ const StateGuesses = () => {
               break;
             }
           }
-          console.log(temp);
+          // console.log(temp);
           setstateguesses(temp);
           setstatequery("");
           stateinputref.current.value = "";
@@ -254,99 +251,26 @@ const StateGuesses = () => {
         </div>
       ) : (
         <div className=" w-3/4  justify-between items-center flex  relative">
-          <div className="w-3/11 relative group">
-            <input
-              type="search"
-              ref={regioninputref}
-              onChange={() => {
-                setregionsquery(regioninputref.current?.value);
-              }}
-              className="w-full mt-3 h-10 border-2 border-white focus:"
-              placeholder="Region"
-            />
-
-            <ul className="absolute top-full left-0  w-full bg-neutral-800  border-2 overflow-y-auto opacity-0 transition  text-sm z-10 max-h-40 group-focus-within:opacity-100">
-              {/* List items go here */}
-              {statenames && statesquery && filteredregionsnames
-                ? filteredregionsnames.map((item, index) => (
-                    <li
-                      className=" py-1 border-y-1 hover:bg-neutral-600 cursor-pointer "
-                      key={index}
-                      onClick={() => {
-                        setregionsquery(item);
-                        if (regioninputref.current) {
-                          regioninputref.current.value = item;
-                        }
-                      }}
-                    >
-                      {item}
-                    </li>
-                  ))
-                : statenames && filteredregionsnames
-                ? filteredregionsnames.map((item, index) => (
-                    <li
-                      className=" py-1 border-y-1 hover:bg-neutral-600 cursor-pointer "
-                      key={index}
-                      onClick={() => {
-                        setregionsquery(item);
-                        if (regioninputref.current) {
-                          regioninputref.current.value = item;
-                        }
-                      }}
-                    >
-                      {item}
-                    </li>
-                  ))
-                : ""}
-            </ul>
-          </div>
-          <div className="w-3/6 relative group">
-            <input
-              type="search"
-              ref={stateinputref}
-              onChange={() => {
-                setstatequery(stateinputref.current?.value);
-              }}
-              className="w-full mt-3 h-10 border-2 border-white focus:"
-              placeholder=" State (within region)"
-            />
-
-            <ul className="absolute top-full left-0  w-full bg-neutral-800  border-2 overflow-y-auto opacity-0 transition  text-sm z-10 max-h-40 group-focus-within:opacity-100">
-              {statenames && statesquery && filteredstatenames
-                ? filteredstatenames.map((item, index) => (
-                    <li
-                      className=" py-1 border-y-1 hover:bg-neutral-600 cursor-pointer "
-                      key={index}
-                      onClick={() => {
-                        setstatequery(item);
-                        if (stateinputref.current) {
-                          stateinputref.current.value = item;
-                        }
-                      }}
-                    >
-                      {item}
-                    </li>
-                  ))
-                : statenames && filteredstatenames
-                ? filteredstatenames.map((item, index) => (
-                    <li
-                      className=" py-1 border-y-1 hover:bg-neutral-600 cursor-pointer "
-                      key={index}
-                      onClick={() => {
-                        setstatequery(item);
-                        if (stateinputref.current) {
-                          stateinputref.current.value = item;
-                        }
-                      }}
-                    >
-                      {item}
-                    </li>
-                  ))
-                : ""}
-            </ul>
-          </div>
+          <InputandList
+            inputref={regioninputref}
+            statenames={statenames}
+            statesquery={regionsquery}
+            setquery={setregionsquery}
+            filterednames={filteredregionsnames ? filteredregionsnames : [""]}
+            placeholder="Region"
+            widthofinput={"3/11"}
+          ></InputandList>
+          <InputandList
+            inputref={stateinputref}
+            placeholder="State (within region)"
+            statenames={statenames}
+            statesquery={statesquery}
+            setquery={setstatequery}
+            filterednames={filteredstatenames ? filteredstatenames : [""]}
+            widthofinput={"1/2"}
+          ></InputandList>
           <button
-            className=" w-2/11 rounded-2xl mt-2 h-11 text-sm border-5 border-gray-800 bg-gray-700"
+            className=" w-2/11 rounded-2xl mt-2 h-11 text-sm border-5 border-gray-800 bg-gray-700 cursor-pointer transition-all hover:scale-105 active:scale-90"
             onClick={handlesubmit}
           >
             GUESS
@@ -360,6 +284,12 @@ const StateGuesses = () => {
         guessid={guessid.current}
         StateGuesses={StateGuesses}
       ></GuessContainer>
+      <CardGuessContainer
+        StateData={StateData}
+        rndnum={rndnum}
+        guessid={guessid.current}
+        StateGuesses={StateGuesses}
+      ></CardGuessContainer>
     </>
   );
 };

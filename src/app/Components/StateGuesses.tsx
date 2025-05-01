@@ -170,6 +170,11 @@ const StateGuesses = () => {
   }, []);
   function handlesubmit() {
     if (statenames && filteredstatenames && stateinputref.current && rndnum) {
+      for (let i = 0; i < StateGuesses.length; i++) {
+        if (StateGuesses[i][0] === statesquery) {
+          return;
+        }
+      }
       if (statesquery) {
         for (let i = 0; i < statenames.length; i++) {
           if (statenames[i].toLowerCase() === statesquery.toLocaleLowerCase()) {
@@ -231,6 +236,10 @@ const StateGuesses = () => {
     if (rndnum) {
       setrndnum([rndnum[0], findRegion(rndnum[0])]);
     }
+    // console.log("you come here");
+    // for (let i = 0; i < 0; i++) {
+    //   console.log("can yuo come here");
+    // }
   }, [regionStateIds]);
   return (
     <>
@@ -240,7 +249,7 @@ const StateGuesses = () => {
         StateGuesses[2][1] === rndnum[0] ||
         StateGuesses[3][1] === rndnum[0]) &&
       statenames ? (
-        <div className=" w-2/4  h-15 rounded-xl mt-1.5 mb-1   bg-green-500 text-black items-center flex justify-evenly font-semibold">
+        <div className=" w-2/4  h-15 rounded-xl mt-1.5 mb-1   bg-green-500 text-black items-center flex justify-evenly font-semibold transition-all scale-100">
           <span>State: {statenames[rndnum[0]]} </span>
           <span>Region:{statenames[823 + rndnum[1]]}</span>
         </div>

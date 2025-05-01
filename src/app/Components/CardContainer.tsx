@@ -30,6 +30,7 @@ const CardGuessContainer = ({ rndnum, StateData }: Props) => {
           complete: (result) => {
             result.data.forEach((element) => {
               //   tempnames.push(element[1]);
+
               tempids.push([
                 element[1],
                 +element[2],
@@ -38,6 +39,7 @@ const CardGuessContainer = ({ rndnum, StateData }: Props) => {
                 element[5],
               ]);
             });
+            console.log(tempids);
             setProvinceStats(tempids);
           },
         });
@@ -54,7 +56,7 @@ const CardGuessContainer = ({ rndnum, StateData }: Props) => {
     if (ProvinceStats) {
       for (let i = 0; i < ProvinceStats.length; i++) {
         for (let j = 2; j < 5; j++) {
-          if (ProvinceStats[i][j] === "") {
+          if (ProvinceStats[i][j] === "" || ProvinceStats[i][j] === "a") {
             break;
           } else {
             if (j === 2) {

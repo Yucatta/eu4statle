@@ -4,6 +4,7 @@ import Papa from "papaparse";
 import InputandList from "./Input";
 import CardGuesContainer from "./CardGuesContainer";
 import CardGuesses from "./CardGuesses";
+import StateGuesses from "./StateGuesses";
 interface Props {
   rndnum: number[] | undefined;
   CardsNames?: string[];
@@ -18,8 +19,10 @@ const ProvinceGuessCards = ({
 }: Props) => {
   const [iscardopened, setiscardopened] = useState(false);
   const [cardquery, setcardquery] = useState<string | undefined>(undefined);
-  const inputref = useRef(null);
+  const inputref = useRef<HTMLInputElement>(null);
   const [cardguesses, setcardguesses] = useState(["", "", "", ""]);
+  const [correctguessedprovinces, setcorrectguessedprovinces] = useState([-1]);
+  const hasinitialized = useRef(false);
   const filteredCardNames = useMemo(() => {
     if (CardsNames) {
       if (cardquery) {
@@ -33,18 +36,93 @@ const ProvinceGuessCards = ({
       return;
     }
   }, [CardsNames, cardquery]);
+  const correctanswers = useMemo(() => {
+    if (
+      StateData &&
+      rndnum &&
+      CardsNames &&
+      provincestats &&
+      !hasinitialized.current
+    ) {
+      hasinitialized.current = true;
+      const tempids: number[] = [];
+      const tempanswers: string[] = [];
+      for (let i = 0; i < 5; i++) {
+        if (StateData[rndnum[0]][i] === 0) {
+          break;
+        } else {
+          tempids.push(StateData[rndnum[0]][i]);
+        }
+      }
+      for (let i = 0; i < tempids.length; i++) {
+        let tempok = true;
+        for (let k = 0; k < tempanswers.length; k++) {
+          if (
+            provincestats[tempids[i]][
+              CardsNames.length === 25 ? 4 : CardsNames.length === 31 ? 3 : 2
+            ] ===
+            tempanswers[
+              CardsNames.length === 25 ? 4 : CardsNames.length === 31 ? 3 : 2
+            ]
+          ) {
+            tempok = false;
+            break;
+          }
+        }
+        if (tempok) {
+          tempanswers.push(
+            provincestats[tempids[i]][
+              CardsNames.length === 25 ? 4 : CardsNames.length === 31 ? 3 : 2
+            ]
+          );
+        }
+      }
+      console.log(tempanswers);
+      return tempanswers;
+    } else {
+      return;
+    }
+  }, [rndnum, StateData, CardsNames, provincestats]);
+  if (correctanswers) {
+    console.log(correctanswers);
+  }
+
   function handlesubmit() {
-    if (CardsNames && cardquery) {
-      const temp = [...cardguesses]; // create new array
+    if (CardsNames && cardquery && inputref.current) {
+      const temp = [...cardguesses];
+
       for (let i = 0; i < temp.length; i++) {
-        if (temp[i] === "") {
+        if (temp[i] === cardquery) {
+          return;
+        } else if (temp[i] === "") {
           temp[i] = cardquery;
+          const tempcorrect = findCorrectProvinces(cardquery);
+          setcorrectguessedprovinces(tempcorrect);
           break;
         }
       }
-      setcardguesses(temp); // React sees new array reference -> re-renders
+      setcardguesses(temp);
+      inputref.current.value = "";
     }
   }
+  function findCorrectProvinces(cardquery: string) {
+    if (CardsNames && StateData && rndnum && provincestats) {
+      const temp: number[] = [];
+      for (let i = 0; i < StateData[rndnum[0]].length - 2; i++) {
+        if (
+          provincestats[StateData[rndnum[0]][i]][
+            CardsNames.length === 25 ? 4 : CardsNames.length === 31 ? 3 : 2
+          ] === cardquery
+        ) {
+          temp.push(StateData[rndnum[0]][i]);
+        }
+      }
+      return temp;
+    } else {
+      return [-1];
+    }
+  }
+  useEffect(() => {}, [cardguesses]);
   return (
     <>
       <div className="flex flex-col w-9/10 ">
@@ -74,6 +152,18 @@ const ProvinceGuessCards = ({
                 src={`onlystates/${rndnum[0]}.png`}
                 className="border-2 w-auto fixed h-20 z-0"
               ></img>
+              {StateData && correctguessedprovinces[0] !== -1
+                ? correctguessedprovinces.map((id) => {
+                    return (
+                      <>
+                        <img
+                          src={`greenprovinces/${id}.png`}
+                          className="border-2 fixed w-auto h-20 z-10"
+                        ></img>
+                      </>
+                    );
+                  })
+                : ""}
               {/* {StateData ? <img
                 src={`greenprovinces/${StateData[rndnum[0]][0]}.png`}
                 className="border-2 fixed w-auto h-20 z-10"

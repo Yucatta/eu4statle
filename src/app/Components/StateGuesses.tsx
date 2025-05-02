@@ -244,6 +244,8 @@ const StateGuesses = () => {
       [0, -1],
       [0, -1],
     ]);
+    setstatequery("");
+    setregionsquery("");
   }, [rndnum]);
   return (
     <>

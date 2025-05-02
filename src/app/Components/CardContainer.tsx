@@ -111,33 +111,34 @@ const CardGuessContainer = ({ rndnum, StateData }: Props) => {
   //   console.log(TradeGoods, Cultures, Religions);
   return (
     <>
+      {/* <div className="flex justify-center items-center"> */}
       <div className="flex flex-wrap w-full justify-between  ">
         {/* <div className="flex flex-col w-2/3  items-center">
           <ProvinceGuessCards
-            rndnum={rndnum}
-            CardsNames={Religions}
-            provincestats={ProvinceStats}
-            StateData={StateData}
+          rndnum={rndnum}
+          CardsNames={Religions}
+          provincestats={ProvinceStats}
+          StateData={StateData}
           ></ProvinceGuessCards>
           <ProvinceGuessCards
-            rndnum={rndnum}
-            StateData={StateData}
-            CardsNames={Cultures}
-            provincestats={ProvinceStats}
+          rndnum={rndnum}
+          StateData={StateData}
+          CardsNames={Cultures}
+          provincestats={ProvinceStats}
           ></ProvinceGuessCards>
           <ProvinceGuessCards
-            rndnum={rndnum}
-            CardsNames={TradeGoods}
-            StateData={StateData}
-            provincestats={ProvinceStats}
+          rndnum={rndnum}
+          CardsNames={TradeGoods}
+          StateData={StateData}
+          provincestats={ProvinceStats}
           ></ProvinceGuessCards>
           <ProvinceGuessCards
-            rndnum={rndnum}
-            StateData={StateData}
-            provincestats={ProvinceStats}
-            CardsNames={provinceNames}
+          rndnum={rndnum}
+          StateData={StateData}
+          provincestats={ProvinceStats}
+          CardsNames={provinceNames}
           ></ProvinceGuessCards>
-        </div> */}
+          </div> */}
 
         <div className="flex flex-col w-1/2 min-w-60 items-center ">
           <ProvinceGuessCards
@@ -169,6 +170,7 @@ const CardGuessContainer = ({ rndnum, StateData }: Props) => {
           ></ProvinceGuessCards>
         </div>
       </div>
+      {/* </div> */}
     </>
   );
 };

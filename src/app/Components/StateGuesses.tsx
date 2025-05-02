@@ -230,13 +230,13 @@ const StateGuesses = () => {
   }
   useEffect(() => {
     const temp = Math.floor(Math.random() * 824);
-    setrndnum([temp, findRegion(temp, temp)]);
+    setrndnum([temp, -1]);
   }, []);
-  // useEffect(() => {
-  //   if (rndnum) {
-  //     setrndnum([rndnum[0], findRegion(rndnum[0])]);
-  //   }
-  // }, [regionStateIds]);
+  useEffect(() => {
+    if (rndnum) {
+      setrndnum([rndnum[0], findRegion(rndnum[0], rndnum[0])]);
+    }
+  }, [regionStateIds]);
   useEffect(() => {
     setstateguesses([
       [0, -1],
@@ -253,7 +253,7 @@ const StateGuesses = () => {
         StateGuesses[2][1] === rndnum[0] ||
         StateGuesses[3][1] === rndnum[0]) &&
       statenames ? (
-        <div className=" w-2/4  h-15 rounded-xl mt-1.5 mb-1   bg-green-500 text-black items-center flex justify-evenly font-semibold transition-all scale-100">
+        <div className=" w-2/4  h-15 rounded-xl mt-1.5 mb-1   bg-green-500 text-black items-center flex justify-evenly font-semibold ">
           <span>State: {statenames[rndnum[0]]} </span>
           <span>Region:{statenames[823 + rndnum[1]]}</span>
         </div>

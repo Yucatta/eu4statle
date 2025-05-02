@@ -77,7 +77,7 @@ const Guesses = ({ thisguess, coordinates }: props) => {
           {/* <span className="h-full rounded-xl w-1/10  border-2 border-neutral-300 mb-1 bg-neutral-800 text flex justify-center items-center">
           </span> */}
           <span className="h-full w-20 rounded-xl  border-2 border-neutral-300 mb-1 bg-gray-900 text flex justify-center items-center">
-            {direction}
+            {!distance ? "✅" : direction}
           </span>
         </div>
       ) : (

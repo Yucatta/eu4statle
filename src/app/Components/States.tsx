@@ -10,7 +10,6 @@ const States = () => {
     console.log("tried to give a style");
     if (
       containerRef.current &&
-      containerRef.current.getBoundingClientRect() &&
       imageref.current &&
       imageref.current.naturalHeight &&
       rndnum
@@ -38,7 +37,12 @@ const States = () => {
           : "scale-0"
       );
     }
-  }, [rndnum, imageref, containerRef.current]);
+  }, [
+    rndnum,
+    imageref,
+    containerRef.current,
+    imageref.current ? imageref.current.naturalHeight : "",
+  ]);
   return (
     <div
       className="w-3/4 h-[45vh] mt-[2vh] bg-[rgb(0,0,0)] border-2 flex items-center justify-center border-gray-300"

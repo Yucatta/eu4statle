@@ -185,11 +185,9 @@ const StateGuesses = () => {
             guessid.current[0] = -1;
           }
         }
-        // console.log(guessid.current);
         if (guessid.current[0] >= 0) {
           console.log("this is available input");
           const temp = StateGuesses;
-          // console.log(temp.length);
           for (let i = 0; i < temp.length; i++) {
             if (typeof temp[i][0] !== "string") {
               temp[i][0] = statenames[guessid.current[0]];
@@ -199,16 +197,10 @@ const StateGuesses = () => {
               break;
             }
           }
-          // console.log(temp);
           setstateguesses(temp);
           setstatequery("");
           stateinputref.current.value = "";
         }
-        if (guessid.current[0] === rndnum[0]) {
-          // console.log("correct guess");
-          // alert("you won");
-        }
-      } else {
       }
     }
   }

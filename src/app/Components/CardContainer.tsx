@@ -1,8 +1,7 @@
 "use client";
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Papa from "papaparse";
 import ProvinceGuessCards from "./ProvinceGuessCards";
-import { stat } from "fs";
 interface Props {
   StateGuesses: [string | number, number][];
   StateData: number[][] | undefined;
@@ -16,6 +15,7 @@ const CardGuessContainer = ({ rndnum, StateData }: Props) => {
   const [Religions, setReligions] = useState<string[]>();
   const [TradeGoods, setTradeGoods] = useState<string[]>();
   const [Cultures, SetCultures] = useState<string[]>();
+  const [provinceNames, setProvinceNames] = useState<string[]>();
 
   useEffect(() => {
     async function fetchdata() {
@@ -39,7 +39,6 @@ const CardGuessContainer = ({ rndnum, StateData }: Props) => {
                 element[5],
               ]);
             });
-            console.log(tempids);
             setProvinceStats(tempids);
           },
         });
@@ -53,6 +52,7 @@ const CardGuessContainer = ({ rndnum, StateData }: Props) => {
     const tempreligions: string[] = [];
     const temptradegoods: string[] = [];
     const tempcultures: string[] = [];
+    const tempnames: string[] = [];
     if (ProvinceStats) {
       for (let i = 0; i < ProvinceStats.length; i++) {
         for (let j = 2; j < 5; j++) {
@@ -96,17 +96,50 @@ const CardGuessContainer = ({ rndnum, StateData }: Props) => {
           }
         }
       }
+      for (let i = 0; i < ProvinceStats.length; i++) {
+        if (ProvinceStats[i][4] !== "a" && ProvinceStats[i][4] !== "") {
+          tempnames.push(ProvinceStats[i][0]);
+        }
+      }
       setReligions(tempreligions);
       SetCultures(tempcultures);
       setTradeGoods(temptradegoods);
+      setProvinceNames(tempnames);
       //   console.log(temptradegoods, tempcultures, tempreligions);
     }
-  }, [ProvinceStats]);
+  }, [ProvinceStats, rndnum]);
   //   console.log(TradeGoods, Cultures, Religions);
   return (
     <>
-      <div className="flex flex-wrap w-3/4 justify-between ">
-        <div className="flex flex-col w-1/2 items-center ">
+      <div className="flex flex-wrap w-full justify-between  ">
+        {/* <div className="flex flex-col w-2/3  items-center">
+          <ProvinceGuessCards
+            rndnum={rndnum}
+            CardsNames={Religions}
+            provincestats={ProvinceStats}
+            StateData={StateData}
+          ></ProvinceGuessCards>
+          <ProvinceGuessCards
+            rndnum={rndnum}
+            StateData={StateData}
+            CardsNames={Cultures}
+            provincestats={ProvinceStats}
+          ></ProvinceGuessCards>
+          <ProvinceGuessCards
+            rndnum={rndnum}
+            CardsNames={TradeGoods}
+            StateData={StateData}
+            provincestats={ProvinceStats}
+          ></ProvinceGuessCards>
+          <ProvinceGuessCards
+            rndnum={rndnum}
+            StateData={StateData}
+            provincestats={ProvinceStats}
+            CardsNames={provinceNames}
+          ></ProvinceGuessCards>
+        </div> */}
+
+        <div className="flex flex-col w-1/2 min-w-60 items-center ">
           <ProvinceGuessCards
             rndnum={rndnum}
             CardsNames={Religions}
@@ -121,7 +154,7 @@ const CardGuessContainer = ({ rndnum, StateData }: Props) => {
           ></ProvinceGuessCards>
         </div>
 
-        <div className="flex flex-col w-1/2 items-center">
+        <div className="flex flex-col w-1/2 min-w-60 items-center">
           <ProvinceGuessCards
             rndnum={rndnum}
             StateData={StateData}
@@ -132,6 +165,7 @@ const CardGuessContainer = ({ rndnum, StateData }: Props) => {
             rndnum={rndnum}
             StateData={StateData}
             provincestats={ProvinceStats}
+            CardsNames={provinceNames}
           ></ProvinceGuessCards>
         </div>
       </div>

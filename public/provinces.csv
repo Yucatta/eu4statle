@@ -1095,11 +1095,11 @@
 1095,Falklands,3,Cosmopolitan French,Catholic,Unknown
 1096,Cape Verde,3,Portugese,Catholic,Unknown
 1097,Fernando Po,5,Yorumba,Fetishist,Unknown
-1098,St. Helena,3,Dutch,Reformed,Unknown
+1098,St. Helena,3,No Culture,No Religion,Unknown
 1099,Socotra,4,Mahri Culture,Coptic,Fish
 1100,Mahe,5,Cosmopolitan French,Catholic,Unknown
 1101,Diego Garcia,3,Cosmopolitan French,Catholic,Unknown
-1102,Mauritius,11,Dutch,Reformed,Unknown
+1102,Mauritius,11,No Culture,No Religion,Unknown
 1103,Bourbon,11,Cosmopolitan French,Catholic,Unknown
 1104,Eiriksfjord,3,Inuit,Totemism,Unknown
 1105,Vestbygden,3,Inuit,Totemism,Unknown
@@ -1793,6 +1793,7 @@
 1793,El Djouf,0,a,a,a
 1794,Central Sahara,0,a,a,a
 1795,East Sahara,0,a,a,a
+1795,East Sahara,0,a,a,a
 1797,Northern Congo Basin,0,a,a,a
 1798,Uganda,0,a,a,a
 1799,Malawi,0,a,a,a
@@ -1992,6 +1993,7 @@
 1993,Masrshall Islands,3,Polynesian,Animism,Unknown
 1994,Wake,3,Polynesian,Animism,Unknown
 1995,Micronesia,3,Polynesian,Animism,Unknown
+1795,Palau,3,Polynesian,Animisn,Unknown
 1997,Midway,3,Polynesian,Animism,Unknown
 1998,Christmas Island,3,a,a,Unknown
 1999,Cocos Island,3,a,a,Unknown

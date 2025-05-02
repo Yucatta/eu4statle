@@ -178,7 +178,7 @@ const StateGuesses = () => {
       if (statesquery) {
         for (let i = 0; i < statenames.length; i++) {
           if (statenames[i].toLowerCase() === statesquery.toLocaleLowerCase()) {
-            guessid.current = [i, findRegion(i)];
+            guessid.current = [i, findRegion(i, rndnum[0])];
             break;
           } else {
             console.log("a");
@@ -212,14 +212,14 @@ const StateGuesses = () => {
       }
     }
   }
-  function findRegion(stateid: number) {
-    if (regionStateIds && rndnum) {
+  function findRegion(stateid: number, correctid: number) {
+    if (regionStateIds) {
       if (stateid > 822) {
         return stateid - 823;
       } else {
         for (let k = 0; k < regionStateIds.length; k++) {
           for (let j = 0; j < regionStateIds[k].length; j++) {
-            if (regionStateIds[k][j] === rndnum[0]) {
+            if (regionStateIds[k][j] === correctid) {
               return k;
             }
           }
@@ -230,17 +230,21 @@ const StateGuesses = () => {
   }
   useEffect(() => {
     const temp = Math.floor(Math.random() * 824);
-    setrndnum([temp, -1]);
+    setrndnum([temp, findRegion(temp, temp)]);
   }, []);
+  // useEffect(() => {
+  //   if (rndnum) {
+  //     setrndnum([rndnum[0], findRegion(rndnum[0])]);
+  //   }
+  // }, [regionStateIds]);
   useEffect(() => {
-    if (rndnum) {
-      setrndnum([rndnum[0], findRegion(rndnum[0])]);
-    }
-    // console.log("you come here");
-    // for (let i = 0; i < 0; i++) {
-    //   console.log("can yuo come here");
-    // }
-  }, [regionStateIds]);
+    setstateguesses([
+      [0, -1],
+      [0, -1],
+      [0, -1],
+      [0, -1],
+    ]);
+  }, [rndnum]);
   return (
     <>
       {rndnum &&
@@ -286,19 +290,39 @@ const StateGuesses = () => {
           </button>
         </div>
       )}
-
       <GuessContainer
         StateData={StateData}
         rndnum={rndnum}
         guessid={guessid.current}
         StateGuesses={StateGuesses}
       ></GuessContainer>
-      <CardGuessContainer
-        StateData={StateData}
-        rndnum={rndnum}
-        guessid={guessid.current}
-        StateGuesses={StateGuesses}
-      ></CardGuessContainer>
+      {rndnum &&
+      (StateGuesses[0][1] === rndnum[0] ||
+        StateGuesses[1][1] === rndnum[0] ||
+        StateGuesses[2][1] === rndnum[0] ||
+        StateGuesses[3][1] === rndnum[0] ||
+        StateGuesses[3][1] !== -1) ? (
+        <>
+          <CardGuessContainer
+            StateData={StateData}
+            rndnum={rndnum}
+            guessid={guessid.current}
+            StateGuesses={StateGuesses}
+          ></CardGuessContainer>
+          <button
+            className=" w-2/11 rounded-2xl mt-2 h-11 text-sm border-5 border-gray-800 bg-gray-700 cursor-pointer transition-all hover:scale-105 active:scale-90"
+            onClick={() => {
+              const temp = Math.floor(Math.random() * 824);
+              console.log(findRegion(temp, temp), temp);
+              setrndnum([temp, findRegion(temp, temp)]);
+            }}
+          >
+            Retry
+          </button>
+        </>
+      ) : (
+        ""
+      )}
     </>
   );
 };

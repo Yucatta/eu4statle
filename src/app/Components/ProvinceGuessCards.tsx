@@ -1,10 +1,7 @@
 "use client";
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import Papa from "papaparse";
 import InputandList from "./Input";
 import CardGuesContainer from "./CardGuesContainer";
-import CardGuesses from "./CardGuesses";
-import StateGuesses from "./StateGuesses";
 interface Props {
   rndnum: number[] | undefined;
   CardsNames?: string[];
@@ -20,9 +17,23 @@ const ProvinceGuessCards = ({
   const [iscardopened, setiscardopened] = useState(false);
   const [cardquery, setcardquery] = useState<string | undefined>(undefined);
   const inputref = useRef<HTMLInputElement>(null);
-  const [cardguesses, setcardguesses] = useState(["", "", "", ""]);
+  const [cardguesses, setcardguesses] = useState([
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+  ]);
   const [correctguessedprovinces, setcorrectguessedprovinces] = useState([-1]);
   const hasinitialized = useRef(false);
+  const correctanswers = useRef<string[] | undefined>(undefined);
   const filteredCardNames = useMemo(() => {
     if (CardsNames) {
       if (cardquery) {
@@ -36,57 +47,62 @@ const ProvinceGuessCards = ({
       return;
     }
   }, [CardsNames, cardquery]);
-  const correctanswers = useMemo(() => {
-    if (
-      StateData &&
-      rndnum &&
-      CardsNames &&
-      provincestats &&
-      !hasinitialized.current
-    ) {
-      hasinitialized.current = true;
-      const tempids: number[] = [];
-      const tempanswers: string[] = [];
-      for (let i = 0; i < 5; i++) {
-        if (StateData[rndnum[0]][i] === 0) {
-          break;
-        } else {
-          tempids.push(StateData[rndnum[0]][i]);
-        }
-      }
-      for (let i = 0; i < tempids.length; i++) {
-        let tempok = true;
-        for (let k = 0; k < tempanswers.length; k++) {
-          if (
-            provincestats[tempids[i]][
-              CardsNames.length === 25 ? 4 : CardsNames.length === 31 ? 3 : 2
-            ] ===
-            tempanswers[
-              CardsNames.length === 25 ? 4 : CardsNames.length === 31 ? 3 : 2
-            ]
-          ) {
-            tempok = false;
+  useEffect(() => {
+    function getcorrectanswers() {
+      if (StateData && rndnum && CardsNames && provincestats) {
+        hasinitialized.current = true;
+        const tempanswers: string[] = [];
+
+        for (let i = 0; i < 5; i++) {
+          if (StateData[rndnum[0]][i] === 0) {
             break;
+          } else {
+            tempanswers.push(
+              provincestats[StateData[rndnum[0]][i] - 1][
+                CardsNames.length === 26
+                  ? 3
+                  : CardsNames.length === 31
+                  ? 4
+                  : CardsNames.length === 369
+                  ? 2
+                  : 0
+              ]
+            );
           }
         }
-        if (tempok) {
-          tempanswers.push(
-            provincestats[tempids[i]][
-              CardsNames.length === 25 ? 4 : CardsNames.length === 31 ? 3 : 2
-            ]
-          );
-        }
+        return tempanswers;
+      } else {
+        return;
       }
-      console.log(tempanswers);
-      return tempanswers;
-    } else {
-      return;
+    }
+    // 1796 1996
+    if (!hasinitialized.current) {
+      correctanswers.current = getcorrectanswers();
     }
   }, [rndnum, StateData, CardsNames, provincestats]);
-  if (correctanswers) {
-    console.log(correctanswers);
+  // useEffect(()=>{},[rndnum])
+  useEffect(() => {
+    correctanswers.current = undefined;
+    hasinitialized.current = false;
+    setcardguesses(["", "", "", "", "", "", "", "", "", "", "", ""]);
+    setiscardopened(false);
+  }, [rndnum]);
+  const uniquecorrectanswers: string[] = [];
+  if (correctanswers.current) {
+    for (let i = 0; i < correctanswers.current.length; i++) {
+      let tempok = true;
+      for (let j = 0; j < uniquecorrectanswers.length; j++) {
+        if (uniquecorrectanswers[j] === correctanswers.current[i]) {
+          tempok = false;
+          break;
+        }
+      }
+      if (tempok) {
+        uniquecorrectanswers.push(correctanswers.current[i]);
+      }
+    }
   }
-
+  // const uniquecorrectanswers =
   function handlesubmit() {
     if (CardsNames && cardquery && inputref.current) {
       const temp = [...cardguesses];
@@ -97,32 +113,50 @@ const ProvinceGuessCards = ({
         } else if (temp[i] === "") {
           temp[i] = cardquery;
           const tempcorrect = findCorrectProvinces(cardquery);
-          setcorrectguessedprovinces(tempcorrect);
+          console.log(correctanswers.current, "inside handlesubmit");
+          console.log(tempcorrect);
+          setcorrectguessedprovinces(() => {
+            if (correctguessedprovinces[0] > 0) {
+              return [...tempcorrect, ...correctguessedprovinces];
+            } else {
+              return tempcorrect;
+            }
+          });
           break;
         }
       }
       setcardguesses(temp);
       inputref.current.value = "";
+      setcardquery("");
     }
   }
   function findCorrectProvinces(cardquery: string) {
-    if (CardsNames && StateData && rndnum && provincestats) {
+    console.log(
+      !CardsNames,
+      !StateData,
+      !rndnum,
+      !provincestats,
+      !correctanswers
+    );
+    if (
+      CardsNames &&
+      StateData &&
+      rndnum &&
+      provincestats &&
+      correctanswers.current
+    ) {
       const temp: number[] = [];
-      for (let i = 0; i < StateData[rndnum[0]].length - 2; i++) {
-        if (
-          provincestats[StateData[rndnum[0]][i]][
-            CardsNames.length === 25 ? 4 : CardsNames.length === 31 ? 3 : 2
-          ] === cardquery
-        ) {
+      for (let i = 0; i < correctanswers.current.length; i++) {
+        if (correctanswers.current[i] === cardquery) {
           temp.push(StateData[rndnum[0]][i]);
         }
       }
+      console.log(temp, correctanswers.current, cardquery);
       return temp;
     } else {
       return [-1];
     }
   }
-  useEffect(() => {}, [cardguesses]);
   return (
     <>
       <div className="flex flex-col w-9/10 ">
@@ -136,8 +170,18 @@ const ProvinceGuessCards = ({
               });
             }, 200);
           }}
-          className="w-full h-11 mt-3 bg-green-500 rounded-xl cursor-pointer"
-        ></button>
+          className="w-full h-11 mt-3 bg-[rgb(24,33,103)] rounded-xl cursor-pointer border-5 border-[rgb(16,21,62)]"
+        >
+          {!CardsNames
+            ? "Development"
+            : CardsNames.length === 31
+            ? "Trade Good Guesser"
+            : CardsNames.length === 26
+            ? "Religion Guesser"
+            : CardsNames.length === 369
+            ? "Culture Guesser"
+            : "Province Name Guesser"}
+        </button>
         {rndnum ? (
           <div
             id="card-container"
@@ -147,62 +191,113 @@ const ProvinceGuessCards = ({
                 : "flex flex-col justify-center items-center border-2 transition-all duration-500 opacity-0 scale-95 max-h-0 overflow-hidden"
             }
           >
-            <div className="flex justify-center">
+            <div className="flex justify-center w-full border-2 h-21">
               <img
                 src={`onlystates/${rndnum[0]}.png`}
-                className="border-2 w-auto fixed h-20 z-0"
+                className=" w-auto fixed h-20 z-0"
               ></img>
               {StateData && correctguessedprovinces[0] !== -1
-                ? correctguessedprovinces.map((id) => {
+                ? correctguessedprovinces.map((id, index) => {
                     return (
-                      <>
-                        <img
-                          src={`greenprovinces/${id}.png`}
-                          className="border-2 fixed w-auto h-20 z-10"
-                        ></img>
-                      </>
+                      <img
+                        key={index}
+                        src={`greenprovinces/${id}.png`}
+                        className=" fixed w-auto h-20 z-10"
+                      ></img>
                     );
                   })
                 : ""}
-              {/* {StateData ? <img
-                src={`greenprovinces/${StateData[rndnum[0]][0]}.png`}
-                className="border-2 fixed w-auto h-20 z-10"
-              ></img>
-              <img
-                src={`greenprovinces/${StateData[rndnum[0]][1]}.png`}
-                className="border-2 w-auto fixed h-20 z-10"
-              ></img>
-              <img
-                src={`greenprovinces/${StateData[rndnum[0]][2]}.png`}
-                className="border-2 w-auto fixed h-20 z-10"
-              ></img> } */}
             </div>
-            <div className="flex-row flex mt-19 justify-between">
-              <InputandList
-                inputref={inputref}
-                setquery={setcardquery}
-                statenames={CardsNames}
-                filterednames={filteredCardNames ? filteredCardNames : [""]}
-                widthofinput={"8/22"}
-                placeholder={
-                  !CardsNames
-                    ? "Development"
+
+            {correctanswers &&
+            correctanswers.current?.length ===
+              correctguessedprovinces.length ? (
+              <div className=" w-9/10 h-10 rounded-xl text-sm mb-1  mt-1.5 bg-green-500 text-black items-center flex justify-evenly font-semibold transition-all scale-100">
+                {!CardsNames
+                  ? "Development"
+                  : CardsNames.length === 31
+                  ? "Trade Goods"
+                  : CardsNames.length === 26
+                  ? "Religions"
+                  : CardsNames.length === 369
+                  ? "Cultures"
+                  : "Province Names"}
+                :{" "}
+                {uniquecorrectanswers.map((uniquecorrectanswer, index) => {
+                  console.log(index, "this is index");
+                  return <span key={index}>{uniquecorrectanswer} </span>;
+                })}
+              </div>
+            ) : CardsNames &&
+              cardguesses[
+                CardsNames.length === 26
+                  ? 3
+                  : CardsNames.length === 31
+                  ? 5
+                  : CardsNames.length === 369
+                  ? 4
+                  : 9
+              ] !== "" ? (
+              <div className=" w-9/10  h-10 rounded-xl  mb-1 text-sm mt-1.5  bg-red-300 text-black items-center flex justify-evenly font-semibold">
+                {!CardsNames
+                  ? "Development"
+                  : CardsNames.length === 31
+                  ? "Trade Goods"
+                  : CardsNames.length === 26
+                  ? "Religions"
+                  : CardsNames.length === 369
+                  ? "Cultures"
+                  : "Province Names"}
+                :{" "}
+                {uniquecorrectanswers.map((uniquecorrectanswer, index) => {
+                  return <span key={index}>{uniquecorrectanswer} </span>;
+                })}
+              </div>
+            ) : (
+              <div className="flex-row flex  justify-evenly">
+                <InputandList
+                  inputref={inputref}
+                  setquery={setcardquery}
+                  statenames={CardsNames}
+                  filterednames={filteredCardNames ? filteredCardNames : [""]}
+                  widthofinput={"5/11"}
+                  placeholder={
+                    !CardsNames
+                      ? "Development"
+                      : CardsNames.length === 31
+                      ? "Trade Goods"
+                      : CardsNames.length === 26
+                      ? "Religions"
+                      : CardsNames.length === 369
+                      ? "Cultures"
+                      : "Province Name"
+                  }
+                ></InputandList>
+                <button
+                  className=" w-4/11 rounded-2xl mt-2 h-11 text-sm border-5 border-gray-800 bg-gray-700 z-50 cursor-pointer transition-all hover:scale-103 active:scale-90"
+                  onClick={handlesubmit}
+                  // onClick={handlesubmit}
+                >
+                  GUESS
+                </button>
+              </div>
+            )}
+            {CardsNames ? (
+              <CardGuesContainer
+                cardguesses={cardguesses.slice(
+                  0,
+                  CardsNames.length === 26
+                    ? 4
                     : CardsNames.length === 31
-                    ? "Trade Good"
-                    : CardsNames.length === 25
-                    ? "Religion"
-                    : "Culture"
-                }
-              ></InputandList>
-              <button
-                className=" w-4/11 rounded-2xl mt-2 h-11 text-sm border-5 border-gray-800 bg-gray-700 z-50 cursor-pointer transition-all hover:scale-103 active:scale-90"
-                onClick={handlesubmit}
-                // onClick={handlesubmit}
-              >
-                GUESS
-              </button>
-            </div>
-            <CardGuesContainer cardguesses={cardguesses}></CardGuesContainer>
+                    ? 6
+                    : CardsNames.length === 369
+                    ? 5
+                    : 10
+                )}
+              ></CardGuesContainer>
+            ) : (
+              ""
+            )}
           </div>
         ) : (
           ""

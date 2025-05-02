@@ -160,7 +160,6 @@ const StateGuesses = () => {
         });
       } catch (error) {
         console.error("Error loading CSV file:", error);
-        console.log(StateData);
       }
     }
     fetchdata();
@@ -181,19 +180,15 @@ const StateGuesses = () => {
             guessid.current = [i, findRegion(i, rndnum[0])];
             break;
           } else {
-            console.log("a");
             guessid.current[0] = -1;
           }
         }
         if (guessid.current[0] >= 0) {
-          console.log("this is available input");
           const temp = StateGuesses;
           for (let i = 0; i < temp.length; i++) {
             if (typeof temp[i][0] !== "string") {
               temp[i][0] = statenames[guessid.current[0]];
               temp[i][1] = guessid.current[0];
-              console.log(guessid.current);
-              console.log(i);
               break;
             }
           }
@@ -304,10 +299,9 @@ const StateGuesses = () => {
             StateGuesses={StateGuesses}
           ></CardGuessContainer>
           <button
-            className=" w-2/11 rounded-2xl mt-2 h-11 text-sm border-5 border-gray-800 bg-gray-700 cursor-pointer transition-all hover:scale-105 active:scale-90"
+            className=" w-50 rounded-2xl mt-2 h-11 text-sm border-5 border-gray-800 bg-gray-700 cursor-pointer transition-all hover:scale-105 active:scale-90"
             onClick={() => {
               const temp = Math.floor(Math.random() * 824);
-              console.log(findRegion(temp, temp), temp);
               setrndnum([temp, findRegion(temp, temp)]);
             }}
           >

@@ -7,7 +7,12 @@ const States = () => {
   const imageref = useRef<HTMLImageElement>(null);
   const [imagestyle, setimagestyle] = useState("scale-0");
   useEffect(() => {
-    console.log("tried to give a style");
+    console.log(
+      !!containerRef.current,
+      !!imageref.current,
+      !!imageref.current?.naturalHeight,
+      !!rndnum
+    );
     if (
       containerRef.current &&
       imageref.current &&
@@ -25,17 +30,17 @@ const States = () => {
           ? "h-10/11 w-auto object-cover"
           : "scale-0"
       );
-      console.log(
-        containerRef.current &&
-          imageref.current &&
-          containerRef.current.getBoundingClientRect().height /
-            containerRef.current.getBoundingClientRect().width >
-            imageref.current.naturalHeight / imageref.current.naturalWidth
-          ? "h-auto w-10/11 object-cover"
-          : containerRef.current && imageref.current
-          ? "h-10/11 w-auto object-cover"
-          : "scale-0"
-      );
+      // console.log(
+      //   containerRef.current &&
+      //     imageref.current &&
+      //     containerRef.current.getBoundingClientRect().height /
+      //       containerRef.current.getBoundingClientRect().width >
+      //       imageref.current.naturalHeight / imageref.current.naturalWidth
+      //     ? "h-auto w-10/11 object-cover"
+      //     : containerRef.current && imageref.current
+      //     ? "h-10/11 w-auto object-cover"
+      //     : "scale-0"
+      // );
     }
   }, [
     rndnum,

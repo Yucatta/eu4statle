@@ -242,12 +242,12 @@ const StateGuesses = () => {
         StateGuesses[2][1] === rndnum[0] ||
         StateGuesses[3][1] === rndnum[0]) &&
       statenames ? (
-        <div className=" w-2/4  h-15 rounded-xl mt-1.5 mb-1   bg-green-500 text-black items-center flex justify-evenly font-semibold ">
+        <div className=" w-2/4  h-15 rounded-xl mt-1.5 mb-1   bg-green-500 text-white items-center flex justify-evenly font-semibold ">
           <span>State: {statenames[rndnum[0]]} </span>
           <span>Region:{statenames[823 + rndnum[1]]}</span>
         </div>
       ) : StateGuesses[3][1] !== -1 && statenames && rndnum ? (
-        <div className=" w-2/4  h-15 rounded-xl mt-1.5 mb-1   bg-red-300 text-black items-center flex justify-evenly font-semibold">
+        <div className=" w-2/4  h-15 rounded-xl mt-1.5 mb-1   bg-red-300 text-white items-center flex justify-evenly font-semibold">
           <span>State: {statenames[rndnum[0]]} </span>
           <span>Region:{statenames[823 + rndnum[1]]}</span>
         </div>
@@ -260,7 +260,7 @@ const StateGuesses = () => {
             setquery={setregionsquery}
             filterednames={filteredregionsnames ? filteredregionsnames : [""]}
             placeholder="Region"
-            widthofinput={"3/11"}
+            widthofinput={"1/12"}
           ></InputandList>
           <InputandList
             inputref={stateinputref}
@@ -269,10 +269,10 @@ const StateGuesses = () => {
             statesquery={statesquery}
             setquery={setstatequery}
             filterednames={filteredstatenames ? filteredstatenames : [""]}
-            widthofinput={"1/2"}
+            widthofinput={"10/12"}
           ></InputandList>
           <button
-            className=" w-2/11 rounded-2xl mt-2 h-11 text-sm border-5 border-gray-800 bg-gray-700 cursor-pointer transition-all hover:scale-105 active:scale-90"
+            className=" w-2/12 rounded-2xl mt-2 h-11 text-sm border-5 border-gray-800 bg-gray-700 cursor-pointer transition-all hover:scale-105 active:scale-90"
             onClick={handlesubmit}
           >
             GUESS
@@ -285,12 +285,13 @@ const StateGuesses = () => {
         guessid={guessid.current}
         StateGuesses={StateGuesses}
       ></GuessContainer>
-      {rndnum &&
-      (StateGuesses[0][1] === rndnum[0] ||
-        StateGuesses[1][1] === rndnum[0] ||
-        StateGuesses[2][1] === rndnum[0] ||
-        StateGuesses[3][1] === rndnum[0] ||
-        StateGuesses[3][1] !== -1) ? (
+      {rndnum ? (
+        //  &&
+        // (StateGuesses[0][1] === rndnum[0] ||
+        //   StateGuesses[1][1] === rndnum[0] ||
+        //   StateGuesses[2][1] === rndnum[0] ||
+        //   StateGuesses[3][1] === rndnum[0] ||
+        //   StateGuesses[3][1] !== -1)
         <>
           <CardGuessContainer
             StateData={StateData}

@@ -17,8 +17,9 @@ const InputandList = ({
   widthofinput,
   placeholder,
 }: Props) => {
+  const inputclass = `w-${widthofinput} relative group`;
   return (
-    <div className={`w-${widthofinput} relative group`}>
+    <div className={inputclass}>
       <input
         type="search"
         ref={inputref}
@@ -37,7 +38,6 @@ const InputandList = ({
                 key={index}
                 onMouseDown={() => {
                   setquery(item);
-                  //   console.log(inputref.current.value, "clicked");
                   if (inputref.current) {
                     inputref.current.value = item;
                   }
@@ -52,8 +52,6 @@ const InputandList = ({
                 className="py-1 border-y-1 hover:bg-neutral-600 cursor-pointer "
                 key={index}
                 onMouseDown={() => {
-                  console.log("a");
-
                   setquery(item);
                   if (inputref.current) {
                     inputref.current.value = item;

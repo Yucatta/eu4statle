@@ -113,8 +113,7 @@ const ProvinceGuessCards = ({
         } else if (temp[i] === "") {
           temp[i] = cardquery;
           const tempcorrect = findCorrectProvinces(cardquery);
-          console.log(correctanswers.current, "inside handlesubmit");
-          console.log(tempcorrect);
+          
           setcorrectguessedprovinces(() => {
             if (correctguessedprovinces[0] > 0) {
               return [...tempcorrect, ...correctguessedprovinces];
@@ -131,13 +130,6 @@ const ProvinceGuessCards = ({
     }
   }
   function findCorrectProvinces(cardquery: string) {
-    console.log(
-      !CardsNames,
-      !StateData,
-      !rndnum,
-      !provincestats,
-      !correctanswers
-    );
     if (
       CardsNames &&
       StateData &&
@@ -151,7 +143,6 @@ const ProvinceGuessCards = ({
           temp.push(StateData[rndnum[0]][i]);
         }
       }
-      console.log(temp, correctanswers.current, cardquery);
       return temp;
     } else {
       return [-1];
@@ -224,7 +215,6 @@ const ProvinceGuessCards = ({
                   : "Province Names"}
                 :{" "}
                 {uniquecorrectanswers.map((uniquecorrectanswer, index) => {
-                  console.log(index, "this is index");
                   return <span key={index}>{uniquecorrectanswer} </span>;
                 })}
               </div>

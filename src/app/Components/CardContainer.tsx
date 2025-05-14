@@ -115,14 +115,25 @@ const CardGuessContainer = ({ rndnum, StateData }: Props) => {
             break;
           }
           statedev[1] += 1;
-          statedev[0] += ProvinceStats[StateData[i][j]][1];
+          statedev[0] += ProvinceStats[StateData[i][j] - 1][1];
+          // if (i == 213) {
+          //   console.log(
+          //     StateData[i][j],
+          //     ProvinceStats[StateData[i][j] - 1][1],
+          //     ProvinceStats[StateData[i][j] - 1][0],
+          //     statedev[1],
+          //     statedev[0]
+          //   );
+          // }
         }
-        tempdevs.push(statedev[0] / statedev[1]);
+        tempdevs.push(Number((statedev[0] / statedev[1]).toFixed(2)));
       }
+
       setdevelopments(tempdevs);
       //   console.log(temptradegoods, tempcultures, tempreligions);
     }
   }, [ProvinceStats, rndnum]);
+  console.log(developments && rndnum ? developments[rndnum[0]] : 5);
   // useEffect(()=>{},[ProvinceStats,rndnum])
   //   console.log(TradeGoods, Cultures, Religions);
   return (

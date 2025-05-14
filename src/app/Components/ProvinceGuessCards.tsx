@@ -113,7 +113,7 @@ const ProvinceGuessCards = ({
         } else if (temp[i] === "") {
           temp[i] = cardquery;
           const tempcorrect = findCorrectProvinces(cardquery);
-          
+
           setcorrectguessedprovinces(() => {
             if (correctguessedprovinces[0] > 0) {
               return [...tempcorrect, ...correctguessedprovinces];
@@ -153,25 +153,55 @@ const ProvinceGuessCards = ({
       <div className="flex flex-col w-9/10 ">
         <button
           onClick={() => {
+            const temp = iscardopened;
+            if (!temp) {
+              setTimeout(() => {
+                document.getElementById("card-container")?.scrollIntoView({
+                  behavior: "smooth",
+                  block: "start",
+                });
+              }, 200);
+            }
             setiscardopened(!iscardopened);
-            setTimeout(() => {
-              document.getElementById("card-container")?.scrollIntoView({
-                behavior: "smooth",
-                block: "start",
-              });
-            }, 200);
           }}
-          className="w-full h-11 mt-3 bg-[rgb(24,33,103)] rounded-xl cursor-pointer border-5 border-[rgb(16,21,62)]"
+          className="w-full h-11 mt-3 bg-[rgb(24,33,103)] rounded-xl cursor-pointer border-5 flex-row flex justify-between items-center border-[rgb(16,21,62)]"
         >
-          {!CardsNames
-            ? "Development"
-            : CardsNames.length === 31
-            ? "Trade Good Guesser"
-            : CardsNames.length === 26
-            ? "Religion Guesser"
-            : CardsNames.length === 369
-            ? "Culture Guesser"
-            : "Province Name Guesser"}
+          <span className="ml-[15%]">
+            {!CardsNames
+              ? "Development"
+              : CardsNames.length === 31
+              ? "Trade Good Guesser"
+              : CardsNames.length === 26
+              ? "Religion Guesser"
+              : CardsNames.length === 369
+              ? "Culture Guesser"
+              : "Province Name Guesser"}
+          </span>
+          <div className="mr-[2%] w-8 h-8  text-center bg-[rgb(21,26,60)] rounded-full flex justify-center items-center">
+            <span>
+              {iscardopened ? (
+                <svg width="10" height="7" viewBox="0 0 50 35 ">
+                  {" "}
+                  <path
+                    d="M 0 0 L 25 35 L 50 0"
+                    fill="none"
+                    stroke={`rgb(255 255 255)`}
+                    strokeWidth="8"
+                  />
+                </svg>
+              ) : (
+                <svg width="7" height="10" viewBox="0 0 35 50 ">
+                  {" "}
+                  <path
+                    d="M 35 0 L 0 25 L 35 50"
+                    fill="none"
+                    stroke={`rgb(255 255 255)`}
+                    strokeWidth="8"
+                  />
+                </svg>
+              )}
+            </span>
+          </div>
         </button>
         {rndnum ? (
           <div

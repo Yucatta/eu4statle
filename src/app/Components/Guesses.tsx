@@ -74,19 +74,12 @@ const Guesses = ({ thisguess, coordinates }: props) => {
           <span className="h-full rounded-xl w-3/14 border-2 border-neutral-300 mb-1 bg-gray-900 text flex justify-center items-center">
             {distance}KM
           </span>
-          {/* <span className="h-full rounded-xl w-1/10  border-2 border-neutral-300 mb-1 bg-neutral-800 text flex justify-center items-center">
-          </span> */}
           <span className="h-full w-20 rounded-xl  border-2 border-neutral-300 mb-1 bg-gray-900 text flex justify-center items-center">
             {!distance ? "✅" : direction}
           </span>
         </div>
       ) : (
-        <div
-          className="w-full h-11 rounded-full mb-1 bg-neutral-700 text flex justify-center items-center"
-          // onClick={() => {
-          //   console.log("you clicked this");
-          // }}
-        >
+        <div className="w-full h-11 rounded-2xls mb-1 bg-neutral-700 text flex justify-center items-center">
           <span></span>
         </div>
       )}

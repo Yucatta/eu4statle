@@ -26,7 +26,7 @@ const InputandList = ({
         onChange={() => {
           setquery(inputref.current?.value);
         }}
-        className="w-full mt-3 h-10 border-2 border-white focus-within:"
+        className="w-full mt-3 h-10 border-2 border-neutral-400 focus-within:"
         placeholder={placeholder}
       />
 
@@ -49,7 +49,7 @@ const InputandList = ({
           : statenames && filterednames
           ? filterednames.map((item, index) => (
               <li
-                className="py-1 border-y-1 hover:bg-neutral-600 cursor-pointer "
+                className="py-1 border-y-1 text-center hover:bg-neutral-600 cursor-pointer "
                 key={index}
                 onMouseDown={() => {
                   setquery(item);

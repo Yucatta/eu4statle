@@ -5,6 +5,7 @@ import { useGameState } from "@/context/gamecontext";
 import GuessContainer from "./GuessContainer";
 import InputandList from "./Input";
 import CardGuessContainer from "./CardContainer";
+import States from "./States";
 const StateGuesses = () => {
   const stateinputref = useRef<HTMLInputElement | null>(null);
   const regioninputref = useRef<HTMLInputElement | null>(null);
@@ -24,11 +25,48 @@ const StateGuesses = () => {
     [0, -1],
   ]);
   const guessid = useRef([-1, -1]);
-
+  const containerRef = useRef<HTMLDivElement>(null);
+  // const imageref = useRef<HTMLImageElement>(null);
+  // const imageinitizalied = useRef(false);
   const { rndnum, setrndnum } = useGameState();
+
+  // const Image = useMemo(() => {
+  //   if (
+  //     regionStateIds &&
+  //     rndnum &&
+  //     StateData &&
+  //     !imageinitizalied.current &&
+  //     rndnum[1] !== -1
+  //   ) {
+  //     imageinitizalied.current = true;
+  //     // console.log(regionStateIds);
+  //     // console.log(rndnum);
+  //     // console.log(StateData);
+  //     // console.log(rnr);
+  //     console.log(regionStateIds[rndnum[1]]);
+  //     // return 1;
+  //     return regionStateIds[rndnum[1]].slice(0, 21).map((item) => {
+  //       // if()
+  //       // StateData[item]
+  //       // console.log()
+  //       return StateData[item].slice(0, 5).map((item, index) => {
+  //         if (item !== 0) {
+  //           console.log(item);
+  //           return (
+  //             <img
+  //               className={"text-green-700"}
+  //               src={`svgstates/${item}.svg`}
+  //             ></img>
+  //           );
+  //         }
+  //         return <></>;
+  //       });
+  //     });
+  //   }
+  // }, [regionStateIds, StateData, rndnum]);
+
   const filteredstatenames = useMemo(() => {
     // console.log(!!statenames, !!query);
-
     if (statenames) {
       if (regionsquery) {
         const regionindex = statenames
@@ -234,8 +272,47 @@ const StateGuesses = () => {
     setstatequery("");
     setregionsquery("");
   }, [rndnum]);
+
+  // console.log(StateData.slic);
   return (
     <>
+      {/* <div
+        className="w-3/4 h-[45vh] mt-[2vh] bg-[rgb(0,0,0)] border-2 flex items-center justify-center border-gray-300"
+        ref={containerRef}
+      > */}
+      {/* {rndnum && StateData && regionStateIds
+          ? regionStateIds[rndnum[1]].map((item) => {
+              // if()
+              // StateData[item]
+              // console.log()
+              return StateData[item].slice(0, 5).map((item, index) => {
+                if (item !== 0) {
+                  console.log(item);
+                  return (
+                    <img
+                      className={"text-green-700"}
+                      src={`svgstates/${item}.png`}
+                    ></img>
+                  );
+                }
+                return <></>;
+              });
+            })
+          : // <img
+            //   ref={imageref}
+            //   src={`states/${rndnum[0]}.png`}
+            //   // src={`states/173.png`}
+            //   className="block w-10/11 h-10/11 object-contain object-center"
+            // ></img>
+            ""} */}
+      {/* {Image ? Image : ""} */}
+      {/* <img
+          ref={imageref}
+          src={`svgstates/5.svg`}
+          // src={`states/173.png`}
+          className="block w-10/11 h-10/11 bg-blue-800 fill-green-500 border-amber-300 object-contain object-center"
+        ></img> */}
+      {/* </div> */}
       {rndnum &&
       (StateGuesses[0][1] === rndnum[0] ||
         StateGuesses[1][1] === rndnum[0] ||

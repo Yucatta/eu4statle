@@ -129,11 +129,12 @@ const CardGuessContainer = ({ rndnum, StateData }: Props) => {
         tempdevs.push(Number((statedev[0] / statedev[1]).toFixed(2)));
       }
 
+      // console.log(tempcultures);
       setdevelopments(tempdevs);
       //   console.log(temptradegoods, tempcultures, tempreligions);
     }
   }, [ProvinceStats, rndnum]);
-  console.log(developments && rndnum ? developments[rndnum[0]] : 5);
+  // console.log(developments && rndnum ? developments[rndnum[0]] : 5);
   // useEffect(()=>{},[ProvinceStats,rndnum])
   //   console.log(TradeGoods, Cultures, Religions);
   return (

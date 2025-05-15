@@ -164,7 +164,7 @@ const ProvinceGuessCards = ({
             }
             setiscardopened(!iscardopened);
           }}
-          className="w-full h-11 mt-3 bg-[rgb(24,33,103)] rounded-xl cursor-pointer border-5 flex-row flex justify-between items-center border-[rgb(16,21,62)]"
+          className="w-full h-11 mt-3 bg-[rgb(39,39,41)] rounded-xl cursor-pointer border-2 flex-row flex justify-between items-center border-[rgb(98,99,104)]"
         >
           <span className="ml-[15%]">
             {!CardsNames
@@ -177,7 +177,7 @@ const ProvinceGuessCards = ({
               ? "Culture Guesser"
               : "Province Name Guesser"}
           </span>
-          <div className="mr-[2%] w-8 h-8  text-center bg-[rgb(21,26,60)] rounded-full flex justify-center items-center">
+          <div className="mr-[2%] w-6 h-6  text-center bg-[rgb(50,50,50)] rounded-full flex justify-center items-center">
             <span>
               {iscardopened ? (
                 <svg width="10" height="7" viewBox="0 0 50 35 ">
@@ -208,11 +208,11 @@ const ProvinceGuessCards = ({
             id="card-container"
             className={
               iscardopened
-                ? "flex flex-col justify-center items-center border-2 transition-all duration-500 opacity-100 scale-100 max-h-[1000px] overflow-hidden"
-                : "flex flex-col justify-center items-center border-2 transition-all duration-500 opacity-0 scale-95 max-h-0 overflow-hidden"
+                ? "flex flex-col justify-center items-center border-0 transition-all duration-500 opacity-100 scale-100 max-h-[1000px] overflow-hidden"
+                : "flex flex-col justify-center items-center border-0 transition-all duration-500 opacity-0 scale-95 max-h-0 overflow-hidden"
             }
           >
-            <div className="flex justify-center w-full border-2 h-21">
+            <div className="flex justify-center w-full border-0 h-21">
               <img
                 src={`onlystates/${rndnum[0]}.png`}
                 className=" w-auto fixed h-20 z-0"
@@ -314,6 +314,7 @@ const ProvinceGuessCards = ({
                     ? 5
                     : 10
                 )}
+                correctsolutions={uniquecorrectanswers}
               ></CardGuesContainer>
             ) : (
               ""

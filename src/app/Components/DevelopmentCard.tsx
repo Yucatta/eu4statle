@@ -19,15 +19,16 @@ const DevelopmentCard = ({
   const [cardquery, setcardquery] = useState<string | undefined>(undefined);
   const inputref = useRef<HTMLInputElement>(null);
   const [cardguesses, setscardguesses] = useState<number[]>([0, 0, 0, 0]);
-  const handlesubmit = (e: number) => {
+  function handlesubmit(e: number) {
+    console.log(e, cardguesses);
     if (!cardguesses.includes(e)) {
       setscardguesses([e, ...cardguesses.slice(0, 3)]);
-
-      if (Development + 2 >= e && Development - 2 < e) {
+      if (Development + 1 >= e && Development - 1 < e) {
       }
     } else {
     }
-  };
+  }
+  // console.log(cardguesses);
   return (
     <>
       <div className="flex flex-col w-9/10 ">
@@ -41,10 +42,10 @@ const DevelopmentCard = ({
               });
             }, 200);
           }}
-          className="w-full h-11 mt-3 bg-[rgb(24,33,103)] rounded-xl cursor-pointer border-5 flex-row flex justify-between items-center border-[rgb(16,21,62)]"
+          className="w-full h-11 mt-3 bg-[rgb(39,39,41)] rounded-xl cursor-pointer border-2 flex-row flex justify-between items-center border-[rgb(98,99,104)]"
         >
           <span className="ml-[15%]">Development Guesser</span>
-          <div className="mr-[2%] w-8 h-8  text-center bg-[rgb(21,26,60)] rounded-full flex justify-center items-center">
+          <div className="mr-[2%] w-6 h-6  text-center bg-[rgb(50,50,50)] rounded-full flex justify-center items-center">
             <span>
               {iscardopened ? (
                 <svg width="10" height="7" viewBox="0 0 50 35 ">
@@ -76,28 +77,17 @@ const DevelopmentCard = ({
             id="card-container"
             className={
               iscardopened
-                ? "flex flex-col justify-center items-center border-2 transition-all duration-500 opacity-100 scale-100 max-h-[1000px] overflow-hidden"
-                : "flex flex-col justify-center items-center border-2 transition-all duration-500 opacity-0 scale-95 max-h-0 overflow-hidden"
+                ? "flex flex-col justify-center items-center transition-all duration-500 opacity-100 scale-100 max-h-[1000px] overflow-hidden"
+                : "flex flex-col justify-center items-center  transition-all duration-500 opacity-0 scale-95 max-h-0 overflow-hidden"
             }
           >
-            <div className="flex justify-center w-full border-2 h-21">
+            <div className="flex justify-center w-full  h-21">
               <img
                 src={`onlystates/${rndnum[0]}.png`}
                 className=" w-auto fixed h-20 z-0"
               ></img>
-              {/* {StateData && correctguessedprovinces[0] !== -1
-                ? correctguessedprovinces.map((id, index) => {
-                    return (
-                      <img
-                        key={index}
-                        src={`greenprovinces/${id}.png`}
-                        className=" fixed w-auto h-20 z-10"
-                      ></img>
-                    );
-                  })
-                : ""} */}
             </div>
-            `
+
             {cardguesses.filter((e) => {
               if (
                 Development + 2 >= e &&
@@ -120,16 +110,18 @@ const DevelopmentCard = ({
                 <input
                   placeholder="avg Dev range 2"
                   ref={inputref}
-                  type="number"
+                  // type="number"
+                  className="border-2 h-10 mt-2 border-neutral-300"
                 ></input>
                 <button
-                  className=" w-4/11 rounded-2xl mt-2 h-11 text-sm border-5 border-gray-800 bg-gray-700 z-50 cursor-pointer transition-all hover:scale-103 active:scale-90"
+                  className=" w-4/11 rounded-2xl ml-2 mt-2 h-11 text-sm border-5 border-gray-800 bg-gray-700 z-50 cursor-pointer transition-all hover:scale-103 active:scale-90"
                   onClick={() => {
+                    console.log("aaaaa", Development);
                     if (
-                      inputref.current &&
-                      typeof inputref.current.value === "number"
+                      inputref.current
+                      // typeof inputref.current.value === "number"
                     ) {
-                      handlesubmit(inputref.current.value);
+                      handlesubmit(Number(inputref.current.value));
                     }
                   }}
                   // onClick={handlesubmit}
@@ -138,7 +130,7 @@ const DevelopmentCard = ({
                 </button>
               </div>
             )}
-            `
+
             {
               <CardGuesContainer
                 cardguesses={cardguesses.map((guess) => {
@@ -148,6 +140,7 @@ const DevelopmentCard = ({
                     return "";
                   }
                 })}
+                correctsolutions={[`${Development}`]}
               ></CardGuesContainer>
             }
           </div>

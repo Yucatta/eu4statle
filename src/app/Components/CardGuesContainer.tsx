@@ -2,12 +2,19 @@ import React from "react";
 import CardGuesses from "./CardGuesses";
 interface Props {
   cardguesses: string[];
+  correctsolutions: string[];
 }
-const CardGuesContainer = ({ cardguesses }: Props) => {
+const CardGuesContainer = ({ cardguesses, correctsolutions }: Props) => {
   return (
-    <div className="w-full z-0 flex flex-col justify-center items-center">
+    <div className="w-full z-0 flex flex-col mt-2 justify-center items-center">
       {cardguesses.map((cardguess, index) => {
-        return <CardGuesses key={index} thisguess={cardguess}></CardGuesses>;
+        return (
+          <CardGuesses
+            key={index}
+            thisguess={cardguess}
+            correctsolutions={correctsolutions}
+          ></CardGuesses>
+        );
       })}
     </div>
   );

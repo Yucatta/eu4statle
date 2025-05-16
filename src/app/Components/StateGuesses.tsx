@@ -41,14 +41,14 @@ const StateGuesses = () => {
   // }, []);
   useEffect(() => {
     async function fetchjson() {
-      const response = await fetch("states.json");
+      const response = await fetch("completemap.json");
       const data = await response.json();
       // console.log(Object.entries(data));
       paths.current = Object.entries(data);
     }
     fetchjson();
-    console.log(paths.current);
-  });
+  }, []);
+  // console.log(paths.current);
   // console.log(data, typeof data);
   const Image = useMemo(() => {
     if (
@@ -56,33 +56,79 @@ const StateGuesses = () => {
       rndnum &&
       StateData &&
       !imageinitizalied.current &&
-      rndnum[1] !== -1
+      rndnum[1] !== -1 &&
+      paths.current
     ) {
       imageinitizalied.current = true;
       // return 1;
-      return (
-        <svg>
-          {regionStateIds[rndnum[1]].slice(0, 21).map((item) => {
-            return StateData[item].slice(0, 5).map((item, index) => {
-              if (item !== 0) {
-                // console.log(item);
-                // console.log(paths.current[item]);
-                return (
-                  <path
-                  // d={String(paths.current[item][1])}
+      const a = (
+        <svg className="w-full h-full bg-gray-500" viewBox="0 0  5632 2048">
+          {/* {regionStateIds[rndnum[1]].slice(0, 21).map((areaid, firstindex) => {
+            if (areaid !== 0 || firstindex === 0) {
+              return StateData[areaid].slice(0, 5).map((item, index) => {
+                if (item !== 0) {
+                  // console.log(item);
+                  // console.log(paths.current[item]);
+                  console.log(item);
+                  return (
+                    <path
+                      d={String(paths.current[item - 1][1])}
+                      fill="none"
+                      stroke="white"
+                      strokeWidth="5"
+                      key={item}
+                      // className={"text-green-700"}
+                      // src={`svgstates/${item}.svg`}
+                    ></path>
+                  );
+                }
+              });
+            }
+          })} */}
+          {paths.current.map((item, index) => {
+            const b = String(item[1]);
+            const c = index;
+            // console.log(b);
+            return (
+              <path
+                d={String(item[1])}
+                fill="black"
+                stroke="white"
+                strokeWidth="5"
+                key={item[0]}
+                // onhover
+                className="hover:fill-amber-700"
+                onClick={() => {
+                  console.log(item[0]);
+                }}
+                // className={"text-green-700"}
+                // src={`svgstates/${item}.svg`}
+              ></path>
+            );
+            if (Number(item[1]) >= 3003 && Number(item[1]) < 4018) {
+              console.log(item, index);
+              return (
+                <path
+                  d={item[1]}
+                  fill="none"
+                  stroke="white"
+                  strokeWidth="5"
+                  key={item[0]}
                   // className={"text-green-700"}
                   // src={`svgstates/${item}.svg`}
-                  ></path>
-                );
-              }
-              return <></>;
-            });
+                ></path>
+              );
+            }
           })}
         </svg>
       );
+      // console.log(a);
+      return a;
     }
-  }, [regionStateIds, StateData, rndnum]);
-  // console.log(Image);
+  }, [regionStateIds, StateData, rndnum, paths.current]);
+  if (Image) {
+    // console.log(Image);
+  }
 
   const filteredstatenames = useMemo(() => {
     // console.log(!!statenames, !!query);
@@ -291,15 +337,16 @@ const StateGuesses = () => {
     setstatequery("");
     setregionsquery("");
   }, [rndnum]);
-
+  // if(regionStateIds &&)
+  // console.log();
   // console.log(StateData.slic);
   return (
     <>
-      {/* <div
-        className="w-3/4 h-[45vh] mt-[2vh] bg-[rgb(0,0,0)] border-2 flex items-center justify-center border-gray-300"
+      <div
+        className="w-3/4 h-[45vh] mt-[2vh] bg-[rgb(154,123,123)] border-2 flex items-center justify-center border-gray-300"
         ref={containerRef}
-      > */}
-      {/* {rndnum && StateData && regionStateIds
+      >
+        {/* {rndnum && StateData && regionStateIds
           ? regionStateIds[rndnum[1]].map((item) => {
               // if()
               // StateData[item]
@@ -324,14 +371,54 @@ const StateGuesses = () => {
             //   className="block w-10/11 h-10/11 object-contain object-center"
             // ></img>
             ""} */}
-      {/* {Image ? Image : ""} */}
-      {/* <img
+        {/* {Image ? Image : ""} */}
+        {/* <img
           ref={imageref}
           src={`svgstates/5.svg`}
           // src={`states/173.png`}
           className="block w-10/11 h-10/11 bg-blue-800 fill-green-500 border-amber-300 object-contain object-center"
         ></img> */}
-      {/* </div> */}
+        {
+          // <svg>
+          //   {regionStateIds &&
+          //   rndnum &&
+          //   StateData &&
+          //   !imageinitizalied.current &&
+          //   rndnum[1] !== -1 &&
+          //   paths.current
+          //     ? regionStateIds[rndnum[1]]
+          //         .slice(0, 21)
+          //         .map((areaid, firstindex) => {
+          //           if (areaid !== 0 || firstindex === 0) {
+          //             return (
+          //               <>
+          //                 {StateData[areaid].slice(0, 5).map((item, index) => {
+          //                   if (item !== 0) {
+          //                     // console.log(item);
+          //                     // console.log(paths.current[item]);
+          //                     console.log(item);
+          //                     return (
+          //                       <path
+          //                         d={String(paths.current[item][1])}
+          //                         fill="none"
+          //                         stroke="white"
+          //                         strokeWidth="1"
+          //                         key={item}
+          //                         // className={"text-green-700"}
+          //                         // src={`svgstates/${item}.svg`}
+          //                       ></path>
+          //                     );
+          //                   }
+          //                 })}
+          //               </>
+          //             );
+          //           }
+          //         })
+          //     : ""}
+          // </svg>
+        }
+        {Image ? Image : ""}
+      </div>
       {rndnum &&
       (StateGuesses[0][1] === rndnum[0] ||
         StateGuesses[1][1] === rndnum[0] ||

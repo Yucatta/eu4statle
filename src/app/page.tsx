@@ -9,7 +9,7 @@ export default function Home() {
           <header className="h-1/14 w-full font-bold  bg-[rgb(19,19,19)] flex items-center justify-center border-b-2  ">
             EU4 STATELE
           </header>
-          <States></States>
+          {/* <States></States> */}
           <StateGuesses></StateGuesses>
         </div>
       </div>

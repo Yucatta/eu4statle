@@ -7,7 +7,7 @@ const States = () => {
   const imageref = useRef<HTMLImageElement>(null);
   return (
     <div
-      className="w-3/4 h-[45vh] mt-[2vh] bg-[rgb(0,0,0)] border-2 border-neutral-300 flex items-center justify-center border-gray-300"
+      className="w-3/4 h-[45vh] mt-[2vh] bg-[rgb(0,0,0)] border-2 border-neutral-300 flex items-center justify-center "
       ref={containerRef}
     >
       {rndnum ? (

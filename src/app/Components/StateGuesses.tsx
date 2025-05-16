@@ -26,44 +26,63 @@ const StateGuesses = () => {
   ]);
   const guessid = useRef([-1, -1]);
   const containerRef = useRef<HTMLDivElement>(null);
-  // const imageref = useRef<HTMLImageElement>(null);
-  // const imageinitizalied = useRef(false);
+  const imageref = useRef<HTMLImageElement>(null);
+  const paths = useRef<Array<[string, unknown]>>([]);
+  const imageinitizalied = useRef(false);
   const { rndnum, setrndnum } = useGameState();
-
-  // const Image = useMemo(() => {
-  //   if (
-  //     regionStateIds &&
-  //     rndnum &&
-  //     StateData &&
-  //     !imageinitizalied.current &&
-  //     rndnum[1] !== -1
-  //   ) {
-  //     imageinitizalied.current = true;
-  //     // console.log(regionStateIds);
-  //     // console.log(rndnum);
-  //     // console.log(StateData);
-  //     // console.log(rnr);
-  //     console.log(regionStateIds[rndnum[1]]);
-  //     // return 1;
-  //     return regionStateIds[rndnum[1]].slice(0, 21).map((item) => {
-  //       // if()
-  //       // StateData[item]
-  //       // console.log()
-  //       return StateData[item].slice(0, 5).map((item, index) => {
-  //         if (item !== 0) {
-  //           console.log(item);
-  //           return (
-  //             <img
-  //               className={"text-green-700"}
-  //               src={`svgstates/${item}.svg`}
-  //             ></img>
-  //           );
-  //         }
-  //         return <></>;
-  //       });
-  //     });
+  // const data = useMemo(() => {
+  //   async function fetchjson() {
+  //     const response = await fetch("states.json");
+  //     const data = await response.json();
+  //     console.log(Object.entries(data));
+  //     return Object.entries(data);
   //   }
-  // }, [regionStateIds, StateData, rndnum]);
+  //   return fetchjson();
+  // }, []);
+  useEffect(() => {
+    async function fetchjson() {
+      const response = await fetch("states.json");
+      const data = await response.json();
+      // console.log(Object.entries(data));
+      paths.current = Object.entries(data);
+    }
+    fetchjson();
+    console.log(paths.current);
+  });
+  // console.log(data, typeof data);
+  const Image = useMemo(() => {
+    if (
+      regionStateIds &&
+      rndnum &&
+      StateData &&
+      !imageinitizalied.current &&
+      rndnum[1] !== -1
+    ) {
+      imageinitizalied.current = true;
+      // return 1;
+      return (
+        <svg>
+          {regionStateIds[rndnum[1]].slice(0, 21).map((item) => {
+            return StateData[item].slice(0, 5).map((item, index) => {
+              if (item !== 0) {
+                // console.log(item);
+                // console.log(paths.current[item]);
+                return (
+                  <path
+                  // d={String(paths.current[item][1])}
+                  // className={"text-green-700"}
+                  // src={`svgstates/${item}.svg`}
+                  ></path>
+                );
+              }
+              return <></>;
+            });
+          })}
+        </svg>
+      );
+    }
+  }, [regionStateIds, StateData, rndnum]);
+  // console.log(Image);
 
   const filteredstatenames = useMemo(() => {
     // console.log(!!statenames, !!query);

@@ -21,6 +21,7 @@ const GuessContainer = ({
       }
     });
   }, [StateGuesses, rndnum]);
+
   // console.log(correctguessindex);
   // console.log(StateGuesses, rndnum);
 

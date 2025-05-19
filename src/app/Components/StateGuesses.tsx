@@ -13,12 +13,6 @@ const StateGuesses = () => {
   const [regionsquery, setregionsquery] = useState<string | undefined>(
     undefined
   );
-  const [StateData, setStateData] = useState<number[][]>();
-  const [statelocation, setstatelocation] = useState<number[][]>();
-  const [regionbboxes, setregionbboxes] = useState<number[][]>();
-  const [emptylands, setemptylands] = useState<number[]>();
-  const [statenames, setstatenames] = useState<string[]>();
-  const [regionStateIds, setregionStateIds] = useState<number[][]>();
   const [StateGuesses, setstateguesses] = useState<
     Array<[string | number, number]>
   >([
@@ -27,14 +21,19 @@ const StateGuesses = () => {
     [0, -1],
     [0, -1],
   ]);
+  const imageinitizalied = useRef(false);
   const guessid = useRef([-1, -1]);
   const containerRef = useRef<HTMLDivElement>(null);
   const svgRef = useRef(null);
+  const [StateData, setStateData] = useState<number[][]>();
+  const [regionbboxes, setregionbboxes] = useState<number[][]>();
+  const [emptylands, setemptylands] = useState<number[]>();
+  const [statenames, setstatenames] = useState<string[]>();
+  const [regionStateIds, setregionStateIds] = useState<number[][]>();
   const paths = useRef<Array<[string, unknown]>>([]);
   const areapaths = useRef<Array<[string, unknown]>>([]);
   const oceanea = useRef<Array<[string, unknown]>>([]);
   const regionids = useRef<Array<[string, number[]]>>([]);
-  const imageinitizalied = useRef(false);
   const { rndnum, setrndnum } = useGameState();
 
   useEffect(() => {
@@ -42,7 +41,7 @@ const StateGuesses = () => {
       const response2 = await fetch("stateoutlines.json");
       const data2 = await response2.json();
       areapaths.current = Object.entries(data2);
-      const response3 = await fetch("stateoutlines.json");
+      const response3 = await fetch("oceania.json");
       const data3 = await response3.json();
       oceanea.current = Object.entries(data3);
       const response4 = await fetch("regionids.json");
@@ -67,7 +66,6 @@ const StateGuesses = () => {
       !imageinitizalied.current &&
       rndnum[1] !== -1 &&
       paths.current[0] &&
-      statelocation &&
       emptylands &&
       regionbboxes &&
       regionids &&
@@ -115,7 +113,7 @@ const StateGuesses = () => {
             })}
             {areapaths.current.map((path, index) => {
               const areasplace = regionStateIds[rndnum[1]].indexOf(index);
-              console.log(index, rndnum[0]);
+              // console.log(index, rndnum[0]);
               if ((index !== 0 && areasplace + 1) || areasplace === 0) {
                 return (
                   <path
@@ -194,7 +192,6 @@ const StateGuesses = () => {
             })}
             {areapaths.current.map((path, index) => {
               const areasplace = regionStateIds[rndnum[1]].indexOf(index);
-              console.log(index, rndnum[0]);
               if ((index !== 0 && areasplace + 1) || areasplace === 0) {
                 return (
                   <path
@@ -222,7 +219,6 @@ const StateGuesses = () => {
     StateData,
     rndnum,
     paths.current,
-    statelocation,
     emptylands,
     regionbboxes,
     regionids,
@@ -354,20 +350,6 @@ const StateGuesses = () => {
               return [...tempnames, ...tempnames2];
             });
             setregionStateIds(tempids2);
-          },
-        });
-        const response3 = await fetch("/locations.csv");
-        const csvText3 = await response3.text();
-        const tempids3: number[][] = [];
-        Papa.parse<string[]>(csvText3, {
-          header: false,
-          skipEmptyLines: true,
-          complete: (result) => {
-            result.data.forEach((element) => {
-              tempids3.push([+element[0], +element[1]]);
-            });
-            // console.log(tempnames);
-            setstatelocation(tempids3);
           },
         });
         const response4 = await fetch("/seatiles.csv");

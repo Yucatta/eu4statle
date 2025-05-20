@@ -3,13 +3,27 @@ import React, { useEffect, useState } from "react";
 import Papa from "papaparse";
 import ProvinceGuessCards from "./ProvinceGuessCards";
 import DevelopmentCard from "./DevelopmentCard";
+import { useDataContext } from "@/context/DataContext";
 interface Props {
   StateGuesses: [string | number, number][];
-  StateData: number[][] | undefined;
-  guessid: number[];
+  // StateData: number[][] | undefined;
+  // guessid: number[];
+  // paths: string[][];
+  // areapaths: string[][];
+  // oceania: string[][];
+  // regionids: Array<[string, number[]]>;
+  // areabboxes: number[][];
   rndnum: number[] | undefined;
 }
-const CardGuessContainer = ({ rndnum, StateData }: Props) => {
+const CardContainer = ({
+  rndnum,
+}: // StateData,
+// paths,
+// areapaths,
+// oceania,
+// regionids,
+// areabboxes,
+Props) => {
   const [ProvinceStats, setProvinceStats] = useState<
     Array<[string, number, string, string, string]> | undefined
   >(undefined);
@@ -18,7 +32,7 @@ const CardGuessContainer = ({ rndnum, StateData }: Props) => {
   const [Cultures, SetCultures] = useState<string[]>();
   const [provinceNames, setProvinceNames] = useState<string[]>();
   const [developments, setdevelopments] = useState<number[]>();
-
+  const { StateData } = useDataContext();
   useEffect(() => {
     async function fetchdata() {
       try {
@@ -109,7 +123,7 @@ const CardGuessContainer = ({ rndnum, StateData }: Props) => {
       setProvinceNames(tempnames);
       const tempdevs: number[] = [];
       for (let i = 0; i < 823; i++) {
-        let statedev = [0, 0];
+        const statedev = [0, 0];
         for (let j = 0; j < 5; j++) {
           if (!StateData[i][j]) {
             break;
@@ -146,33 +160,29 @@ const CardGuessContainer = ({ rndnum, StateData }: Props) => {
               rndnum={rndnum}
               CardsNames={Religions}
               provincestats={ProvinceStats}
-              StateData={StateData}
             ></ProvinceGuessCards>
             <ProvinceGuessCards
               rndnum={rndnum}
               CardsNames={TradeGoods}
-              StateData={StateData}
               provincestats={ProvinceStats}
             ></ProvinceGuessCards>
           </div>
 
           <div className="flex flex-col w-1/2 min-w-60 items-center">
             <ProvinceGuessCards
-              rndnum={rndnum}
-              StateData={StateData}
               CardsNames={Cultures}
+              rndnum={rndnum}
               provincestats={ProvinceStats}
             ></ProvinceGuessCards>
             <DevelopmentCard
               rndnum={rndnum}
+              StateData={StateData}
               Development={developments && rndnum ? developments[rndnum[0]] : 0}
               provincestats={ProvinceStats}
-              StateData={StateData}
             ></DevelopmentCard>
           </div>
           <ProvinceGuessCards
             rndnum={rndnum}
-            StateData={StateData}
             provincestats={ProvinceStats}
             CardsNames={provinceNames}
           ></ProvinceGuessCards>
@@ -182,4 +192,4 @@ const CardGuessContainer = ({ rndnum, StateData }: Props) => {
   );
 };
 
-export default CardGuessContainer;
+export default CardContainer;

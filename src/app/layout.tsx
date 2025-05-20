@@ -3,9 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { StrictMode } from "react";
 import { GameStateProvider } from "@/context/gamecontext";
-import fs from "fs";
-import path from "path";
-import Papa from "papaparse";
+
 import { DataProvider } from "@/context/DataContext";
 import { loadAppData } from "@/lib/data";
 
@@ -67,16 +65,14 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // const root = process.cwd() + "/public";
-  // const fetcheddata = await loadAppData();
-
+  const fetcheddata = await loadAppData();
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <StrictMode>
-          {/* <DataProvider
+          <DataProvider
             value={{
               StateData: fetcheddata.stateData,
               regionStateIds: fetcheddata.regionStateIds,
@@ -87,10 +83,11 @@ export default async function RootLayout({
               oceania: fetcheddata.oceania,
               regionids: fetcheddata.regionids,
               paths: fetcheddata.paths,
+              areabboxes: fetcheddata.areabboxes,
             }}
-          > */}
-          <GameStateProvider>{children}</GameStateProvider>
-          {/* </DataProvider> */}
+          >
+            <GameStateProvider>{children}</GameStateProvider>
+          </DataProvider>
         </StrictMode>
       </body>
     </html>

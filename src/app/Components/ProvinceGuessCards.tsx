@@ -2,18 +2,13 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import InputandList from "./Input";
 import CardGuesContainer from "./CardGuesContainer";
+import { useDataContext } from "@/context/DataContext";
 interface Props {
   rndnum: number[] | undefined;
   CardsNames?: string[];
   provincestats: Array<[string, number, string, string, string]> | undefined;
-  StateData: number[][] | undefined;
 }
-const ProvinceGuessCards = ({
-  rndnum,
-  CardsNames,
-  provincestats,
-  StateData,
-}: Props) => {
+const ProvinceGuessCards = ({ rndnum, CardsNames, provincestats }: Props) => {
   const [iscardopened, setiscardopened] = useState(false);
   const [cardquery, setcardquery] = useState<string | undefined>(undefined);
   const inputref = useRef<HTMLInputElement>(null);
@@ -47,6 +42,103 @@ const ProvinceGuessCards = ({
       return;
     }
   }, [CardsNames, cardquery]);
+  const {
+    paths,
+    regionStateIds,
+    statenames,
+    StateData,
+    areapaths,
+    areabboxes,
+    // oceania,
+    regionids,
+    regionbboxes,
+    emptylands,
+    // areabboxes,
+  } = useDataContext();
+  const Image = useMemo(() => {
+    if (
+      regionStateIds &&
+      rndnum &&
+      StateData &&
+      // !imageinitizalied.current &&
+      paths &&
+      emptylands &&
+      regionbboxes &&
+      regionids &&
+      areabboxes &&
+      areapaths[0]
+    ) {
+      // imageinitizalied.current = true;
+      // const areabboxes;
+      // console.log(areabboxes, rndnum, areabboxes[rndnum[0]]);
+      const a = (
+        <svg
+          className="w-full h-full  bg-[rgb(50,50,150)]"
+          viewBox={`
+                ${areabboxes[rndnum[0]][0]} ${areabboxes[rndnum[0]][1]}  ${
+            areabboxes[rndnum[0]][2] - areabboxes[rndnum[0]][0]
+          } ${areabboxes[rndnum[0]][3] - areabboxes[rndnum[0]][1]}
+                `}
+          xmlns="http://www.w3.org/2000/svg"
+          width="100%"
+          height="100%"
+        >
+          {regionids[rndnum[1]].map((provinceid) => {
+            return (
+              <path
+                d={String(paths[provinceid - 1][1])}
+                fill={
+                  StateData[rndnum[0]].includes(provinceid)
+                    ? "rgb(50, 50, 50)"
+                    : // ? "none"
+                      "rgb(30,30,30)"
+                }
+                stroke={
+                  StateData[rndnum[0]].includes(provinceid)
+                    ? "rgb(150,150,150)"
+                    : "rgb(35,35,35)"
+                }
+                strokeWidth={
+                  StateData[rndnum[0]].includes(provinceid) ? "0.5" : "1"
+                }
+                key={provinceid}
+                // className="hover:fill-amber-700"
+                // onClick={() => {
+                //   console.log(provinceid);
+                // }}
+              ></path>
+            );
+          })}
+          {areapaths.map((path, index) => {
+            const areasplace = regionStateIds[rndnum[1]].indexOf(index);
+            // console.log(index, rndnum[0]);
+            if ((index !== 0 && areasplace + 1) || areasplace === 0) {
+              return (
+                <path
+                  d={String(path[1])}
+                  fill={"none"}
+                  stroke={index === rndnum[0] ? "rgb(80, 0, 100)" : "none"}
+                  strokeWidth="1.2"
+                  key={index}
+                ></path>
+              );
+            }
+          })}
+        </svg>
+      );
+      return a;
+    }
+  }, [
+    regionStateIds,
+    StateData,
+    rndnum,
+    paths,
+    emptylands,
+    regionbboxes,
+    regionids,
+    areapaths,
+  ]);
+
   useEffect(() => {
     function getcorrectanswers() {
       if (StateData && rndnum && CardsNames && provincestats) {
@@ -213,7 +305,8 @@ const ProvinceGuessCards = ({
             }
           >
             <div className="flex justify-center w-full border-0 h-21">
-              <img
+              {Image ? Image : ""}
+              {/* <img
                 src={`onlystates/${rndnum[0]}.png`}
                 className=" w-auto fixed h-20 z-0"
               ></img>
@@ -227,7 +320,7 @@ const ProvinceGuessCards = ({
                       ></img>
                     );
                   })
-                : ""}
+                : ""} */}
             </div>
 
             {correctanswers &&

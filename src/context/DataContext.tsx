@@ -2,15 +2,6 @@
 import { createContext, useContext } from "react";
 
 type DataContextType = {
-  //   const [StateData, setStateData] = useState<number[][]>();
-  //   const [regionbboxes, setregionbboxes] = useState<number[][]>();
-  //   const [emptylands, setemptylands] = useState<number[]>();
-  //   const [statenames, setstatenames] = useState<string[]>();
-  //   const [regionStateIds, setregionStateIds] = useState<number[][]>();
-  //   const paths = useRef<Array<[string, unknown]>>([]);
-  //   const areapaths = useRef<Array<[string, unknown]>>([]);
-  //   const oceanea = useRef<Array<[string, unknown]>>([]);
-  //   const regionids = useRef<Array<[string, number[]]>>([]);
   StateData: number[][];
   regionbboxes: number[][];
   emptylands: number[];
@@ -19,7 +10,8 @@ type DataContextType = {
   paths: string[][];
   areapaths: string[][];
   oceania: string[][];
-  regionids: Array<[string, number]>;
+  regionids: number[][];
+  areabboxes: number[][];
 };
 
 const DataContext = createContext<DataContextType | null>(null);

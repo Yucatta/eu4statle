@@ -1,4 +1,4 @@
-import States from "./Components/States";
+// import States from "./Components/States";
 import StateGuesses from "./Components/StateGuesses";
 
 export default function Home() {

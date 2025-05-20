@@ -45,7 +45,7 @@ const ProvinceGuessCards = ({ rndnum, CardsNames, provincestats }: Props) => {
   const {
     paths,
     regionStateIds,
-    statenames,
+    // statenames,
     StateData,
     areapaths,
     areabboxes,

@@ -143,7 +143,7 @@ Props) => {
         tempdevs.push(Number((statedev[0] / statedev[1]).toFixed(2)));
       }
 
-      // console.log(tempcultures);
+      console.log(tempcultures.slice(300, 400));
       setdevelopments(tempdevs);
       //   console.log(temptradegoods, tempcultures, tempreligions);
     }

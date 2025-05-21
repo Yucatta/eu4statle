@@ -73,7 +73,7 @@ const ProvinceGuessCards = ({ rndnum, CardsNames, provincestats }: Props) => {
       // console.log(areabboxes, rndnum, areabboxes[rndnum[0]]);
       const a = (
         <svg
-          className="w-full h-full  bg-[rgb(50,50,150)]"
+          className="w-full h-full  "
           viewBox={`
                 ${areabboxes[rndnum[0]][0]} ${areabboxes[rndnum[0]][1]}  ${
             areabboxes[rndnum[0]][2] - areabboxes[rndnum[0]][0]
@@ -89,14 +89,14 @@ const ProvinceGuessCards = ({ rndnum, CardsNames, provincestats }: Props) => {
                 d={String(paths[provinceid - 1][1])}
                 fill={
                   StateData[rndnum[0]].includes(provinceid)
-                    ? "rgb(50, 50, 50)"
+                    ? "rgb(60, 60, 60)"
                     : // ? "none"
-                      "rgb(30,30,30)"
+                      "rgb(45,45,45)"
                 }
                 stroke={
                   StateData[rndnum[0]].includes(provinceid)
                     ? "rgb(150,150,150)"
-                    : "rgb(35,35,35)"
+                    : "rgb(50,50,50)"
                 }
                 strokeWidth={
                   StateData[rndnum[0]].includes(provinceid) ? "0.5" : "1"

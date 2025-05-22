@@ -25,7 +25,7 @@ const CardContainer = ({
 // areabboxes,
 Props) => {
   const [ProvinceStats, setProvinceStats] = useState<
-    Array<[string, number, string, string, string]> | undefined
+    Array<[string, number, string, string, string, string]> | undefined
   >(undefined);
   const [Religions, setReligions] = useState<string[]>();
   const [TradeGoods, setTradeGoods] = useState<string[]>();
@@ -38,7 +38,8 @@ Props) => {
       try {
         const response = await fetch("/provinces.csv");
         const csvText = await response.text();
-        const tempids: Array<[string, number, string, string, string]> = [];
+        const tempids: Array<[string, number, string, string, string, string]> =
+          [];
         // const tempnames: string[] = [];
         Papa.parse<string[]>(csvText, {
           header: false,
@@ -53,6 +54,7 @@ Props) => {
                 element[3],
                 element[4],
                 element[5],
+                element[6],
               ]);
             });
             setProvinceStats(tempids);

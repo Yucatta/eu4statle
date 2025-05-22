@@ -7,7 +7,9 @@ import CardGuesContainer from "./CardGuesContainer";
 interface Props {
   rndnum: number[] | undefined;
   Development: number;
-  provincestats: Array<[string, number, string, string, string]> | undefined;
+  provincestats:
+    | Array<[string, number, string, string, string, string]>
+    | undefined;
   StateData: number[][] | undefined;
 }
 const DevelopmentCard = ({
@@ -192,7 +194,7 @@ Props) => {
                 Development - 2 < e &&
                 Development !== 0
               ) {
-                console.log("e", e > Development, Development);
+                // console.log("e", e > Development, Development);
                 return e;
               }
             }).length > 0 ? (
@@ -214,7 +216,7 @@ Props) => {
                 <button
                   className=" w-4/11 rounded-2xl ml-2 mt-2 h-11 text-sm border-5 border-gray-800 bg-gray-700 z-50 cursor-pointer transition-all hover:scale-103 active:scale-90"
                   onClick={() => {
-                    console.log("aaaaa", Development);
+                    // console.log("aaaaa", Development);
                     if (
                       inputref.current
                       // typeof inputref.current.value === "number"

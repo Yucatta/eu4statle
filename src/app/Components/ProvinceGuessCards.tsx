@@ -6,7 +6,9 @@ import { useDataContext } from "@/context/DataContext";
 interface Props {
   rndnum: number[] | undefined;
   CardsNames?: string[];
-  provincestats: Array<[string, number, string, string, string]> | undefined;
+  provincestats:
+    | Array<[string, number, string, string, string, string]>
+    | undefined;
 }
 const ProvinceGuessCards = ({ rndnum, CardsNames, provincestats }: Props) => {
   const [iscardopened, setiscardopened] = useState(false);

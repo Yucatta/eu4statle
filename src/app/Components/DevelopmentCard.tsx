@@ -38,7 +38,7 @@ Props) => {
     StateData,
     areapaths,
     areabboxes,
-    // oceania,
+    oceania,
     regionids,
     regionbboxes,
     emptylands,
@@ -62,7 +62,7 @@ Props) => {
       // console.log(areabboxes, rndnum, areabboxes[rndnum[0]]);
       const a = (
         <svg
-          className="w-full h-full  bg-[rgb(50,50,150)]"
+          className="w-full h-full  "
           viewBox={`
                   ${areabboxes[rndnum[0]][0]} ${areabboxes[rndnum[0]][1]}  ${
             areabboxes[rndnum[0]][2] - areabboxes[rndnum[0]][0]
@@ -72,32 +72,61 @@ Props) => {
           width="100%"
           height="100%"
         >
-          {regionids[rndnum[1]].map((provinceid) => {
-            return (
-              <path
-                d={String(paths[provinceid - 1][1])}
-                fill={
-                  StateData[rndnum[0]].includes(provinceid)
-                    ? "rgb(50, 50, 50)"
-                    : // ? "none"
-                      "rgb(30,30,30)"
-                }
-                stroke={
-                  StateData[rndnum[0]].includes(provinceid)
-                    ? "rgb(150,150,150)"
-                    : "rgb(35,35,35)"
-                }
-                strokeWidth={
-                  StateData[rndnum[0]].includes(provinceid) ? "0.5" : "1"
-                }
-                key={provinceid}
-                // className="hover:fill-amber-700"
-                // onClick={() => {
-                //   console.log(provinceid);
-                // }}
-              ></path>
-            );
-          })}
+          {rndnum[1] === 58
+            ? oceania.map((provinceid) => {
+                return (
+                  <path
+                    d={provinceid[1]}
+                    fill={
+                      StateData[rndnum[0]].includes(Number(provinceid[0]))
+                        ? "rgb(60, 60, 60)"
+                        : // ? "none"
+                          "rgb(45,45,45)"
+                    }
+                    stroke={
+                      StateData[rndnum[0]].includes(Number(provinceid[0]))
+                        ? "rgb(150,150,150)"
+                        : "rgb(50,50,50)"
+                    }
+                    strokeWidth={
+                      StateData[rndnum[0]].includes(Number(provinceid[0]))
+                        ? "0.5"
+                        : "1"
+                    }
+                    key={Number(provinceid[0])}
+                    // className="hover:fill-amber-700"
+                    // onClick={() => {
+                    //   console.log(provinceid);
+                    // }}
+                  ></path>
+                );
+              })
+            : regionids[rndnum[1]].map((provinceid) => {
+                return (
+                  <path
+                    d={String(paths[provinceid - 1][1])}
+                    fill={
+                      StateData[rndnum[0]].includes(provinceid)
+                        ? "rgb(60, 60, 60)"
+                        : // ? "none"
+                          "rgb(45,45,45)"
+                    }
+                    stroke={
+                      StateData[rndnum[0]].includes(provinceid)
+                        ? "rgb(150,150,150)"
+                        : "rgb(50,50,50)"
+                    }
+                    strokeWidth={
+                      StateData[rndnum[0]].includes(provinceid) ? "0.5" : "1"
+                    }
+                    key={provinceid}
+                    // className="hover:fill-amber-700"
+                    // onClick={() => {
+                    //   console.log(provinceid);
+                    // }}
+                  ></path>
+                );
+              })}
           {areapaths.map((path, index) => {
             const areasplace = regionStateIds[rndnum[1]].indexOf(index);
             // console.log(index, rndnum[0]);

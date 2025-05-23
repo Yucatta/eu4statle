@@ -24,7 +24,6 @@ const StateGuesses = () => {
   ]);
   const imageinitizalied = useRef(false);
   const guessid = useRef([-1, -1]);
-  const containerRef = useRef<HTMLDivElement>(null);
   const svgRef = useRef(null);
   const { rndnum, setrndnum } = useGameState();
 
@@ -34,7 +33,7 @@ const StateGuesses = () => {
     statenames,
     StateData,
     areapaths,
-    // oceania,
+    oceania,
     regionids,
     regionbboxes,
     emptylands,
@@ -70,19 +69,20 @@ const StateGuesses = () => {
             width="100%"
             height="100%"
           >
-            {regionids[rndnum[1]].map((provinceid) => {
+            {oceania.map((provinceid) => {
+              console.log(provinceid);
               return (
                 <path
-                  d={String(paths[provinceid - 1][1])}
+                  d={provinceid[1]}
                   fill={
-                    StateData[rndnum[0]].includes(provinceid)
+                    StateData[rndnum[0]].includes(Number(provinceid[0]))
                       ? "rgb(190, 160, 255)"
                       : // ? "none"
                         "rgb(50,50,50)"
                   }
                   stroke="white"
                   strokeWidth="0.5"
-                  key={provinceid}
+                  key={Number(provinceid[0])}
                   // className="hover:fill-amber-700"
                   // onClick={() => {
                   //   console.log(provinceid);
@@ -103,7 +103,7 @@ const StateGuesses = () => {
                         ? "rgb(80, 0, 100)"
                         : "rgb(230,230,230)"
                     }
-                    strokeWidth={index === rndnum[0] ? "3" : "0.8"}
+                    strokeWidth={index === rndnum[0] ? "6" : "0.8"}
                     key={index}
                   ></path>
                 );
@@ -322,6 +322,7 @@ const StateGuesses = () => {
     if (regionStateIds) {
       const temp = Math.floor(Math.random() * 824);
       setrndnum([temp, findRegion(temp, temp)]);
+      // setrndnum([344, 58]);
     }
   }, [regionStateIds]);
   // useEffect(() => {
@@ -341,10 +342,7 @@ const StateGuesses = () => {
   }, [rndnum]);
   return (
     <>
-      <div
-        className="w-3/4 h-[45vh] mt-[2vh] bg-[rgb(50,50,50)] border-2  overflow-scroll   border-gray-300"
-        ref={containerRef}
-      >
+      <div className="w-3/4 h-[45vh] p-0 mt-[2vh] bg-[rgb(50,50,50)] ">
         {/* {SvgImage} */}
         {Image ? Image : ""}
       </div>

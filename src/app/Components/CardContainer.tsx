@@ -28,8 +28,12 @@ Props) => {
     Array<[string, number, string, string, string, string]> | undefined
   >(undefined);
   const [Religions, setReligions] = useState<string[]>();
+  const [Religionrgbs, setReligionrgbs] = useState<string[]>();
   const [TradeGoods, setTradeGoods] = useState<string[]>();
-  const [Cultures, SetCultures] = useState<string[]>();
+  const [tradegoodrgbs, settradegoodrgbs] = useState<string[]>();
+  const [Terrains, setTerrains] = useState<string[]>();
+  const [terrainrgbs, setterrainrgbs] = useState<string[]>();
+  const [Cultures, SetCultures] = useState<string[][][]>();
   const [provinceNames, setProvinceNames] = useState<string[]>();
   const [developments, setdevelopments] = useState<number[]>();
   const { StateData } = useDataContext();
@@ -60,68 +64,64 @@ Props) => {
             setProvinceStats(tempids);
           },
         });
+        const religionresponse = await fetch("/religions.json");
+        const religiontext: string[] = await religionresponse.json();
+        setReligions(
+          religiontext.map((line) => {
+            return line[0];
+          })
+        );
+        setReligionrgbs(
+          religiontext.map((line) => {
+            return line[1];
+          })
+        );
+
+        const TradeGoodsresponse = await fetch("/tradegoods.json");
+        const TradeGoodstext: string[] = await TradeGoodsresponse.json();
+        setTradeGoods(
+          TradeGoodstext.map((line) => {
+            return line[0];
+          })
+        );
+        settradegoodrgbs(
+          TradeGoodstext.map((line) => {
+            return line[1];
+          })
+        );
+        const terrainsresponse = await fetch("/terrains.json");
+        const terrainstext: string[] = await terrainsresponse.json();
+        setTerrains(
+          terrainstext.map((line) => {
+            return line[0];
+          })
+        );
+        setterrainrgbs(
+          terrainstext.map((line) => {
+            return line[1];
+          })
+        );
+        const culturesresponse = await fetch("cultures.json");
+        const culturestext: string[][][] = await culturesresponse.json();
+        SetCultures(culturestext);
+
+        // const religionnames[]
       } catch (error) {
         console.error("Error loading CSV file:", error);
       }
     }
     fetchdata();
   }, []);
+  console.log(terrainrgbs);
   useEffect(() => {
-    const tempreligions: string[] = [];
-    const temptradegoods: string[] = [];
-    const tempcultures: string[] = [];
     const tempnames: string[] = [];
     if (ProvinceStats && StateData) {
-      for (let i = 0; i < ProvinceStats.length; i++) {
-        for (let j = 2; j < 5; j++) {
-          if (ProvinceStats[i][j] === "" || ProvinceStats[i][j] === "a") {
-            break;
-          } else {
-            if (j === 2) {
-              let tempok = true;
-              for (let k = 0; k < tempcultures.length; k++) {
-                if (ProvinceStats[i][j] === tempcultures[k]) {
-                  tempok = false;
-                  break;
-                }
-              }
-              if (tempok) {
-                tempcultures.push(ProvinceStats[i][j]);
-              }
-            } else if (j === 3) {
-              let tempok = true;
-              for (let k = 0; k < tempreligions.length; k++) {
-                if (ProvinceStats[i][j] === tempreligions[k]) {
-                  tempok = false;
-                  break;
-                }
-              }
-              if (tempok) {
-                tempreligions.push(ProvinceStats[i][j]);
-              }
-            } else if (j === 4) {
-              let tempok = true;
-              for (let k = 0; k < temptradegoods.length; k++) {
-                if (ProvinceStats[i][j] === temptradegoods[k]) {
-                  tempok = false;
-                  break;
-                }
-              }
-              if (tempok) {
-                temptradegoods.push(ProvinceStats[i][j]);
-              }
-            }
-          }
-        }
-      }
       for (let i = 0; i < ProvinceStats.length; i++) {
         if (ProvinceStats[i][4] !== "a" && ProvinceStats[i][4] !== "") {
           tempnames.push(ProvinceStats[i][0]);
         }
       }
-      setReligions(tempreligions);
-      SetCultures(tempcultures);
-      setTradeGoods(temptradegoods);
+
       setProvinceNames(tempnames);
       const tempdevs: number[] = [];
       for (let i = 0; i < 823; i++) {
@@ -132,27 +132,14 @@ Props) => {
           }
           statedev[1] += 1;
           statedev[0] += ProvinceStats[StateData[i][j] - 1][1];
-          // if (i == 213) {
-          //   console.log(
-          //     StateData[i][j],
-          //     ProvinceStats[StateData[i][j] - 1][1],
-          //     ProvinceStats[StateData[i][j] - 1][0],
-          //     statedev[1],
-          //     statedev[0]
-          //   );
-          // }
         }
         tempdevs.push(Number((statedev[0] / statedev[1]).toFixed(2)));
       }
 
-      console.log(tempcultures.slice(300, 400));
       setdevelopments(tempdevs);
-      //   console.log(temptradegoods, tempcultures, tempreligions);
     }
   }, [ProvinceStats, rndnum]);
-  // console.log(developments && rndnum ? developments[rndnum[0]] : 5);
-  // useEffect(()=>{},[ProvinceStats,rndnum])
-  //   console.log(TradeGoods, Cultures, Religions);
+
   return (
     <>
       <div className="flex justify-center w-full items-center">
@@ -160,11 +147,13 @@ Props) => {
           <div className="flex flex-col w-1/2 min-w-60 items-center ">
             <ProvinceGuessCards
               rndnum={rndnum}
+              Cardrgbs={Religionrgbs}
               CardsNames={Religions}
               provincestats={ProvinceStats}
             ></ProvinceGuessCards>
             <ProvinceGuessCards
               rndnum={rndnum}
+              Cardrgbs={Religionrgbs}
               CardsNames={TradeGoods}
               provincestats={ProvinceStats}
             ></ProvinceGuessCards>
@@ -172,7 +161,8 @@ Props) => {
 
           <div className="flex flex-col w-1/2 min-w-60 items-center">
             <ProvinceGuessCards
-              CardsNames={Cultures}
+              CardsNames={Terrains}
+              Cardrgbs={Religionrgbs}
               rndnum={rndnum}
               provincestats={ProvinceStats}
             ></ProvinceGuessCards>
@@ -186,7 +176,7 @@ Props) => {
           <ProvinceGuessCards
             rndnum={rndnum}
             provincestats={ProvinceStats}
-            CardsNames={provinceNames}
+            CardsNames={provinceNames!}
           ></ProvinceGuessCards>
         </div>
       </div>

@@ -70,7 +70,6 @@ const StateGuesses = () => {
             height="100%"
           >
             {oceania.map((provinceid) => {
-              console.log(provinceid);
               return (
                 <path
                   d={provinceid[1]}

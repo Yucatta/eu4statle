@@ -33,7 +33,7 @@ Props) => {
   const [tradegoodrgbs, settradegoodrgbs] = useState<string[]>();
   const [Terrains, setTerrains] = useState<string[]>();
   const [terrainrgbs, setterrainrgbs] = useState<string[]>();
-  const [Cultures, SetCultures] = useState<string[][][]>();
+  // const [Cultures, SetCultures] = useState<string[][][]>();
   const [provinceNames, setProvinceNames] = useState<string[]>();
   const [developments, setdevelopments] = useState<number[]>();
   const { StateData } = useDataContext();
@@ -101,9 +101,9 @@ Props) => {
             return line[1];
           })
         );
-        const culturesresponse = await fetch("cultures.json");
-        const culturestext: string[][][] = await culturesresponse.json();
-        SetCultures(culturestext);
+        // const culturesresponse = await fetch("cultures.json");
+        // const culturestext: string[][][] = await culturesresponse.json();
+        // SetCultures(culturestext);
 
         // const religionnames[]
       } catch (error) {
@@ -112,7 +112,6 @@ Props) => {
     }
     fetchdata();
   }, []);
-  console.log(terrainrgbs);
   useEffect(() => {
     const tempnames: string[] = [];
     if (ProvinceStats && StateData) {
@@ -153,7 +152,7 @@ Props) => {
             ></ProvinceGuessCards>
             <ProvinceGuessCards
               rndnum={rndnum}
-              Cardrgbs={Religionrgbs}
+              Cardrgbs={tradegoodrgbs}
               CardsNames={TradeGoods}
               provincestats={ProvinceStats}
             ></ProvinceGuessCards>
@@ -162,7 +161,7 @@ Props) => {
           <div className="flex flex-col w-1/2 min-w-60 items-center">
             <ProvinceGuessCards
               CardsNames={Terrains}
-              Cardrgbs={Religionrgbs}
+              Cardrgbs={terrainrgbs}
               rndnum={rndnum}
               provincestats={ProvinceStats}
             ></ProvinceGuessCards>

@@ -138,7 +138,7 @@ const CardContainer = () => {
 
       setdevelopments(tempdevs);
     }
-  }, [ProvinceStats, rndnum]);
+  }, [ProvinceStats, rndnum, StateData]);
   const buttons = [
     "Religion",
     "Terrains",
@@ -242,6 +242,8 @@ const CardContainer = () => {
     currentcard,
     developments,
     developmentrgbs,
+    Cultures,
+    StateData,
   ]);
   return (
     <>

@@ -2,7 +2,6 @@
 // import States from "./Components/States";
 import StateGuesses from "./Components/StateGuesses";
 import CardContainer from "./Components/CardContainer";
-import useGameFunction from "@/hooks/utilitys";
 export default function Home() {
   return (
     <>

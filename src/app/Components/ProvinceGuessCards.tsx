@@ -10,35 +10,74 @@ interface Props {
   provincestats:
     | Array<[string, number, string, string, string, string]>
     | undefined;
+  onProvinceGuess: (e: string[]) => void;
+  cardguesses: string[];
 }
 const ProvinceGuessCards = ({
   rndnum,
   CardsNames,
   provincestats,
   Cardrgbs,
+  cardguesses,
+  onProvinceGuess,
 }: Props) => {
-  const [iscardopened, setiscardopened] = useState(false);
   const [cardquery, setcardquery] = useState<string | undefined>(undefined);
+  const [regionquery, setregionquery] = useState<string | undefined>(undefined);
   const inputref = useRef<HTMLInputElement>(null);
-  const [cardguesses, setcardguesses] = useState([
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-  ]);
+  const regionref = useRef<HTMLInputElement>(null);
+  // const [cardguesses, setcardguesses] = useState<string[]>([]);
   const [correctguessedprovinces, setcorrectguessedprovinces] = useState([-1]);
   const hasinitialized = useRef(false);
   const correctanswers = useRef<string[] | undefined>(undefined);
+  const {
+    paths,
+    regionStateIds,
+    statenames,
+    StateData,
+    areapaths,
+    areabboxes,
+    oceania,
+    regionids,
+    regionbboxes,
+    emptylands,
+  } = useDataContext();
+  const regionindex = regionquery
+    ? statenames.slice(823, 896).indexOf(regionquery)
+    : -1;
+  const filteredregions = useMemo(() => {
+    return statenames.slice(823, 896).filter((regionname) => {
+      if (!regionquery) {
+        return true;
+      } else {
+        return (
+          regionquery &&
+          regionname.toLowerCase().includes(regionquery.toLowerCase())
+        );
+      }
+    });
+  }, [statenames, regionquery]);
+
   const filteredCardNames = useMemo(() => {
     if (CardsNames) {
+      if (regionquery && provincestats && regionindex !== -1) {
+        console.log(regionquery, cardquery, regionindex);
+        if (filteredregions.length === 1 && cardquery) {
+          return regionids[regionindex]
+            .map((id) => {
+              return provincestats[id - 1][0];
+            })
+            .filter((provincename) => {
+              return provincename
+                .toLowerCase()
+                .includes(cardquery.toLowerCase());
+            });
+        } else {
+          return regionids[regionindex].map((id) => {
+            return provincestats[id - 1][0];
+          });
+        }
+      }
+
       if (cardquery) {
         return CardsNames.filter((cardname) => {
           return cardname.toLowerCase().includes(cardquery.toLowerCase());
@@ -49,19 +88,8 @@ const ProvinceGuessCards = ({
     } else {
       return;
     }
-  }, [CardsNames, cardquery]);
-  const {
-    paths,
-    regionStateIds,
-    // statenames,
-    StateData,
-    areapaths,
-    areabboxes,
-    oceania,
-    regionids,
-    regionbboxes,
-    emptylands,
-  } = useDataContext();
+  }, [CardsNames, cardquery, provincestats, statenames, regionquery]);
+
   const Image = useMemo(() => {
     if (
       regionStateIds &&
@@ -124,22 +152,36 @@ const ProvinceGuessCards = ({
                     d={String(paths[provinceid - 1][1])}
                     fill={
                       StateData[rndnum[0]].includes(provinceid)
-                        ? Cardrgbs &&
-                          provincestats &&
-                          CardsNames &&
-                          correctguessedprovinces.includes(provinceid) &&
-                          CardsNames.length < 35
-                          ? Cardrgbs[
-                              CardsNames.indexOf(
-                                provincestats[provinceid - 1][
-                                  CardsNames.length === 24
-                                    ? 3
-                                    : CardsNames.length === 31
-                                    ? 4
-                                    : 5
-                                ]
-                              )
-                            ]
+                        ? correctguessedprovinces.includes(provinceid) ||
+                          (correctanswers.current?.length ===
+                            correctguessedprovinces.length &&
+                            Cardrgbs) ||
+                          cardguesses.length ===
+                            (CardsNames.length === 24
+                              ? 4
+                              : CardsNames.length === 31
+                              ? 6
+                              : CardsNames.length === 16
+                              ? 5
+                              : 10)
+                          ? Cardrgbs &&
+                            provincestats &&
+                            CardsNames &&
+                            CardsNames.length < 35
+                            ? Cardrgbs[
+                                CardsNames.indexOf(
+                                  provincestats[provinceid - 1][
+                                    CardsNames.length === 24
+                                      ? 3
+                                      : CardsNames.length === 31
+                                      ? 4
+                                      : 5
+                                  ]
+                                )
+                              ]
+                            : correctguessedprovinces.includes(provinceid)
+                            ? "rgb(119, 221, 119)"
+                            : "rgb(177 64 62)"
                           : "rgb(60, 60, 60)"
                         : // ? "none"
                           "rgb(45,45,45)"
@@ -153,59 +195,10 @@ const ProvinceGuessCards = ({
                       StateData[rndnum[0]].includes(provinceid) ? "0.5" : "1"
                     }
                     key={provinceid}
-                    // className="hover:fill-amber-700"
-                    onClick={() => {
-                      // console.log(provinceid);
-                      if (
-                        Cardrgbs &&
-                        provincestats &&
-                        CardsNames &&
-                        CardsNames.length < 35
-                      ) {
-                        console.log(
-                          Cardrgbs[
-                            CardsNames.indexOf(
-                              provincestats[provinceid - 1][
-                                CardsNames.length === 24
-                                  ? 3
-                                  : CardsNames.length === 31
-                                  ? 4
-                                  : 5
-                              ]
-                            )
-                          ],
-                          StateData[rndnum[0]].includes(provinceid)
-                            ? correctguessedprovinces.includes(provinceid) &&
-                              CardsNames.length < 35
-                              ? Cardrgbs[
-                                  CardsNames.indexOf(
-                                    provincestats[provinceid - 1][
-                                      CardsNames.length === 24
-                                        ? 3
-                                        : CardsNames.length === 31
-                                        ? 4
-                                        : 5
-                                    ]
-                                  )
-                                ]
-                              : "rgb(60, 60, 60)"
-                            : // ? "none"
-                              "rgb(45,45,45)",
-                          correctguessedprovinces,
-                          provinceid
-                        );
-                      } else {
-                        console.log(
-                          Cardrgbs,
-                          provincestats,
-                          CardsNames
-                          // CardsNames.length < 35
-                        );
-                      }
-                    }}
                   ></path>
                 );
               })}
+
           {areapaths.map((path, index) => {
             const areasplace = regionStateIds[rndnum[1]].indexOf(index);
             // console.log(index, rndnum[0]);
@@ -239,6 +232,7 @@ const ProvinceGuessCards = ({
     provincestats,
     correctguessedprovinces,
   ]);
+
   // console.log(StateData)
   useEffect(() => {
     function getcorrectanswers() {
@@ -270,16 +264,18 @@ const ProvinceGuessCards = ({
     }
     // 1796 1996
     if (!hasinitialized.current) {
-      correctanswers.current = getcorrectanswers();
+      const temp = getcorrectanswers();
+      console.log("aaaaaaa", temp, correctanswers.current);
+      // correctanswers.current = undefined;
+      correctanswers.current = temp;
+      console.log("bbbb", temp, correctanswers.current);
     }
   }, [rndnum, StateData, CardsNames, provincestats]);
   // useEffect(()=>{},[rndnum])
-  useEffect(() => {
-    correctanswers.current = undefined;
-    hasinitialized.current = false;
-    setcardguesses(["", "", "", "", "", "", "", "", "", "", "", ""]);
-    setiscardopened(false);
-  }, [rndnum]);
+  // useEffect(() => {
+  //   correctanswers.current = undefined;
+  //   hasinitialized.current = false;
+  // }, [rndnum]);
   const uniquecorrectanswers: string[] = [];
   if (correctanswers.current) {
     for (let i = 0; i < correctanswers.current.length; i++) {
@@ -295,33 +291,44 @@ const ProvinceGuessCards = ({
       }
     }
   }
+  useEffect(() => {
+    if (correctanswers.current) {
+      const temp: number[] = [];
+      console.log(cardguesses);
+      for (let i = 0; i < cardguesses.length; i++) {
+        const temp2 = findCorrectProvinces(cardguesses[i]);
+        if (temp2) {
+          console.log(temp2);
+          temp.push(...temp2);
+        }
+      }
+      console.log(temp);
+      setcorrectguessedprovinces(temp);
+    }
+  }, [cardguesses]);
   // const uniquecorrectanswers =
   function handlesubmit() {
     if (CardsNames && cardquery && inputref.current) {
       const temp = [...cardguesses];
 
-      for (let i = 0; i < temp.length; i++) {
+      for (let i = 0; i <= temp.length; i++) {
         if (temp[i] === cardquery) {
           return;
-        } else if (temp[i] === "") {
+        } else if (temp.length === i) {
           temp[i] = cardquery;
-          const tempcorrect = findCorrectProvinces(cardquery);
+          // const tempcorrect = findCorrectProvinces(cardquery);
 
-          setcorrectguessedprovinces(() => {
-            if (correctguessedprovinces[0] > 0) {
-              return [...tempcorrect, ...correctguessedprovinces];
-            } else {
-              return tempcorrect;
-            }
-          });
-          console.log(
-            [...tempcorrect, ...correctguessedprovinces],
-            correctguessedprovinces
-          );
+          // setcorrectguessedprovinces(() => {
+          //   if (correctguessedprovinces[0] > 0) {
+          //     return [...tempcorrect, ...correctguessedprovinces];
+          //   } else {
+          //     return tempcorrect;
+          //   }
+          // });
           break;
         }
       }
-      setcardguesses(temp);
+      onProvinceGuess(temp);
       inputref.current.value = "";
       setcardquery("");
     }
@@ -334,170 +341,132 @@ const ProvinceGuessCards = ({
       provincestats &&
       correctanswers.current
     ) {
-      const temp: number[] = [];
+      const temp = [];
       for (let i = 0; i < correctanswers.current.length; i++) {
         if (correctanswers.current[i] === cardquery) {
           temp.push(StateData[rndnum[0]][i]);
         }
       }
       return temp;
-    } else {
-      return [-1];
     }
   }
-  // console.log(uniquecorrectanswers, correctanswers.current);
   return (
     <>
-      <div className="flex flex-col w-9/10 ">
-        <button
-          onClick={() => {
-            const temp = iscardopened;
-            if (!temp) {
-              setTimeout(() => {
-                document.getElementById("card-container")?.scrollIntoView({
-                  behavior: "smooth",
-                  block: "start",
-                });
-              }, 200);
-            }
-            setiscardopened(!iscardopened);
-          }}
-          className="w-full h-11 mt-3 bg-[rgb(39,39,41)] rounded-xl cursor-pointer border-2 flex-row flex justify-between items-center border-[rgb(98,99,104)]"
-        >
-          <span className="ml-[15%]">
-            {!CardsNames
-              ? "Development"
-              : CardsNames.length === 31
-              ? "Trade Good Guesser"
-              : CardsNames.length === 24
-              ? "Religion Guesser"
-              : CardsNames.length === 16
-              ? "Terrain Guesser"
-              : "Province Name Guesser"}
-          </span>
-          <div className="mr-[2%] w-6 h-6  text-center bg-[rgb(50,50,50)] rounded-full flex justify-center items-center">
-            <span>
-              {iscardopened ? (
-                <svg width="10" height="7" viewBox="0 0 50 35 ">
-                  {" "}
-                  <path
-                    d="M 0 0 L 25 35 L 50 0"
-                    fill="none"
-                    stroke={`rgb(255 255 255)`}
-                    strokeWidth="8"
-                  />
-                </svg>
-              ) : (
-                <svg width="7" height="10" viewBox="0 0 35 50 ">
-                  {" "}
-                  <path
-                    d="M 35 0 L 0 25 L 35 50"
-                    fill="none"
-                    stroke={`rgb(255 255 255)`}
-                    strokeWidth="8"
-                  />
-                </svg>
-              )}
-            </span>
-          </div>
-        </button>
+      <div className="flex flex-col w-9/10 pb-20">
         {rndnum ? (
           <div
-            id="card-container"
             className={
-              iscardopened
-                ? "flex flex-col justify-center items-center border-0 transition-all duration-500 opacity-100 scale-100 max-h-[1000px] overflow-hidden"
-                : "flex flex-col justify-center items-center border-0 transition-all duration-500 opacity-0 scale-95 max-h-0 overflow-hidden"
+              "flex flex-col justify-center items-center border-0 max-h-[1000px] overflow-hidden"
             }
           >
-            <div className="flex justify-center w-1/2 border-0 h-21">
-              {Image ? Image : ""}
-            </div>
-
-            {correctanswers &&
-            correctanswers.current?.length ===
-              correctguessedprovinces.length ? (
-              <div className=" w-9/10 h-10 rounded-xl text-sm mb-1  mt-1.5 bg-green-500 text-black items-center flex justify-evenly font-semibold transition-all scale-100">
-                {!CardsNames
-                  ? "Development"
-                  : CardsNames.length === 31
-                  ? "Trade Goods"
-                  : CardsNames.length === 24
-                  ? "Religions"
-                  : CardsNames.length === 16
-                  ? "Terrains"
-                  : "Province Names"}
-                :{" "}
-                {uniquecorrectanswers.map((uniquecorrectanswer, index) => {
-                  return <span key={index}>{uniquecorrectanswer} </span>;
-                })}
+            <div className="flex flex-row w-full h-30 items-start justify-evenly">
+              <div className="flex justify-center w-1/2 border-0 h-30">
+                {Image ? Image : ""}
               </div>
-            ) : CardsNames &&
-              cardguesses[
-                CardsNames.length === 24
-                  ? 3
-                  : CardsNames.length === 31
-                  ? 5
-                  : CardsNames.length === 16
-                  ? 4
-                  : 9
-              ] !== "" ? (
-              <div className=" w-9/10  h-10 rounded-xl  mb-1 text-sm mt-1.5  bg-red-300 text-black items-center flex justify-evenly font-semibold">
-                {!CardsNames
-                  ? "Development"
-                  : CardsNames.length === 31
-                  ? "Trade Goods"
-                  : CardsNames.length === 24
-                  ? "Religions"
-                  : CardsNames.length === 16
-                  ? "Terrains"
-                  : "Province Names"}
-                :{" "}
-                {uniquecorrectanswers.map((uniquecorrectanswer, index) => {
-                  return <span key={index}>{uniquecorrectanswer} </span>;
-                })}
-              </div>
-            ) : (
-              <div className="flex-row flex  justify-evenly">
-                <InputandList
-                  inputref={inputref}
-                  setquery={setcardquery}
-                  statenames={CardsNames}
-                  filterednames={filteredCardNames ? filteredCardNames : [""]}
-                  widthofinput={"5/11"}
-                  placeholder={
-                    !CardsNames
-                      ? "Development"
-                      : CardsNames.length === 31
-                      ? "Trade Goods"
-                      : CardsNames.length === 24
-                      ? "Religions"
-                      : CardsNames.length === 369
-                      ? "Cultures"
-                      : "Province Name"
-                  }
-                ></InputandList>
-                <button
-                  className=" w-4/11 rounded-2xl mt-2 h-11 text-sm border-5 border-gray-800 bg-gray-700 z-50 cursor-pointer transition-all hover:scale-103 active:scale-90"
-                  onClick={handlesubmit}
-                  // onClick={handlesubmit}
-                >
-                  GUESS
-                </button>
-              </div>
-            )}
-            {CardsNames ? (
-              <CardGuesContainer
-                cardguesses={cardguesses.slice(
-                  0,
-                  CardsNames.length === 24
+              {correctanswers &&
+              correctanswers.current?.length ===
+                correctguessedprovinces.length ? (
+                <div className=" w-9/10 h-10 rounded-xl text-sm mb-1  mt-1.5 bg-green-500 text-black items-center flex justify-evenly font-semibold transition-all scale-100">
+                  {!CardsNames
+                    ? "Development"
+                    : CardsNames.length === 31
+                    ? "Trade Goods"
+                    : CardsNames.length === 24
+                    ? "Religions"
+                    : CardsNames.length === 16
+                    ? "Terrains"
+                    : "Province Names"}
+                  :{" "}
+                  {uniquecorrectanswers.map((uniquecorrectanswer, index) => {
+                    return <span key={index}>{uniquecorrectanswer} </span>;
+                  })}
+                </div>
+              ) : CardsNames &&
+                cardguesses &&
+                cardguesses.length ===
+                  (CardsNames.length === 24
                     ? 4
                     : CardsNames.length === 31
                     ? 6
                     : CardsNames.length === 16
                     ? 5
-                    : 10
-                )}
+                    : 10) ? (
+                <div className=" w-9/10  h-10 rounded-xl  mb-1 text-sm mt-1.5  bg-red-300 text-black items-center flex justify-evenly font-semibold">
+                  {!CardsNames
+                    ? "Development"
+                    : CardsNames.length === 31
+                    ? "Trade Goods"
+                    : CardsNames.length === 24
+                    ? "Religions"
+                    : CardsNames.length === 16
+                    ? "Terrains"
+                    : "Province Names"}
+                  :{" "}
+                  {uniquecorrectanswers.map((uniquecorrectanswer, index) => {
+                    return <span key={index}>{uniquecorrectanswer} </span>;
+                  })}
+                </div>
+              ) : (
+                <div className="flex-row flex  justify-evenly">
+                  <div className="flex flex-col ">
+                    {CardsNames && CardsNames.length > 50 ? (
+                      <InputandList
+                        inputref={regionref}
+                        setquery={setregionquery}
+                        statenames={statenames.slice(823, 896)}
+                        filterednames={filteredregions}
+                        widthofinput={"5/11"}
+                        placeholder="Regions"
+                      ></InputandList>
+                    ) : (
+                      ""
+                    )}
+                    <InputandList
+                      inputref={inputref}
+                      setquery={setcardquery}
+                      statenames={CardsNames}
+                      filterednames={
+                        filteredCardNames ? filteredCardNames : [""]
+                      }
+                      widthofinput={"5/11"}
+                      placeholder={
+                        !CardsNames
+                          ? "Development"
+                          : CardsNames.length === 31
+                          ? "Trade Goods"
+                          : CardsNames.length === 24
+                          ? "Religions"
+                          : CardsNames.length === 369
+                          ? "Cultures"
+                          : "Province Name"
+                      }
+                    ></InputandList>
+                  </div>
+                  <button
+                    className=" w-4/11 rounded-2xl mt-2 h-11 text-sm border-5 border-gray-800 bg-gray-700 z-50 cursor-pointer transition-all hover:scale-103 active:scale-90"
+                    onClick={handlesubmit}
+                    // onClick={handlesubmit}
+                  >
+                    GUESS
+                  </button>
+                </div>
+              )}
+            </div>
+
+            {CardsNames && cardguesses ? (
+              <CardGuesContainer
+                cardguesses={[
+                  ...cardguesses,
+                  ...Array(
+                    (CardsNames.length === 24
+                      ? 4
+                      : CardsNames.length === 31
+                      ? 6
+                      : CardsNames.length === 16
+                      ? 5
+                      : 10) - cardguesses.length
+                  ).fill(""),
+                ]}
                 correctsolutions={uniquecorrectanswers}
               ></CardGuesContainer>
             ) : (

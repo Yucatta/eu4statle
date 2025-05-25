@@ -4,10 +4,12 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 import { useGameState } from "@/context/gamecontext";
 import GuessContainer from "./GuessContainer";
 import InputandList from "./Input";
-import CardContainer from "./CardContainer";
 // import fetchCsvData from "@/utils/fetchcsv";
 import { useDataContext } from "@/context/DataContext";
+import useGameFunction from "@/hooks/utilitys";
 const StateGuesses = () => {
+  const { ChangeRndNum, findRegion } = useGameFunction();
+
   const stateinputref = useRef<HTMLInputElement | null>(null);
   const regioninputref = useRef<HTMLInputElement | null>(null);
   const [statesquery, setstatequery] = useState<string | undefined>(undefined);
@@ -25,7 +27,7 @@ const StateGuesses = () => {
   const imageinitizalied = useRef(false);
   const guessid = useRef([-1, -1]);
   const svgRef = useRef(null);
-  const { rndnum, setrndnum } = useGameState();
+  const { rndnum } = useGameState();
 
   const {
     paths,
@@ -215,22 +217,24 @@ const StateGuesses = () => {
     // console.log(!!statenames, !!query);
     if (statenames) {
       if (regionsquery) {
-        const regionindex = statenames
-          .slice(823, 896)
-          .findIndex((statename) => {
-            if (statename === regionsquery) {
-              return regionsquery;
-            }
-          });
-
-        if (regionindex + 1 && regionStateIds) {
+        const regionname = statenames.slice(823, 896).filter((region) => {
+          return region.toLowerCase().includes(regionsquery.toLowerCase());
+        });
+        console.log(regionname, statenames.indexOf(regionname[0]) - 823);
+        if (regionname.length === 1 && regionStateIds) {
           const temp = [];
           // console.log(regionStateIds[regionindex]);
           for (let i = 0; i < 21; i++) {
-            if (regionStateIds[regionindex][i] || !i) {
-              temp.push(statenames[regionStateIds[regionindex][i]]);
+            if (
+              regionStateIds[statenames.indexOf(regionname[0]) - 823][i] ||
+              !i
+            ) {
+              temp.push(
+                statenames[
+                  regionStateIds[statenames.indexOf(regionname[0]) - 823][i]
+                ]
+              );
             } else {
-              // console.log(i, "this is breaking point");
               break;
             }
           }
@@ -301,34 +305,12 @@ const StateGuesses = () => {
       }
     }
   }
-  function findRegion(stateid: number, correctid: number) {
-    if (regionStateIds) {
-      if (stateid > 822) {
-        return stateid - 823;
-      } else {
-        for (let k = 0; k < regionStateIds.length; k++) {
-          for (let j = 0; j < regionStateIds[k].length; j++) {
-            if (regionStateIds[k][j] === correctid) {
-              return k;
-            }
-          }
-        }
-      }
-    }
-    return -1;
-  }
+
   useEffect(() => {
     if (regionStateIds) {
-      const temp = Math.floor(Math.random() * 824);
-      setrndnum([temp, findRegion(temp, temp)]);
-      // setrndnum([344, 58]);
+      ChangeRndNum();
     }
   }, [regionStateIds]);
-  // useEffect(() => {
-  //   if (rndnum) {
-  //     setrndnum([rndnum[0], findRegion(rndnum[0], rndnum[0])]);
-  //   }
-  // }, [regionStateIds]);
   useEffect(() => {
     setstateguesses([
       [0, -1],
@@ -401,21 +383,7 @@ const StateGuesses = () => {
         //   StateGuesses[2][1] === rndnum[0] ||
         //   StateGuesses[3][1] === rndnum[0] ||
         //   StateGuesses[3][1] !== -1)
-        <>
-          <CardContainer
-            rndnum={rndnum}
-            StateGuesses={StateGuesses}
-          ></CardContainer>
-          <button
-            className=" w-50 rounded-2xl mt-2 h-11 text-sm border-5 border-gray-800 bg-gray-700 cursor-pointer transition-all hover:scale-105 active:scale-90"
-            onClick={() => {
-              const temp = Math.floor(Math.random() * 824);
-              setrndnum([temp, findRegion(temp, temp)]);
-            }}
-          >
-            Retry
-          </button>
-        </>
+        <></>
       ) : (
         ""
       )}

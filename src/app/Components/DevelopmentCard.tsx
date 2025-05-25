@@ -1,4 +1,4 @@
-import React, { useRef, useState, useMemo } from "react";
+import React, { useRef, useMemo } from "react";
 // import InputandList from "./Input";
 import { useDataContext } from "@/context/DataContext";
 import CardGuesContainer from "./CardGuesContainer";
@@ -7,28 +7,33 @@ import CardGuesContainer from "./CardGuesContainer";
 interface Props {
   rndnum: number[] | undefined;
   Development: number;
+  developmentrgbs?: string[];
   provincestats:
     | Array<[string, number, string, string, string, string]>
     | undefined;
   StateData: number[][] | undefined;
+  onProvinceGuess: (e: string[]) => void;
+  cardguesses: string[];
 }
 const DevelopmentCard = ({
   rndnum,
   Development,
+  onProvinceGuess,
+  developmentrgbs,
+  cardguesses,
+  provincestats,
 }: // provincestats,
 // StateData,
 Props) => {
-  const [iscardopened, setiscardopened] = useState(false);
   // const [cardquery, setcardquery] = useState<string | undefined>(undefined);
   const inputref = useRef<HTMLInputElement>(null);
-  const [cardguesses, setscardguesses] = useState<number[]>([0, 0, 0, 0]);
   function handlesubmit(e: number) {
     console.log(e, cardguesses);
-    if (!cardguesses.includes(e)) {
-      setscardguesses([e, ...cardguesses.slice(0, 3)]);
-      if (Development + 1 >= e && Development - 1 < e) {
-      }
-    } else {
+
+    if (!cardguesses.includes(String(e))) {
+      onProvinceGuess([...cardguesses, String(e)]);
+      inputref.current!.value = "";
+      // setscardguesses([e, ...cardguesses.slice(0, 3)]);
     }
   }
   const {
@@ -44,6 +49,7 @@ Props) => {
     emptylands,
     // areabboxes,
   } = useDataContext();
+  console.log(Development);
   const Image = useMemo(() => {
     if (
       regionStateIds &&
@@ -62,7 +68,7 @@ Props) => {
       // console.log(areabboxes, rndnum, areabboxes[rndnum[0]]);
       const a = (
         <svg
-          className="w-full h-full  "
+          className="w-full h-full"
           viewBox={`
                   ${areabboxes[rndnum[0]][0]} ${areabboxes[rndnum[0]][1]}  ${
             areabboxes[rndnum[0]][2] - areabboxes[rndnum[0]][0]
@@ -102,14 +108,45 @@ Props) => {
                 );
               })
             : regionids[rndnum[1]].map((provinceid) => {
+                // console.log(developmentrgbs, provincestats);
+                if (
+                  StateData[rndnum[0]].includes(provinceid) &&
+                  developmentrgbs &&
+                  provincestats
+                ) {
+                  console.log(
+                    developmentrgbs,
+                    developmentrgbs[provincestats[provinceid - 1][1] - 3],
+                    provincestats[provinceid - 1][1] - 3,
+                    provinceid,
+                    "aaa"
+                  );
+                  // console.log(
+                  //   developmentrgbs[provincestats[provinceid - 1][1] - 3]
+                  // );
+                }
                 return (
                   <path
                     d={String(paths[provinceid - 1][1])}
                     fill={
                       StateData[rndnum[0]].includes(provinceid)
-                        ? "rgb(60, 60, 60)"
-                        : // ? "none"
-                          "rgb(45,45,45)"
+                        ? (cardguesses.filter((e) => {
+                            if (
+                              Development + 1 >= Number(e) &&
+                              Development - 1 <= Number(e) &&
+                              Development
+                            ) {
+                              return e;
+                            }
+                          }).length > 0 ||
+                            (Development && cardguesses.length === 4)) &&
+                          provincestats &&
+                          developmentrgbs
+                          ? developmentrgbs[
+                              provincestats[provinceid - 1][1] - 3
+                            ]
+                          : "rgb(60, 60, 60)"
+                        : "rgb(45,45,45)"
                     }
                     stroke={
                       StateData[rndnum[0]].includes(provinceid)
@@ -155,120 +192,74 @@ Props) => {
     regionbboxes,
     regionids,
     areapaths,
+    cardguesses,
+    provincestats,
+    developmentrgbs,
   ]);
   // console.log(cardguesses);
   return (
     <>
       <div className="flex flex-col w-9/10 ">
-        <button
-          onClick={() => {
-            setiscardopened(!iscardopened);
-            setTimeout(() => {
-              document.getElementById("card-container")?.scrollIntoView({
-                behavior: "smooth",
-                block: "start",
-              });
-            }, 200);
-          }}
-          className="w-full h-11 mt-3 bg-[rgb(39,39,41)] rounded-xl cursor-pointer border-2 flex-row flex justify-between items-center border-[rgb(98,99,104)]"
-        >
-          <span className="ml-[15%]">Development Guesser</span>
-          <div className="mr-[2%] w-6 h-6  text-center bg-[rgb(50,50,50)] rounded-full flex justify-center items-center">
-            <span>
-              {iscardopened ? (
-                <svg width="10" height="7" viewBox="0 0 50 35 ">
-                  {" "}
-                  <path
-                    d="M 0 0 L 25 35 L 50 0"
-                    fill="none"
-                    stroke={`rgb(255 255 255)`}
-                    strokeWidth="8"
-                  />
-                </svg>
-              ) : (
-                <svg width="7" height="10" viewBox="0 0 35 50 ">
-                  {" "}
-                  <path
-                    d="M 35 0 L 0 25 L 35 50"
-                    fill="none"
-                    stroke={`rgb(255 255 255)`}
-                    strokeWidth="8"
-                  />
-                </svg>
-              )}
-            </span>
-          </div>
-        </button>
-
         {rndnum ? (
           <div
-            id="card-container"
             className={
-              iscardopened
-                ? "flex flex-col justify-center items-center transition-all duration-500 opacity-100 scale-100 max-h-[1000px] overflow-hidden"
-                : "flex flex-col justify-center items-center  transition-all duration-500 opacity-0 scale-95 max-h-0 overflow-hidden"
+              "flex flex-col justify-center items-center border-0 max-h-[1000px] overflow-hidden"
             }
           >
-            <div className="flex justify-center w-full  h-21">
-              {/* <img
-                src={`onlystates/${rndnum[0]}.png`}
-                className=" w-auto fixed h-20 z-0"
-              ></img> */}
-              {Image ? Image : ""}
-            </div>
+            <div className="flex flex-row w-full h-30 items-start justify-evenly">
+              <div className="flex justify-center w-1/2 border-0 h-30">
+                {Image ? Image : ""}
+              </div>
 
-            {cardguesses.filter((e) => {
-              if (
-                Development + 2 >= e &&
-                Development - 2 < e &&
-                Development !== 0
-              ) {
-                // console.log("e", e > Development, Development);
-                return e;
-              }
-            }).length > 0 ? (
-              <div className=" w-9/10 h-10 rounded-xl text-sm mb-1  mt-1.5 bg-green-500 text-black items-center flex justify-evenly font-semibold transition-all scale-100">
-                Average Development : {Development}
-              </div>
-            ) : Development && cardguesses[3] !== 0 ? (
-              <div className=" w-9/10  h-10 rounded-xl  mb-1 text-sm mt-1.5  bg-red-300 text-black items-center flex justify-evenly font-semibold">
-                Development :{" "}
-              </div>
-            ) : (
-              <div className="flex-row flex  justify-evenly">
-                <input
-                  placeholder="avg Dev range 2"
-                  ref={inputref}
-                  // type="number"
-                  className="border-2 h-10 mt-2 border-neutral-300"
-                ></input>
-                <button
-                  className=" w-4/11 rounded-2xl ml-2 mt-2 h-11 text-sm border-5 border-gray-800 bg-gray-700 z-50 cursor-pointer transition-all hover:scale-103 active:scale-90"
-                  onClick={() => {
-                    // console.log("aaaaa", Development);
-                    if (
-                      inputref.current
-                      // typeof inputref.current.value === "number"
-                    ) {
-                      handlesubmit(Number(inputref.current.value));
-                    }
-                  }}
-                  // onClick={handlesubmit}
-                >
-                  GUESS
-                </button>
-              </div>
-            )}
+              {cardguesses.filter((e) => {
+                if (
+                  Development + 1 >= Number(e) &&
+                  Development - 1 <= Number(e) &&
+                  Development
+                ) {
+                  return e;
+                }
+              }).length > 0 ? (
+                <div className=" w-9/10 h-10 rounded-xl text-sm mb-1  mt-1.5 bg-green-500 text-black items-center flex justify-evenly font-semibold transition-all scale-100">
+                  Average Development : {Development}
+                </div>
+              ) : Development && cardguesses.length === 4 ? (
+                <div className=" w-9/10  h-10 rounded-xl  mb-1 text-sm mt-1.5  bg-red-300 text-black items-center flex justify-evenly font-semibold">
+                  Average Development : {Development}
+                </div>
+              ) : (
+                <div className="flex-row flex  justify-evenly">
+                  <input
+                    placeholder="Average Development"
+                    ref={inputref}
+                    // type="number"
+                    className="border-2 h-10 mt-2 border-neutral-300"
+                  ></input>
+                  <button
+                    className=" w-4/11 rounded-2xl ml-2 mt-2 h-11 text-sm border-5 border-gray-800 bg-gray-700 z-50 cursor-pointer transition-all hover:scale-103 active:scale-90"
+                    onClick={() => {
+                      // console.log("aaaaa", Development);
+                      if (
+                        inputref.current
+                        // typeof inputref.current.value === "number"
+                      ) {
+                        handlesubmit(Number(inputref.current.value));
+                      }
+                    }}
+                    // onClick={handlesubmit}
+                  >
+                    GUESS
+                  </button>
+                </div>
+              )}
+            </div>
 
             {
               <CardGuesContainer
-                cardguesses={cardguesses.map((guess) => {
-                  if (guess) {
-                    return String(guess);
-                  } else {
-                    return "";
-                  }
-                })}
+                cardguesses={[
+                  ...cardguesses,
+                  ...Array(4 - cardguesses.length).fill(""),
+                ]}
                 correctsolutions={[`${Development}`]}
               ></CardGuesContainer>
             }

@@ -36,7 +36,7 @@
     ["French"],
     [
       "Wallonian",
-      "Cosmopolitan French",
+      "Francien",
       "Flemish",
       "Ligurian",
       "Normand",
@@ -93,15 +93,15 @@
     ["Levantine"],
     [
       "Turkish",
-      "Al Misr Arabic",
-      "Al Suryah Arabic",
-      "Bedouin Arabic",
-      "Hejazi Culture",
-      "Yemeni Culture",
-      "Gulf Arabic",
-      "Omani Culture",
-      "Mahri Culture",
-      "Al Iraqiya Arabic"
+      "Egyptian",
+      "Syrian",
+      "Bedouin",
+      "Hejazi",
+      "Yemeni",
+      "Khaleeji",
+      "Omani",
+      "Mahri",
+      "Mashriqi"
     ]
   ],
   [["Caucasian"], ["Armenian", "Georgian", "Circassian", "Dagestani"]],
@@ -153,7 +153,7 @@
   ],
   [["Burman"], ["Chin", "Arakanese", "Kachin", "Karen", "Burmese"]],
   [["Mon-Khmer"], ["Khmer", "Vietnamese", "Mon"]],
-  [["Thai"], ["Shan", "Northern Thai", "Zhuang", "Central Thai", "Lao"]],
+  [["Thai"], ["Shan", "Lao", "Zhuang", "Siamese", "Lao"]],
   [["Tibetan"], ["Bai", "Tibetan", "Miao", "Yi"]],
   [
     ["Malay"],
@@ -185,7 +185,7 @@
       "Jianghuai",
       "Zhongyuan",
       "Xibei",
-      "Shandong Culture",
+      "Shandong",
       "Jin",
       "Chihan"
     ]
@@ -223,9 +223,9 @@
   [["Southern Plains"], ["Lipan", "Navajo", "Apache", "Mescalero"]],
   [["Columbian"], ["Yokuts", "Chinook", "Salish"]],
   [["MidWest American"], ["Kiowa", "Shoshone", "Piman", "Pueblo"]],
-  [["Mississippian"], ["Caddo", "Wichita", "Pawnee"]],
+  [["Central American"], ["Caddo", "Wichita", "Pawnee"]],
   [
-    ["SouthEastern American"],
+    ["Mississippian"],
     [
       "Choctaw",
       "Natchez",
@@ -237,7 +237,7 @@
       "Yoron"
     ]
   ],
-  [["Central American"], ["Chiwere", "Dakota", "Osage", "Nakota"]],
+  [["Central Canadian"], ["Chiwere", "Dakota", "Osage", "Nakota"]],
   [
     ["Great Lakeian"],
     [

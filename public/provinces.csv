@@ -1,42 +1,42 @@
-1,Stockholm,13,Swedish,Catholic,Grain,Grassland
+1,Stockholm,13,Swedish,Catholic,Grain,Grasslands
 2,Ostergotland,6,Swedish,Catholic,Grain,Forest
 3,Kalmar,5,Swedish,Catholic,Naval Supplies,Woods
 4,Bergslagen,7,Swedish,Catholic,Iron,Forest
-5,Varmland,3,Swedish,Catholic,Iron,Grassland
+5,Varmland,3,Swedish,Catholic,Iron,Grasslands
 6,Skane,20,Danish,Catholic,Grain,Farmlands
-7,Skaraborg,6,Swedish,Catholic,Grain,Grassland
+7,Skaraborg,6,Swedish,Catholic,Grain,Grasslands
 8,Dalaskogen,5,Swedish,Catholic,Copper,Forest
 9,Halsingland,5,Swedish,Catholic,Fish,Forest
 10,Jamtland,3,Norwegian,Catholic,Fur,Forest
 11,Vasterbotten,3,Swedish,Catholic,Fur,Forest
 12,Sjaelland,20,Danish,Catholic,Fish,Farmlands
-13,Slesvig,11,Danish,Catholic,Livestock,Grassland
+13,Slesvig,11,Danish,Catholic,Livestock,Grasslands
 14,Fyn,14,Danish,Catholic,Fish,Farmlands
-15,Jylland,5,Danish,Catholic,Livestock,Grassland
+15,Jylland,5,Danish,Catholic,Livestock,Grasslands
 16,Bohuslan,6,Norwegian,Catholic,Fish,Hills
-17,Akershus,8,Norwegian,Catholic,Fish,Grassland
+17,Akershus,8,Norwegian,Catholic,Fish,Grasslands
 18,Lappland,3,Sapmi,Catholic,Unknown,Forest
-19,Osterbotten,3,Finnish,Catholic,Fur,Grassland
+19,Osterbotten,3,Finnish,Catholic,Fur,Grasslands
 20,Trondelag,8,Norwegian,Catholic,Fish,Mountain
 21,Halogaland,5,Norwegian,Catholic,Fish,Hills
 22,Eisdiva,3,Norwegian,Catholic,Naval Supplies,Mountain
 23,Bergenshus,7,Norwegian,Catholic,Naval Supplies,Highlands
 24,Agder,6,Norwegian,Catholic,Fish,Highlands
-25,Gotland,10,Swedish,Catholic,Wool,Grassland
-26,Halland,8,Danish,Catholic,Livestock,Grassland
-27,Finland,8,Swedish,Catholic,Grain,Grassland
-28,Nyland,6,Finnish,Catholic,Naval Supplies,Grassland
+25,Gotland,10,Swedish,Catholic,Wool,Grasslands
+26,Halland,8,Danish,Catholic,Livestock,Grasslands
+27,Finland,8,Swedish,Catholic,Grain,Grasslands
+28,Nyland,6,Finnish,Catholic,Naval Supplies,Grasslands
 29,Tavastland,3,Finnish,Catholic,Fur,Forest
 30,Viborg,6,Finnish,Catholic,Fur,Forest
 31,Savolaks,3,Finnish,Catholic,Fur,Forest
-32,Keksholm,5,Karelian,Orthodox,Fur,Grassland
-33,Neva,7,Karelian,Orthodox,Fur,Grassland
+32,Keksholm,5,Karelian,Orthodox,Fur,Grasslands
+33,Neva,7,Karelian,Orthodox,Fur,Grasslands
 34,Ingermanland,7,Novgorodian,Orthodox,Fur,Woods
-35,Osel,3,Estonian,Catholic,Grain,Grassland
-36,Estland,10,Estonian,Catholic,Grain,Grassland
+35,Osel,3,Estonian,Catholic,Grain,Grasslands
+36,Estland,10,Estonian,Catholic,Grain,Grasslands
 37,Livland,8,Latvian,Catholic,Livestock,Woods
 38,Riga,11,Baltic German,Catholic,Naval Supplies,Woods
-39,Kurland,7,Latvian,Catholic,Naval Supplies,Grassland
+39,Kurland,7,Latvian,Catholic,Naval Supplies,Grasslands
 40,Memel,9,Lithuanian,Catholic,Livestock,Woods
 41,Konigsberg,13,Prussian,Catholic,Gems,Woods
 42,Warmia,8,Prussian,Catholic,Naval Supplies,Grasslands
@@ -51,8 +51,8 @@
 51,Ruppin,5,Saxon,Catholic,Livestock,Woods
 52,Magdeburg,10,Saxon,Catholic,Cloth,Woods
 53,Luneburg,8,Lower Saxon,Catholic,Salt,Woods
-54,Stade,6,Lower Saxon,Catholic,Fish,Grassland
-55,Oldenburg,7,Hannoverian,Catholic,Salt,Grassland
+54,Stade,6,Lower Saxon,Catholic,Fish,Grasslands
+55,Oldenburg,7,Hannoverian,Catholic,Salt,Grasslands
 56,Osnabruck,9,Hannoverian,Catholic,Salt,Woods
 57,Brunswick,9,Lower Saxon,Catholic,Iron,Woods
 58,Anhalt,6,Saxon,Catholic,Wool,Woods
@@ -71,8 +71,8 @@
 71,Ansbach,8,Franconian,Catholic,Salt,Grasslands
 72,Breisgau,11,Swabian,Catholic,Glass,Woods
 73,Tirol,9,Austrian,Catholic,Gold,Mountain
-74,Baden,8,Swabian,Catholic,Wine,Grassland
-75,Elsass,16,Swabian,Catholic,Paper,Grassland
+74,Baden,8,Swabian,Catholic,Wine,Grasslands
+75,Elsass,16,Swabian,Catholic,Paper,Grasslands
 76,Salzburg,14,Bavarian,Catholic,Salt,Mountain
 77,Heidelberg,13,Hessian,Catholic,Wine,Farmlands
 78,Mainz,10,Hessian,Catholic,Paper,Farmlands
@@ -84,11 +84,11 @@
 84,Berg,9,Hessian,Catholic,Cloth,Woods
 85,Koln,15,Hessian,Catholic,Paper,Woods
 86,Munster,12,Hannoverian,Catholic,Cloth,Woods
-87,Calais,13,Wallonian,Catholic,Fish,Grassland
+87,Calais,13,Wallonian,Catholic,Fish,Grasslands
 88,Artois,15,Wallonian,Catholic,Cloth,Farmlands
-89,Picardie,17,Cosmopolitan French,Catholic,Grain,Grassland
+89,Picardie,17,Francien,Catholic,Grain,Grasslands
 90,Vlaanderen,18,Flemish,Catholic,Cloth,Farmlands
-91,Hainaut,15,Wallonian,Catholic,Cloth,Grassland
+91,Hainaut,15,Wallonian,Catholic,Cloth,Grasslands
 92,Brabant,18,Flemish,Catholic,Cloth,Farmlands
 93,Liege,15,Wallonian,Catholic,Glass,Woods
 94,Luxemburg,12,Wallonian,Catholic,Iron,Woods
@@ -119,11 +119,11 @@
 119,Ancona,14,Umbrian,Catholic,Paper,Hills
 120,Abbruzzi,13,Neapolitan,Catholic,Wine,Mountain
 121,Napoli,22,Neapolitan,Catholic,Grain,Farmlands
-122,Apulia,8,Neapolitan,Catholic,Wine,Grassland
+122,Apulia,8,Neapolitan,Catholic,Wine,Grasslands
 123,Calabria,6,Sicilian,Catholic,Fish,Hills
 124,Messina,17,Sicilian,Catholic,Fish,Mountain
 125,Palermo,13,Sicilian,Catholic,Wine,Farmlands
-126,Malta,8,Maltese,Catholic,Fish,Grassland
+126,Malta,8,Maltese,Catholic,Fish,Grasslands
 127,Sassari,8,Sardinian,Catholic,Fish,Highlands
 128,Karnten,10,Austrian,Catholic,Iron,Woods
 129,Krain,10,Slovene,Catholic,Livestock,Woods
@@ -132,7 +132,7 @@
 132,Steiermark,11,Austrian,Catholic,Grain,Mountain
 133,Linz,11,Austrian,Catholic,Grain,Hills
 134,Wien,18,Austrian,Catholic,Wine,Farmlands
-135,Sopron,8,Hungarian,Catholic,Grain,Grassland
+135,Sopron,8,Hungarian,Catholic,Grain,Grasslands
 136,Dalmatia,9,Dalmatian,Catholic,Wool,Grasslands
 137,Ragusa,14,Dalmatian,Catholic,Salt,Hills
 138,Zeta,5,Serbian,Orthodox,Livestock,Mountain
@@ -144,7 +144,7 @@
 144,Janina,4,Greek,Orthodox,Wool,Mountain
 145,Morea,6,Greek,Orthodox,Wine,Highlands
 146,Athens,11,Greek,Orthodox,Grain,Farmlands
-147,Salonica,12,Greek,Orthodox,Wool,Grassland
+147,Salonica,12,Greek,Orthodox,Wool,Grasslands
 148,Thessaloniki,10,Greek,Orthodox,Cloth,Farmlands
 149,Edirne,14,Greek,Orthodox,Cloth,Grasslands
 150,Tarnovo,8,Bulgarian,Orthodox,Grain,Farmlands
@@ -154,40 +154,40 @@
 154,Hont,8,Slovak,Catholic,Gold,Highlands
 155,Bekes,6,Hungarian,Catholic,Wine,Grasslands
 156,Temes,8,Transylvanian,Catholic,Wool,Hills
-157,Bihar,5,Transylvanian,Orthodox,Naval Supplies,Grassland
+157,Bihar,5,Transylvanian,Orthodox,Naval Supplies,Grasslands
 158,Maros,8,Transylvanian,Catholic,Wool,Mountain
-159,Silistria,6,Bulgarian,Orthodox,Fish,Grassland
+159,Silistria,6,Bulgarian,Orthodox,Fish,Grasslands
 160,Oltenia,8,Romanian,Orthodox,Copper,Farmlands
 161,Tirgoviste,13,Romanian,Orthodox,Livestock,Farmlands
 162,Zemplen,7,Slovak,Catholic,Grain,Highlands
 163,Crete,13,Greek,Orthodox,Fish,Highlands
-164,Naxos,6,Greek,Orthodox,Wine,Grassland
+164,Naxos,6,Greek,Orthodox,Wine,Grasslands
 165,Bern,13,Swiss,Catholic,Iron,Hills
 166,Schwyz,10,Swiss,Catholic,Iron,Mountain
 167,Caux,12,Normand,Catholic,Glass,Farmlands
-168,Normandie,12,Normand,Catholic,Cloth,Grassland
+168,Normandie,12,Normand,Catholic,Cloth,Grasslands
 169,Armor,12,Breton,Catholic,Cloth,Farmlands
-170,Finistere,10,Breton,Catholic,Naval Supplies,Grassland
-171,Vannetais,9,Breton,Catholic,Fish,Grassland
+170,Finistere,10,Breton,Catholic,Naval Supplies,Grasslands
+171,Vannetais,9,Breton,Catholic,Fish,Grasslands
 172,Vendee,12,Breton,Catholic,Salt,Farmlands
 173,Labourd,10,Basque,Catholic,Wine,Woods
 174,Gascogne,21,Gascon,Catholic,Wine,Woods
 175,Armagnac,15,Gascon,Catholic,Wool,Woods
 176,Bearn,12,Gascon,Catholic,Wool,Hills
-177,Maine,16,Cosmopolitan French,Catholic,Cloth,Farmlands
-178,Anjou,15,Cosmopolitan French,Catholic,Cloth,Woods
-179,Berry,12,Cosmopolitan French,Catholic,Wine,Grassland
-180,Poitou,12,Cosmopolitan French,Catholic,Livestock,Farmlands
+177,Maine,16,Francien,Catholic,Cloth,Farmlands
+178,Anjou,15,Francien,Catholic,Cloth,Woods
+179,Berry,12,Francien,Catholic,Wine,Grasslands
+180,Poitou,12,Francien,Catholic,Livestock,Farmlands
 181,Rethel,14,Wallonian,Catholic,Cloth,Woods
-182,Vermandois,14,Cosmopolitan French,Catholic,Livestock,Farmlands
-183,Ile-de-France,23,Cosmopolitan French,Catholic,Paper,Farmlands
-184,Orleanais,17,Cosmopolitan French,Catholic,Grain,Woods
-185,Othe,15,Cosmopolitan French,Catholic,Paper,Grassland
-186,Champagne,16,Cosmopolitan French,Catholic,Wine,Farmlands
+182,Vermandois,14,Francien,Catholic,Livestock,Farmlands
+183,Ile-de-France,23,Francien,Catholic,Paper,Farmlands
+184,Orleanais,17,Francien,Catholic,Grain,Woods
+185,Othe,15,Francien,Catholic,Paper,Grasslands
+186,Champagne,16,Francien,Catholic,Wine,Farmlands
 187,Barrois,10,Burgundian,Catholic,Cloth,Woods
 188,Metz,17,Burgundian,Catholic,Glass,Woods
 189,Lothringen,15,Burgundian,Catholic,Iron,Woods
-190,Bourbon,12,Cosmopolitan French,Catholic,Iron,Woods
+190,Bourbon,12,Francien,Catholic,Iron,Woods
 191,Nevers,13,Burgundian,Catholic,Livestock,Farmlands
 192,Bourgogne,20,Burgundian,Catholic,Wine,Farmlands
 193,Franche-Comte,10,Burgundian,Catholic,Salt,Hills
@@ -199,22 +199,22 @@
 199,Auvergne,10,Occitain,Catholic,Iron,Mountain
 200,Languedoc,16,Occitain,Catholic,Cloth,Farmlands
 201,Provence,20,Occitain,Catholic,Wine,Hills
-202,Avignon,11,Occitain,Catholic,Cloth,Grassland
+202,Avignon,11,Occitain,Catholic,Cloth,Grasslands
 203,Lyonnais,18,Occitain,Catholic,Paper,Hills
 204,Dauphine,10,Occitain,Catholic,Wool,Mountain
 205,Savoie,15,Occitain,Catholic,Cloth,Hills
 206,Galicia,7,Galician,Catholic,Fish,Woods
-207,Asturias,11,Leonese,Catholic,Livestock,Grassland
+207,Asturias,11,Leonese,Catholic,Livestock,Grasslands
 208,Leon,10,Leonese,Catholic,Livestock,Mountain
-209,Vizcaya,6,Basque,Catholic,Iron,Grassland
+209,Vizcaya,6,Basque,Catholic,Iron,Grasslands
 210,Navarra,7,Basque,Catholic,Iron,Mountain
 211,Pirineo,7,Aragonese,Catholic,Wool,Hills
 212,Girona,9,Catalan,Catholic,Fish,Hills
 213,Barcelona,14,Catalan,Catholic,Glass,Grasslands
 214,Aragon,13,Aragonese,Catholic,Cloth,Drylands
-215,Castilla La Vieja,8,Castillian,Catholic,Cloth,Grassland
+215,Castilla La Vieja,8,Castillian,Catholic,Cloth,Grasslands
 216,Salamanca,12,Leonese,Catholic,Livestock,Highlands
-217,Madrid,15,Castillian,Catholic,Cloth,Grassland
+217,Madrid,15,Castillian,Catholic,Cloth,Grasslands
 218,Badajoz,8,Andalucian,Catholic,Grain,Grasslands
 219,Toledo,14,Castillian,Catholic,Iron,Grasslands
 220,Valencia,15,Catalan,Catholic,Cloth,Drylands
@@ -224,21 +224,21 @@
 224,Andalucia,16,Andalucian,Catholic,Wine,Drylands
 225,Cordoba,10,Andalucian,Catholic,Grain,Drylands
 226,Gibraltar,3,Andalucian,Sunni,Fish,Mountain
-227,Lisboa,16,Portugese,Catholic,Fish,Grassland
+227,Lisboa,16,Portugese,Catholic,Fish,Grasslands
 228,Beira,11,Portugese,Catholic,Wine,Highlands
 229,Beja,9,Portugese,Catholic,Livestock,Grasslands
-230,Algarve,8,Portugese,Catholic,Salt,Grassland
-231,Porto,19,Portugese,Catholic,Wine,Grassland
+230,Algarve,8,Portugese,Catholic,Salt,Grasslands
+231,Porto,19,Portugese,Catholic,Wine,Grasslands
 232,Braganca,12,Portugese,Catholic,Wine,Hills
 233,Cornwall,3,Cornish,Catholic,Copper,Coastline
 234,Hampshire,9,English,Catholic,Fish,Farmlands
 235,Kent,12,English,Catholic,Cloth,Farmlands
 236,London,20,English,Catholic,Cloth,Farmlands
-237,Oxfordshire,10,English,Catholic,Livestock,Grassland
+237,Oxfordshire,10,English,Catholic,Livestock,Grasslands
 238,Essex,14,English,Catholic,Cloth,Farmlands
 239,Gloucestershire,6,English,Catholic,Naval Supplies,Woods
 240,Shrewsbury,8,English,Catholic,Wool,Woods
-241,Glamorgan,5,Welsh,Catholic,Iron,Grassland
+241,Glamorgan,5,Welsh,Catholic,Iron,Grasslands
 242,Gwynedd,5,Welsh,Catholic,Livestock,Hills
 243,Lincoln,8,English,Catholic,Cloth,Farmlands
 244,Lancashire,8,English,Catholic,Wool,Woods
@@ -246,7 +246,7 @@
 246,Northumberland,8,English,Catholic,Wool,Marsh
 247,Cumbria,5,English,Catholic,Wool,Woods
 248,Lothian,16,Scottish,Catholic,Cloth,Farmlands
-249,Ayrshire,10,Scottish,Catholic,Wool,Grassland
+249,Ayrshire,10,Scottish,Catholic,Wool,Grasslands
 250,Perth,10,Highland Scottish,Catholic,Livestock,Hills
 251,Aberdeen,9,Scottish,Catholic,Fish,Hills
 252,Inverness,7,Highland Scottish,Catholic,Wool,Highlands
@@ -262,12 +262,12 @@
 262,Krakow,20,Polish,Catholic,Salt,Farmlands
 263,Ratibor,8,Schlesian,Catholic,Iron,Highlands
 264,Breslau,13,Schlesian,Catholic,Cloth,Farmlands
-265,Brno,8,Czech,Hussite,Wine,Grassland
+265,Brno,8,Czech,Hussite,Wine,Grasslands
 266,Prague,22,Czech,Hussite,Cloth,Farmlands
 267,Plsen,11,Czech,Catholic,Naval Supplies,Farmlands
 268,Moldavia,11,Romanian,Orthodox,Livestock,Farmlands
 269,Podlasia,13,Polish,Catholic,Livestock,Woods
-270,Troki,8,Lithuanian,a,Livestock,Grassland
+270,Troki,8,Lithuanian,a,Livestock,Grasslands
 271,Samogitia,6,Lithuanian,Catholic,Livestock,Woods
 272,Lithuania,13,Lithuanian,Catholic,Grain,Woods
 273,Latgalia,5,Latvian,Catholic,Livestock,Woods
@@ -278,7 +278,7 @@
 278,Pinsk,6,Byelorussian,Orthodox,Wool,Marsh
 279,Volhynia,10,Ruthenian,Orthodox,Livestock,Farmlands
 280,Kiev,10,Ruthenian,Orthodox,Grain,Farmlands
-281,Kamienec,6,Ruthenian,Orthodox,Livestock,Grassland
+281,Kamienec,6,Ruthenian,Orthodox,Livestock,Grasslands
 282,Yedisan,5,Crimean,Sunni,Livestock,Steppe
 283,Zaporozhia,4,Crimean,Sunni,Livestock,Steppe
 284,Crimea,18,Crimean,Sunni,Salt,Steppe
@@ -289,10 +289,10 @@
 289,Chernigov,5,Ryazanian,Orthodox,Iron,Farmlands
 290,Poltava,5,Ruthenian,Orthodox,Grain,Farmlands
 291,Kharkov,5,Ryazanian,Orthodox,Iron,Steppe
-292,Mogilyov,5,Byelorussian,Orthodox,Wool,Grassland
-293,Smolensk,9,Ryazanian,Orthodox,Grain,Grassland
-294,Tver,11,Russian,Orthodox,Grain,Grassland
-295,Moskva,17,Russian,Orthodox,Iron,Grassland
+292,Mogilyov,5,Byelorussian,Orthodox,Wool,Grasslands
+293,Smolensk,9,Ryazanian,Orthodox,Grain,Grasslands
+294,Tver,11,Russian,Orthodox,Grain,Grasslands
+295,Moskva,17,Russian,Orthodox,Iron,Grasslands
 296,Kaluga,8,Russian,Orthodox,Grain,Woods
 297,Bryansk,5,Ryazanian,Orthodox,Grain,Woods
 298,Kursk,4,Ryazanian,Orthodox,Grain,Woods
@@ -302,22 +302,22 @@
 302,Tambow,9,Mishary,Sunni,Iron,Steppe
 303,Saratow,12,Mishary,Sunni,Livestock,Steppe
 304,Pensa,8,Kazani,Sunni,Livestock,Steppe
-305,Perm,11,Uralic,Tengri,Copper,Grassland
+305,Perm,11,Uralic,Tengri,Copper,Grasslands
 306,Nijni-Novgorod,13,Russian,Orthodox,Copper,Woods
 307,Vladimir,11,Russian,Orthodox,Iron,Woods
-308,Yaroslavl,11,Russian,Orthodox,Livestock,Grassland
+308,Yaroslavl,11,Russian,Orthodox,Livestock,Grasslands
 309,Olonets,8,Karelian,Orthodox,Fur,Forest
 310,Novgorod,20,Novgorodian,Orthodox,Fur,Woods
 311,Kholm,6,Novgorodian,Orthodox,Naval Supplies,Woods
 312,Beloozero,7,Novgorodian,Orthodox,Naval Supplies,Forest
-313,Soroka,4,Novgorodian,Orthodox,Fur,Grassland
-314,Vologda,8,Russian,Orthodox,Iron,Grassland
+313,Soroka,4,Novgorodian,Orthodox,Fur,Grasslands
+314,Vologda,8,Russian,Orthodox,Iron,Grasslands
 315,Finnmark,3,Sapmi,Catholic,Fish,Forest
 316,Kocaeli,9,Turkish,Sunni,Grain,Woods
 317,Hudavendigar,12,Turkish,Sunni,Silk,Woods
 318,Sugla,10,Turkish,Sunni,Cotton,Hills
 319,Mentese,9,Turkish,Sunni,Salt,Highlands
-320,Rhodes,11,Greek,Orthodox,Fish,Grassland
+320,Rhodes,11,Greek,Orthodox,Fish,Grasslands
 321,Cyprus,15,Greek,Orthodox,Wine,Highlands
 322,Kutahya,8,Turkish,Sunni,Cloth,Drylands
 323,Konya,9,Turkish,Sunni,Salt,Highlands
@@ -353,20 +353,20 @@
 353,Gabes,3,Tunisian,Sunni,Grain,Coastal Desert
 354,Tripolitania,5,Tunisian,Sunni,Cloth,Coastal Desert
 355,Sirt,3,Tunisian,Sunni,Fish,Desert
-356,Benghazi,6,Al Misr Arabic,Sunni,Livestock,Coastal Desert
-357,Darnah,3,Al Misr Arabic,Sunni,Livestock,Coastal Desert
-358,Alexandria,13,Al Misr Arabic,Sunni,Spices,Farmlands
-359,Faiyum,12,Al Misr Arabic,Sunni,Cotton,Farmlands
-360,Qena,3,Al Misr Arabic,Sunni,Livestock,Grassland
-361,Cairo,24,Al Misr Arabic,Sunni,Cloth,Farmlands
-362,Rosetta,10,Al Misr Arabic,Sunni,Grain,Marsh
-363,Damietta,10,Al Misr Arabic,Sunni,Grain,Farmlands
-364,Gaza,8,Al Suryah Arabic,Sunni,Salt,Coastal Desert
-365,Sinai,3,Bedouin Arabic,Sunni,Gems,Highlands
-366,The Canarias,7,Berber,Animism,Unknown,Grassland
-367,The Azores,7,Berber,Animism,Fish,Grassland
+356,Benghazi,6,Egyptian,Sunni,Livestock,Coastal Desert
+357,Darnah,3,Egyptian,Sunni,Livestock,Coastal Desert
+358,Alexandria,13,Egyptian,Sunni,Spices,Farmlands
+359,Faiyum,12,Egyptian,Sunni,Cotton,Farmlands
+360,Qena,3,Egyptian,Sunni,Livestock,Grasslands
+361,Cairo,24,Egyptian,Sunni,Cloth,Farmlands
+362,Rosetta,10,Egyptian,Sunni,Grain,Marsh
+363,Damietta,10,Egyptian,Sunni,Grain,Farmlands
+364,Gaza,8,Syrian,Sunni,Salt,Coastal Desert
+365,Sinai,3,Bedouin,Sunni,Gems,Highlands
+366,The Canarias,7,Berber,Animism,Unknown,Grasslands
+367,The Azores,7,Berber,Animism,Fish,Grasslands
 368,Madeira,9,Berber,Animism,Unknown,Coastline
-369,Orkney,3,Norwegian,Catholic,Fish,Grassland
+369,Orkney,3,Norwegian,Catholic,Fish,Grasslands
 370,Reykjavik,3,Icelandic,Catholic,Fish,Highlands
 371,Akureyri,3,Icelandic,Catholic,Fish,Highlands
 372,Tyrone,8,Irish,Catholic,Wool,Woods
@@ -374,42 +374,42 @@
 374,Leinster,6,Irish,Catholic,Livestock,Woods
 375,Munster,8,Irish,Catholic,Fish,Woods
 376,Connaught,6,Irish,Catholic,Livestock,Woods
-377,Aleppo,22,Al Suryah Arabic,Sunni,Silk,Drylands
-378,Tripoli,16,Al Suryah Arabic,Shiite,Grain,Highlands
-379,Jerusalem,13,Al Suryah Arabic,Sunni,Grain,Drylands
-380,Al Karak,3,Bedouin Arabic,Sunni,Grain,Mountain
-381,Ajlun,6,Al Suryah Arabic,Sunni,Grain,Drylands
-382,Damascus,20,Al Suryah Arabic,Sunni,Iron,Drylands
-383,Tabuk,5,Bedouin Arabic,Sunni,Livestock,Mountain
-384,Medina,9,Hejazi Culture,Sunni,Cloth,Mountain
-385,Mecca,12,Hejazi Culture,Sunni,Incense,Mountain
-386,Asir,6,Hejazi Culture,Shiite,Coffee,Mountain
-387,Mokha,8,Yemeni Culture,Sunni,Coffee,Coastline
-388,Aden,11,Yemeni Culture,Sunni,Incense,Mountain
-389,Mukalla,5,Yemeni Culture,Sunni,Incense,Coastal Desert
-390,Sanaa,11,Yemeni Culture,Shiite,Wool,Mountain
-391,Najran,6,Yemeni Culture,Shiite,Cloth,Desert
-392,Al-Arid,3,Bedouin Arabic,Sunni,Livestock,Desert
-393,Jabal Shammar,3,Bedouin Arabic,Sunni,Grain,Desert
-394,El Catif,3,Gulf Arabic,Shiite,Fish,Coastal Desert
-395,Qatar,5,Gulf Arabic,Shiite,Gems,Coastal Desert
-396,Bahrain,4,Gulf Arabic,Shiite,Gems,Coastal Desert
-397,Abu Dhabi,3,Gulf Arabic,Shiite,Livestock,Coastal Desert
-398,Qawasim,5,Gulf Arabic,Ibadi,Livestock,Coastal Desert
-399,Suhar,9,Omani Culture,Ibadi,Grain,Coastal Desert
-400,Muscat,9,Omani Culture,Ibadi,Gems,Coastal Desert
-401,Dhofar,3,Mahri Culture,Sunni,Incense,Coastal Desert
-402,Mahra,3,Mahri Culture,Sunni,Incense,Coastal Desert
-403,Nizwa,9,Omani Culture,Ibadi,Wool,Desert
-404,Liwa,3,Gulf Arabic,Sunni,Spices,Desert
-405,Tadmor,4,Bedouin Arabic,Sunni,Livestock,Desert
-406,As Sahiliyah,6,Al Iraqiya Arabic,Sunni,Livestock,Drylands
-407,Ar Raqqa,3,Al Suryah Arabic,Sunni,Livestock,Drylands
-408,Basra,11,Al Iraqiya Arabic,Shiite,Salt,Marsh
-409,Hillah,6,Al Iraqiya Arabic,Shiite,Wool,Desert
-410,Baghdad,12,Al Iraqiya Arabic,Sunni,Cloth,Farmlands
+377,Aleppo,22,Syrian,Sunni,Silk,Drylands
+378,Tripoli,16,Syrian,Shiite,Grain,Highlands
+379,Jerusalem,13,Syrian,Sunni,Grain,Drylands
+380,Al Karak,3,Bedouin,Sunni,Grain,Mountain
+381,Ajlun,6,Syrian,Sunni,Grain,Drylands
+382,Damascus,20,Syrian,Sunni,Iron,Drylands
+383,Tabuk,5,Bedouin,Sunni,Livestock,Mountain
+384,Medina,9,Hejazi,Sunni,Cloth,Mountain
+385,Mecca,12,Hejazi,Sunni,Incense,Mountain
+386,Asir,6,Hejazi,Shiite,Coffee,Mountain
+387,Mokha,8,Yemeni,Sunni,Coffee,Coastline
+388,Aden,11,Yemeni,Sunni,Incense,Mountain
+389,Mukalla,5,Yemeni,Sunni,Incense,Coastal Desert
+390,Sanaa,11,Yemeni,Shiite,Wool,Mountain
+391,Najran,6,Yemeni,Shiite,Cloth,Desert
+392,Al-Arid,3,Bedouin,Sunni,Livestock,Desert
+393,Jabal Shammar,3,Bedouin,Sunni,Grain,Desert
+394,El Catif,3,Khaleeji,Shiite,Fish,Coastal Desert
+395,Qatar,5,Khaleeji,Shiite,Gems,Coastal Desert
+396,Bahrain,4,Khaleeji,Shiite,Gems,Coastal Desert
+397,Abu Dhabi,3,Khaleeji,Shiite,Livestock,Coastal Desert
+398,Qawasim,5,Khaleeji,Ibadi,Livestock,Coastal Desert
+399,Suhar,9,Omani,Ibadi,Grain,Coastal Desert
+400,Muscat,9,Omani,Ibadi,Gems,Coastal Desert
+401,Dhofar,3,Mahri,Sunni,Incense,Coastal Desert
+402,Mahra,3,Mahri,Sunni,Incense,Coastal Desert
+403,Nizwa,9,Omani,Ibadi,Wool,Desert
+404,Liwa,3,Khaleeji,Sunni,Spices,Desert
+405,Tadmor,4,Bedouin,Sunni,Livestock,Desert
+406,As Sahiliyah,6,Mashriqi,Sunni,Livestock,Drylands
+407,Ar Raqqa,3,Syrian,Sunni,Livestock,Drylands
+408,Basra,11,Mashriqi,Shiite,Salt,Marsh
+409,Hillah,6,Mashriqi,Shiite,Wool,Desert
+410,Baghdad,12,Mashriqi,Sunni,Cloth,Farmlands
 411,Mosul,12,Kurdish,Sunni,Cloth,Drylands
-412,Khuzestan,9,Al Iraqiya Arabic,Shiite,Sugar,Drylands
+412,Khuzestan,9,Mashriqi,Shiite,Sugar,Drylands
 413,Lorestan,8,Luri,Shiite,Grain,Mountain
 414,Hamadan,6,Luri,Sunni,Cloth,Mountain
 415,Shahrizor,9,Kurdish,Sunni,Grain,Farmlands
@@ -428,7 +428,7 @@
 428,Teheran,14,Persian,Shiite,Silk,Drylands
 429,Isfahan,11,Persian,Sunni,Paper,Mountain
 430,Bushehr,7,Persian,Shiite,Silk,Drylands
-431,Mogostan,9,Gulf Arabic,Sunni,Spices,Drylands
+431,Mogostan,9,Khaleeji,Sunni,Spices,Drylands
 432,Kerman,7,Persian,Sunni,Paper,Desert
 433,Yazd,6,Persian,Zoroastrian,Paper,Mountain
 434,Quhistan,7,Baluchi,Sunni,Livestock,Mountain
@@ -478,9 +478,9 @@
 478,Argyn,6,Khazak,Sunni,Wool,Steppe
 479,Kerey,6,Khazak,Sunni,Copper,Steppe
 480,Kulunda,3,Kirgiz,Tengri,Unknown,Woods
-481,Bermuda,3,English,Protestant,Unknown,Grassland
-482,Bahamas,5,Arawak,Animism,Unknown,Grassland
-483,Turks Islands,7,Carib,Animism,Unknown,Grassland
+481,Bermuda,3,English,Protestant,Unknown,Grasslands
+482,Bahamas,5,Arawak,Animism,Unknown,Grasslands
+483,Turks Islands,7,Carib,Animism,Unknown,Grasslands
 484,Havana,11,Arawak,Animism,Unknown,Savannah
 485,Moron,6,Arawak,Animism,Unknown,Savannah
 486,Guantanamo,6,Arawak,Animism,Unknown,Jungle
@@ -490,10 +490,10 @@
 490,Barahonas,6,Arawak,Animism,Unknown,Jungle
 491,Curacao,7,Arawak,Animism,Unknown,Coastline
 492,Puerto Rico,10,Arawak,Animism,Unknown,Coastline
-493,St. Thomas,9,Arawak,Animism,Unknown,Grassland
-494,St. Kitts,9,Arawak,Animism,Unknown,Grassland
-495,Antigua,10,Carib,Animism,Unknown,Grassland
-496,Guadeloupe,10,Carib,Animism,Unknown,Grassland
+493,St. Thomas,9,Arawak,Animism,Unknown,Grasslands
+494,St. Kitts,9,Arawak,Animism,Unknown,Grasslands
+495,Antigua,10,Carib,Animism,Unknown,Grasslands
+496,Guadeloupe,10,Carib,Animism,Unknown,Grasslands
 497,Dominica,10,Carib,Animism,Unknown,Coastline
 498,Martinique,10,Carib,Animism,Unknown,Coastline
 499,St. Lucia,10,Carib,Animism,Unknown,Coastline
@@ -571,13 +571,13 @@
 571,Darrang,9,Assamese,Hinduism,Silk,Jungle
 572,Kotte,7,Sinhala,Buddhism,Spices,Grasslands
 573,Cachar,3,Chin,Hinduism,Grain,Jungle
-574,The Andamans,3,Filipino,Animism,Unknown,Grassland
+574,The Andamans,3,Filipino,Animism,Unknown,Grasslands
 575,Eastern Makran,3,Baluchi,Sunni,Fish,Desert
 576,Kalat,10,Baluchi,Sunni,Dyes,Mountain
 577,Quetta,9,Baluchi,Sunni,Grain,Mountain
 578,Roh,10,Afghani,Sunni,Livestock,Highlands
 579,Mrauk U,10,Arakanese,Buddhism,Grain,Jungle
-580,Kale,7,Chin,Animism,Ivory,Grassland
+580,Kale,7,Chin,Animism,Ivory,Grasslands
 581,Sagaing,14,Burmese,Buddhism,Cotton,Farmlands
 582,Mong Yang,9,Shan,Buddhism,Copper,Jungle
 583,Hsenwi,9,Shan,Buddhism,Tropical Wood,Mountain
@@ -586,21 +586,21 @@
 586,Pegu,12,Mon,Buddhism,Spices,Farmlands
 587,Kengtung,4,Shan,Animism,Tropical Wood,Mountain
 588,Mong Nai,6,Shan,Buddhism,Cotton,Highlands
-589,Chiang Mai,17,Northern Thai,Buddhism,Ivory,Jungle
+589,Chiang Mai,17,Lao,Buddhism,Ivory,Jungle
 590,Moulmein,8,Mon,Buddhism,Sugar,Jungle
 591,Tavoy,10,Mon,Buddhism,Naval Supplies,Jungle
-592,Ratchaburi,9,Central Thai,Buddhism,Grain,Jungle
-593,Nakhon Si Thammarat,12,Central Thai,Buddhism,Tropical Wood,Grasslands
-594,Pattani,15,Malayan,Sunni,Tropical Wood,Grassland
-595,Perak,12,Malayan,Sunni,Copper,Grassland
-596,Malacca,17,Malayan,Sunni,Spices,Grassland
-597,Johor,12,Malayan,Sunni,Chinaware,Grassland
-598,Pahang,5,Malayan,Sunni,Fish,Grassland
-599,Kelantan,6,Malayan,Sunni,Naval Supplies,Grassland
-600,Ayutthaya,20,Central Thai,Buddhism,Ivory,Farmlands
-601,Sukhothai,15,Central Thai,Buddhism,Chinaware,Grassland
-602,Chiang Rai,12,Northern Thai,Buddhism,Grain,Jungle
-603,Nakhon Thung Yai,11,Central Thai,Buddhism,Gems,Savannah
+592,Ratchaburi,9,Siamese,Buddhism,Grain,Jungle
+593,Nakhon Si Thammarat,12,Siamese,Buddhism,Tropical Wood,Grasslands
+594,Pattani,15,Malayan,Sunni,Tropical Wood,Grasslands
+595,Perak,12,Malayan,Sunni,Copper,Grasslands
+596,Malacca,17,Malayan,Sunni,Spices,Grasslands
+597,Johor,12,Malayan,Sunni,Chinaware,Grasslands
+598,Pahang,5,Malayan,Sunni,Fish,Grasslands
+599,Kelantan,6,Malayan,Sunni,Naval Supplies,Grasslands
+600,Ayutthaya,20,Siamese,Buddhism,Ivory,Farmlands
+601,Sukhothai,15,Siamese,Buddhism,Chinaware,Grasslands
+602,Chiang Rai,12,Lao,Buddhism,Grain,Jungle
+603,Nakhon Thung Yai,11,Siamese,Buddhism,Gems,Savannah
 604,Oudong,10,Khmer,Buddhism,Incense,Hills
 605,Prey Nokor,11,Khmer,Hinduism,Tropical Wood,Savannah
 606,Panduranga,10,Cham,Hinduism,Fish,Savannah
@@ -614,41 +614,41 @@
 614,Vientiane,14,Lao,Buddhism,Grain,Savannah
 615,Luang Prabang,11,Lao,Animism,Chinaware,Hills
 616,Cao Bang,7,Zhuang,Mahayana,Grain,Jungle
-617,Lamuri,11,Acehnese,Sunni,Spices,Grassland
-618,Deli,8,Sumatran,Sunni,Spices,Grassland
-619,Batak,6,Sumatran,Hinduism,Incense,Grassland
-620,Siak,13,Sumatran,Sunni,Chinaware,Grassland
-621,Bengkulu,8,Sumatran,Hinduism,Unknown,Grassland
-622,Palembang,13,Sumatran,Hinduism,Unknown,Grassland
-623,Tulangbewang,7,Sumatran,Hinduism,Spices,Grassland
-624,Banten,11,Sundanese,Hinduism,Spices,Grassland
-625,Ciamis,10,Sundanese,Hinduism,Tropical Wood,Grassland
-626,Karta,13,Javanese,Hinduism,Grain,Grassland
-627,Blambangan,11,Javanese,Hinduism,Cotton,Grassland
-628,Surabaya,13,Javanese,Hinduism,Cotton,Grassland
-629,Demak,13,Javanese,Hinduism,Cotton,Grassland
-630,Kalapa,10,Sundanese,Hinduism,Spices,Grassland
-631,Bali,9,Nusa Tenggara,Hinduism,Cloth,Grassland
-632,Sumbawa,8,Nusa Tenggara,Animism,Unknown,Grassland
-633,Flores,11,Nusa Tenggara,Animism,Unknown,Grassland
+617,Lamuri,11,Acehnese,Sunni,Spices,Grasslands
+618,Deli,8,Sumatran,Sunni,Spices,Grasslands
+619,Batak,6,Sumatran,Hinduism,Incense,Grasslands
+620,Siak,13,Sumatran,Sunni,Chinaware,Grasslands
+621,Bengkulu,8,Sumatran,Hinduism,Unknown,Grasslands
+622,Palembang,13,Sumatran,Hinduism,Unknown,Grasslands
+623,Tulangbewang,7,Sumatran,Hinduism,Spices,Grasslands
+624,Banten,11,Sundanese,Hinduism,Spices,Grasslands
+625,Ciamis,10,Sundanese,Hinduism,Tropical Wood,Grasslands
+626,Karta,13,Javanese,Hinduism,Grain,Grasslands
+627,Blambangan,11,Javanese,Hinduism,Cotton,Grasslands
+628,Surabaya,13,Javanese,Hinduism,Cotton,Grasslands
+629,Demak,13,Javanese,Hinduism,Cotton,Grasslands
+630,Kalapa,10,Sundanese,Hinduism,Spices,Grasslands
+631,Bali,9,Nusa Tenggara,Hinduism,Cloth,Grasslands
+632,Sumbawa,8,Nusa Tenggara,Animism,Unknown,Grasslands
+633,Flores,11,Nusa Tenggara,Animism,Unknown,Grasslands
 634,Sumba,5,Nusa Tenggara,Animism,Unknown,Coastline
-635,West Timor,9,Nusa Tenggara,Animism,Unknown,Grassland
-636,Brunei,13,Bornean,Sunni,Spices,Grassland
-637,Api-Api,9,Bornean,Sunni,Spices,Grassland
-638,Kutai,13,Bornean,Hinduism,Fish,Grassland
-639,Banjar,11,Bornean,Hinduism,Unknown,Grassland
-640,Pontianak,9,Bornean,Hinduism,Unknown,Grassland
-641,Makassar,14,Sulawesi,Animism,Spices,Grassland
+635,West Timor,9,Nusa Tenggara,Animism,Unknown,Grasslands
+636,Brunei,13,Bornean,Sunni,Spices,Grasslands
+637,Api-Api,9,Bornean,Sunni,Spices,Grasslands
+638,Kutai,13,Bornean,Hinduism,Fish,Grasslands
+639,Banjar,11,Bornean,Hinduism,Unknown,Grasslands
+640,Pontianak,9,Bornean,Hinduism,Unknown,Grasslands
+641,Makassar,14,Sulawesi,Animism,Spices,Grasslands
 642,Kendari,9,Sulawesi,Animism,Spices,Coastline
 643,Poso,10,Sulawesi,Animism,Unknown,Coastline
 644,Manado,10,Sulawesi,Animism,Unknown,Coastline
 645,Buru,5,Moluccan,Animism,Unknown,Coastline
-646,Ambon,12,Moluccan,Animism,Unknown,Grassland
+646,Ambon,12,Moluccan,Animism,Unknown,Grasslands
 647,Ceram,7,Moluccan,Animism,Unknown,Coastline
 648,Halmahera,5,Moluccan,Animism,Unknown,Coastline
 649,Ternate,13,Moluccan,Animism,Cloves,Coastline
 650,Tidore,13,Moluccan,Animism,Cloves,Coastline
-651,Sulu,11,Filipino,Sunni,Unknown,Grassland
+651,Sulu,11,Filipino,Sunni,Unknown,Grasslands
 652,Maguindanao,13,Filipino,Animism,Spices,Hills
 653,Lanao,8,Filipino,Animism,Spices,Coastline
 654,Samar,5,Filipino,Animism,Unknown,Coastline
@@ -656,7 +656,7 @@
 656,Manila,12,Filipino,Animism,Chinaware,Coastline
 657,Ilocos,6,Filipino,Animism,Unknown,Hills
 658,Cagayan,6,Filipino,Animism,Unknown,Hills
-659,Lingga,3,Sumatran,Sunni,Fish,Grassland
+659,Lingga,3,Sumatran,Sunni,Fish,Grasslands
 660,Sibsongbanna,8,Shan,Buddhism,Tea,Jungle
 661,Dali,9,Bai,Buddhism,Tea,Highlands
 662,Yunnan,14,Bai,Buddhism,Copper,Highlands
@@ -665,7 +665,7 @@
 665,Shiuhing,11,Cantonese,Confucianism,Chinaware,Farmlands
 666,Kiungchow,3,Chimin,Confucianism,Tropical Wood,Jungle
 667,Canton,27,Cantonese,Confucianism,Incense,Farmlands
-668,Macau,7,Cantonese,Confucianism,Fish,Grassland
+668,Macau,7,Cantonese,Confucianism,Fish,Grasslands
 669,Fuzhou,19,Chimin,Confucianism,Tea,Hills
 670,Ganzhou,10,Hakka,Confucianism,Grain,Hills
 671,Changsha,16,Xiang,Confucianism,Grain,Farmlands
@@ -687,8 +687,8 @@
 687,Nanyang,10,Zhongyuan,Confucianism,Gems,Farmlands
 688,Kaifeng,20,Zhongyuan,Confucianism,Chinaware,Farmlands
 689,Hanzhong,11,Xibei,Confucianism,Iron,Mountain
-690,Qingzhou,12,Shandong Culture,Confucianism,Iron,Farmlands
-691,Jinan,13,Shandong Culture,Confucianism,Cloth,Farmlands
+690,Qingzhou,12,Shandong,Confucianism,Iron,Farmlands
+691,Jinan,13,Shandong,Confucianism,Cloth,Farmlands
 692,Huaiqing,8,Jin,Confucianism,Grain,Farmlands
 693,Taiyuan,15,Jin,Confucianism,Iron,Mountain
 694,Pingyang,7,Jin,Confucianism,Iron,Mountain
@@ -735,16 +735,16 @@
 735,Hanseong,25,Korean,Confucianism,Paper,Farmlands
 736,Sangju,9,Korean,Confucianism,Cotton,Highlands
 737,Jeonju,10,Korean,Confucianism,Chinaware,Grasslands
-738,Sakam,10,Polynesian,Animism,Unknown,Grassland
+738,Sakam,10,Polynesian,Animism,Unknown,Grasslands
 739,Kashgar,6,Uyghur,Sunni,Wool,Mountain
 740,Chanderi,6,Malvi,Hinduism,Cloth,Hills
-741,Cumana,4,Carib,Animism,Unknown,Grassland
-742,Guayana,4,Carib,Animism,Unknown,Grassland
+741,Cumana,4,Carib,Animism,Unknown,Grasslands
+742,Guayana,4,Carib,Animism,Unknown,Grasslands
 743,Essequibo,3,Guajiro,Animism,Sugar,Jungle
-744,Demerara,3,Guajiro,Animism,Unknown,Grassland
+744,Demerara,3,Guajiro,Animism,Unknown,Grasslands
 745,Suriname,3,Guajiro,Animism,Unknown,Jungle
 746,Cayenne,3,Guajiro,Animism,Unknown,Jungle
-747,Tucujulandia,4,Guajiro,Animism,Unknown,Grassland
+747,Tucujulandia,4,Guajiro,Animism,Unknown,Grasslands
 748,Grao Para,4,Tupinamba,Animism,Cocoa,Jungle
 749,Maranhao,7,Ge,Animism,Unknown,Marsh
 750,Alpercatas,4,Ge,Animism,Unknown,Drylands
@@ -757,16 +757,16 @@
 757,Ilheus,7,Tupinamba,Animism,Cocoa,Jungle
 758,Goias,4,Ge,Animism,Unknown,Marsh
 759,Diamentina,6,Ge,Animism,Unknown,Jungle
-760,Porto Seguro,7,Ge,Animism,Unknown,Grassland
-761,Espirito Santo,6,Ge,Animism,Cocoa,Grassland
-762,Sao Tome,6,Tupinamba,Animism,Unknown,Grassland
-763,Rio de Janeiro,10,Tupinamba,Animism,Unknown,Grassland
-764,Santo Amaro,4,Tupinamba,Animism,Unknown,Grassland
+760,Porto Seguro,7,Ge,Animism,Unknown,Grasslands
+761,Espirito Santo,6,Ge,Animism,Cocoa,Grasslands
+762,Sao Tome,6,Tupinamba,Animism,Unknown,Grasslands
+763,Rio de Janeiro,10,Tupinamba,Animism,Unknown,Grasslands
+764,Santo Amaro,4,Tupinamba,Animism,Unknown,Grasslands
 765,Minas Gerais,6,Ge,Animism,Unknown,Jungle
-766,Sao Vicente,6,Tupinamba,Animism,Unknown,Grassland
+766,Sao Vicente,6,Tupinamba,Animism,Unknown,Grasslands
 767,Ortelsburg,6,Prussian,Catholic,Naval Supplies,Woods
 768,Guayra,3,Guarani,Animism,Unknown,Savannah
-769,Curitiba,6,Guarani,Animism,Unknown,Grassland
+769,Curitiba,6,Guarani,Animism,Unknown,Grasslands
 770,Braslaw,8,Lithuanian,Catholic,Livestock,Woods
 771,Vitebsk,5,Byelorussian,Orthodox,Grain,Woods
 772,Paysandu,4,Charruan,Animism,Unknown,Grasslands
@@ -797,10 +797,10 @@
 797,Caracara,6,Aimara,Inti,Copper,Mountain
 798,Nsoyo,5,Mbundu,Fetishist,Grain,Grasslands
 799,Chaco Boreal,3,Chacoan,Animism,Unknown,Drylands
-800,Chiquitos,3,Maipurean,Animism,Unknown,Grassland
-801,Caranga,4,Guarani,Animism,Unknown,Grassland
+800,Chiquitos,3,Maipurean,Animism,Unknown,Grasslands
+801,Caranga,4,Guarani,Animism,Unknown,Grasslands
 802,Chuquiabo,9,Aimara,Inti,Cloth,Mountain
-803,Moxos,3,Guarani,Animism,Unknown,Grassland
+803,Moxos,3,Guarani,Animism,Unknown,Grasslands
 804,Puno,6,Aimara,Inti,Gold,Mountain
 805,Arequipa,5,Aimara,Inti,Grain,Coastal Desert
 806,Nazca,3,Inca,Inti,Fish,Coastal Desert
@@ -812,22 +812,22 @@
 812,Chanchan,10,Chimuan,Inti,Cocoa,Mountain
 813,Cajamarca,8,Inca,Inti,Cocoa,Mountain
 814,Huanuco,5,Inca,Inti,Grain,Mountain
-815,Maynas,3,Jivaro,Animism,Unknown,Grassland
-816,Tumbes,5,Chimuan,Inti,Grain,Grassland
+815,Maynas,3,Jivaro,Animism,Unknown,Grasslands
+816,Tumbes,5,Chimuan,Inti,Grain,Grasslands
 817,Cuenca,8,Cara,Inti,Wool,Mountain
-818,Canelos,4,Jivaro,Animism,Unknown,Grassland
-819,Guayaquil,6,Cara,Inti,Fish,Grassland
+818,Canelos,4,Jivaro,Animism,Unknown,Grasslands
+819,Guayaquil,6,Cara,Inti,Fish,Grasslands
 820,Quito,14,Cara,Inti,Cloth,Mountain
-821,Quijos,3,Jivaro,Animism,Unknown,Grassland
-822,Caqueta,3,Jivaro,Animism,Unknown,Grassland
+821,Quijos,3,Jivaro,Animism,Unknown,Grasslands
+822,Caqueta,3,Jivaro,Animism,Unknown,Grasslands
 823,Cauca,5,Guajiro,Animism,Unknown,Highlands
 824,Mariquita,5,Guajiro,Animism,Unknown,Mountain
 825,Bogota,14,Muisca,Inti,Gems,Mountain
 826,Choco,3,Guajiro,Animism,Unknown,Jungle
 827,Antioquia,7,Muisca,Animism,Unknown,Mountain
-828,Cartagena,8,Guajiro,Animism,Unknown,Grassland
+828,Cartagena,8,Guajiro,Animism,Unknown,Grasslands
 829,Magdalena,3,Muisca,Animism,Coffee,Mountain
-830,Maracaibo,4,Guajiro,Animism,Unknown,Grassland
+830,Maracaibo,4,Guajiro,Animism,Unknown,Grasslands
 831,Caracas,4,Carib,Animism,Unknown,Hills
 832,Chiancon,12,Muisca,Inti,Salt,Mountain
 833,GraaffReinet,5,Nguni,Fetishist,Unknown,Steppe
@@ -839,10 +839,10 @@
 839,Pipil,3,Highland Mayan,Mayan,Cocoa,Hills
 840,Honduras,3,Miskito,Animism,Unknown,Jungle
 841,Guatemala,7,Highland Mayan,Mayan,Cocoa,Hills
-842,Peten,5,Putun,Mayan,Cocoa,Grassland
+842,Peten,5,Putun,Mayan,Cocoa,Grasslands
 843,Belize,9,Yucatec,Mayan,Sugar,Jungle
 844,Zapotec,5,Zapotek,Nahuatl,Sugar,Hills
-845,Campeche,9,Yucatec,Mayan,Sugar,Grassland
+845,Campeche,9,Yucatec,Mayan,Sugar,Grasslands
 846,Yucatan,9,Yucatec,Mayan,Fish,Jungle
 847,Mixtec,7,Mixtec,Nahuatl,Grain,Hills
 848,Tohancapan,5,Totonac,Nahuatl,Spices,Jungle
@@ -901,13 +901,13 @@
 901,Pawnee,4,Pawnee,Totemism,Grain,Grasslands
 902,Missouri,3,Pawnee,Totemism,Unknown,Savannah
 903,Omaha,3,Pawnee,Totemism,Unknown,Grasslands
-904,Nakota,3,Chiwere,Totemism,Unknown,Grassland
+904,Nakota,3,Chiwere,Totemism,Unknown,Grasslands
 905,Iowa,3,Chiwere,Totemism,Unknown,Grasslands
 906,Lakota,3,Dakota,Totemism,Unknown,Steppe
-907,Dakota,3,Dakota,Totemism,Unknown,Grassland
-908,Minnesota,3,Dakota,Totemism,Fur,Grassland
-909,Mandan,3,Arapaho,Totemism,Unknown,Grassland
-910,Chippewa,3,Anishinabe,Totemism,Unknown,Grassland
+907,Dakota,3,Dakota,Totemism,Unknown,Grasslands
+908,Minnesota,3,Dakota,Totemism,Fur,Grasslands
+909,Mandan,3,Arapaho,Totemism,Unknown,Grasslands
+910,Chippewa,3,Anishinabe,Totemism,Unknown,Grasslands
 911,Menominee,4,Anishinabe,Totemism,Unknown,Hills
 912,Sauk,3,Chiwere,Totemism,Unknown,Woods
 913,Fox,6,Chiwere,Totemism,Fur,Savannah
@@ -949,8 +949,8 @@
 949,Monacan,3,Yuchi,Totemism,Unknown,Hills
 950,Powhatan,10,Powhatan,Totemism,Unknown,Marsh
 951,Kanawha,3,Shawnee,Totemism,Unknown,Hills
-952,Powhatan,5,Powhatan,Totemism,Tobacco,Grassland
-953,Conoy,6,Powhatan,Totemism,Unknown,Grassland
+952,Powhatan,5,Powhatan,Totemism,Tobacco,Grasslands
+953,Conoy,6,Powhatan,Totemism,Unknown,Grasslands
 954,Allegheny,5,Tionontate,Totemism,Fur,Woods
 955,Susquehanna,6,Susquehannock,Totemism,Unknown,Woods
 956,Lenape,5,Delaware,Totemism,Fur,Woods
@@ -980,15 +980,15 @@
 980,Beothuk,4,Innu,Totemism,Unknown,Forest
 981,Taqamkuk,4,Innu,Totemism,Unknown,Hills
 982,Unamakik,3,Mikmaq,Totemism,Unknown,Coastline
-983,Epekwitk,3,Mikmaq,Totemism,Unknown,Grassland
+983,Epekwitk,3,Mikmaq,Totemism,Unknown,Grasslands
 984,Acadia,5,Mikmaq,Totemism,Unknown,Woods
 985,Micmac,5,Mikmaq,Totemism,Unknown,Woods
 986,Kespek,3,Mikmaq,Totemism,Unknown,Hills
 987,Niagara,6,Tionontate,Totemism,Fur,Woods
 988,Huron,8,Huron,Totemism,Fur,Woods
 989,Ontario,6,Huron,Totemism,Grain,Woods
-990,Kwedech,6,Laurentian,Totemism,Unknown,Grassland
-991,Ottawa,5,Algonquin,Totemism,Unknown,Grassland
+990,Kwedech,6,Laurentian,Totemism,Unknown,Grasslands
+991,Ottawa,5,Algonquin,Totemism,Unknown,Grasslands
 992,Algonquin,6,Algonquin,Totemism,Fur,Hills
 993,Hochelega,5,Laurentian,Totemism,Fur,Forest
 994,Stadacona,10,Laurentian,Totemism,Fish,Hills
@@ -998,15 +998,15 @@
 998,Ungava,4,Inuit,Totemism,Unknown,Forest
 999,Nunavik,4,Cree,Totemism,Unknown,Marsh
 1000,Cree,4,Cree,Totemism,Unknown,Marsh
-1001,Sault,5,Anishinabe,Totemism,Unknown,Grassland
-1002,Abitbi,3,Algonquin,Totemism,Unknown,Grassland
+1001,Sault,5,Anishinabe,Totemism,Unknown,Grasslands
+1002,Abitbi,3,Algonquin,Totemism,Unknown,Grasslands
 1003,Moose Cree,4,Cree,Totemism,Unknown,Marsh
 1004,Attawapiskat,4,Cree,Totemism,Unknown,Marsh
 1005,Swampy Cree,4,Cree,Totemism,Unknown,Marsh
 1006,Chipewyan,4,Inuit,Totemism,Unknown,Marsh
-1007,Ojibwa,3,Anishinabe,Totemism,Unknown,Grassland
+1007,Ojibwa,3,Anishinabe,Totemism,Unknown,Grasslands
 1008,Winnipeg,3,Bungi,Totemism,Unknown,Savannah
-1009,Atikaki,3,Bungi,Totemism,Unknown,Grassland
+1009,Atikaki,3,Bungi,Totemism,Unknown,Grasslands
 1010,Manitoba,3,Chipewyan,Totemism,Unknown,Savannah
 1011,Woods Cree,3,Plains Cree,Totemism,Unknown,Forest
 1012,Satsuma,9,Kyushuan,Shinto,Iron,Grasslands
@@ -1029,62 +1029,62 @@
 1029,Kai,9,Togoku,Shinto,Livestock,Hills
 1030,Owari,10,Togoku,Shinto,Dyes,Farmlands
 1031,Kamikawa,3,Ainu,Animism,Fish,Marsh
-1032,Kurils,3,Ainu,Animism,Fish,Grassland
+1032,Kurils,3,Ainu,Animism,Fish,Grasslands
 1033,Sakhalin,3,Ainu,Animism,Fish,Woods
 1034,Kamchatka,3,Kamchatkan,Tengri,Fish,Glacial
 1035,Penchisky,3,Kamchatkan,Tengri,Fish,Glacial
-1036,Podzhiversk,3,Yukagyr,Tengri,Unknown,Grassland
-1037,Nizhe-Kolymsk,3,Yukagyr,Tengri,Unknown,Grassland
-1038,Anadyrsk,3,Yukagyr,Tengri,Fur,Grassland
-1039,Verkhoyansk,3,Yukagyr,Tengri,Unknown,Grassland
-1040,Suntar Khayat,3,Yukagyr,Tengri,Unknown,Grassland
-1041,Gizhiga,3,Kamchatkan,Tengri,Unknown,Grassland
-1042,Kamnuskoye,3,Yakut,Tengri,Unknown,Grassland
-1043,Okhotsk,3,Yakut,Tengri,Unknown,Grassland
-1044,Tauisk,3,Kamchatkan,Tengri,Unknown,Grassland
-1045,Yakutsk,3,Yakut,Tengri,Unknown,Grassland
+1036,Podzhiversk,3,Yukagyr,Tengri,Unknown,Grasslands
+1037,Nizhe-Kolymsk,3,Yukagyr,Tengri,Unknown,Grasslands
+1038,Anadyrsk,3,Yukagyr,Tengri,Fur,Grasslands
+1039,Verkhoyansk,3,Yukagyr,Tengri,Unknown,Grasslands
+1040,Suntar Khayat,3,Yukagyr,Tengri,Unknown,Grasslands
+1041,Gizhiga,3,Kamchatkan,Tengri,Unknown,Grasslands
+1042,Kamnuskoye,3,Yakut,Tengri,Unknown,Grasslands
+1043,Okhotsk,3,Yakut,Tengri,Unknown,Grasslands
+1044,Tauisk,3,Kamchatkan,Tengri,Unknown,Grasslands
+1045,Yakutsk,3,Yakut,Tengri,Unknown,Grasslands
 1046,Butalsk,3,Yakut,Tengri,Unknown,Forest
 1047,Jugjur,3,Yakut,Tengri,Unknown,Highlands
 1048,Udskoye,6,Nivkh,Tengri,Fur,Mountain
 1049,Hailanboo,6,Evenk,Tengri,Fur,Woods
 1050,Deren,11,Nivkh,Tengri,Fur,Woods
-1051,Uchurskoye,3,Yakut,Tengri,Unknown,Grassland
-1052,Verkohzehkoye,4,Yakut,Tengri,Unknown,Grassland
+1051,Uchurskoye,3,Yakut,Tengri,Unknown,Grasslands
+1052,Verkohzehkoye,4,Yakut,Tengri,Unknown,Grasslands
 1053,Hinggan,7,Evenk,Tengri,Fur,Woods
 1054,Ilimsk,3,Tungus,Tengri,Unknown,Forest
-1055,Verkne-Angarsky,6,Buryat,Tengri,Unknown,Grassland
+1055,Verkne-Angarsky,6,Buryat,Tengri,Unknown,Grasslands
 1056,Barguzinsky,9,Buryat,Tengri,Unknown,Woods
 1057,Udinsky,8,Buryat,Tengri,Unknown,Steppe
 1058,Nerchinsky,3,Buryat,Tengri,Fur,Steppe
-1059,Bratsk,3,Tungus,Tengri,Unknown,Grassland
+1059,Bratsk,3,Tungus,Tengri,Unknown,Grasslands
 1060,Irkutsk,3,Buryat,Tengri,Unknown,Woods
-1061,Yeniseysk,3,Tungus,Tengri,Unknown,Grassland
+1061,Yeniseysk,3,Tungus,Tengri,Unknown,Grasslands
 1062,Kachinsk,3,Buryat,Tengri,Unknown,Woods
 1063,Sayan,3,Buryat,Tengri,Unknown,Woods
 1064,Tomsk,3,Ostyaki,Tengri,Unknown,Woods
 1065,Kuznetsk,3,Kirgiz,Tengri,Unknown,Woods
 1066,Altai,3,Buryat,Tengri,Fur,Mountain
-1067,Narym,3,Samoyed,Tengri,Unknown,Grassland
+1067,Narym,3,Samoyed,Tengri,Unknown,Grasslands
 1068,Pegaya Orda,3,Ostyaki,Tengri,Unknown,Woods
-1069,Surgut,3,Samoyed,Tengri,Unknown,Grassland
-1070,Koda,3,Samoyed,Tengri,Unknown,Grassland
+1069,Surgut,3,Samoyed,Tengri,Unknown,Grasslands
+1070,Koda,3,Samoyed,Tengri,Unknown,Grasslands
 1071,Tara,6,Siberian,Sunni,Fur,Steppe
-1072,Obdorsk,3,Samoyed,Tengri,Unknown,Grassland
-1073,Berezov,3,Samoyed,Tengri,Unknown,Grassland
+1072,Obdorsk,3,Samoyed,Tengri,Unknown,Grasslands
+1073,Berezov,3,Samoyed,Tengri,Unknown,Grasslands
 1074,Sibir,6,Ostyaki,Sunni,Fur,Woods
 1075,Tyumen,12,Siberian,Sunni,Fur,Steppe
 1076,Kurgan,9,Siberian,Sunni,Fur,Steppe
-1077,Solikamsk,9,Uralic,Tengri,Salt,Grassland
+1077,Solikamsk,9,Uralic,Tengri,Salt,Grasslands
 1078,Middle Urals,3,Uralic,Tengri,Unknown,Mountain
 1079,Viatka,10,Russian,Orthodox,Copper,Woods
-1080,North Urals,3,Uralic,Tengri,Unknown,Grassland
+1080,North Urals,3,Uralic,Tengri,Unknown,Grasslands
 1081,Simbirsk,3,Kazani,Sunni,Iron,Steppe
 1082,Kazan,15,Kazani,Sunni,Grain,Steppe
 1083,Zavolochye,8,Russian,Orthodox,Grain,Woods
 1084,Wadjuk,9,Nyoongah,Alcheringa,Livestock,Woods
 1085,Paredarerme,6,Palawa,Alcheringa,Fish,Jungle
 1086,Kaurna,7,Yura,Alcheringa,Fish,Grasslands
-1087,Wurundjeri,11,Kulin,Alcheringa,Livestock,Grassland
+1087,Wurundjeri,11,Kulin,Alcheringa,Livestock,Grasslands
 1088,Wergaia,3,Kulin,Alcheringa,Unknown,Savannah
 1089,Wiradjuri,8,Gamilaraay,Alcheringa,Unknown,Drylands
 1090,Eora,11,Aboriginal,Alcheringa,Fish,Grasslands
@@ -1092,15 +1092,15 @@
 1092,Bundjalung,8,Aboriginal,Alcheringa,Unknown,Savannah
 1093,Barunggam,3,Gamilaraay,Alcheringa,Unknown,Desert
 1094,Turrbal,5,Gamilaraay,Alcheringa,Naval Supplies,Drylands
-1095,Falklands,3,Cosmopolitan French,Catholic,Unknown,Coastline
-1096,Cape Verde,3,Portugese,Catholic,Unknown,Grassland
-1097,Fernando Po,5,Yorumba,Fetishist,Unknown,Grassland
+1095,Falklands,3,Francien,Catholic,Unknown,Coastline
+1096,Cape Verde,3,Portugese,Catholic,Unknown,Grasslands
+1097,Fernando Po,5,Yorumba,Fetishist,Unknown,Grasslands
 1098,St. Helena,3,No Culture,No Religion,Unknown,Coastline
-1099,Socotra,4,Mahri Culture,Coptic,Fish,Coastal Desert
-1100,Mahe,5,Cosmopolitan French,Catholic,Unknown,Coastline
-1101,Diego Garcia,3,Cosmopolitan French,Catholic,Unknown,Coastline
+1099,Socotra,4,Mahri,Coptic,Fish,Coastal Desert
+1100,Mahe,5,Francien,Catholic,Unknown,Coastline
+1101,Diego Garcia,3,Francien,Catholic,Unknown,Coastline
 1102,Mauritius,11,No Culture,No Religion,Unknown,Coastline
-1103,Bourbon,11,Cosmopolitan French,Catholic,Unknown,Coastline
+1103,Bourbon,11,Francien,Catholic,Unknown,Coastline
 1104,Eiriksfjord,3,Inuit,Totemism,Unknown,Glacial
 1105,Vestbygden,3,Inuit,Totemism,Unknown,Glacial
 1106,Te Tai Tokerau,10,Maori,Animism,Tropical Wood,Hills
@@ -1116,14 +1116,14 @@
 1116,Wolof,8,Senegambian,Fetishist,Slaves,Savannah
 1117,Futa Jallon,9,Fulani,Fetishist,Ivory,Hills
 1118,Sierra Leone,3,Dyola,Fetishist,Unknown,Jungle
-1119,Grain Coast,3,Dyola,Fetishist,Unknown,Grassland
+1119,Grain Coast,3,Dyola,Fetishist,Unknown,Grasslands
 1120,Bambuk,14,Soninke,Fetishist,Gold,Savannah
 1121,Bure,14,Mali,Fetishist,Gold,Hills
 1122,Bagoe,3,Dyola,Fetishist,Dyes,Savannah
 1123,Segu,12,Bambara,Fetishist,Grain,Savannah
 1124,Wasuju,16,Mali,Sunni,Grain,Savannah
 1125,Kong,6,Dyola,Fetishist,Ivory,Jungle
-1126,Ivory Coast,3,Aka,Fetishist,Unknown,Grassland
+1126,Ivory Coast,3,Aka,Fetishist,Unknown,Grasslands
 1127,Tuat,3,Tuareg,Sunni,Unknown,Desert
 1128,Taodeni,3,Tuareg,Sunni,Salt,Desert
 1129,Azawadd,3,Tuareg,Sunni,Salt,Desert
@@ -1138,13 +1138,13 @@
 1138,Kumasi,9,Aka,Fetishist,Gold,Jungle
 1139,Gold Coast,5,Aka,Fetishist,Unknown,Jungle
 1140,Abomey,3,Fon,Fetishist,Slaves,Savannah
-1141,Whydah,3,Fon,Fetishist,Unknown,Grassland
+1141,Whydah,3,Fon,Fetishist,Unknown,Grasslands
 1142,Dendi,7,Songhai,Sunni,Grain,Savannah
 1143,Borgu,3,Dagomba,Fetishist,Grain,Savannah
 1144,Oyo,7,Yorumba,Fetishist,Grain,Savannah
 1145,Nupe,6,Nupe,Fetishist,Coffee,Savannah
 1146,Ife,8,Yorumba,Fetishist,Glass,Savannah
-1147,Benin,11,Yorumba,Fetishist,Ivory,Grassland
+1147,Benin,11,Yorumba,Fetishist,Ivory,Grasslands
 1148,Gobir,9,Hausa,Sunni,Iron,Savannah
 1149,Katsina,15,Hausa,Sunni,Cloth,Savannah
 1150,Zamfara,7,Hausa,Fetishist,Grain,Savannah
@@ -1160,13 +1160,13 @@
 1160,Mandara,3,Kanuri,Fetishist,Tropical Wood,Savannah
 1161,Bauchi,3,Jukun,Fetishist,Unknown,Savannah
 1162,Wukari,3,Jukun,Fetishist,Unknown,Jungle
-1163,Calabar,3,Sawabantu,Fetishist,Slaves,Grassland
-1164,Cameroon,3,Sawabantu,Fetishist,Unknown,Grassland
-1165,Gabon,5,Kongolese,Fetishist,Unknown,Grassland
-1166,Loango,9,Kongolese,Fetishist,Gems,Grassland
+1163,Calabar,3,Sawabantu,Fetishist,Slaves,Grasslands
+1164,Cameroon,3,Sawabantu,Fetishist,Unknown,Grasslands
+1165,Gabon,5,Kongolese,Fetishist,Unknown,Grasslands
+1166,Loango,9,Kongolese,Fetishist,Gems,Grasslands
 1167,Luanda,5,Mbundu,Fetishist,Unknown,Savannah
 1168,Kisarna,5,Kongolese,Fetishist,Slaves,Savannah
-1169,Mayombe,6,Kongolese,Fetishist,Copper,Grassland
+1169,Mayombe,6,Kongolese,Fetishist,Copper,Grasslands
 1170,Kongo,15,Kongolese,Fetishist,Iron,Grasslands
 1171,Ndongo,7,Mbundu,Fetishist,Slaves,Highlands
 1172,Benguela,10,Mbundu,Fetishist,Unknown,Drylands
@@ -1198,7 +1198,7 @@
 1198,Lindi,5,Swahili,Sunni,Fish,Coastline
 1199,Bagamoyo,3,Swahili,Fetishist,Ivory,Coastline
 1200,Tanga,6,Swahili,Fetishist,Ivory,Coastline
-1201,Zanzibar,5,Swahili,Ibadi,Slaves,Grassland
+1201,Zanzibar,5,Swahili,Ibadi,Slaves,Grasslands
 1202,Mombasa,12,Swahili,Sunni,Ivory,Coastline
 1203,Malindi,10,Swahili,Sunni,Iron,Coastline
 1204,Lamu,7,Swahili,Sunni,Ivory,Coastline
@@ -1228,20 +1228,20 @@
 1228,Dongola,5,Nubian,Shiite,Grain,Desert
 1229,Berber,4,Beja,Sunni,Unknown,Desert
 1230,Massawa,5,Tigray,Coptic,Gems,Coastal Desert
-1231,Aswan,5,Al Misr Arabic,Sunni,Livestock,Desert
+1231,Aswan,5,Egyptian,Sunni,Livestock,Desert
 1232,Suakin,3,Beja,Sunni,Slaves,Coastal Desert
-1233,Kharga,3,Al Misr Arabic,Sunni,Livestock,Desert
+1233,Kharga,3,Egyptian,Sunni,Livestock,Desert
 1234,Qasr Ibrim,6,Nubian,Sunni,Livestock,Desert
-1235,Guam,3,Polynesian,Animism,Unknown,Grassland
-1236,Rabaul,3,Papuan,Animism,Unknown,Grassland
+1235,Guam,3,Polynesian,Animism,Unknown,Grasslands
+1236,Rabaul,3,Papuan,Animism,Unknown,Grasslands
 1237,Hanuabada,3,Papuan,Animism,Unknown,Jungle
-1238,Solomon Islands,3,Melanesian,Animism,Unknown,Grassland
-1239,Vanuatu,3,Melanesian,Animism,Unknown,Grassland
+1238,Solomon Islands,3,Melanesian,Animism,Unknown,Grasslands
+1239,Vanuatu,3,Melanesian,Animism,Unknown,Grasslands
 1240,Hawaii,7,Polynesian,Animism,Livestock,Coastline
-1241,Kiribati,3,Polynesian,Animism,Unknown,Grassland
+1241,Kiribati,3,Polynesian,Animism,Unknown,Grasslands
 1242,Fiji,7,Melanesian,Animism,Livestock,Coastline
-1243,Samoa,8,Polynesian,Animism,Cloth,Grassland
-1244,Tahiti,7,Polynesian,Animism,Unknown,Grassland
+1243,Samoa,8,Polynesian,Animism,Cloth,Grasslands
+1244,Tahiti,7,Polynesian,Animism,Unknown,Grasslands
 1245,Manokwari,3,Papuan,Animism,Unknown,Jungle
 1246,Ata Whenua,3,Maori,Animism,Gems,Desert
 1247,Corsica,8,Sardinian,Catholic,Naval Supplies,Highlands
@@ -1740,9 +1740,9 @@
 1740,Southern Pacific 25,0,a,a,a,Ocean
 1741,Southern Pacific 26,0,a,a,a,Ocean
 1742,Limburg,14,Flemish,Catholic,Cloth,Woods
-1743,Cambray,12,Wallonian,Catholic,Grain,Grassland
+1743,Cambray,12,Wallonian,Catholic,Grain,Grasslands
 1744,Antwerpen,19,Flemish,Catholic,Glass,Farmlands
-1745,Cantabria,9,Castillian,Catholic,Naval Supplies,Grassland
+1745,Cantabria,9,Castillian,Catholic,Naval Supplies,Grasslands
 1746,Burgos,8,Castillian,Catholic,Cloth,Hills
 1747,Caceres,6,Leonese,Catholic,Wool,Grasslands
 1748,La Mancha,9,Andalucian,Catholic,Wool,Drylands
@@ -1752,69 +1752,69 @@
 1752,Rzhev,13,Russian,Orthodox,Grain,Woods
 1753,Kostroma,9,Russian,Orthodox,Cloth,Woods
 1754,Orel,12,Russian,Orthodox,Grain,Woods
-1755,Ustyug,5,Russian,Orthodox,Fur,Grassland
+1755,Ustyug,5,Russian,Orthodox,Fur,Grasslands
 1756,Budjak,11,Romanian,Orthodox,Wool,Steppe
-1757,Oberpfalz,9,Bavarian,Catholic,Iron,Grassland
+1757,Oberpfalz,9,Bavarian,Catholic,Iron,Grasslands
 1758,Hannover,12,Lower Saxon,Catholic,Cloth,Woods
 1759,Potsdam,8,Saxon,Catholic,Wool,Woods
 1760,Koblenz,10,Hessian,Catholic,Grain,Woods
 1761,Pfalz,10,Hessian,Catholic,Wine,Woods
 1762,Kassel,13,Hessian,Catholic,Glass,Woods
 1763,Niederlausitz,5,Sorbian,Catholic,Livestock,Woods
-1764,Burgas,5,Bulgarian,Orthodox,Salt,Grassland
+1764,Burgas,5,Bulgarian,Orthodox,Salt,Grasslands
 1765,Nis,10,Bulgarian,Orthodox,Iron,Woods
 1766,Kosovo,8,Serbian,Orthodox,Gold,Highlands
 1767,Veroce,6,Croatian,Catholic,Livestock,Farmlands
 1768,Lienz,9,Austrian,Catholic,Iron,Mountain
 1769,Gorz,10,Slovene,Catholic,Iron,Woods
 1770,Ostmarch,10,Austrian,Catholic,Wine,Hills
-1771,Erz,11,Czech,Catholic,Glass,Grassland
+1771,Erz,11,Czech,Catholic,Glass,Grasslands
 1772,Pozsony,13,Slovak,Catholic,Grain,Farmlands
 1773,Achaea,6,Greek,Orthodox,Wine,Highlands
 1774,Treviso,18,Venetian,Catholic,Paper,Hills
-1775,Holstein,10,Lower Saxon,Catholic,Livestock,Grassland
-1776,Karelia,3,Karelian,Orthodox,Salt,Grassland
-1777,Kola,3,Sapmi,Orthodox,Fur,Grassland
+1775,Holstein,10,Lower Saxon,Catholic,Livestock,Grasslands
+1776,Karelia,3,Karelian,Orthodox,Salt,Grasslands
+1777,Kola,3,Sapmi,Orthodox,Fur,Grasslands
 1778,Kasimov,13,Mishary,Sunni,Livestock,Steppe
 1779,Rub al Khali,0,a,a,a,Desert
-1780,Komi,5,Samoyed,Tengri,Fur,Grassland
-1781,Western Siberia,0,a,a,a,Grassland
-1782,Central Siberia,0,a,a,a,Grassland
-1783,Eastern Siberia,0,a,a,a,Grassland
+1780,Komi,5,Samoyed,Tengri,Fur,Grasslands
+1781,Western Siberia,0,a,a,a,Grasslands
+1782,Central Siberia,0,a,a,a,Grasslands
+1783,Eastern Siberia,0,a,a,a,Grasslands
 1784,Tiam Shan,0,a,a,a,Mountain
 1785,Karakoram,0,a,a,a,Mountain
 1786,Takla Makan,0,a,a,a,Desert
 1787,Himalaya,0,a,a,a,Mountain
 1788,Arunachal,0,a,a,a,Mountain
-1789,Papua,0,a,a,a,Grassland
+1789,Papua,0,a,a,a,Grasslands
 1790,Outback,0,a,a,a,Desert
 1791,Outback,0,a,a,a,Desert
 1792,Antananarivo,8,Madagasque,Fetishist,Grain,Hills
 1793,El Djouf,0,a,a,a,Desert
 1794,Central Sahara,0,a,a,a,Desert
 1795,East Sahara,0,a,a,a,Desert
-1795,East Sahara,0,a,a,a,Grassland
-1797,Northern Congo Basin,0,a,a,a,Grassland
-1798,Uganda,0,a,a,a,Grassland
-1799,Malawi,0,a,a,a,Grassland
+1795,East Sahara,0,a,a,a,Grasslands
+1797,Northern Congo Basin,0,a,a,a,Grasslands
+1798,Uganda,0,a,a,a,Grasslands
+1799,Malawi,0,a,a,a,Grasslands
 1800,Limpopo,3,Nguni,Fetishist,Unknown,Savannah
 1801,Kalahari,0,a,a,a,Desert
-1802,Western Amazonas,0,a,a,a,Grassland
-1803,Eastern Amazonas,0,a,a,a,Grassland
+1802,Western Amazonas,0,a,a,a,Grasslands
+1803,Eastern Amazonas,0,a,a,a,Grasslands
 1804,Greenland,0,a,a,a,Hills
-1805,Quebec,0,a,a,a,Grassland
-1806,Weagamow,0,a,a,a,Grassland
-1807,Baffin,0,a,a,a,Grassland
+1805,Quebec,0,a,a,a,Grasslands
+1806,Weagamow,0,a,a,a,Grasslands
+1807,Baffin,0,a,a,a,Grasslands
 1808,Great Basin,0,a,a,a,Mountain
 1809,Cheyenne,3,Shoshone,Totemism,Unknown,Drylands
-1810,Alaska,0,a,a,a,Grassland
-1811,Nunavut,0,a,a,a,Grassland
-1812,Northwest Terretories,0,a,a,a,Grassland
-1813,Saskatchewan,3,Plains Cree,Totemism,Unknown,Grassland
-1814,Columbia,0,a,a,a,Grassland
+1810,Alaska,0,a,a,a,Grasslands
+1811,Nunavut,0,a,a,a,Grasslands
+1812,Northwest Terretories,0,a,a,a,Grasslands
+1813,Saskatchewan,3,Plains Cree,Totemism,Unknown,Grasslands
+1814,Columbia,0,a,a,a,Grasslands
 1815,Pathein,8,Mon,Buddhism,Grain,Jungle
 1816,Beijing,31,Chihan,Confucianism,Grain,Farmlands
-1817,Nan,8,Northern Thai,Buddhism,Ivory,Jungle
+1817,Nan,8,Lao,Buddhism,Ivory,Jungle
 1818,Chikuzen,10,Kyushuan,Shinto,Chinaware,Grasslands
 1819,Tosa,7,Japanese,Shinto,Naval Supplies,Woods
 1820,Awa,8,Japanese,Shinto,Fish,Hills
@@ -1839,46 +1839,46 @@
 1839,Suruga,11,Togoku,Shinto,Tea,Grasslands
 1840,Guilin,6,Zhuang,Confucianism,Silk,Hills
 1841,Marienburg,11,Prussian,Catholic,Naval Supplies,Farmlands
-1842,Narva,5,Estonian,Catholic,Grain,Grassland
+1842,Narva,5,Estonian,Catholic,Grain,Grasslands
 1843,Kozuke,7,Togoku,Shinto,Livestock,Hills
 1844,Xiankhouang,6,Lao,Buddhism,Grain,Hills
 1845,South Pyongan,9,Korean,Confucianism,Grain,Grasslands
 1846,Amasya,11,Turkish,Sunni,Paper,Highlands
 1847,Shiribeshi,3,Ainu,Animism,Fish,Grasslands
 1848,Hamid,8,Turkish,Sunni,Grain,Hills
-1849,Hama,10,Al Suryah Arabic,Sunni,Cotton,Drylands
+1849,Hama,10,Syrian,Sunni,Cotton,Drylands
 1850,Yaran,9,Manchu,Tengri,Fish,Mountain
 1851,Ribatejo,11,Portugese,Catholic,Grain,Woods
 1852,Tokachi,3,Ainu,Animism,Fish,Hills
 1853,Kastoria,7,Greek,Orthodox,Wine,Mountain
-1854,Nablus,9,Al Suryah Arabic,Sunni,Sugar,Drylands
-1855,Sidon,13,Al Suryah Arabic,Shiite,Naval Supplies,Drylands
+1854,Nablus,9,Syrian,Sunni,Sugar,Drylands
+1855,Sidon,13,Syrian,Shiite,Naval Supplies,Drylands
 1856,Abkhazia,6,Georgian,Orthodox,Wine,Hills
 1857,Lauenburg,5,Lower Saxon,Catholic,Salt,Woods
 1858,Stettin,12,Pommeranian,Catholic,Naval Supplies,Grasslands
 1859,Torun,10,Polish,Catholic,Grain,Grasslands
 1860,Norfolk,10,English,Catholic,Iron,Marsh
-1861,Derby,6,English,Catholic,Iron,Grassland
+1861,Derby,6,English,Catholic,Iron,Grasslands
 1862,Cremona,15,Lombard,Catholic,Grain,Farmlands
 1863,Graz,13,Austrian,Catholic,Grain,Woods
-1864,Somogy,8,Hungarian,Catholic,Livestock,Grassland
+1864,Somogy,8,Hungarian,Catholic,Livestock,Grasslands
 1865,Ghent,13,Flemish,Catholic,Cloth,Farmlands
 1866,Namur,17,Wallonian,Catholic,Iron,Woods
-1867,Freiburg,8,Swiss,Catholic,Livestock,Grassland
+1867,Freiburg,8,Swiss,Catholic,Livestock,Grasslands
 1868,Augsburg,17,Swabian,Catholic,Cloth,Farmlands
-1869,Zurich,10,Swiss,Catholic,Wool,Grassland
+1869,Zurich,10,Swiss,Catholic,Wool,Grasslands
 1870,St Gallen,10,Swiss,Catholic,Livestock,Hills
 1871,Wallis,6,Swiss,Catholic,Livestock,Mountain
-1872,Ulm,15,Swabian,Catholic,Cloth,Grassland
+1872,Ulm,15,Swabian,Catholic,Cloth,Grasslands
 1873,Chur,7,Swiss,Catholic,Livestock,Mountain
 1874,Bremen,16,Lower Saxon,Catholic,Fish,Farmlands
 1875,Turin,12,Piedmontese,Catholic,Grain,Hills
 1876,Frankfurt,18,Hessian,Catholic,Paper,Farmlands
 1877,Charolais,11,Burgundian,Catholic,Salt,Farmlands
 1878,Aachen,14,Hessian,Catholic,Grain,Woods
-1879,Alencon,11,Cosmopolitan French,Catholic,Livestock,Farmlands
+1879,Alencon,11,Francien,Catholic,Livestock,Farmlands
 1880,Sundgau,9,Swabian,Catholic,Iron,Woods
-1881,St. Martin,10,Arawak,Animism,Unknown,Grassland
+1881,St. Martin,10,Arawak,Animism,Unknown,Grasslands
 1882,Bone,5,Berber,Sunni,Naval Supplies,Highlands
 1883,Western Finish Lakes,0,a,a,a,Ocean
 1884,East Finish Lakes,0,a,a,a,Ocean
@@ -1898,7 +1898,7 @@
 1898,Tonie Sap Lake,0,a,a,a,Ocean
 1899,Tana Lake,0,a,a,a,Ocean
 1900,Lake Turkana,0,a,a,a,Ocean
-1901,Lake Volta,6,Kongolese,Fetishist,Copper,Grassland
+1901,Lake Volta,6,Kongolese,Fetishist,Copper,Grasslands
 1902,Lake Poopo,0,a,a,a,Ocean
 1903,Lake Champlain,0,a,a,a,Ocean
 1904,Lac Saint Jean,0,a,a,a,Ocean
@@ -1927,21 +1927,21 @@
 1927,Eastern Baltic Sea,0,a,a,a,Inland Ocean
 1928,Western Alands Sea,0,a,a,a,Inland Ocean
 1929,Western Norwegian Sea,0,a,a,a,Ocean
-1930,Aland,3,Swedish,Catholic,Fish,Grassland
-1931,East Frisia,7,Frisian,Catholic,Salt,Grassland
+1930,Aland,3,Swedish,Catholic,Fish,Grasslands
+1931,East Frisia,7,Frisian,Catholic,Salt,Grasslands
 1932,Gulf of Satalia,0,a,a,a,Inland Ocean
-1933,Bari,8,Neapolitan,Catholic,Wine,Grassland
+1933,Bari,8,Neapolitan,Catholic,Wine,Grasslands
 1934,Lucania,5,Neapolitan,Catholic,Livestock,Hills
-1935,Semigallia,6,Latvian,Catholic,Naval Supplies,Grassland
-1936,Kovno,7,Lithuanian,Catholic,Livestock,Grassland
+1935,Semigallia,6,Latvian,Catholic,Naval Supplies,Grasslands
+1936,Kovno,7,Lithuanian,Catholic,Livestock,Grasslands
 1937,Grodno,5,Byelorussian,Orthodox,Livestock,Woods
 1938,Wizna,5,Polish,Catholic,Naval Supplies,Woods
-1939,Leczyca,7,Polish,Catholic,Grain,Grassland
-1940,Belz,9,Ruthenian,Orthodox,Livestock,Grassland
+1939,Leczyca,7,Polish,Catholic,Grain,Grasslands
+1940,Belz,9,Ruthenian,Orthodox,Livestock,Grasslands
 1941,Turov,3,Byelorussian,Orthodox,Wool,Marsh
 1942,Zhytomyr,4,Ruthenian,Orthodox,Grain,Grasslands
 1943,Bratslav,7,Ruthenian,Orthodox,Livestock,Grasslands
-1944,Cherkasy,3,Ruthenian,Orthodox,Livestock,Grassland
+1944,Cherkasy,3,Ruthenian,Orthodox,Livestock,Grasslands
 1945,Novgorod-Seversky,4,Ryazanian,Orthodox,Iron,Woods
 1946,Desh,8,Marathi,Hinduism,Naval Supplies,Jungle
 1947,Gingee,8,Tamil,Hinduism,Cloth,Hills
@@ -1955,13 +1955,13 @@
 1955,Kholmogory,5,Novgorodian,Orthodox,Fur,Forest
 1956,Suzdal,11,Russian,Orthodox,Grain,Woods
 1957,Galich,11,Russian,Orthodox,Salt,Woods
-1958,Kargopol,7,Novgorodian,Orthodox,Naval Supplies,Grassland
+1958,Kargopol,7,Novgorodian,Orthodox,Naval Supplies,Grasslands
 1959,Torzhok,7,Novgorodian,Orthodox,Naval Supplies,Woods
 1960,Ostrov,6,Novgorodian,Orthodox,Naval Supplies,Woods
-1961,Ladoga,10,Novgorodian,Orthodox,Fur,Grassland
-1962,Kudymkar,3,Uralic,Tengri,Fur,Grassland
-1963,Cherdyn,8,Uralic,Tengri,Salt,Grassland
-1964,Ust-Sysolsk,3,Uralic,Orthodox,Fur,Grassland
+1961,Ladoga,10,Novgorodian,Orthodox,Fur,Grasslands
+1962,Kudymkar,3,Uralic,Tengri,Fur,Grasslands
+1963,Cherdyn,8,Uralic,Tengri,Salt,Grasslands
+1964,Ust-Sysolsk,3,Uralic,Orthodox,Fur,Grasslands
 1965,Buzuluk,6,Nogaybak,Sunni,Iron,Steppe
 1966,Chelyaba,9,Bashkir,Sunni,Fur,Steppe
 1967,Khujand,7,Uzbehk,Sunni,Silk,Grasslands
@@ -1975,36 +1975,36 @@
 1975,Sea of Jutland,0,a,a,a,Ocean
 1976,Dead Sea,0,a,a,a,Ocean
 1977,Malaren,0,a,a,a,Inland Ocean
-1978,Shetlands,3,Norwegian,Catholic,Fish,Grassland
-1979,Faroes,3,Icelandic,Catholic,Fish,Grassland
+1978,Shetlands,3,Norwegian,Catholic,Fish,Grasslands
+1979,Faroes,3,Icelandic,Catholic,Fish,Grasslands
 1980,Sea of Japan,0,a,a,a,Inland Ocean
-1981,Bornholm,3,Danish,Catholic,Fish,Grassland
+1981,Bornholm,3,Danish,Catholic,Fish,Grasslands
 1982,Blekinge,5,Danish,Catholic,Naval Supplies,Woods
-1983,Lolland,8,Danish,Catholic,Fish,Grassland
-1984,Nordjylland,7,Danish,Catholic,Fish,Grassland
+1983,Lolland,8,Danish,Catholic,Fish,Grasslands
+1984,Nordjylland,7,Danish,Catholic,Fish,Grasslands
 1985,Narke,6,Swedish,Catholic,Iron,Woods
 1986,New Caledonia,3,Melanesian,Animism,Unknown,Coastline
-1987,Society Islands,3,Polynesian,Animism,Unknown,Grassland
+1987,Society Islands,3,Polynesian,Animism,Unknown,Grasslands
 1988,Rapa Nui,3,Polynesian,Animism,Unknown,Coastline
 1989,Tonga,8,Polynesian,Animism,Naval Supplies,Coastline
-1990,Tuvalu,3,Polynesian,Animism,Unknown,Grassland
-1991,Gilbert Islands,3,Polynesian,Animism,Unknown,Grassland
+1990,Tuvalu,3,Polynesian,Animism,Unknown,Grasslands
+1991,Gilbert Islands,3,Polynesian,Animism,Unknown,Grasslands
 1992,Nauru,3,Polynesian,Animism,Unknown,Coastline
-1993,Masrshall Islands,3,Polynesian,Animism,Unknown,Grassland
+1993,Masrshall Islands,3,Polynesian,Animism,Unknown,Grasslands
 1994,Wake,3,Polynesian,Animism,Unknown,Coastline
-1995,Micronesia,3,Polynesian,Animism,Unknown,Grassland
-1795,Palau,3,Polynesian,Animism,Unknown,Grassland
-1997,Midway,3,Polynesian,Animism,Unknown,Grassland
+1995,Micronesia,3,Polynesian,Animism,Unknown,Grasslands
+1795,Palau,3,Polynesian,Animism,Unknown,Grasslands
+1997,Midway,3,Polynesian,Animism,Unknown,Grasslands
 1998,Christmas Island,3,a,a,Unknown,Coastline
 1999,Cocos Island,3,a,a,Unknown,Coastline
 2000,Qinghai Lake,0,a,a,a,Ocean
 2001,Siling Lake,0,a,a,a,Ocean
-2002,Galapagos Islands,3,Cara,Animism,Unknown,Grassland
+2002,Galapagos Islands,3,Cara,Animism,Unknown,Grasslands
 2003,Ktunaxa,4,Shoshone,Totemism,Unknown,Mountain
 2004,Niitsitapi,3,Blackfoot,Totemism,Fur,Steppe
-2005,Asinaan,3,Blackfoot,Totemism,Unknown,Grassland
+2005,Asinaan,3,Blackfoot,Totemism,Unknown,Grasslands
 2006,Apsaalooke,3,Blackfoot,Totemism,Fur,Highlands
-2007,Arikara,3,Pawnee,Totemism,Unknown,Grassland
+2007,Arikara,3,Pawnee,Totemism,Unknown,Grasslands
 2008,Yankton,3,Pawnee,Totemism,Unknown,Steppe
 2009,Teton,3,Pawnee,Totemism,Unknown,Steppe
 2010,Connecticut,6,Pequot,Totemism,Fish,Woods
@@ -2012,7 +2012,7 @@
 2012,Arsigantegok,6,Abenaki,Totemism,Unknown,Hills
 2013,Kennebec,10,Abenaki,Totemism,Unknown,Woods
 2014,Natchitoches,5,Caddo,Totemism,Unknown,Woods
-2015,Nipigon,3,Anishinabe,Totemism,Fur,Grassland
+2015,Nipigon,3,Anishinabe,Totemism,Fur,Grasslands
 2016,Bungi,3,Nakota,Totemism,Fur,Grasslands
 2017,Nehiyawewin,3,Chipewyan,Totemism,Unknown,Savannah
 2018,Tsuutina,3,Athabascan,Totemism,Unknown,Highlands
@@ -2110,7 +2110,7 @@
 2110,Yehe,9,Manchu,Confucianism,Fur,Grasslands
 2111,Hetu Ala,13,Manchu,Confucianism,Iron,Mountain
 2112,Andong,5,Manchu,Confucianism,Grain,Mountain
-2113,Gaizhou,7,Shandong Culture,Confucianism,Fish,Grasslands
+2113,Gaizhou,7,Shandong,Confucianism,Fish,Grasslands
 2114,Ereen,7,Mongol,Vajrayana,Livestock,Steppe
 2115,Chahar,7,Mongol,Vajrayana,Livestock,Steppe
 2116,Ih Huree,7,Khalkha,Tengri,Fur,Steppe
@@ -2135,8 +2135,8 @@
 2135,Garze,4,Tibetan,Vajrayana,Grain,Highlands
 2136,Xuanhua,8,Jin,Confucianism,Grain,Mountain
 2137,Daming,8,Chihan,Confucianism,Grain,Farmlands
-2138,Wuding,11,Shandong Culture,Confucianism,Grain,Farmlands
-2139,Laizhou,8,Shandong Culture,Confucianism,Fish,Farmlands
+2138,Wuding,11,Shandong,Confucianism,Grain,Farmlands
+2139,Laizhou,8,Shandong,Confucianism,Fish,Farmlands
 2140,Yanzhou,9,Zhongyuan,Confucianism,Grain,Farmlands
 2141,Xuzhou,15,Zhongyuan,Confucianism,Iron,Farmlands
 2142,Huai'an,6,Jianghuai,Confucianism,Fish,Farmlands
@@ -2239,7 +2239,7 @@
 2239,Siine,5,Senegambian,Fetishist,Slaves,Savannah
 2240,Galam,7,Fulani,Fetishist,Unknown,Savannah
 2241,Beafada,3,Senegambian,Fetishist,Slaves,Savannah
-2242,Karou,3,Dyola,Fetishist,Unknown,Grassland
+2242,Karou,3,Dyola,Fetishist,Unknown,Grasslands
 2243,Termes,3,Soninke,Sunni,Livestock,Steppe
 2244,Tagant,3,Fulani,Fetishist,Unknown,Desert
 2245,Wagadu,5,Soninke,Fetishist,Wool,Savannah
@@ -2248,14 +2248,14 @@
 2248,Do,9,Mali,Fetishist,Livestock,Savannah
 2249,Sibiridugu,5,Mali,Fetishist,Spices,Savannah
 2250,Bendugu,7,Bozo,Fetishist,Iron,Savannah
-2251,Bagoe,0,a,a,a,Grassland
+2251,Bagoe,0,a,a,a,Grasslands
 2252,Lobi,5,Dyola,Fetishist,Gold,Savannah
 2253,Gwiriko,3,Dyola,Fetishist,Grain,Savannah
 2254,Bonoman,7,Aka,Fetishist,Tropical Wood,Savannah
-2255,Gyaaman,5,Aka,Fetishist,Coffee,Grassland
+2255,Gyaaman,5,Aka,Fetishist,Coffee,Grasslands
 2256,Dagbon,3,Dagomba,Fetishist,Dyes,Savannah
-2257,Denkyira,5,Aka,Fetishist,Coffee,Grassland
-2258,Cape Coast,5,Aka,Fetishist,Unknown,Grassland
+2257,Denkyira,5,Aka,Fetishist,Coffee,Grasslands
+2258,Cape Coast,5,Aka,Fetishist,Unknown,Grasslands
 2259,Bara,7,Bambara,Fetishist,Grain,Marsh
 2260,Mema,5,Bambara,Sunni,Grain,Steppe
 2261,Kala,9,Bozo,Fetishist,Fish,Marsh
@@ -2286,12 +2286,12 @@
 2286,Logone,5,Kanuri,Fetishist,Ivory,Marsh
 2287,Kotoko,7,Kanuri,Sunni,Grain,Marsh
 2288,Yao,7,Bilala,Sunni,Grain,Steppe
-2289,Ondo,5,Yorumba,Fetishist,Coffee,Grassland
-2290,Ijebu,5,Yorumba,Fetishist,Slaves,Grassland
+2289,Ondo,5,Yorumba,Fetishist,Coffee,Grasslands
+2290,Ijebu,5,Yorumba,Fetishist,Slaves,Grasslands
 2291,Ketu,5,Yorumba,Fetishist,Slaves,Savannah
 2292,Moshi,3,Yorumba,Fetishist,Tropical Wood,Savannah
 2293,Yawuri,3,Hausa,Fetishist,Coffee,Savannah
-2294,Warri,3,Yorumba,Fetishist,Slaves,Grassland
+2294,Warri,3,Yorumba,Fetishist,Slaves,Grasslands
 2295,Atakora,3,Dagomba,Fetishist,Tropical Wood,Savannah
 2296,Biga,11,Turkish,Sunni,Naval Supplies,Grasslands
 2297,Saruhan,8,Turkish,Sunni,Cotton,Drylands
@@ -2306,46 +2306,46 @@
 2306,Mush,9,Armenian,Coptic,Wool,Mountain
 2307,Van,8,Armenian,Coptic,Wool,Drylands
 2308,Urfa,8,Kurdish,Sunni,Wool,Drylands
-2309,Sinjar,6,Al Iraqiya Arabic,Sunni,Sugar,Drylands
-2310,Tikrit,8,Al Iraqiya Arabic,Sunni,Livestock,Farmlands
-2311,Samawah,8,Al Iraqiya Arabic,Shiite,Spices,Marsh
-2312,Wasit,8,Al Iraqiya Arabic,Sunni,Grain,Farmlands
-2313,Antioch,11,Al Suryah Arabic,Sunni,Cloth,Drylands
-2314,Rahba,3,Al Iraqiya Arabic,Sunni,Grain,Drylands
-2315,Suez,5,Al Misr Arabic,Sunni,Livestock,Coastal Desert
-2316,Al Gharbia,12,Al Misr Arabic,Sunni,Grain,Farmlands
-2317,Minya,8,Al Misr Arabic,Sunni,Sugar,Drylands
-2318,Bahiriya,4,Al Misr Arabic,Sunni,Livestock,Desert
-2319,Manfalut,5,Al Misr Arabic,Sunni,Cotton,Drylands
-2320,Ras Gharib,3,Al Misr Arabic,Sunni,Fish,Coastal Desert
-2321,Queseer,3,Al Misr Arabic,Sunni,Livestock,Coastal Desert
+2309,Sinjar,6,Mashriqi,Sunni,Sugar,Drylands
+2310,Tikrit,8,Mashriqi,Sunni,Livestock,Farmlands
+2311,Samawah,8,Mashriqi,Shiite,Spices,Marsh
+2312,Wasit,8,Mashriqi,Sunni,Grain,Farmlands
+2313,Antioch,11,Syrian,Sunni,Cloth,Drylands
+2314,Rahba,3,Mashriqi,Sunni,Grain,Drylands
+2315,Suez,5,Egyptian,Sunni,Livestock,Coastal Desert
+2316,Al Gharbia,12,Egyptian,Sunni,Grain,Farmlands
+2317,Minya,8,Egyptian,Sunni,Sugar,Drylands
+2318,Bahiriya,4,Egyptian,Sunni,Livestock,Desert
+2319,Manfalut,5,Egyptian,Sunni,Cotton,Drylands
+2320,Ras Gharib,3,Egyptian,Sunni,Fish,Coastal Desert
+2321,Queseer,3,Egyptian,Sunni,Livestock,Coastal Desert
 2322,Wadi Halfa,3,Nubian,Coptic,Livestock,Desert
 2323,Sahra an Nubyah,3,Nubian,Coptic,Slaves,Desert
 2324,Halaib,3,Beja,Sunni,Slaves,Coastal Desert
-2325,Tarrana,3,Al Misr Arabic,Sunni,Fish,Coastal Desert
-2326,Bardiyah,3,Al Misr Arabic,Sunni,Livestock,Coastal Desert
-2327,Maan,5,Bedouin Arabic,Sunni,Livestock,Mountain
-2328,Al Ula,3,Bedouin Arabic,Sunni,Salt,Desert
-2329,Yanbu,3,Hejazi Culture,Sunni,Cloth,Coastal Desert
-2330,Ma'din Sulaym,3,Hejazi Culture,Sunni,Livestock,Desert
-2331,Jeddah,6,Hejazi Culture,Sunni,Incense,Coastal Desert
-2332,Turubah,3,Hejazi Culture,Sunni,Livestock,Mountain
-2333,Abd al-Qays,3,Gulf Arabic,Shiite,Fish,Coastal Desert
+2325,Tarrana,3,Egyptian,Sunni,Fish,Coastal Desert
+2326,Bardiyah,3,Egyptian,Sunni,Livestock,Coastal Desert
+2327,Maan,5,Bedouin,Sunni,Livestock,Mountain
+2328,Al Ula,3,Bedouin,Sunni,Salt,Desert
+2329,Yanbu,3,Hejazi,Sunni,Cloth,Coastal Desert
+2330,Ma'din Sulaym,3,Hejazi,Sunni,Livestock,Desert
+2331,Jeddah,6,Hejazi,Sunni,Incense,Coastal Desert
+2332,Turubah,3,Hejazi,Sunni,Livestock,Mountain
+2333,Abd al-Qays,3,Khaleeji,Shiite,Fish,Coastal Desert
 2334,Badiyat ash Sham,0,a,a,a,Desert
-2335,Dawasir,4,Bedouin Arabic,Sunni,Wool,Desert
-2336,Aflaj,3,Bedouin Arabic,Sunni,Livestock,Desert
-2337,Buraydeh,3,Bedouin Arabic,Sunni,Livestock,Desert
-2338,Hafar,3,Bedouin Arabic,Sunni,Livestock,Desert
-2339,Yabrin,3,Bedouin Arabic,Sunni,Grain,Desert
-2340,Grane,3,Gulf Arabic,Sunni,Fish,Coastal Desert
-2341,Sharqiyah,3,Omani Culture,Ibadi,Copper,Coastal Desert
-2342,Wusta,3,Mahri Culture,Sunni,Incense,Coastal Desert
-2343,Kathiri,4,Yemeni Culture,Sunni,Livestock,Desert
-2344,Marib,3,Yemeni Culture,Shiite,Livestock,Desert
-2345,Beihan,6,Yemeni Culture,Shiite,Livestock,Mountain
-2346,Jazan,7,Hejazi Culture,Shiite,Fish,Mountain
-2347,Hofuf,4,Gulf Arabic,Shiite,Spices,Coastal Desert
-2348,Chios,5,Greek,Orthodox,Wine,Grassland
+2335,Dawasir,4,Bedouin,Sunni,Wool,Desert
+2336,Aflaj,3,Bedouin,Sunni,Livestock,Desert
+2337,Buraydeh,3,Bedouin,Sunni,Livestock,Desert
+2338,Hafar,3,Bedouin,Sunni,Livestock,Desert
+2339,Yabrin,3,Bedouin,Sunni,Grain,Desert
+2340,Grane,3,Khaleeji,Sunni,Fish,Coastal Desert
+2341,Sharqiyah,3,Omani,Ibadi,Copper,Coastal Desert
+2342,Wusta,3,Mahri,Sunni,Incense,Coastal Desert
+2343,Kathiri,4,Yemeni,Sunni,Livestock,Desert
+2344,Marib,3,Yemeni,Shiite,Livestock,Desert
+2345,Beihan,6,Yemeni,Shiite,Livestock,Mountain
+2346,Jazan,7,Hejazi,Shiite,Fish,Mountain
+2347,Hofuf,4,Khaleeji,Shiite,Spices,Coastal Desert
+2348,Chios,5,Greek,Orthodox,Wine,Grasslands
 2349,Kizil-Su,3,Turkmeni,Sunni,Fish,Desert
 2350,Konjikala,3,Turkmeni,Sunni,Copper,Desert
 2351,Shekty,3,Khazak,Sunni,Livestock,Desert
@@ -2381,16 +2381,16 @@
 2381,Luang Namtha,6,Lao,Animism,Tea,Mountain
 2382,Savanh Nakhone,8,Lao,Animism,Copper,Hills
 2383,Khukhanor Surin,6,Khmer,Buddhism,Grain,Savannah
-2384,Nong Khai,5,Lao,Buddhism,Silk,Grassland
-2385,Nongbua Lamphu,6,Lao,Buddhism,Grain,Grassland
+2384,Nong Khai,5,Lao,Buddhism,Silk,Grasslands
+2385,Nongbua Lamphu,6,Lao,Buddhism,Grain,Grasslands
 2386,Chaiyaphum,5,Khmer,Buddhism,Grain,Savannah
-2387,Phetchaburi,9,Central Thai,Buddhism,Tropical Wood,Grassland
-2388,Phitsanulok,11,Central Thai,Buddhism,Livestock,Jungle
-2389,Phra Bang,13,Central Thai,Buddhism,Tropical Wood,Jungle
-2390,Chaiya,7,Central Thai,Buddhism,Fish,Grasslands
+2387,Phetchaburi,9,Siamese,Buddhism,Tropical Wood,Grasslands
+2388,Phitsanulok,11,Siamese,Buddhism,Livestock,Jungle
+2389,Phra Bang,13,Siamese,Buddhism,Tropical Wood,Jungle
+2390,Chaiya,7,Siamese,Buddhism,Fish,Grasslands
 2391,Thalang,10,Malayan,Sunni,Fish,Grasslands
-2392,Selangor,8,Malayan,Sunni,Grain,Grassland
-2393,Terengganu,5,Malayan,Sunni,Fish,Grassland
+2392,Selangor,8,Malayan,Sunni,Grain,Grasslands
+2393,Terengganu,5,Malayan,Sunni,Fish,Grasslands
 2394,Kedah,10,Malayan,Sunni,Grain,Grasslands
 2395,Hkamti Long,5,Kachin,Animism,Grain,Mountain
 2396,Mong Kawng,7,Kachin,Buddhism,Gems,Mountain
@@ -2407,7 +2407,7 @@
 2407,Pereyaslav,5,Ruthenian,Orthodox,Grain,Farmlands
 2408,Lipetsk,7,Mishary,Sunni,Livestock,Steppe
 2409,Bahmut,5,Mishary,Sunni,Iron,Steppe
-2410,Theodoro,9,Goths,Orthodox,Wine,Grassland
+2410,Theodoro,9,Goths,Orthodox,Wine,Grasslands
 2411,Mansur,8,Crimean,Sunni,Livestock,Steppe
 2412,Kyzyl-Yar,11,Crimean,Sunni,Salt,Steppe
 2413,Tyn,8,Crimean,Sunni,Livestock,Steppe
@@ -2422,27 +2422,27 @@
 2422,Veda-Suvar,9,Kazani,Sunni,Grain,Steppe
 2423,Alatyr,8,Russian,Orthodox,Grain,Woods
 2424,Peremyshl,7,Ruthenian,Orthodox,Livestock,Woods
-2425,Naryan-Mar,0,a,a,a,Grassland
-2426,Yamal,0,a,a,a,Grassland
+2425,Naryan-Mar,0,a,a,a,Grasslands
+2426,Yamal,0,a,a,a,Grasslands
 2427,Ostyaki,9,Ostyaki,Tengri,Fur,Woods
 2428,Yugan,3,Ostyaki,Sunni,Fur,Woods
 2429,Agan,3,Ostyaki,Sunni,Fur,Woods
-2430,Baykha,3,Samoyed,Tengri,Unknown,Grassland
-2431,Uchamin,3,Tungus,Tengri,Unknown,Grassland
+2430,Baykha,3,Samoyed,Tengri,Unknown,Grasslands
+2431,Uchamin,3,Tungus,Tengri,Unknown,Grasslands
 2432,Chulym,3,Tungus,Tengri,Unknown,Woods
 2433,Vah,6,Ostyaki,Tengri,Fur,Woods
 2434,Barnaul,3,Kirgiz,Tengri,Unknown,Steppe
 2435,Nukhtui,3,Yakut,Tengri,Unknown,Woods
-2436,Chuna,3,Tungus,Tengri,Unknown,Grassland
-2437,Seganka,3,Tungus,Tengri,Unknown,Grassland
-2438,Kharya,3,Yakut,Tengri,Unknown,Grassland
-2439,Yarmanka,3,Yukagyr,Tengri,Unknown,Grassland
+2436,Chuna,3,Tungus,Tengri,Unknown,Grasslands
+2437,Seganka,3,Tungus,Tengri,Unknown,Grasslands
+2438,Kharya,3,Yakut,Tengri,Unknown,Grasslands
+2439,Yarmanka,3,Yukagyr,Tengri,Unknown,Grasslands
 2440,Kagyrgyn,3,Kamchatkan,Tengri,Fish,Glacial
 2441,Iglino,8,Siberian,Tengri,Fur,Steppe
 2442,Ust-Kut,3,Buryat,Tengri,Unknown,Woods
 2443,Kan,3,Buryat,Tengri,Unknown,Woods
-2444,Bashgird,6,Bashkir,Sunni,Gold,Grassland
-2445,Mangazea,7,Samoyed,Tengri,Fur,Grassland
+2444,Bashgird,6,Bashkir,Sunni,Gold,Grasslands
+2445,Mangazea,7,Samoyed,Tengri,Fur,Grasslands
 2446,Chara,9,Buryat,Tengri,Unknown,Woods
 2447,Mantrega,5,Pontic Greek,Orthodox,Livestock,Steppe
 2448,Fezzan,3,Tunisian,Sunni,Ivory,Desert
@@ -2505,11 +2505,11 @@
 2505,Tsitsistas,3,Pawnee,Totemism,Unknown,Mountain
 2506,Kuccuntikka,3,Shoshone,Totemism,Unknown,Mountain
 2507,Baachinena,3,Wichita,Totemism,Unknown,Drylands
-2508,Skiri,3,Pawnee,Totemism,Unknown,Grassland
+2508,Skiri,3,Pawnee,Totemism,Unknown,Grasslands
 2509,Utsehta,3,Wichita,Totemism,Unknown,Hills
 2510,Mandan,3,Arapaho,Totemism,Unknown,Steppe
 2511,Itscheabine,3,Nakota,Totemism,Fur,Grasslands
-2512,Wahpekute,3,Dakota,Totemism,Unknown,Grassland
+2512,Wahpekute,3,Dakota,Totemism,Unknown,Grasslands
 2513,Moingwena,3,Illini,Totemism,Unknown,Savannah
 2514,Michigamea,3,Illini,Totemism,Unknown,Savannah
 2515,Satuskhdin,3,Yoron,Totemism,Unknown,Hills
@@ -2547,7 +2547,7 @@
 2547,Roanoke,5,Powhatan,Totemism,Unknown,Coastline
 2548,Tutelo,5,Yuchi,Totemism,Unknown,Hills
 2549,Moratok,3,Powhatan,Totemism,Unknown,Woods
-2550,Doeg,5,Powhatan,Totemism,Unknown,Grassland
+2550,Doeg,5,Powhatan,Totemism,Unknown,Grasslands
 2551,Monongahela,3,Shawnee,Totemism,Unknown,Woods
 2552,Manahoac,3,Susquehannock,Totemism,Unknown,Hills
 2553,Potomac,5,Susquehannock,Totemism,Unknown,Hills
@@ -2573,34 +2573,34 @@
 2573,Placentia,5,Innu,Totemism,Unknown,Forest
 2574,Sikumiut,3,Inuit,Totemism,Unknown,Glacial
 2575,Naskapi,3,Innu,Totemism,Unknown,Forest
-2576,Mingan,3,Innu,Totemism,Unknown,Grassland
+2576,Mingan,3,Innu,Totemism,Unknown,Grasslands
 2577,Manicouagan,3,Innu,Totemism,Unknown,Hills
 2578,Anticosti,3,Innu,Totemism,Unknown,Coastline
 2579,Piekougami,3,Innu,Totemism,Fur,Hills
 2580,Atikamekw,3,Algonquin,Totemism,Unknown,Hills
-2581,Timiskaming,3,Algonquin,Totemism,Unknown,Grassland
+2581,Timiskaming,3,Algonquin,Totemism,Unknown,Grasslands
 2582,Maliseet,3,Maliseet,Totemism,Unknown,Forest
 2583,Etchemins,5,Laurentian,Totemism,Unknown,Forest
 2584,Loup,5,Laurentian,Totemism,Unknown,Woods
 2585,Kichesipi,5,Huron,Totemism,Fur,Woods
 2586,Tionontate,5,Tionontate,Totemism,Tobacco,Woods
 2587,Odawa,3,Anishinabe,Totemism,Fur,Woods
-2588,Piscatang,3,Cree,Totemism,Unknown,Grassland
-2589,Kesagami,3,Cree,Totemism,Fur,Grassland
-2590,Shaggami,3,Cree,Totemism,Unknown,Grassland
-2591,Outoulibi,3,Cree,Totemism,Unknown,Grassland
+2588,Piscatang,3,Cree,Totemism,Unknown,Grasslands
+2589,Kesagami,3,Cree,Totemism,Fur,Grasslands
+2590,Shaggami,3,Cree,Totemism,Unknown,Grasslands
+2591,Outoulibi,3,Cree,Totemism,Unknown,Grasslands
 2592,Omushkego,4,Cree,Totemism,Unknown,Marsh
 2593,Wappus,3,Bungi,Totemism,Unknown,Forest
-2594,Quenebigon,3,Cree,Totemism,Unknown,Grassland
-2595,Kesyehotinne,3,Chipewyan,Totemism,Unknown,Grassland
+2594,Quenebigon,3,Cree,Totemism,Unknown,Grasslands
+2595,Kesyehotinne,3,Chipewyan,Totemism,Unknown,Grasslands
 2596,Mahmikiwiniyak,3,Plains Cree,Totemism,Unknown,Savannah
 2597,Sipiwininiwak,3,Chipewyan,Totemism,Unknown,Savannah
 2598,Hebina,3,Blackfoot,Totemism,Unknown,Grasslands
 2599,Athabasca,3,Chipewyan,Totemism,Unknown,Marsh
 2600,Nihithawak,3,Chipewyan,Totemism,Unknown,Marsh
-2601,Danezaa,4,Athabascan,Totemism,Unknown,Grassland
+2601,Danezaa,4,Athabascan,Totemism,Unknown,Grasslands
 2602,Siksikawa,3,Blackfoot,Totemism,Unknown,Grasslands
-2603,Sekani,3,Athabascan,Totemism,Unknown,Grassland
+2603,Sekani,3,Athabascan,Totemism,Unknown,Grasslands
 2604,Dakelh,4,Athabascan,Totemism,Unknown,Mountain
 2605,Secwepemc,4,Athabascan,Totemism,Unknown,Mountain
 2606,Tsilhoqotin,4,Athabascan,Totemism,Unknown,Hills
@@ -2628,12 +2628,12 @@
 2628,Tepeacac,5,Aztek,Nahuatl,Grain,Highlands
 2629,Coyolapan,5,Mixtec,Nahuatl,Gold,Highlands
 2630,Tochtepec,5,Chontales,Mayan,Fish,Jungle
-2631,Zaachila,5,Chontales,Mayan,Fish,Grassland
+2631,Zaachila,5,Chontales,Mayan,Fish,Grasslands
 2632,Xicallanco,5,Chontales,Mayan,Cocoa,Grasslands
-2633,Mani,9,Yucatec,Mayan,Cocoa,Grassland
-2634,Uaymil,7,Yucatec,Mayan,Cocoa,Grassland
-2635,Chiapas,5,Lacandon,Mayan,Cocoa,Grassland
-2636,Chacujal,5,Highland Mayan,Mayan,Gems,Grassland
+2633,Mani,9,Yucatec,Mayan,Cocoa,Grasslands
+2634,Uaymil,7,Yucatec,Mayan,Cocoa,Grasslands
+2635,Chiapas,5,Lacandon,Mayan,Cocoa,Grasslands
+2636,Chacujal,5,Highland Mayan,Mayan,Gems,Grasslands
 2637,Chortli,3,Highland Mayan,Mayan,Naval Supplies,Jungle
 2638,Xoconochco,7,Zapotek,Nahuatl,Cocoa,Hills
 2639,Raritan,5,Delaware,Totemism,Unknown,Woods
@@ -2647,9 +2647,9 @@
 2647,Cuetlaxtlan,5,Totonac,Nahuatl,Sugar,Jungle
 2648,Yopitzinco,7,Tlapanec,Nahuatl,Fish,Hills
 2649,Tehuantepec,5,Zapotek,Nahuatl,Fish,Hills
-2650,Champutun,7,Yucatec,Mayan,Cocoa,Grassland
-2651,Ah Canul,7,Yucatec,Mayan,Cocoa,Grassland
-2652,Ecab,7,Yucatec,Mayan,Fish,Grassland
+2650,Champutun,7,Yucatec,Mayan,Cocoa,Grasslands
+2651,Ah Canul,7,Yucatec,Mayan,Cocoa,Grasslands
+2652,Ecab,7,Yucatec,Mayan,Fish,Grasslands
 2653,Iximche,7,Highland Mayan,Mayan,Gems,Hills
 2654,Baracoa,5,Arawak,Animism,Unknown,Jungle
 2655,Bayamo,6,Arawak,Animism,Unknown,Jungle
@@ -2658,9 +2658,9 @@
 2658,Maguana,5,Arawak,Animism,Unknown,Hills
 2659,Magua,4,Arawak,Animism,Unknown,Jungle
 2660,Managua,3,Miskito,Animism,Unknown,Hills
-2661,Uluas,3,Miskito,Animism,Unknown,Grassland
+2661,Uluas,3,Miskito,Animism,Unknown,Grasslands
 2662,Olancho,3,Miskito,Animism,Unknown,Hills
-2663,Nicoya,3,Muisca,Animism,Unknown,Grassland
+2663,Nicoya,3,Muisca,Animism,Unknown,Grasslands
 2664,Veraguas,3,Muisca,Animism,Unknown,Jungle
 2665,Ais,4,Caddo,Totemism,Unknown,Woods
 2666,Tuintsunde,3,Lipan,Totemism,Unknown,Grasslands
@@ -2670,30 +2670,30 @@
 2670,Tkaronto,5,Huron,Totemism,Tobacco,Woods
 2671,Mississage,4,Anishinabe,Totemism,Unknown,Forest
 2672,Kitkehaki,3,Pawnee,Totemism,Unknown,Steppe
-2673,Pasai,15,Acehnese,Sunni,Spices,Grassland
-2674,Peureulak,11,Acehnese,Sunni,Spices,Grassland
-2675,Rokan,8,Sumatran,Sunni,Fish,Grassland
-2676,Indragiri,7,Sumatran,Sunni,Copper,Grassland
-2677,Jambi,9,Sumatran,Sunni,Incense,Grassland
+2673,Pasai,15,Acehnese,Sunni,Spices,Grasslands
+2674,Peureulak,11,Acehnese,Sunni,Spices,Grasslands
+2675,Rokan,8,Sumatran,Sunni,Fish,Grasslands
+2676,Indragiri,7,Sumatran,Sunni,Copper,Grasslands
+2677,Jambi,9,Sumatran,Sunni,Incense,Grasslands
 2678,Bangka,7,Sumatran,Hinduism,Unknown,Coastline
 2679,Belitung,7,Sumatran,Hinduism,Unknown,Coastline
-2680,Muko-Muko,6,Sumatran,Hinduism,Grain,Grassland
-2681,Pagarruyung,9,Sumatran,Buddhism,Gold,Grassland
+2680,Muko-Muko,6,Sumatran,Hinduism,Grain,Grasslands
+2681,Pagarruyung,9,Sumatran,Buddhism,Gold,Grasslands
 2682,Pariaman,6,Sumatran,Hinduism,Grain,Drylands
-2683,Mentawai,3,Sumatran,Hinduism,Unknown,Grassland
-2684,Nias,3,Sumatran,Hinduism,Unknown,Grassland
+2683,Mentawai,3,Sumatran,Hinduism,Unknown,Grasslands
+2684,Nias,3,Sumatran,Hinduism,Unknown,Grasslands
 2685,Gayo,7,Acehnese,Sunni,Tropical Wood,Hills
-2686,Bintan,7,Malayan,Sunni,Naval Supplies,Grassland
-2687,Pakuan,11,Sundanese,Hinduism,Grain,Grassland
-2688,Sumedang,8,Sundanese,Hinduism,Spices,Grassland
-2689,Pekalongan,6,Javanese,Hinduism,Naval Supplies,Grassland
-2690,Pajang,13,Javanese,Hinduism,Grain,Grassland
-2691,Kediri,6,Javanese,Hinduism,Fish,Grassland
-2692,Madura,5,Javanese,Hinduism,Tropical Wood,Grassland
-2693,Lombok,6,Nusa Tenggara,Animism,Unknown,Grassland
+2686,Bintan,7,Malayan,Sunni,Naval Supplies,Grasslands
+2687,Pakuan,11,Sundanese,Hinduism,Grain,Grasslands
+2688,Sumedang,8,Sundanese,Hinduism,Spices,Grasslands
+2689,Pekalongan,6,Javanese,Hinduism,Naval Supplies,Grasslands
+2690,Pajang,13,Javanese,Hinduism,Grain,Grasslands
+2691,Kediri,6,Javanese,Hinduism,Fish,Grasslands
+2692,Madura,5,Javanese,Hinduism,Tropical Wood,Grasslands
+2693,Lombok,6,Nusa Tenggara,Animism,Unknown,Grasslands
 2694,East Gangwon,3,Korean,Confucianism,Fish,Hills
-2695,East Timor,9,Nusa Tenggara,Animism,Unknown,Grassland
-2696,Yamdena,9,Moluccan,Animism,Unknown,Grassland
+2695,East Timor,9,Nusa Tenggara,Animism,Unknown,Grasslands
+2696,Yamdena,9,Moluccan,Animism,Unknown,Grasslands
 2697,Tondo,12,Filipino,Animism,Spices,Hills
 2698,Pangasinan,6,Filipino,Animism,Salt,Hills
 2699,Bikol,6,Filipino,Animism,Unknown,Coastline
@@ -2701,27 +2701,27 @@
 2701,Tagloc,6,Filipino,Animism,Unknown,Hills
 2702,Butuan,6,Filipino,Animism,Gems,Marsh
 2703,Lehad Datu,8,Bornean,Sunni,Spices,Jungle
-2704,Sibu,10,Bornean,Sunni,Spices,Grassland
-2705,Sigalang,8,Bornean,Sunni,Gems,Grassland
-2706,Katapang,6,Bornean,Hinduism,Unknown,Grassland
-2707,Barito,6,Bornean,Hinduism,Unknown,Grassland
-2708,Sampit,5,Bornean,Hinduism,Unknown,Grassland
+2704,Sibu,10,Bornean,Sunni,Spices,Grasslands
+2705,Sigalang,8,Bornean,Sunni,Gems,Grasslands
+2706,Katapang,6,Bornean,Hinduism,Unknown,Grasslands
+2707,Barito,6,Bornean,Hinduism,Unknown,Grasslands
+2708,Sampit,5,Bornean,Hinduism,Unknown,Grasslands
 2709,Tarakan,6,Bornean,Hinduism,Fish,Jungle
-2710,Sambaliung,6,Bornean,Hinduism,Fish,Grassland
-2711,Bulungan,7,Bornean,Hinduism,Tropical Wood,Grassland
-2712,Samarinda,8,Bornean,Hinduism,Spices,Grassland
+2710,Sambaliung,6,Bornean,Hinduism,Fish,Grasslands
+2711,Bulungan,7,Bornean,Hinduism,Tropical Wood,Grasslands
+2712,Samarinda,8,Bornean,Hinduism,Spices,Grasslands
 2713,Gorontalo,5,Sulawesi,Animism,Unknown,Coastline
 2714,Palu,8,Sulawesi,Animism,Unknown,Coastline
 2715,Palopo,9,Sulawesi,Animism,Iron,Hills
 2716,Buton,8,Sulawesi,Animism,Spices,Coastline
 2717,Sula,5,Moluccan,Animism,Unknown,Coastline
 2718,Fak-Fak,3,Papuan,Animism,Unknown,Coastline
-2719,Madang,3,Papuan,Animism,Unknown,Grassland
-2720,Lae,3,Papuan,Animism,Unknown,Grassland
-2721,Kerema,3,Papuan,Animism,Unknown,Grassland
-2722,Daru,3,Papuan,Animism,Unknown,Grassland
-2723,Yos Sudarso,3,Papuan,Animism,Unknown,Grassland
-2724,Asmat,3,Papuan,Animism,Unknown,Grassland
+2719,Madang,3,Papuan,Animism,Unknown,Grasslands
+2720,Lae,3,Papuan,Animism,Unknown,Grasslands
+2721,Kerema,3,Papuan,Animism,Unknown,Grasslands
+2722,Daru,3,Papuan,Animism,Unknown,Grasslands
+2723,Yos Sudarso,3,Papuan,Animism,Unknown,Grasslands
+2724,Asmat,3,Papuan,Animism,Unknown,Grasslands
 2725,Aru,3,Moluccan,Animism,Unknown,Coastline
 2726,Malgana,5,Nyoongah,Alcheringa,Naval Supplies,Coastal Desert
 2727,Minang,6,Nyoongah,Alcheringa,Unknown,Steppe
@@ -2737,18 +2737,18 @@
 2737,Wairarapa,7,Maori,Animism,Naval Supplies,Woods
 2738,Te Tau Ihu,4,Maori,Animism,Iron,Hills
 2739,Waikato,10,Maori,Animism,Fish,Woods
-2740,Borneo,0,a,a,a,Grassland
+2740,Borneo,0,a,a,a,Grasslands
 2741,Jeju,3,Korean,Confucianism,Fish,Coastline
 2742,Yukjin,3,Manchu,Confucianism,Naval Supplies,Hills
 2743,North Hamgyeong,3,Manchu,Confucianism,Fur,Mountain
 2744,Nyeongbyeon,6,Korean,Confucianism,Naval Supplies,Hills
 2745,Gyengju,12,Korean,Confucianism,Tea,Farmlands
-2746,Vidin,6,Bulgarian,Orthodox,Grain,Grassland
+2746,Vidin,6,Bulgarian,Orthodox,Grain,Grasslands
 2747,Khara Narin Ula,3,Mongol,Vajrayana,Livestock,Desert
 2748,Jianchang,6,Yi,Animism,Grain,Highlands
 2749,Tikhvin,11,Novgorodian,Orthodox,Iron,Woods
 2750,Plovdiv,9,Bulgarian,Orthodox,Grain,Woods
-2751,Cuenca,11,Castillian,Catholic,Wool,Grassland
+2751,Cuenca,11,Castillian,Catholic,Wool,Grasslands
 2752,Sogn,3,Norwegian,Catholic,Fish,Highlands
 2753,Narbonne,13,Occitain,Catholic,Wine,Farmlands
 2754,La Mancha,9,Castillian,Catholic,Gold,Drylands
@@ -2801,37 +2801,37 @@
 2801,Medwa,3,Tunjur,Fetishist,Unknown,Drylands
 2802,Kobbe.txt,3,Tunjur,Fetishist,Unknown,Steppe
 2803,Delta,4,Carib,Animism,Unknown,Marsh
-2804,Guasipati,3,Carib,Animism,Unknown,Grassland
+2804,Guasipati,3,Carib,Animism,Unknown,Grasslands
 2805,Uyapari,3,Carib,Animism,Coffee,Savannah
-2806,Guajira,3,Guajiro,Animism,Unknown,Grassland
-2807,Altagracia,7,Carib,Animism,Unknown,Grassland
-2808,Coro,3,Guajiro,Animism,Unknown,Grassland
+2806,Guajira,3,Guajiro,Animism,Unknown,Grasslands
+2807,Altagracia,7,Carib,Animism,Unknown,Grasslands
+2808,Coro,3,Guajiro,Animism,Unknown,Grasslands
 2809,Llanos,4,Guajiro,Animism,Unknown,Savannah
 2810,Apure,3,Guajiro,Animism,Unknown,Savannah
-2811,Atabapo,3,Guajiro,Animism,Unknown,Grassland
+2811,Atabapo,3,Guajiro,Animism,Unknown,Grasslands
 2812,Pore,3,Carib,Animism,Unknown,Savannah
 2813,Merida,6,Carib,Animism,Unknown,Mountain
 2814,Meta,3,Carib,Animism,Unknown,Savannah
 2815,Puerto Carreno,3,Guajiro,Animism,Unknown,Savannah
-2816,Guavire,3,Guajiro,Animism,Unknown,Grassland
+2816,Guavire,3,Guajiro,Animism,Unknown,Grasslands
 2817,Neiva,10,Muisca,Inti,Unknown,Mountain
 2818,Popayan,5,Muisca,Inti,Unknown,Hills
 2819,Darien,3,Muisca,Animism,Unknown,Jungle
-2820,Esmeraldas,7,Cara,Inti,Fish,Grassland
+2820,Esmeraldas,7,Cara,Inti,Fish,Grasslands
 2821,Piwra,3,Chimuan,Inti,Fish,Coastal Desert
 2822,Tucume,3,Chimuan,Inti,Cloth,Coastal Desert
-2823,Moyobamba,3,Chachapoyan,Inti,Tropical Wood,Grassland
+2823,Moyobamba,3,Chachapoyan,Inti,Tropical Wood,Grasslands
 2824,Wankapampa,8,Inca,Inti,Wool,Mountain
 2825,Pisqupampa,3,Inca,Inti,Grain,Mountain
 2826,Chimbote,3,Chimuan,Inti,Cocoa,Mountain
 2827,Huaraz,5,Inca,Inti,Grain,Mountain
 2828,Camana,5,Aimara,Inti,Unknown,Coastal Desert
 2829,Ayaviri,8,Aimara,Inti,Wool,Mountain
-2830,Quero,3,Inca,Inti,Wool,Grassland
+2830,Quero,3,Inca,Inti,Wool,Grasslands
 2831,Tiahuanaco,8,Aimara,Inti,Grain,Mountain
-2832,Exaltacion,3,Maipurean,Animism,Unknown,Grassland
-2833,Madre de Dios,3,Maipurean,Animism,Unknown,Grassland
-2834,Santa Cruz de la Sierra,7,Guarani,Animism,Unknown,Grassland
+2832,Exaltacion,3,Maipurean,Animism,Unknown,Grasslands
+2833,Madre de Dios,3,Maipurean,Animism,Unknown,Grasslands
+2834,Santa Cruz de la Sierra,7,Guarani,Animism,Unknown,Grasslands
 2835,Sucre,9,Aimara,Inti,Cloth,Hills
 2836,Tucuman,10,Diaguita,Animism,Unknown,Hills
 2837,Santa Catalina,3,Diaguita,Inti,Wool,Mountain
@@ -2846,7 +2846,7 @@
 2846,Quisquisacate,4,Huarpe,Animism,Unknown,Drylands
 2847,San Luis,4,Huarpe,Animism,Unknown,Desert
 2848,Santa Fe,4,Charruan,Animism,Unknown,Grasslands
-2849,Rosario,3,Charruan,Animism,Unknown,Grassland
+2849,Rosario,3,Charruan,Animism,Unknown,Grasslands
 2850,Montevideo,4,Charruan,Animism,Unknown,Grasslands
 2851,Colonia,3,Charruan,Animism,Unknown,Grasslands
 2852,Salto,3,Charruan,Animism,Unknown,Grasslands
@@ -2879,14 +2879,14 @@
 2879,Santa Tecla,3,Guarani,Animism,Unknown,Savannah
 2880,Griqualand,3,Khoisan,Fetishist,Unknown,Steppe
 2881,Corumba,4,Maipurean,Animism,Unknown,Marsh
-2882,Fuerte Borbon,3,Chacoan,Animism,Unknown,Grassland
+2882,Fuerte Borbon,3,Chacoan,Animism,Unknown,Grasslands
 2883,Melodia,3,Chacoan,Animism,Unknown,Drylands
 2884,Povos das Missoes,3,Guarani,Animism,Tea,Savannah
 2885,Barra,6,Ge,Animism,Unknown,Drylands
 2886,Parnaiba,3,Ge,Animism,Unknown,Savannah
 2887,Santa Catarina,3,Guarani,Animism,Unknown,Savannah
 2888,Cuiaba,4,Ge,Animism,Unknown,Savannah
-2889,Rio Branco,3,Carib,Animism,Unknown,Grassland
+2889,Rio Branco,3,Carib,Animism,Unknown,Grasslands
 2890,Marajo,3,Tupinamba,Animism,Unknown,Marsh
 2891,Santa Ana das Minas,3,Ge,Animism,Unknown,Savannah
 2892,Araxas,4,Ge,Animism,Unknown,Savannah
@@ -2895,14 +2895,14 @@
 2895,Castro,3,Guarani,Animism,Unknown,Savannah
 2896,Campinas,3,Tupinamba,Animism,Unknown,Jungle
 2897,Araraquara,3,Ge,Animism,Unknown,Savannah
-2898,Serro,3,Ge,Animism,Unknown,Grassland
-2899,Vila Rica,6,Ge,Animism,Unknown,Grassland
-2900,Guapore,3,Maipurean,Animism,Unknown,Grassland
-2901,Cerejeiras,3,Maipurean,Animism,Unknown,Grassland
-2902,Vila Bela,3,Guarani,Animism,Unknown,Grassland
+2898,Serro,3,Ge,Animism,Unknown,Grasslands
+2899,Vila Rica,6,Ge,Animism,Unknown,Grasslands
+2900,Guapore,3,Maipurean,Animism,Unknown,Grasslands
+2901,Cerejeiras,3,Maipurean,Animism,Unknown,Grasslands
+2902,Vila Bela,3,Guarani,Animism,Unknown,Grasslands
 2903,Caceres,5,Maipurean,Animism,Unknown,Marsh
-2904,Diamantino,3,Carib,Animism,Unknown,Grassland
-2905,Rio Das Mortes,3,Ge,Animism,Unknown,Grassland
+2904,Diamantino,3,Carib,Animism,Unknown,Grasslands
+2905,Rio Das Mortes,3,Ge,Animism,Unknown,Grasslands
 2906,Ipora,3,Ge,Animism,Unknown,Savannah
 2907,Vila Boa,3,Ge,Animism,Unknown,Savannah
 2908,Arrial dos Couros,3,Ge,Animism,Unknown,Savannah
@@ -2913,7 +2913,7 @@
 2913,Jeremoabo,5,Ge,Animism,Unknown,Drylands
 2914,Inhambupe,3,Ge,Animism,Unknown,Jungle
 2915,Pambu,4,Ge,Animism,Unknown,Drylands
-2916,Rio Contas,3,Tupinamba,Animism,Unknown,Grassland
+2916,Rio Contas,3,Tupinamba,Animism,Unknown,Grasslands
 2917,Paratinga,3,Ge,Animism,Unknown,Drylands
 2918,Campo Largo,3,Ge,Animism,Unknown,Savannah
 2919,Luziana,3,Ge,Animism,Unknown,Savannah
@@ -2925,24 +2925,24 @@
 2925,Parnagua,3,Ge,Animism,Unknown,Savannah
 2926,Grajau,3,Ge,Animism,Unknown,Savannah
 2927,Alcantara,4,Ge,Animism,Unknown,Jungle
-2928,Tucurui,3,Tupinamba,Animism,Unknown,Grassland
+2928,Tucurui,3,Tupinamba,Animism,Unknown,Grasslands
 2929,Para,3,Tupinamba,Animism,Unknown,Jungle
 2930,Santarem,4,Tupinamba,Animism,Unknown,Marsh
-2931,Alenquer,3,Carib,Animism,Unknown,Grassland
+2931,Alenquer,3,Carib,Animism,Unknown,Grasslands
 2932,Obidos,3,Tunjur,Fetishist,Unknown,Steppe
-2933,Faro,3,Carib,Animism,Unknown,Grassland
+2933,Faro,3,Carib,Animism,Unknown,Grasslands
 2934,Manaus,4,Tupinamba,Animism,Unknown,Marsh
-2935,Muturu,3,Tupinamba,Animism,Unknown,Grassland
-2936,Guyana,0,a,a,a,Grassland
-2937,Suriname,3,Carib,Animism,Unknown,Grassland
-2938,Oiapoque,3,Guajiro,Animism,Unknown,Grassland
+2935,Muturu,3,Tupinamba,Animism,Unknown,Grasslands
+2936,Guyana,0,a,a,a,Grasslands
+2937,Suriname,3,Carib,Animism,Unknown,Grasslands
+2938,Oiapoque,3,Guajiro,Animism,Unknown,Grasslands
 2939,Zaraza,4,Carib,Animism,Unknown,Savannah
 2940,Chichas,5,Aimara,Inti,Salt,Mountain
 2941,Choquechaca,5,Aimara,Inti,Gold,Mountain
 2942,Charcas,5,Aimara,Inti,Wool,Mountain
-2943,Chachapoyas,3,Chachapoyan,Inti,Grain,Grassland
-2944,Ucayali,3,Maipurean,Inti,Unknown,Grassland
-2945,Yurimaguas,3,Jivaro,Animism,Unknown,Grassland
+2943,Chachapoyas,3,Chachapoyan,Inti,Grain,Grasslands
+2944,Ucayali,3,Maipurean,Inti,Unknown,Grasslands
+2945,Yurimaguas,3,Jivaro,Animism,Unknown,Grasslands
 2946,Quillacas,5,Aimara,Inti,Gold,Highlands
 2947,Macaya,5,Aimara,Inti,Grain,Mountain
 2948,Matamba,6,Mbundu,Fetishist,Slaves,Grasslands
@@ -2955,15 +2955,15 @@
 2955,Ingolstadt,13,Bavarian,Catholic,Wine,Farmlands
 2956,Straubing,9,Bavarian,Catholic,Glass,Hills
 2957,Regensburg,13,Bavarian,Catholic,Cloth,Farmlands
-2958,Osterode,5,Prussian,Catholic,Naval Supplies,Grassland
-2959,Tarnow,8,Polish,Catholic,Grain,Grassland
+2958,Osterode,5,Prussian,Catholic,Naval Supplies,Grasslands
+2959,Tarnow,8,Polish,Catholic,Grain,Grasslands
 2960,Sadecki,14,Polish,Catholic,Iron,Highlands
-2961,Lwow,12,Ruthenian,Orthodox,Dyes,Grassland
-2962,Rowne,3,Ruthenian,Orthodox,Livestock,Grassland
+2961,Lwow,12,Ruthenian,Orthodox,Dyes,Grasslands
+2962,Rowne,3,Ruthenian,Orthodox,Livestock,Grasslands
 2963,Notec,3,Polish,Catholic,Livestock,Woods
 2964,Altmark,10,Saxon,Catholic,Cloth,Woods
 2965,Vogtland,7,Saxon,Catholic,Wool,Hills
-2966,Glogau,9,Schlesian,Catholic,Iron,Grassland
+2966,Glogau,9,Schlesian,Catholic,Iron,Grasslands
 2967,Eger,10,Czech,Catholic,Gold,Hills
 2968,Budejovice,8,Czech,Catholic,Grain,Highlands
 2969,Sternberg,7,Saxon,Catholic,Cloth,Woods
@@ -2982,21 +2982,21 @@
 2982,Syracuse,10,Sicilian,Catholic,Wine,Mountain
 2983,Salerno,10,Neapolitan,Catholic,Fish,Hills
 2984,Costenza,5,Neapolitan,Catholic,Wine,Hills
-2985,Capitanata,7,Neapolitan,Catholic,Livestock,Grassland
+2985,Capitanata,7,Neapolitan,Catholic,Livestock,Grasslands
 2986,Cagliari,7,Sardinian,Catholic,Copper,Highlands
 2987,Urgell,8,Catalan,Catholic,Wool,Hills
-2988,Tarragona,7,Catalan,Catholic,Wine,Grassland
+2988,Tarragona,7,Catalan,Catholic,Wine,Grasslands
 2989,Rioja,5,Castillian,Catholic,Wine,Highlands
 2990,Teruel,9,Aragonese,Catholic,Iron,Mountain
 2991,Draguignan,8,Occitain,Catholic,Wool,Hills
 2992,Albenga,13,Ligurian,Catholic,Naval Supplies,Hills
 2993,Uckermark,8,Pommeranian,Catholic,Cloth,Woods
-2994,Wolgast,7,Pommeranian,Catholic,Salt,Grassland
+2994,Wolgast,7,Pommeranian,Catholic,Salt,Grasslands
 2995,Stolp,5,Pommeranian,Catholic,Fish,Woods
 2996,Wismar,6,Pommeranian,Catholic,Cloth,Woods
 2997,Pomorskie,10,Prussian,Catholic,Grain,Woods
 2998,Buzau,10,Romanian,Orthodox,Livestock,Farmlands
-2999,Hormuz,7,Gulf Arabic,Sunni,Gems,Drylands
+2999,Hormuz,7,Khaleeji,Sunni,Gems,Drylands
 3000,Nis,7,Serbian,Orthodox,Livestock,Woods
 3001,Skopje,8,Bulgarian,Orthodox,Copper,Highlands
 3002,Sarajevo,5,Bosnian,Orthodox,Grain,Hills
@@ -4017,7 +4017,7 @@
 4017,100,14,a,a,a,a
 4018,100,14,a,a,a,a
 4019,100,14,a,a,a,a
-4020,Comoros,3,Madagasque,Sunni,Unknown,Grassland
+4020,Comoros,3,Madagasque,Sunni,Unknown,Grasslands
 4021,Antankara,4,Madagasque,Fetishist,Slaves,Jungle
 4022,Iboina,5,Madagasque,Fetishist,Slaves,Savannah
 4023,Tsimihety,3,Madagasque,Fetishist,Slaves,Hills
@@ -4075,18 +4075,18 @@
 4075,Lango,3,Acholi,Fetishist,Unknown,Savannah
 4076,Muhambwe,6,Takama,Fetishist,Unknown,Savannah
 4077,Rukwa,5,Bena,Fetishist,Unknown,Highlands
-4078,Mayumba,5,Kongolese,Fetishist,Ivory,Grassland
-4079,Ngoyo,7,Kongolese,Fetishist,Ivory,Grassland
-4080,Soyo,11,Kongolese,Fetishist,Slaves,Grassland
-4081,Tyo,3,Kongolese,Fetishist,Spices,Grassland
+4078,Mayumba,5,Kongolese,Fetishist,Ivory,Grasslands
+4079,Ngoyo,7,Kongolese,Fetishist,Ivory,Grasslands
+4080,Soyo,11,Kongolese,Fetishist,Slaves,Grasslands
+4081,Tyo,3,Kongolese,Fetishist,Spices,Grasslands
 4082,Kasanje,6,Mbangala,Fetishist,Slaves,Savannah
 4083,Shinje,7,Mbangala,Fetishist,Slaves,Savannah
 4084,Malem,3,Mbangala,Fetishist,Slaves,Highlands
-4085,Yaka,8,Yaka,Fetishist,Slaves,Grassland
-4086,Nunu,4,Kuba,Fetishist,Tropical Wood,Grassland
-4087,Kumbana,5,Yaka,Fetishist,Slaves,Grassland
-4088,Munene,6,Kuba,Fetishist,Spices,Grassland
-4089,Kuba,6,Kuba,Fetishist,Cloth,Grassland
+4085,Yaka,8,Yaka,Fetishist,Slaves,Grasslands
+4086,Nunu,4,Kuba,Fetishist,Tropical Wood,Grasslands
+4087,Kumbana,5,Yaka,Fetishist,Slaves,Grasslands
+4088,Munene,6,Kuba,Fetishist,Spices,Grasslands
+4089,Kuba,6,Kuba,Fetishist,Cloth,Grasslands
 4090,Songye,3,Luba,Fetishist,Grain,Jungle
 4091,Mpasu,6,Lunda,Fetishist,Spices,Savannah
 4092,Rund,9,Lunda,Fetishist,Ivory,Savannah
@@ -4108,10 +4108,10 @@
 4108,Kaonde,3,Bemba,Fetishist,Unknown,Savannah
 4109,Lega,6,Luba,Fetishist,Unknown,Jungle
 4110,Sutherland,6,Highland Scottish,Catholic,Grain,Highlands
-4111,Saintonge,10,Cosmopolitan French,Catholic,Grain,Grassland
+4111,Saintonge,10,Francien,Catholic,Grain,Grasslands
 4112,Cahors,9,Gascon,Catholic,Wine,Woods
-4113,Rovaniemi,3,Finnish,Catholic,Fur,Grassland
-4114,Northern Lappmarks,3,Sapmi,Catholic,Unknown,Grassland
+4113,Rovaniemi,3,Finnish,Catholic,Fur,Grasslands
+4114,Northern Lappmarks,3,Sapmi,Catholic,Unknown,Grasslands
 4115,Mazyr,6,Byelorussian,Orthodox,Grain,Woods
 4116,Upper Oka,9,Ryazanian,Orthodox,Grain,Woods
 4117,Bezhetsk,5,Novgorodian,Orthodox,Naval Supplies,Woods
@@ -4119,15 +4119,15 @@
 4119,Sligo,8,Irish,Catholic,Naval Supplies,Woods
 4120,Kildare,9,Irish,Catholic,Grain,Woods
 4121,Ulster,8,Irish,Catholic,Grain,Woods
-4122,Shenkursk,3,Novgorodian,Orthodox,Fur,Grassland
+4122,Shenkursk,3,Novgorodian,Orthodox,Fur,Grasslands
 4123,Birkaland,3,Finnish,Catholic,Fur,Forest
 4124,Kovero,3,Karelian,Orthodox,Fur,Forest
-4125,Szolnok,8,Hungarian,Catholic,Livestock,Grassland
+4125,Szolnok,8,Hungarian,Catholic,Livestock,Grasslands
 4126,Bacs,5,Hungarian,Catholic,Livestock,Farmlands
 4127,Turda,6,Transylvanian,Orthodox,Salt,Woods
 4128,Kiralyfold,8,Transylvanian,Catholic,Cloth,Mountain
-4129,UstVym,3,Uralic,Orthodox,Fur,Grassland
-4130,Somerset,5,English,Catholic,Wool,Grassland
+4129,UstVym,3,Uralic,Orthodox,Fur,Grasslands
+4130,Somerset,5,English,Catholic,Wool,Grasslands
 4131,Mutsu,8,Togoku,Shinto,Livestock,Mountain
 4132,Mweru,0,a,a,a,Ocean
 4133,Kivu,0,a,a,a,Ocean
@@ -4139,17 +4139,17 @@
 4139,Oulujarvi,0,a,a,a,Ocean
 4140,Saimaa,0,a,a,a,Ocean
 4141,Ditmarschen,8,Lower Saxon,Catholic,Grain,Marsh
-4142,Aarhus,11,Danish,Catholic,Naval Supplies,Grassland
-4143,Smalenene,8,Norwegian,Catholic,Naval Supplies,Grassland
+4142,Aarhus,11,Danish,Catholic,Naval Supplies,Grasslands
+4143,Smalenene,8,Norwegian,Catholic,Naval Supplies,Grasslands
 4144,Bratsberg,5,Norwegian,Catholic,Naval Supplies,Hills
 4145,Agdesiden,4,Norwegian,Catholic,Iron,Hills
 4146,Jotenheimen,0,a,a,a,Mountain
-4147,Rostov,8,Russian,Orthodox,Grain,Grassland
+4147,Rostov,8,Russian,Orthodox,Grain,Grasslands
 4148,Luki,4,Novgorodian,Orthodox,Naval Supplies,Woods
-4149,Kolding,8,Danish,Catholic,Livestock,Grassland
+4149,Kolding,8,Danish,Catholic,Livestock,Grasslands
 4150,Evora,7,Portugese,Catholic,Wine,Grasslands
-4151,Inari,3,Sapmi,Catholic,Fur,Grassland
-4152,Kajaani,3,Sapmi,Catholic,Fur,Grassland
+4151,Inari,3,Sapmi,Catholic,Fur,Grasslands
+4152,Kajaani,3,Sapmi,Catholic,Fur,Grasslands
 4153,The Skands,0,a,a,a,Mountain
 4154,The Pyrenees,0,a,a,a,Mountain
 4155,The Carpathians,0,a,a,a,Hills
@@ -4160,7 +4160,7 @@
 4160,The Alps3,0,a,a,a,Mountain
 4161,The Alps4,0,a,a,a,Mountain
 4162,The Alps5,0,a,a,a,Mountain
-4163,Elfsborg,4,Swedish,Catholic,Grain,Grassland
+4163,Elfsborg,4,Swedish,Catholic,Grain,Grasslands
 4164,Dal,3,Swedish,Catholic,Naval Supplies,Hills
 4165,Goinge,9,Danish,Catholic,Livestock,Woods
 4166,Tioharad,3,Swedish,Catholic,Naval Supplies,Woods
@@ -4187,7 +4187,7 @@
 4187,Kii,7,Japanese,Shinto,Naval Supplies,Forest
 4188,Shinano,6,Togoku,Shinto,Livestock,Hills
 4189,Sagami,8,Togoku,Shinto,Iron,Woods
-4190,Shimousa,5,Togoku,Shinto,Fish,Grassland
+4190,Shimousa,5,Togoku,Shinto,Fish,Grasslands
 4191,Shimotsuke,6,Togoku,Shinto,Grain,Hills
 4192,Ugo,6,Togoku,Shinto,Fish,Hills
 4193,Oshima,3,Togoku,Shinto,Fish,Coastline
@@ -4234,67 +4234,67 @@
 4234,Western Yellow Sea,0,a,a,a,Inland Ocean
 4235,Vistula Lagoon,0,a,a,a,Inland Ocean
 4236,Trencin,6,Slovak,Catholic,Iron,Mountain
-4237,Olomouc,8,Czech,Hussite,Grain,Grassland
+4237,Olomouc,8,Czech,Hussite,Grain,Grasslands
 4238,Leignitz,10,Schlesian,Catholic,Glass,Highlands
 4239,Belgrade,10,Serbian,Orthodox,Cloth,Hills
 4240,Fejer,8,Hungarian,Catholic,Livestock,Farmlands
 4241,Wenden,6,Latvian,Catholic,Livestock,Woods
 4242,Ula,5,Byelorussian,Orthodox,Iron,Woods
 4243,Toropets,5,Byelorussian,Orthodox,Grain,Woods
-4244,Starodub,5,Ryazanian,Orthodox,Grain,Grassland
-4245,Vyazma,5,Ryazanian,Orthodox,Cloth,Grassland
-4246,Mstislav,3,Byelorussian,Orthodox,Wool,Grassland
-4247,Owrucz,4,Ruthenian,Orthodox,Grain,Grassland
-4248,Kashin,7,Russian,Orthodox,Livestock,Grassland
-4249,Zubtsov,5,Russian,Orthodox,Grain,Grassland
-4250,Mologa,6,Russian,Orthodox,Livestock,Grassland
+4244,Starodub,5,Ryazanian,Orthodox,Grain,Grasslands
+4245,Vyazma,5,Ryazanian,Orthodox,Cloth,Grasslands
+4246,Mstislav,3,Byelorussian,Orthodox,Wool,Grasslands
+4247,Owrucz,4,Ruthenian,Orthodox,Grain,Grasslands
+4248,Kashin,7,Russian,Orthodox,Livestock,Grasslands
+4249,Zubtsov,5,Russian,Orthodox,Grain,Grasslands
+4250,Mologa,6,Russian,Orthodox,Livestock,Grasslands
 4251,Mozhaisk,8,Russian,Orthodox,Grain,Woods
 4252,Kolomna,6,Russian,Orthodox,Livestock,Woods
 4253,Yuriev,8,Russian,Orthodox,Salt,Woods
 4254,Starodub,7,Russian,Orthodox,Grain,Woods
 4255,Pronsk,6,Ryazanian,Orthodox,Iron,Steppe
-4256,Solvychegodsk,3,Novgorodian,Orthodox,Fur,Grassland
-4257,Mezen,3,Novgorodian,Orthodox,Fish,Grassland
-4258,Onega,3,Novgorodian,Orthodox,Fur,Grassland
-4259,Velsk,3,Russian,Orthodox,Fur,Grassland
+4256,Solvychegodsk,3,Novgorodian,Orthodox,Fur,Grasslands
+4257,Mezen,3,Novgorodian,Orthodox,Fish,Grasslands
+4258,Onega,3,Novgorodian,Orthodox,Fur,Grasslands
+4259,Velsk,3,Russian,Orthodox,Fur,Grasslands
 4260,Vyshny Volochyok,6,Novgorodian,Orthodox,Naval Supplies,Woods
-4261,Ustyuzhna,5,Novgorodian,Orthodox,Naval Supplies,Grassland
-4262,Totma,3,Russian,Orthodox,Fur,Grassland
-4263,Sol Galitskaya,3,Russian,Orthodox,Grain,Grassland
+4261,Ustyuzhna,5,Novgorodian,Orthodox,Naval Supplies,Grasslands
+4262,Totma,3,Russian,Orthodox,Fur,Grasslands
+4263,Sol Galitskaya,3,Russian,Orthodox,Grain,Grasslands
 4264,Tetyushi,6,Kazani,Sunni,Grain,Steppe
 4265,Ar Chally,6,Kazani,Sunni,Grain,Steppe
 4266,Izhkar,5,Uralic,Tengri,Iron,Woods
 4267,Bolgar,6,Kazani,Sunni,Iron,Steppe
-4268,Aqaba,3,Bedouin Arabic,Sunni,Fish,Mountain
-4269,Al Wajh,3,Bedouin Arabic,Sunni,Fish,Coastal Desert
-4270,Azraq,4,Bedouin Arabic,Sunni,Livestock,Desert
-4271,Suwaida,3,Bedouin Arabic,Shiite,Livestock,Desert
-4272,Jawf,4,Bedouin Arabic,Sunni,Livestock,Desert
-4273,Karaitan,3,Bedouin Arabic,Sunni,Livestock,Desert
-4274,Sudayr,5,Bedouin Arabic,Sunni,Grain,Desert
-4275,Yamamah,4,Bedouin Arabic,Sunni,Livestock,Desert
+4268,Aqaba,3,Bedouin,Sunni,Fish,Mountain
+4269,Al Wajh,3,Bedouin,Sunni,Fish,Coastal Desert
+4270,Azraq,4,Bedouin,Sunni,Livestock,Desert
+4271,Suwaida,3,Bedouin,Shiite,Livestock,Desert
+4272,Jawf,4,Bedouin,Sunni,Livestock,Desert
+4273,Karaitan,3,Bedouin,Sunni,Livestock,Desert
+4274,Sudayr,5,Bedouin,Sunni,Grain,Desert
+4275,Yamamah,4,Bedouin,Sunni,Livestock,Desert
 4276,Tubaiq,0,a,a,a,Desert
-4277,Taif,7,Hejazi Culture,Sunni,Wool,Desert
-4278,Qunfudah,6,Hejazi Culture,Shiite,Incense,Coastal Desert
-4279,Zabid,8,Yemeni Culture,Sunni,Coffee,Coastline
-4280,Taiz,10,Yemeni Culture,Shiite,Coffee,Mountain
-4281,Dhamar,11,Yemeni Culture,Shiite,Livestock,Mountain
-4282,Sahda,6,Yemeni Culture,Shiite,Coffee,Mountain
-4283,Shihr,6,Yemeni Culture,Sunni,Incense,Coastal Desert
-4284,Al Ghayda,3,Mahri Culture,Sunni,Fish,Coastal Desert
-4285,Baraimi,5,Omani Culture,Ibadi,Livestock,Desert
-4286,Sur,5,Omani Culture,Ibadi,Spices,Coastal Desert
-4287,Ibra,6,Omani Culture,Ibadi,Grain,Desert
-4288,Shatt,7,Al Iraqiya Arabic,Sunni,Spices,Marsh
-4289,Shushtar,6,Persian,Shiite,Silk,Grassland
-4290,Hoveyzeh,8,Al Iraqiya Arabic,Shiite,Grain,Marsh
-4291,Qazania,7,Al Iraqiya Arabic,Sunni,Cotton,Grassland
+4277,Taif,7,Hejazi,Sunni,Wool,Desert
+4278,Qunfudah,6,Hejazi,Shiite,Incense,Coastal Desert
+4279,Zabid,8,Yemeni,Sunni,Coffee,Coastline
+4280,Taiz,10,Yemeni,Shiite,Coffee,Mountain
+4281,Dhamar,11,Yemeni,Shiite,Livestock,Mountain
+4282,Sahda,6,Yemeni,Shiite,Coffee,Mountain
+4283,Shihr,6,Yemeni,Sunni,Incense,Coastal Desert
+4284,Al Ghayda,3,Mahri,Sunni,Fish,Coastal Desert
+4285,Baraimi,5,Omani,Ibadi,Livestock,Desert
+4286,Sur,5,Omani,Ibadi,Spices,Coastal Desert
+4287,Ibra,6,Omani,Ibadi,Grain,Desert
+4288,Shatt,7,Mashriqi,Sunni,Spices,Marsh
+4289,Shushtar,6,Persian,Shiite,Silk,Grasslands
+4290,Hoveyzeh,8,Mashriqi,Shiite,Grain,Marsh
+4291,Qazania,7,Mashriqi,Sunni,Cotton,Grasslands
 4292,Mardin,7,Kurdish,Sunni,Wool,Drylands
 4293,Arbil,6,Kurdish,Sunni,Cloth,Highlands
 4294,Sulimaniyeh,6,Kurdish,Sunni,Wool,Highlands
 4295,Hisn Kayfa,6,Kurdish,Sunni,Wool,Highlands
 4296,Bitlis,6,Kurdish,Sunni,Wool,Mountain
-4297,Homs,5,Al Suryah Arabic,Sunni,Cotton,Drylands
+4297,Homs,5,Syrian,Sunni,Cotton,Drylands
 4298,Ayntab,5,Turkish,Sunni,Wool,Drylands
 4299,Shamakhi,6,Azerbaijani,Sunni,Wool,Highlands
 4300,Mianeh,5,Azerbaijani,Sunni,Paper,Mountain
@@ -4313,18 +4313,18 @@
 4313,Cangiri,5,Turkish,Sunni,Wool,Highlands
 4314,Kirsehir,6,Turkish,Sunni,Wool,Drylands
 4315,Tokat,8,Turkish,Sunni,Cloth,Hills
-4316,Mansura,13,Al Misr Arabic,Sunni,Grain,Farmlands
-4317,Buhaira,6,Al Misr Arabic,Sunni,Salt,Desert
-4318,Atfih,7,Al Misr Arabic,Sunni,Paper,Drylands
-4319,Isna,5,Al Misr Arabic,Sunni,Livestock,Desert
-4320,Girga,9,Al Misr Arabic,Sunni,Grain,Drylands
+4316,Mansura,13,Egyptian,Sunni,Grain,Farmlands
+4317,Buhaira,6,Egyptian,Sunni,Salt,Desert
+4318,Atfih,7,Egyptian,Sunni,Paper,Drylands
+4319,Isna,5,Egyptian,Sunni,Livestock,Desert
+4320,Girga,9,Egyptian,Sunni,Grain,Drylands
 4321,Egyptian Desert,0,a,a,a,Desert
 4322,Egyptian Desert,0,a,a,a,Desert
-4323,Farafreh,3,Al Misr Arabic,Sunni,Livestock,Desert
+4323,Farafreh,3,Egyptian,Sunni,Livestock,Desert
 4324,Ghuriyan,3,Khorasani,Sunni,Livestock,Desert
 4325,Sarakhs,5,Khorasani,Sunni,Wool,Desert
 4326,Nishapur,6,Khorasani,Sunni,Gems,Mountain
-4327,Jask,3,Gulf Arabic,Sunni,Fish,Desert
+4327,Jask,3,Khaleeji,Sunni,Fish,Desert
 4328,Chagai,0,a,a,a,Desert
 4329,Fasa,9,Persian,Sunni,Silk,Mountain
 4330,Darab,5,Persian,Shiite,Spices,Mountain
@@ -4366,14 +4366,14 @@
 4366,Montgomery,3,Welsh,Catholic,Iron,Hills
 4367,Hull,7,English,Catholic,Naval Supplies,Farmlands
 4368,Scarborough,5,English,Catholic,Wool,Farmlands
-4369,Carmarthen,3,Welsh,Catholic,Livestock,Grassland
+4369,Carmarthen,3,Welsh,Catholic,Livestock,Grasslands
 4370,Cambridgeshire,8,English,Catholic,Cloth,Marsh
 4371,Sussex,10,English,Catholic,Grain,Farmlands
 4372,Coventry,8,English,Catholic,Iron,Woods
-4373,Devon,6,English,Catholic,Wool,Grassland
-4374,Dorset,6,English,Catholic,Livestock,Grassland
+4373,Devon,6,English,Catholic,Wool,Grasslands
+4374,Dorset,6,English,Catholic,Livestock,Grasslands
 4375,Chester,5,English,Catholic,Salt,Farmlands
-4376,Leicester,6,English,Catholic,Cloth,Grassland
+4376,Leicester,6,English,Catholic,Cloth,Grasslands
 4377,Ormond,7,Irish,Catholic,Livestock,Woods
 4378,Kinsale,4,Irish,Catholic,Fish,Woods
 4379,Middlands,5,Irish,Catholic,Livestock,Woods
@@ -4382,27 +4382,27 @@
 4382,Ommeland,10,Frisian,Catholic,Cloth,Farmlands
 4383,Haag,15,Dutch,Catholic,Cloth,Farmlands
 4384,Rennes,12,Breton,Catholic,Cloth,Farmlands
-4385,Cotentin,10,Normand,Catholic,Naval Supplies,Grassland
-4386,Vendee,9,Cosmopolitan French,Catholic,Salt,Marsh
-4387,Angouleme,8,Cosmopolitan French,Catholic,Livestock,Woods
-4388,Chartres,16,Cosmopolitan French,Catholic,Cloth,Farmlands
-4389,Touraine,11,Cosmopolitan French,Catholic,Cloth,Woods
-4390,Troyes,13,Cosmopolitan French,Catholic,Iron,Farmlands
+4385,Cotentin,10,Normand,Catholic,Naval Supplies,Grasslands
+4386,Vendee,9,Francien,Catholic,Salt,Marsh
+4387,Angouleme,8,Francien,Catholic,Livestock,Woods
+4388,Chartres,16,Francien,Catholic,Cloth,Farmlands
+4389,Touraine,11,Francien,Catholic,Cloth,Woods
+4390,Troyes,13,Francien,Catholic,Iron,Farmlands
 4391,Vivarais,10,Occitain,Catholic,Wine,Highlands
 4392,Auxerrois,11,Burgundian,Catholic,Wine,Farmlands
-4393,Tabayin,6,Burmese,Buddhism,Cotton,Grassland
+4393,Tabayin,6,Burmese,Buddhism,Cotton,Grasslands
 4394,Salin,8,Burmese,Buddhism,Grain,Grasslands
-4395,Yamthin,7,Burmese,Buddhism,Ivory,Grassland
+4395,Yamthin,7,Burmese,Buddhism,Ivory,Grasslands
 4396,Prome,11,Burmese,Buddhism,Ivory,Farmlands
-4397,Yawnghwe,6,Shan,Buddhism,Cotton,Grassland
+4397,Yawnghwe,6,Shan,Buddhism,Cotton,Grasslands
 4398,Mawkmai,5,Shan,Animism,Grain,Highlands
-4399,Dagon,11,Mon,Buddhism,Grain,Grassland
+4399,Dagon,11,Mon,Buddhism,Grain,Grasslands
 4400,Naga Hills,0,a,a,a,Mountain
 4401,Arakan Mountains,0,a,a,a,Hills
 4402,Gaoligong Mountains,0,a,a,a,Mountain
 4403,Shan Highlands,0,a,a,a,Hills
 4404,Minsin,3,Kachin,Animism,Grain,Mountain
-4405,Katha,6,Shan,Buddhism,Tea,Grassland
+4405,Katha,6,Shan,Buddhism,Tea,Grasslands
 4406,Mong Kung,5,Shan,Buddhism,Tropical Wood,Highlands
 4407,Ruhunu,6,Sinhala,Buddhism,Gems,Jungle
 4408,Salavata,6,Sinhala,Buddhism,Spices,Jungle
@@ -4414,14 +4414,14 @@
 4414,Salem,7,Tamil,Hinduism,Cotton,Hills
 4415,Negapattam,9,Tamil,Hinduism,Cloth,Farmlands
 4416,Tranqebar,7,Tamil,Hinduism,Cloth,Farmlands
-4417,Kanchipuram,9,Tamil,Hinduism,Cloth,Grassland
-4418,Nelore,10,Telegu,Hinduism,Cotton,Grassland
-4419,Adanki,7,Telegu,Hinduism,Cotton,Grassland
+4417,Kanchipuram,9,Tamil,Hinduism,Cloth,Grasslands
+4418,Nelore,10,Telegu,Hinduism,Cotton,Grasslands
+4419,Adanki,7,Telegu,Hinduism,Cotton,Grasslands
 4420,Chandragiri,9,Telegu,Hinduism,Cotton,Hills
 4421,Seringapatam,11,Kannada,Hinduism,Cotton,Drylands
 4422,Sira,9,Kannada,Hinduism,Grain,Highlands
-4423,Gutti,6,Telegu,Hinduism,Iron,Grassland
-4424,Adavani,5,Telegu,Hinduism,Grain,Grassland
+4423,Gutti,6,Telegu,Hinduism,Iron,Grasslands
+4424,Adavani,5,Telegu,Hinduism,Grain,Grasslands
 4425,Kondavidu,5,Telegu,Hinduism,Gems,Hills
 4426,Chitaldurg,7,Kannada,Hinduism,Cotton,Hills
 4427,Honnavara,5,Kannada,Hinduism,Spices,Hills
@@ -4438,27 +4438,27 @@
 4438,Nander,5,Marathi,Hinduism,Silk,Jungle
 4439,Kamammet,6,Telegu,Hinduism,Dyes,Jungle
 4440,Narayanpur,7,Assamese,Hinduism,Tea,Hills
-4441,Ganjam,8,Oriya,Hinduism,Salt,Grassland
-4442,Washim,7,Marathi,Hinduism,Cloth,Grassland
-4443,Karanja,7,Marathi,Hinduism,Cotton,Grassland
+4441,Ganjam,8,Oriya,Hinduism,Salt,Grasslands
+4442,Washim,7,Marathi,Hinduism,Cloth,Grasslands
+4443,Karanja,7,Marathi,Hinduism,Cotton,Grasslands
 4444,Manidurg,3,Telegu,Hinduism,Tropical Wood,Jungle
-4445,Kanker,3,Gondi,Hinduism,Tropical Wood,Grassland
-4446,Kalahandi,3,Garjati,Hinduism,Tropical Wood,Grassland
-4447,Patna,4,Garjati,Hinduism,Cotton,Grassland
+4445,Kanker,3,Gondi,Hinduism,Tropical Wood,Grasslands
+4446,Kalahandi,3,Garjati,Hinduism,Tropical Wood,Grasslands
+4447,Patna,4,Garjati,Hinduism,Cotton,Grasslands
 4448,Parlakhimedi,3,Garjati,Hinduism,Tropical Wood,Jungle
 4449,Jammu,5,Kashmiri,Hinduism,Silk,Hills
 4450,Mayurbhanj,4,Garjati,Hinduism,Iron,Jungle
 4451,Sonpur,4,Garjati,Hinduism,Naval Supplies,Jungle
-4452,Ratanpur,5,Gondi,Hinduism,Grain,Grassland
+4452,Ratanpur,5,Gondi,Hinduism,Grain,Grasslands
 4453,Thalner,7,Marathi,Hinduism,Cotton,Hills
 4454,Porbandar,5,Saurashtri,Hinduism,Cotton,Drylands
 4455,Diu,5,Saurashtri,Hinduism,Sugar,Drylands
 4456,Jhalavad,5,Saurashtri,Hinduism,Cotton,Drylands
-4457,Cambay,11,Gujarati,Hinduism,Cloth,Grassland
-4458,Narbada,3,Gondi,Hinduism,Tropical Wood,Grassland
+4457,Cambay,11,Gujarati,Hinduism,Cloth,Grasslands
+4458,Narbada,3,Gondi,Hinduism,Tropical Wood,Grasslands
 4459,Saugor,4,Gondi,Hinduism,Grain,Hills
-4460,Handia,5,Malvi,Hinduism,Cotton,Grassland
-4461,Ujjain,11,Malvi,Hinduism,Spices,Grassland
+4460,Handia,5,Malvi,Hinduism,Cotton,Grasslands
+4461,Ujjain,11,Malvi,Hinduism,Spices,Grasslands
 4462,Vagad,5,Rajput,Hinduism,Copper,Hills
 4463,Bhatnair,8,Rajput,Hinduism,Livestock,Drylands
 4464,Bundi,5,Rajput,Hinduism,Cotton,Highlands
@@ -4466,15 +4466,15 @@
 4466,Mahoba,5,Vindhyan,Hinduism,Grain,Hills
 4467,Kalinjar,5,Vindhyan,Hinduism,Gems,Hills
 4468,Bandogarh,5,Vindhyan,Hinduism,Grain,Jungle
-4469,Rohtas,8,Bihari,Hinduism,Salt,Grassland
+4469,Rohtas,8,Bihari,Hinduism,Salt,Grasslands
 4470,Soumelpur,4,Jharkhandi,Hinduism,Iron,Jungle
 4471,Bishnupur,8,Bengali,Hinduism,Naval Supplies,Jungle
 4472,Monghyr,7,Bihari,Hinduism,Silk,Jungle
-4473,Chakla,5,Chin,Hinduism,Tropical Wood,Grassland
-4474,Sonargaon,10,Bengali,Hinduism,Cloth,Grassland
-4475,Fathabad,7,Bengali,Hinduism,Grain,Grassland
+4473,Chakla,5,Chin,Hinduism,Tropical Wood,Grasslands
+4474,Sonargaon,10,Bengali,Hinduism,Cloth,Grasslands
+4475,Fathabad,7,Bengali,Hinduism,Grain,Grasslands
 4476,Nadia,17,Bengali,Hinduism,Silk,Farmlands
-4477,Satgaon,13,Bengali,Hinduism,Spices,Grassland
+4477,Satgaon,13,Bengali,Hinduism,Spices,Grasslands
 4478,Haibitnagar,5,Bengali,Hinduism,Cotton,Jungle
 4479,Goraghat,11,Bengali,Hinduism,Silk,Farmlands
 4480,Mahi Kantha,3,Gujarati,Hinduism,Cloth,Hills
@@ -4483,33 +4483,33 @@
 4483,Morang,6,Nepali,Vajrayana,Wool,Hills
 4484,Makwanpur,6,Nepali,Hinduism,Wool,Hills
 4485,Palpa,5,Nepali,Hinduism,Naval Supplies,Hills
-4486,Purnia,7,Kochi,Hinduism,Silk,Grassland
+4486,Purnia,7,Kochi,Hinduism,Silk,Grasslands
 4487,Saran,7,Bihari,a,Cotton,Farmlands
-4488,Champaran,7,Bihari,Hinduism,Grain,Grassland
+4488,Champaran,7,Bihari,Hinduism,Grain,Grasslands
 4489,Hajipur,10,Bihari,Hinduism,Glass,Farmlands
 4490,Ghazipur,8,Bihari,a,Cloth,Farmlands
 4491,Dang,5,Nepali,Hinduism,Wool,Hills
 4492,Doti,3,Nepali,Hinduism,Wool,Hills
 4493,Sirmur,3,Pahari,Hinduism,Cotton,Hills
-4494,Khairabad,7,Avadhi,Hinduism,Cloth,Grassland
-4495,Feyzabad,8,Avadhi,Hinduism,Cloth,Grassland
+4494,Khairabad,7,Avadhi,Hinduism,Cloth,Grasslands
+4495,Feyzabad,8,Avadhi,Hinduism,Cloth,Grasslands
 4496,Kora,10,Avadhi,Hinduism,Cotton,Farmlands
 4497,Qannauj,10,Avadhi,Hinduism,Grain,Farmlands
-4498,Sambhal,9,Kanauji,Hinduism,Cotton,Grassland
-4499,Bareily,6,Kanauji,Hinduism,Cotton,Grassland
+4498,Sambhal,9,Kanauji,Hinduism,Cotton,Grasslands
+4499,Bareily,6,Kanauji,Hinduism,Cotton,Grasslands
 4500,Bharatpur,6,Rajput,Hinduism,Livestock,Hills
-4501,Bhilwara,5,Rajput,Hinduism,Grain,Grassland
+4501,Bhilwara,5,Rajput,Hinduism,Grain,Grasslands
 4502,Merta,5,Rajput,Hinduism,Livestock,Desert
 4503,Mansura,10,Sindhi,Sunni,Cloth,Drylands
 4504,Nasirpur,8,Sindhi,Sunni,Cotton,Drylands
 4505,Khairpur,5,Sindhi,Sunni,Livestock,Drylands
 4506,Barmer,3,Rajput,Hinduism,Livestock,Desert
 4507,Churu,3,Rajput,Hinduism,Livestock,Desert
-4508,Bahawalpur,3,Panjabi,Sunni,Livestock,Grassland
+4508,Bahawalpur,3,Panjabi,Sunni,Livestock,Grasslands
 4509,Karor,6,Panjabi,Sunni,Iron,Drylands
 4510,Shorkot,11,Panjabi,Hinduism,Cloth,Farmlands
 4511,Bhera,7,Panjabi,Hinduism,Salt,Hills
-4512,Baruch,9,Gujarati,Hinduism,Silk,Grassland
+4512,Baruch,9,Gujarati,Hinduism,Silk,Grasslands
 4513,Dipalpur,13,Panjabi,Hinduism,Silk,Farmlands
 4514,Sakya,5,Tibetan,Vajrayana,Livestock,Mountain
 4515,Gyirong,4,Tibetan,Vajrayana,Livestock,Mountain
@@ -4520,49 +4520,49 @@
 4520,Rutog,3,Tibetan,Vajrayana,Wool,Mountain
 4521,Skardu,3,Kashmiri,Vajrayana,Wool,Mountain
 4522,Aqenganggyai,0,a,a,a,Desert
-4523,Inowroclaw,5,Polish,Catholic,Livestock,Grassland
+4523,Inowroclaw,5,Polish,Catholic,Livestock,Grasslands
 4524,Dobryzn,4,Polish,Catholic,Grain,Woods
-4525,Rawa,5,Polish,Catholic,Grain,Grassland
-4526,Gniezno,7,Polish,Catholic,Cloth,Grassland
-4527,Checiny,7,Polish,Catholic,Cloth,Grassland
-4528,Kuyavia,5,Polish,Catholic,Grain,Grassland
+4525,Rawa,5,Polish,Catholic,Grain,Grasslands
+4526,Gniezno,7,Polish,Catholic,Cloth,Grasslands
+4527,Checiny,7,Polish,Catholic,Cloth,Grasslands
+4528,Kuyavia,5,Polish,Catholic,Grain,Grasslands
 4529,Iasi,6,Romanian,Orthodox,Wine,Farmlands
-4530,Birlad,4,Romanian,Orthodox,Wine,Grassland
+4530,Birlad,4,Romanian,Orthodox,Wine,Grasslands
 4531,Giurgiu,8,Romanian,Orthodox,Livestock,Farmlands
-4532,Severin,7,Romanian,Orthodox,Livestock,Grassland
-4533,Wielun,7,Polish,Catholic,Cloth,Grassland
+4532,Severin,7,Romanian,Orthodox,Livestock,Grasslands
+4533,Wielun,7,Polish,Catholic,Cloth,Grasslands
 4534,Upita,4,Lithuanian,Catholic,Livestock,Marsh
 4535,Wilkimierz,6,Lithuanian,Catholic,Livestock,Woods
-4536,Lida,6,Lithuanian,a,Livestock,Grassland
+4536,Lida,6,Lithuanian,a,Livestock,Grasslands
 4537,Nowogrodek,4,Byelorussian,Orthodox,Wool,Woods
 4538,Chelm,5,Ruthenian,Orthodox,Wool,Farmlands
-4539,Kremenets,3,Ruthenian,Orthodox,Livestock,Grassland
-4540,Winnica,3,Ruthenian,Orthodox,Livestock,Grassland
+4539,Kremenets,3,Ruthenian,Orthodox,Livestock,Grasslands
+4540,Winnica,3,Ruthenian,Orthodox,Livestock,Grasslands
 4541,Drohobycz,5,Ruthenian,Orthodox,Livestock,Woods
-4542,Lubnie,5,Ruthenian,Orthodox,Grain,Grassland
+4542,Lubnie,5,Ruthenian,Orthodox,Grain,Grasslands
 4543,Rylsk,3,Ryazanian,Orthodox,Grain,Woods
 4544,Bobrujsk,3,Byelorussian,Orthodox,Grain,Woods
 4545,Sluck,6,Byelorussian,Orthodox,Cloth,Marsh
 4546,Malaga,7,Andalucian,Sunni,Salt,Mountain
 4547,Albacete,6,Andalucian,Catholic,Grain,Drylands
-4548,Huelva,8,Andalucian,Catholic,Copper,Grassland
+4548,Huelva,8,Andalucian,Catholic,Copper,Grasslands
 4549,Xativa,10,Catalan,Catholic,Paper,Drylands
-4550,Castellon,10,Catalan,Catholic,Grain,Grassland
-4551,Avila,6,Castillian,Catholic,Livestock,Grassland
+4550,Castellon,10,Catalan,Catholic,Grain,Grasslands
+4551,Avila,6,Castillian,Catholic,Livestock,Grasslands
 4552,Palencia,6,Castillian,Catholic,Grain,Hills
 4553,Zamora,8,Leonese,Catholic,Wine,Highlands
-4554,Lugo,8,Galician,Catholic,Fish,Grassland
+4554,Lugo,8,Galician,Catholic,Fish,Grasslands
 4555,Vigo,8,Galician,Catholic,Fish,Woods
-4556,Aviero,10,Portugese,Catholic,Salt,Grassland
-4557,Lleida,7,Aragonese,Catholic,Cloth,Grassland
+4556,Aviero,10,Portugese,Catholic,Salt,Grasslands
+4557,Lleida,7,Aragonese,Catholic,Cloth,Grasslands
 4558,Orense,5,Galician,Catholic,Naval Supplies,Woods
-4559,Minorca,3,Catalan,Catholic,Fish,Grassland
-4560,Ibiza,3,Catalan,Catholic,Fish,Grassland
+4559,Minorca,3,Catalan,Catholic,Fish,Grasslands
+4560,Ibiza,3,Catalan,Catholic,Fish,Grasslands
 4561,Tetouan,8,Moroccan,Sunni,Grain,Highlands
 4562,Mers el Kebir,7,Algerian,Sunni,Cloth,Drylands
 4563,Sale,9,Moroccan,Sunni,Grain,Drylands
 4564,Anfa,6,Moroccan,Sunni,Grain,Drylands
-4565,Tenerife,5,Berber,Animism,Unknown,Grassland
+4565,Tenerife,5,Berber,Animism,Unknown,Grasslands
 4566,Kairwan,10,Tunisian,Sunni,Grain,Highlands
 4567,Sabha,3,Tunisian,Sunni,Livestock,Desert
 4568,Demnate,5,Moroccan,Sunni,Wool,Mountain
@@ -4572,59 +4572,59 @@
 4572,Malinalco,7,Matlatzinca,Nahuatl,Gold,Hills
 4573,Acambaro,3,Otomi,Nahuatl,Wool,Hills
 4574,Ihuatzio,7,Purepecha,Nahuatl,Grain,Hills
-4575,Puruaran,7,Purepecha,Nahuatl,Grain,Grassland
-4576,Amaxocotlan,3,Tepic,Nahuatl,Wool,Grassland
+4575,Puruaran,7,Purepecha,Nahuatl,Grain,Grasslands
+4576,Amaxocotlan,3,Tepic,Nahuatl,Wool,Grasslands
 4577,Tohono,3,Piman,Totemism,Unknown,Desert
-4578,Tzapotzingo,3,Tepic,Nahuatl,Wool,Grassland
-4579,Sayula,9,Tecos,Nahuatl,Fish,Grassland
-4580,Tecoman,9,Tecos,Nahuatl,Fish,Grassland
+4578,Tzapotzingo,3,Tepic,Nahuatl,Wool,Grasslands
+4579,Sayula,9,Tecos,Nahuatl,Fish,Grasslands
+4580,Tecoman,9,Tecos,Nahuatl,Fish,Grasslands
 4581,Yohualtepec,7,Mixtec,Nahuatl,Dyes,Hills
 4582,Teotitlan,7,Aztek,Nahuatl,Dyes,Hills
-4583,Xocotla,9,Aztek,Nahuatl,Sugar,Grassland
-4584,Mitla,5,Zapotek,Nahuatl,Sugar,Grassland
-4585,Tzotzil,5,Lacandon,Mayan,Fish,Grassland
+4583,Xocotla,9,Aztek,Nahuatl,Sugar,Grasslands
+4584,Mitla,5,Zapotek,Nahuatl,Sugar,Grasslands
+4585,Tzotzil,5,Lacandon,Mayan,Fish,Grasslands
 4586,Jakaltek,5,Lacandon,Mayan,Fish,Hills
 4587,Qumarkaj,7,Highland Mayan,Mayan,Cocoa,Mountain
-4588,Kobox,5,Putun,Mayan,Cocoa,Grassland
-4589,Moran,5,Putun,Mayan,Cocoa,Grassland
-4590,Xiu,9,Yucatec,Mayan,Cocoa,Grassland
-4591,Sotuta,9,Yucatec,Mayan,Cocoa,Grassland
-4592,Ulva,3,Miskito,Animism,Unknown,Grassland
+4588,Kobox,5,Putun,Mayan,Cocoa,Grasslands
+4589,Moran,5,Putun,Mayan,Cocoa,Grasslands
+4590,Xiu,9,Yucatec,Mayan,Cocoa,Grasslands
+4591,Sotuta,9,Yucatec,Mayan,Cocoa,Grasslands
+4592,Ulva,3,Miskito,Animism,Unknown,Grasslands
 4593,Xicaque,3,Miskito,Animism,Unknown,Hills
-4594,Tzul,5,Putun,Mayan,Cocoa,Grassland
-4595,Guaymi,3,Muisca,Animism,Unknown,Grassland
-4596,Kuna,4,Guajiro,Animism,Unknown,Grassland
+4594,Tzul,5,Putun,Mayan,Cocoa,Grasslands
+4595,Guaymi,3,Muisca,Animism,Unknown,Grasslands
+4596,Kuna,4,Guajiro,Animism,Unknown,Grasslands
 4597,Talamanca,3,Miskito,Animism,Unknown,Hills
-4598,Cuauhtochco,5,Totonac,Nahuatl,Sugar,Grassland
-4599,Sinu,4,Guajiro,Animism,Unknown,Grassland
-4600,Magangue,4,Guajiro,Animism,Unknown,Grassland
+4598,Cuauhtochco,5,Totonac,Nahuatl,Sugar,Grasslands
+4599,Sinu,4,Guajiro,Animism,Unknown,Grasslands
+4600,Magangue,4,Guajiro,Animism,Unknown,Grasslands
 4601,Chimila,4,Guajiro,Animism,Unknown,Mountain
 4602,Motilones,5,Guajiro,Animism,Unknown,Mountain
 4603,Moniquira,12,Muisca,Inti,Salt,Hills
-4604,Pastos,4,Guajiro,Animism,Unknown,Grassland
-4605,Putumayos,4,Guajiro,Animism,Unknown,Grassland
+4604,Pastos,4,Guajiro,Animism,Unknown,Grasslands
+4605,Putumayos,4,Guajiro,Animism,Unknown,Grasslands
 4606,Chichitames,3,Chichimecan,Animism,Unknown,Desert
 4607,Pijaos,5,Guajiro,Animism,Unknown,Hills
-4608,Achaguas,5,Guajiro,Animism,Unknown,Grassland
+4608,Achaguas,5,Guajiro,Animism,Unknown,Grasslands
 4609,Variquicimeto,4,Guajiro,Animism,Unknown,Hills
-4610,Yukpa,4,Guajiro,Animism,Unknown,Grassland
+4610,Yukpa,4,Guajiro,Animism,Unknown,Grasslands
 4611,Wayuu,4,Guajiro,Animism,Unknown,Mountain
 4612,Tacarigua,4,Guajiro,Animism,Unknown,Hills
 4613,Guanaguanare,4,Guajiro,Animism,Unknown,Marsh
 4614,Tunebo,5,Guajiro,Animism,Unknown,Marsh
-4615,Guanipa,4,Guajiro,Animism,Unknown,Grassland
-4616,Anzoategui,4,Guajiro,Animism,Unknown,Grassland
-4617,Guaju,4,Guajiro,Animism,Unknown,Grassland
+4615,Guanipa,4,Guajiro,Animism,Unknown,Grasslands
+4616,Anzoategui,4,Guajiro,Animism,Unknown,Grasslands
+4617,Guaju,4,Guajiro,Animism,Unknown,Grasslands
 4618,Yaquimo,5,Arawak,Animism,Unknown,Savannah
 4619,Marien,5,Arawak,Animism,Unknown,Savannah
-4620,Ciguayo,5,Arawak,Animism,Unknown,Grassland
-4621,Higuey,5,Arawak,Animism,Unknown,Grassland
-4622,Canimar,6,Arawak,Animism,Unknown,Grassland
-4623,Escambrey,6,Arawak,Animism,Unknown,Grassland
-4624,Guane,6,Arawak,Animism,Unknown,Grassland
+4620,Ciguayo,5,Arawak,Animism,Unknown,Grasslands
+4621,Higuey,5,Arawak,Animism,Unknown,Grasslands
+4622,Canimar,6,Arawak,Animism,Unknown,Grasslands
+4623,Escambrey,6,Arawak,Animism,Unknown,Grasslands
+4624,Guane,6,Arawak,Animism,Unknown,Grasslands
 4625,Mayaca,3,Yamasee,Totemism,Unknown,Marsh
 4626,Potano,3,Yamasee,Totemism,Unknown,Marsh
-4627,Tanu,3,Caddo,Totemism,Unknown,Grassland
+4627,Tanu,3,Caddo,Totemism,Unknown,Grasslands
 4628,Nitahende,3,Mescalero,Totemism,Grain,Drylands
 4629,Tel Kondaha,3,Lipan,Totemism,Unknown,Steppe
 4630,Natahende,3,Mescalero,Totemism,Unknown,Drylands
@@ -4634,12 +4634,12 @@
 4634,Tsekaadn,3,Apache,Totemism,Unknown,Mountain
 4635,Taaqtam,3,Piman,Totemism,Unknown,Desert
 4636,Choinumni,3,Yokuts,Totemism,Grain,Hills
-4637,Ohlone,10,Yokuts,Totemism,Unknown,Grassland
-4638,Wintun,3,Yokuts,Totemism,Unknown,Grassland
+4637,Ohlone,10,Yokuts,Totemism,Unknown,Grasslands
+4638,Wintun,3,Yokuts,Totemism,Unknown,Grasslands
 4639,Paipai,3,Piman,Totemism,Unknown,Desert
 4640,Tecpatitlan,3,Tepic,Nahuatl,Wool,Hills
 4641,Xilotepec,3,Otomi,Nahuatl,Grain,Mountain
-4642,Pame,3,Chichimecan,Animism,Unknown,Grassland
+4642,Pame,3,Chichimecan,Animism,Unknown,Grasslands
 4643,Xiconaque,3,Guamares,Animism,Wool,Mountain
 4644,Jocome,3,Apache,Totemism,Unknown,Desert
 4645,Xochipillan,3,Guamares,Animism,Wool,Mountain
@@ -4648,18 +4648,18 @@
 4648,Acaxee,3,Chichimecan,Animism,Unknown,Mountain
 4649,Mayo,3,Piman,Totemism,Unknown,Desert
 4650,Opata,3,Piman,Totemism,Unknown,Desert
-4651,Tsushima,4,Kyushuan,Shinto,Chinaware,Grassland
-4652,Haicheng,6,Shandong Culture,Confucianism,Fish,Grassland
+4651,Tsushima,4,Kyushuan,Shinto,Chinaware,Grasslands
+4652,Haicheng,6,Shandong,Confucianism,Fish,Grasslands
 4653,Maolian,8,Manchu,Confucianism,Naval Supplies,Mountain
 4654,Fuerhe,7,Manchu,Confucianism,Naval Supplies,Woods
 4655,Shilimian,6,Manchu,Tengri,Fish,Mountain
 4656,Wolanhe,6,Manchu,Tengri,Fish,Mountain
-4657,Changbai Mountains,0,a,a,a,Grassland
+4657,Changbai Mountains,0,a,a,a,Grasslands
 4658,Nanghaer,3,Nivkh,Tengri,Fish,Woods
 4659,Tulutingshan,3,Manchu,Tengri,Fur,Woods
 4660,Tunhe,5,Manchu,Tengri,Livestock,Woods
-4661,Edala,7,Manchu,Confucianism,Grain,Grassland
-4662,Halacha,6,Evenk,Tengri,Fur,Grassland
+4661,Edala,7,Manchu,Confucianism,Grain,Grasslands
+4662,Halacha,6,Evenk,Tengri,Fur,Grasslands
 4663,Jixi,5,Manchu,Tengri,Naval Supplies,Woods
 4664,North Buteha,3,Evenk,Tengri,Livestock,Steppe
 4665,South Buteha,3,Chahar,Tengri,Livestock,Steppe
@@ -4681,60 +4681,60 @@
 4681,North Kobdo,4,Oirats,Tengri,Livestock,Mountain
 4682,South Kobdo,5,Oirats,Tengri,Livestock,Mountain
 4683,East Hoboskar,4,Oirats,Tengri,Livestock,Steppe
-4684,Dzhemenika,3,Oirats,Sunni,Fish,Grassland
-4685,Karagandy,3,Khazak,Sunni,Wool,Grassland
-4686,Ekibastuz,5,Khazak,Sunni,Salt,Grassland
-4687,Imakia,3,Kirgiz,Tengri,Unknown,Grassland
-4688,Baraba,4,Kirgiz,Tengri,Livestock,Grassland
-4689,Om,7,Siberian,Sunni,Fur,Grassland
-4690,Ishim,3,Siberian,Sunni,Fur,Grassland
-4691,As,3,Ostyaki,Tengri,Unknown,Grassland
-4692,Turgay,3,Khazak,Sunni,Iron,Grassland
+4684,Dzhemenika,3,Oirats,Sunni,Fish,Grasslands
+4685,Karagandy,3,Khazak,Sunni,Wool,Grasslands
+4686,Ekibastuz,5,Khazak,Sunni,Salt,Grasslands
+4687,Imakia,3,Kirgiz,Tengri,Unknown,Grasslands
+4688,Baraba,4,Kirgiz,Tengri,Livestock,Grasslands
+4689,Om,7,Siberian,Sunni,Fur,Grasslands
+4690,Ishim,3,Siberian,Sunni,Fur,Grasslands
+4691,As,3,Ostyaki,Tengri,Unknown,Grasslands
+4692,Turgay,3,Khazak,Sunni,Iron,Grasslands
 4693,Keriya,5,Uyghur,Sunni,Wool,Desert
 4694,Foix,6,Gascon,Catholic,Wool,Hills
 4695,Carcassonne,7,Occitain,Catholic,Wine,Hills
 4696,Toulon,11,Occitain,Catholic,Naval Supplies,Hills
 4697,La Marche,6,Gascon,Catholic,Livestock,Woods
-4698,Cephalonia,5,Greek,Orthodox,Wine,Grassland
+4698,Cephalonia,5,Greek,Orthodox,Wine,Grasslands
 4699,Arta,6,Greek,Orthodox,Livestock,Highlands
-4700,Lesbos,5,Greek,Orthodox,Fish,Grassland
+4700,Lesbos,5,Greek,Orthodox,Fish,Grasslands
 4701,Corinth,6,Greek,Orthodox,Wine,Highlands
 4702,Siroz,6,Greek,Orthodox,Grain,Hills
 4703,Kostendil,6,Bulgarian,Orthodox,Copper,Woods
-4704,Tirnovo,9,Bulgarian,Orthodox,Cloth,Grassland
+4704,Tirnovo,9,Bulgarian,Orthodox,Cloth,Grasslands
 4705,Gumulcine,6,Greek,Orthodox,Livestock,Hills
 4706,Tolcu,4,Bulgarian,Orthodox,Wool,Marsh
 4707,Rosenheim,6,Bavarian,Catholic,Salt,Hills
-4708,Freising,10,Bavarian,Catholic,Grain,Grassland
-4709,Passau,11,Bavarian,Catholic,Salt,Grassland
+4708,Freising,10,Bavarian,Catholic,Grain,Grasslands
+4709,Passau,11,Bavarian,Catholic,Salt,Grasslands
 4710,Bregenz,5,Austrian,Catholic,Wool,Hills
-4711,Donauwoerth,6,Swabian,Catholic,Grain,Grassland
+4711,Donauwoerth,6,Swabian,Catholic,Grain,Grasslands
 4712,Konstanz,13,Swabian,Catholic,Cloth,Farmlands
 4713,Urach,8,Swabian,Catholic,Grain,Woods
-4714,Durlach,8,Swabian,Catholic,Wine,Grassland
+4714,Durlach,8,Swabian,Catholic,Wine,Grasslands
 4715,Rothenburg,10,Franconian,Catholic,Grain,Hills
 4716,Coburg,6,Franconian,Catholic,Livestock,Woods
 4717,Bayreuth,6,Franconian,Catholic,Wool,Woods
-4718,Aschaffenburg,7,Franconian,Catholic,Cloth,Grassland
-4719,Annecy,7,Occitain,Catholic,Cloth,Grassland
-4720,Geneva,13,Swiss,Catholic,Cloth,Grassland
-4721,Fribourg,8,Swiss,Catholic,Livestock,Grassland
+4718,Aschaffenburg,7,Franconian,Catholic,Cloth,Grasslands
+4719,Annecy,7,Occitain,Catholic,Cloth,Grasslands
+4720,Geneva,13,Swiss,Catholic,Cloth,Grasslands
+4721,Fribourg,8,Swiss,Catholic,Livestock,Grasslands
 4722,Illanz,6,Swiss,Catholic,Livestock,Mountain
-4723,Opole,8,Schlesian,Catholic,Grain,Grassland
-4724,Pardubice,6,Czech,Hussite,Grain,Grassland
-4725,Jindrichuv Hradec,7,Czech,Catholic,Grain,Grassland
-4726,Ostrava,5,Czech,Catholic,Grain,Grassland
+4723,Opole,8,Schlesian,Catholic,Grain,Grasslands
+4724,Pardubice,6,Czech,Hussite,Grain,Grasslands
+4725,Jindrichuv Hradec,7,Czech,Catholic,Grain,Grasslands
+4726,Ostrava,5,Czech,Catholic,Grain,Grasslands
 4727,Saluzzo,11,Piedmontese,Catholic,Iron,Mountain
-4728,Pavia,16,Lombard,Catholic,Grain,Grassland
-4729,Padova,9,Venetian,Catholic,Paper,Grassland
-4730,Bologna,12,Romagnan,Catholic,Cloth,Grassland
-4731,Spoleto,6,Umbrian,Catholic,Livestock,Grassland
-4732,Terracina,7,Umbrian,Catholic,Fish,Grassland
+4728,Pavia,16,Lombard,Catholic,Grain,Grasslands
+4729,Padova,9,Venetian,Catholic,Paper,Grasslands
+4730,Bologna,12,Romagnan,Catholic,Cloth,Grasslands
+4731,Spoleto,6,Umbrian,Catholic,Livestock,Grasslands
+4732,Terracina,7,Umbrian,Catholic,Fish,Grasslands
 4733,Molise,7,Neapolitan,Catholic,Paper,Mountain
 4734,Avellino,11,Neapolitan,Catholic,Grain,Mountain
-4735,Arborea,6,Sardinian,Catholic,Grain,Grassland
-4736,Trapani,7,Sicilian,Catholic,Fish,Grassland
-4737,Girgenti,8,Sicilian,Catholic,Grain,Grassland
+4735,Arborea,6,Sardinian,Catholic,Grain,Grasslands
+4736,Trapani,7,Sicilian,Catholic,Fish,Grasslands
+4737,Girgenti,8,Sicilian,Catholic,Grain,Grasslands
 4738,Trieste,9,Venetian,Catholic,Fish,Marsh
 4739,Bergamo,9,Lombard,Catholic,Cloth,Hills
 4740,Como,10,Lombard,Catholic,Cloth,Mountain
@@ -4742,18 +4742,18 @@
 4742,Goslar,11,Saxon,Catholic,Iron,Woods
 4743,Weimar,8,Saxon,Catholic,Grain,Woods
 4744,Zwickau,7,Saxon,Catholic,Cloth,Hills
-4745,Rugen,4,Pommeranian,Catholic,Fish,Grassland
+4745,Rugen,4,Pommeranian,Catholic,Fish,Grasslands
 4746,Stargard,9,Pommeranian,Catholic,Naval Supplies,Woods
 4747,Dramburg,5,Pommeranian,Catholic,Livestock,Woods
 4748,Brandenburg,10,Saxon,Catholic,Iron,Woods
 4749,Stargard,8,Pommeranian,Catholic,Livestock,Woods
 4750,Kruje,5,Albanian,Orthodox,Wool,Mountain
 4751,Cilli,9,Slovene,Catholic,Wine,Woods
-4752,Rijeka,10,Croatian,Catholic,Cloth,Grassland
+4752,Rijeka,10,Croatian,Catholic,Cloth,Grasslands
 4753,Zadar,7,Dalmatian,Catholic,Naval Supplies,Hills
 4754,Kotor,7,Serbian,Orthodox,Naval Supplies,Mountain
 4755,Podrinje,5,Bosnian,Orthodox,Salt,Woods
-4756,Bjelovar,6,Croatian,Catholic,Grain,Grassland
+4756,Bjelovar,6,Croatian,Catholic,Grain,Grasslands
 4757,Kolubara,5,Serbian,Orthodox,Grain,Woods
 4758,Etsch-Meran,6,Austrian,Catholic,Wool,Mountain
 4759,Oberkaernten,8,Austrian,Catholic,Iron,Mountain
@@ -4768,81 +4768,81 @@
 4768,Julich,8,Hessian,Catholic,Grain,Woods
 4769,Lille,11,Wallonian,Catholic,Cloth,Farmlands
 4770,s-Hertogenbosch,10,Dutch,Catholic,Paper,Woods
-4771,Verden,7,Lower Saxon,Catholic,Livestock,Grassland
+4771,Verden,7,Lower Saxon,Catholic,Livestock,Grasslands
 4772,Celle,6,Lower Saxon,Catholic,Livestock,Woods
 4773,Goettingen,6,Lower Saxon,Catholic,Cloth,Woods
 4774,Fulda,5,Hessian,Catholic,Grain,Woods
 4775,Bielefeld,5,Hannoverian,Catholic,Cloth,Woods
-4776,Blois,11,Cosmopolitan French,Catholic,Wine,Grassland
+4776,Blois,11,Francien,Catholic,Wine,Grasslands
 4777,Forez,7,Occitain,Catholic,Livestock,Hills
-4778,Gorlitz-Eastern Lusatia,5,Sorbian,Catholic,Livestock,Grassland
+4778,Gorlitz-Eastern Lusatia,5,Sorbian,Catholic,Livestock,Grasslands
 4779,Gallipoli,6,Greek,Orthodox,Livestock,Hills
 4780,Ohrid,6,Bulgarian,Orthodox,Wool,Highlands
-4781,Transvaal,5,Nguni,Fetishist,Unknown,Grassland
+4781,Transvaal,5,Nguni,Fetishist,Unknown,Grasslands
 4782,Tswana,3,Khoisan,Fetishist,Unknown,Desert
 4783,Swazi,3,Nguni,Fetishist,Unknown,Mountain
-4784,Upper Limpopo,3,Nguni,Fetishist,Unknown,Grassland
-4785,Sheffield,5,English,Catholic,Iron,Grassland
-4786,Priegnitz,5,Saxon,Catholic,Livestock,Grassland
-4787,Ribatejo,10,Portugese,Catholic,Grain,Grassland
-4788,Plasencia,5,Leonese,Catholic,Livestock,Grassland
-4789,Segovia,8,Castillian,Catholic,Wool,Grassland
-4790,Pangguyanan,8,Sundanese,Hinduism,Grain,Grassland
-4791,Cirebon,11,Sundanese,Hinduism,Spices,Grassland
-4792,Kendal,6,Javanese,Hinduism,Naval Supplies,Grassland
-4793,South Demak,6,Javanese,Hinduism,Grain,Grassland
-4794,East Kediri,6,Javanese,Hinduism,Fish,Grassland
+4784,Upper Limpopo,3,Nguni,Fetishist,Unknown,Grasslands
+4785,Sheffield,5,English,Catholic,Iron,Grasslands
+4786,Priegnitz,5,Saxon,Catholic,Livestock,Grasslands
+4787,Ribatejo,10,Portugese,Catholic,Grain,Grasslands
+4788,Plasencia,5,Leonese,Catholic,Livestock,Grasslands
+4789,Segovia,8,Castillian,Catholic,Wool,Grasslands
+4790,Pangguyanan,8,Sundanese,Hinduism,Grain,Grasslands
+4791,Cirebon,11,Sundanese,Hinduism,Spices,Grasslands
+4792,Kendal,6,Javanese,Hinduism,Naval Supplies,Grasslands
+4793,South Demak,6,Javanese,Hinduism,Grain,Grasslands
+4794,East Kediri,6,Javanese,Hinduism,Fish,Grasslands
 4795,Bone,9,Sulawesi,Animism,Spices,Grasslands
-4796,Kendari,11,Sulawesi,Animism,Unknown,Grassland
-4797,Soppeng,8,Sulawesi,Animism,Spices,Grassland
-4798,Wajo,8,Sulawesi,Animism,Spices,Grassland
+4796,Kendari,11,Sulawesi,Animism,Unknown,Grasslands
+4797,Soppeng,8,Sulawesi,Animism,Spices,Grasslands
+4798,Wajo,8,Sulawesi,Animism,Spices,Grasslands
 4799,Sangkulirang,8,Bornean,Hinduism,Spices,Jungle
-4800,Paser,8,Bornean,Hinduism,Unknown,Grassland
-4801,Batulican,6,Bornean,Hinduism,Unknown,Grassland
-4802,South Pontiniak,13,Bornean,Hinduism,Gold,Grassland
-4803,North Katapang,9,Bornean,Hinduism,Unknown,Grassland
+4800,Paser,8,Bornean,Hinduism,Unknown,Grasslands
+4801,Batulican,6,Bornean,Hinduism,Unknown,Grasslands
+4802,South Pontiniak,13,Bornean,Hinduism,Gold,Grasslands
+4803,North Katapang,9,Bornean,Hinduism,Unknown,Grasslands
 4804,Kuching,8,Bornean,Sunni,Fish,Jungle
-4805,East Sibu,8,Bornean,Sunni,Fish,Grassland
-4806,Inland Sarawak,3,Bornean,Sunni,Tropical Wood,Grassland
+4805,East Sibu,8,Bornean,Sunni,Fish,Grasslands
+4806,Inland Sarawak,3,Bornean,Sunni,Tropical Wood,Grasslands
 4807,North Borneo,0,a,a,a,Hills
-4808,Sumatra,0,a,a,a,Grassland
-4809,South Peureulak,11,Acehnese,Sunni,Spices,Grassland
-4810,South Deli,11,Sumatran,Sunni,Spices,Grassland
-4811,Barus,11,Sumatran,Hinduism,Spices,Grassland
+4808,Sumatra,0,a,a,a,Grasslands
+4809,South Peureulak,11,Acehnese,Sunni,Spices,Grasslands
+4810,South Deli,11,Sumatran,Sunni,Spices,Grasslands
+4811,Barus,11,Sumatran,Hinduism,Spices,Grasslands
 4812,Gerik,5,Malayan,Sunni,Tropical Wood,Hills
-4813,Penang,5,Malayan,Sunni,Tropical Wood,Grassland
-4814,Semantan,5,Malayan,Mahayana,Tropical Wood,Grassland
+4813,Penang,5,Malayan,Sunni,Tropical Wood,Grasslands
+4814,Semantan,5,Malayan,Mahayana,Tropical Wood,Grasslands
 4815,Singapura,5,Malayan,Sunni,Fish,Coastline
-4816,Rengat,7,Sumatran,Sunni,Fish,Grassland
+4816,Rengat,7,Sumatran,Sunni,Fish,Grasslands
 4817,Padang,6,Sumatran,Hinduism,Grain,Jungle
-4818,Indrapura,6,Sumatran,Hinduism,Grain,Grassland
-4819,Son Nam,10,Vietnamese,Mahayana,Grain,Grassland
-4820,Minh Quang,9,Vietnamese,Mahayana,Grain,Grassland
-4821,Nghe An,10,Vietnamese,Mahayana,Grain,Grassland
-4822,Amaravati,9,Cham,Hinduism,Incense,Grassland
-4823,Jarai,6,Cham,Animism,Tea,Grassland
-4824,Rhade,6,Cham,Animism,Copper,Grassland
-4825,Pursat,8,Khmer,Buddhism,Grain,Grassland
-4826,Kampot,10,Khmer,Buddhism,Grain,Grassland
-4827,Kampom Pous Thom,6,Khmer,Hinduism,Grain,Grassland
-4828,Preah Vihear,6,Khmer,Hinduism,Grain,Grassland
+4818,Indrapura,6,Sumatran,Hinduism,Grain,Grasslands
+4819,Son Nam,10,Vietnamese,Mahayana,Grain,Grasslands
+4820,Minh Quang,9,Vietnamese,Mahayana,Grain,Grasslands
+4821,Nghe An,10,Vietnamese,Mahayana,Grain,Grasslands
+4822,Amaravati,9,Cham,Hinduism,Incense,Grasslands
+4823,Jarai,6,Cham,Animism,Tea,Grasslands
+4824,Rhade,6,Cham,Animism,Copper,Grasslands
+4825,Pursat,8,Khmer,Buddhism,Grain,Grasslands
+4826,Kampot,10,Khmer,Buddhism,Grain,Grasslands
+4827,Kampom Pous Thom,6,Khmer,Hinduism,Grain,Grasslands
+4828,Preah Vihear,6,Khmer,Hinduism,Grain,Grasslands
 4829,Raung Dapey,6,Khmer,Hinduism,Grain,Savannah
-4830,Rayong,9,Central Thai,Buddhism,Grain,Grassland
-4831,Bangkok,9,Central Thai,Buddhism,Grain,Farmlands
-4832,Lopburi,9,Central Thai,Buddhism,Grain,Farmlands
-4833,Phetchabun,9,Central Thai,Buddhism,Grain,Grassland
-4834,Suphanburi,9,Central Thai,Buddhism,Grain,Grassland
-4835,Kanchanaburi,6,Central Thai,Buddhism,Ivory,Grassland
+4830,Rayong,9,Siamese,Buddhism,Grain,Grasslands
+4831,Bangkok,9,Siamese,Buddhism,Grain,Farmlands
+4832,Lopburi,9,Siamese,Buddhism,Grain,Farmlands
+4833,Phetchabun,9,Siamese,Buddhism,Grain,Grasslands
+4834,Suphanburi,9,Siamese,Buddhism,Grain,Grasslands
+4835,Kanchanaburi,6,Siamese,Buddhism,Ivory,Grasslands
 4836,Si Thep,9,Khmer,Buddhism,Grain,Savannah
-4837,Muang Ngoi,5,Lao,Animism,Ivory,Grassland
-4838,Sip Et,5,Lao,Buddhism,Ivory,Grassland
-4839,Champasak,10,Lao,Animism,Tea,Grassland
+4837,Muang Ngoi,5,Lao,Animism,Ivory,Grasslands
+4838,Sip Et,5,Lao,Buddhism,Ivory,Grasslands
+4839,Champasak,10,Lao,Animism,Tea,Grasslands
 4840,Xekong,5,Lao,Animism,Ivory,Hills
-4841,Lamphun,10,Northern Thai,Buddhism,Grain,Grassland
-4842,Lakhon,8,Northern Thai,Buddhism,Grain,Grassland
-4843,Annamite Mountains,0,a,a,a,Grassland
-4844,Dawna Hills,0,a,a,a,Grassland
-4845,Mamuju,10,Sulawesi,Animism,Unknown,Grassland
+4841,Lamphun,10,Lao,Buddhism,Grain,Grasslands
+4842,Lakhon,8,Lao,Buddhism,Grain,Grasslands
+4843,Annamite Mountains,0,a,a,a,Grasslands
+4844,Dawna Hills,0,a,a,a,Grasslands
+4845,Mamuju,10,Sulawesi,Animism,Unknown,Grasslands
 4846,Woolna,5,Gunwinyguan,Alcheringa,Tobacco,Savannah
 4847,Yunawa,3,Paman,Alcheringa,Fish,Coastal Desert
 4848,Mingin,4,Paman,Alcheringa,Unknown,Coastal Desert
@@ -4851,7 +4851,7 @@
 4851,Gureng,5,Aboriginal,Alcheringa,Unknown,Savannah
 4852,WuliWuli,5,Gamilaraay,Alcheringa,Unknown,Woods
 4853,Bidjara,3,Gamilaraay,Alcheringa,Unknown,Woods
-4854,Badtjala,9,Aboriginal,Alcheringa,Unknown,Grassland
+4854,Badtjala,9,Aboriginal,Alcheringa,Unknown,Grasslands
 4855,Yiman,3,Gamilaraay,Alcheringa,Unknown,Drylands
 4856,Barunggam,10,Gamilaraay,Alcheringa,Unknown,Hills
 4857,Bundjalung,5,Aboriginal,Alcheringa,Unknown,Grasslands
@@ -4865,77 +4865,77 @@
 4865,Kurrama,3,Nyoongah,Alcheringa,Unknown,Coastal Desert
 4866,Mangala,3,Nyoongah,Alcheringa,Unknown,Coastal Desert
 4867,Wunambul,3,Gunwinyguan,Alcheringa,Unknown,Coastal Desert
-4868,Pyemmairrener,6,Palawa,Alcheringa,Fur,Grassland
+4868,Pyemmairrener,6,Palawa,Alcheringa,Fur,Grasslands
 4869,Peerapper,6,Palawa,Alcheringa,Gems,Jungle
 4870,Australian Lakes,0,a,a,a,Ocean
-4871,Cowasuk,5,Abenaki,Totemism,Unknown,Grassland
-4872,Wenrohonon,5,Tionontate,Totemism,Fur,Grassland
-4873,Pegwaki,5,Abenaki,Totemism,Unknown,Grassland
-4874,Westenhuck,5,Mahican,Totemism,Unknown,Grassland
-4875,Welhikhane,6,Iroquois,Totemism,Unknown,Grassland
-4876,Scahentowanen,5,Susquehannock,Totemism,Unknown,Grassland
-4877,Nottoway,6,Iroquois,Totemism,Unknown,Grassland
-4878,Eno,6,Catawba,Totemism,Unknown,Grassland
-4879,Kituwah,5,Cherokee,Totemism,Tobacco,Grassland
-4880,Combahee,6,Yamasee,Totemism,Unknown,Grassland
+4871,Cowasuk,5,Abenaki,Totemism,Unknown,Grasslands
+4872,Wenrohonon,5,Tionontate,Totemism,Fur,Grasslands
+4873,Pegwaki,5,Abenaki,Totemism,Unknown,Grasslands
+4874,Westenhuck,5,Mahican,Totemism,Unknown,Grasslands
+4875,Welhikhane,6,Iroquois,Totemism,Unknown,Grasslands
+4876,Scahentowanen,5,Susquehannock,Totemism,Unknown,Grasslands
+4877,Nottoway,6,Iroquois,Totemism,Unknown,Grasslands
+4878,Eno,6,Catawba,Totemism,Unknown,Grasslands
+4879,Kituwah,5,Cherokee,Totemism,Tobacco,Grasslands
+4880,Combahee,6,Yamasee,Totemism,Unknown,Grasslands
 4881,Sawokli,6,Creek,Totemism,Unknown,Savannah
-4882,Etali,6,Cherokee,Totemism,Unknown,Grassland
-4883,Napochi,6,Chickasaw,Totemism,Unknown,Grassland
-4884,Houma,6,Natchez,Totemism,Unknown,Grassland
+4882,Etali,6,Cherokee,Totemism,Unknown,Grasslands
+4883,Napochi,6,Chickasaw,Totemism,Unknown,Grasslands
+4884,Houma,6,Natchez,Totemism,Unknown,Grasslands
 4885,Avoyel,6,Natchez,Totemism,Unknown,Marsh
-4886,Nasoni,6,Caddo,Totemism,Unknown,Grassland
-4887,Cochati,6,Chickasaw,Totemism,Unknown,Grassland
-4888,Tatteroa,5,Shawnee,Totemism,Fur,Grassland
+4886,Nasoni,6,Caddo,Totemism,Unknown,Grasslands
+4887,Cochati,6,Chickasaw,Totemism,Unknown,Grasslands
+4888,Tatteroa,5,Shawnee,Totemism,Fur,Grasslands
 4889,Mohetan,6,Shawnee,Totemism,Unknown,Hills
-4890,Kichessipirini,6,Algonquin,Totemism,Unknown,Grassland
-4891,Piktuk,5,Mikmaq,Totemism,Fish,Grassland
-4892,Iroquet,6,Laurentian,Totemism,Unknown,Grassland
-4893,Nebesek,5,Laurentian,Totemism,Unknown,Grassland
-4894,Ottagotouemin,5,Algonquin,Totemism,Unknown,Grassland
-4895,Batiscan,5,Algonquin,Totemism,Unknown,Grassland
-4896,Meductic,5,Maliseet,Totemism,Unknown,Grassland
-4897,Keinouche,6,Algonquin,Totemism,Unknown,Grassland
-4898,Noquet,6,Anishinabe,Totemism,Fur,Grassland
-4899,Mamaceqtaw,6,Anishinabe,Totemism,Unknown,Grassland
-4900,Otoe,6,Pawnee,Totemism,Unknown,Grassland
-4901,Saone,6,Dakota,Totemism,Unknown,Grassland
-4902,Makandwewin,6,Cheyenne,Totemism,Unknown,Grassland
-4903,Chinko,6,Illini,Totemism,Unknown,Grassland
+4890,Kichessipirini,6,Algonquin,Totemism,Unknown,Grasslands
+4891,Piktuk,5,Mikmaq,Totemism,Fish,Grasslands
+4892,Iroquet,6,Laurentian,Totemism,Unknown,Grasslands
+4893,Nebesek,5,Laurentian,Totemism,Unknown,Grasslands
+4894,Ottagotouemin,5,Algonquin,Totemism,Unknown,Grasslands
+4895,Batiscan,5,Algonquin,Totemism,Unknown,Grasslands
+4896,Meductic,5,Maliseet,Totemism,Unknown,Grasslands
+4897,Keinouche,6,Algonquin,Totemism,Unknown,Grasslands
+4898,Noquet,6,Anishinabe,Totemism,Fur,Grasslands
+4899,Mamaceqtaw,6,Anishinabe,Totemism,Unknown,Grasslands
+4900,Otoe,6,Pawnee,Totemism,Unknown,Grasslands
+4901,Saone,6,Dakota,Totemism,Unknown,Grasslands
+4902,Makandwewin,6,Cheyenne,Totemism,Unknown,Grasslands
+4903,Chinko,6,Illini,Totemism,Unknown,Grasslands
 4904,Espeminkia,6,Illini,Totemism,Unknown,Marsh
-4905,Tapouaro,6,Illini,Totemism,Unknown,Grassland
-4906,Coiracoentanon,6,Illini,Totemism,Unknown,Grassland
-4907,Mosopelea,6,Osage,Totemism,Unknown,Grassland
-4908,Tawehash,6,Wichita,Totemism,Unknown,Grassland
-4909,Kitsash,6,Wichita,Totemism,Unknown,Grassland
-4910,Tawakoni,6,Wichita,Totemism,Unknown,Grassland
-4911,Nabaydacu,6,Caddo,Totemism,Unknown,Grassland
-4912,Ahkwesahsne,5,Laurentian,Totemism,Unknown,Grassland
-4913,Aniyutsi,6,Yuchi,Totemism,Unknown,Grassland
-4914,Neozho,6,Wichita,Totemism,Unknown,Grassland
-4915,Pitahawirata,6,Pawnee,Totemism,Unknown,Grassland
-4916,Panka,6,Pawnee,Totemism,Unknown,Grassland
-4917,Selis,6,Salish,Totemism,Unknown,Grassland
+4905,Tapouaro,6,Illini,Totemism,Unknown,Grasslands
+4906,Coiracoentanon,6,Illini,Totemism,Unknown,Grasslands
+4907,Mosopelea,6,Osage,Totemism,Unknown,Grasslands
+4908,Tawehash,6,Wichita,Totemism,Unknown,Grasslands
+4909,Kitsash,6,Wichita,Totemism,Unknown,Grasslands
+4910,Tawakoni,6,Wichita,Totemism,Unknown,Grasslands
+4911,Nabaydacu,6,Caddo,Totemism,Unknown,Grasslands
+4912,Ahkwesahsne,5,Laurentian,Totemism,Unknown,Grasslands
+4913,Aniyutsi,6,Yuchi,Totemism,Unknown,Grasslands
+4914,Neozho,6,Wichita,Totemism,Unknown,Grasslands
+4915,Pitahawirata,6,Pawnee,Totemism,Unknown,Grasslands
+4916,Panka,6,Pawnee,Totemism,Unknown,Grasslands
+4917,Selis,6,Salish,Totemism,Unknown,Grasslands
 4918,Hunkpapha,6,Kiowa,Totemism,Unknown,Desert
-4919,Sihabi,6,Nakota,Totemism,Unknown,Grassland
-4920,Wadopabina,6,Nakota,Totemism,Unknown,Grassland
-4921,Kuttawa,6,Shawnee,Totemism,Unknown,Grassland
-4922,Pepikokia,6,Miami,Totemism,Unknown,Grassland
+4919,Sihabi,6,Nakota,Totemism,Unknown,Grasslands
+4920,Wadopabina,6,Nakota,Totemism,Unknown,Grasslands
+4921,Kuttawa,6,Shawnee,Totemism,Unknown,Grasslands
+4922,Pepikokia,6,Miami,Totemism,Unknown,Grasslands
 4923,Pacaha,3,Yoron,Totemism,Unknown,Marsh
-4924,Laurentian Massif,0,a,a,a,Grassland
-4925,White Mountains,0,a,a,a,Grassland
-4926,Adirondacks,0,a,a,a,Grassland
+4924,Laurentian Massif,0,a,a,a,Grasslands
+4925,White Mountains,0,a,a,a,Grasslands
+4926,Adirondacks,0,a,a,a,Grasslands
 4927,Blue Mountains,0,a,a,a,Hills
-4928,Allegheny Front,0,a,a,a,Grassland
-4929,Appalachians,0,a,a,a,Grassland
-4930,Alleghenies,0,a,a,a,Grassland
-4931,Cumberland Mountains,0,a,a,a,Grassland
+4928,Allegheny Front,0,a,a,a,Grasslands
+4929,Appalachians,0,a,a,a,Grasslands
+4930,Alleghenies,0,a,a,a,Grasslands
+4931,Cumberland Mountains,0,a,a,a,Grasslands
 4932,Great Smoky Mountains,0,a,a,a,Hills
-4933,Blue Ridge,0,a,a,a,Grassland
-4934,Maui,5,Polynesian,Animism,Naval Supplies,Grassland
-4935,Oahu,5,Polynesian,Animism,Cloth,Grassland
-4936,Kauai,5,Polynesian,Animism,Fish,Grassland
-4937,Lau,3,Melanesian,Animism,Livestock,Grassland
-4938,Vanua Levu,5,Melanesian,Animism,Fish,Grassland
+4933,Blue Ridge,0,a,a,a,Grasslands
+4934,Maui,5,Polynesian,Animism,Naval Supplies,Grasslands
+4935,Oahu,5,Polynesian,Animism,Cloth,Grasslands
+4936,Kauai,5,Polynesian,Animism,Fish,Grasslands
+4937,Lau,3,Melanesian,Animism,Livestock,Grasslands
+4938,Vanua Levu,5,Melanesian,Animism,Fish,Grasslands
 4939,Te Urewera,8,Maori,Animism,Naval Supplies,Hills
 4940,Lake Tulare,0,a,a,a,Ocean
 4941,Lake Cahuilla,0,a,a,a,Ocean

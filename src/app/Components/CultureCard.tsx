@@ -9,70 +9,108 @@ interface Props {
   provincestats:
     | Array<[string, number, string, string, string, string]>
     | undefined;
+  onProvinceGuess: (e: string[]) => void;
+  cardguesses: string[];
 }
-const ProvinceGuessCards = ({ rndnum, CardsNames, provincestats }: Props) => {
-  const [iscardopened, setiscardopened] = useState(false);
+const CultureCard = ({
+  rndnum,
+  CardsNames,
+  provincestats,
+  cardguesses,
+  onProvinceGuess,
+}: Props) => {
   const [cardquery, setcardquery] = useState<string | undefined>(undefined);
+  const [regionquery, setregionquery] = useState<string | undefined>(undefined);
   const inputref = useRef<HTMLInputElement>(null);
-  const [cardguesses, setcardguesses] = useState([
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-  ]);
+  const regionref = useRef<HTMLInputElement>(null);
+  // const [cardguesses, setcardguesses] = useState<string[]>([]);
   const [correctguessedprovinces, setcorrectguessedprovinces] = useState([-1]);
   const hasinitialized = useRef(false);
   const correctanswers = useRef<string[] | undefined>(undefined);
+  const {
+    paths,
+    regionStateIds,
+    statenames,
+    StateData,
+    areapaths,
+    areabboxes,
+    oceania,
+    regionids,
+    regionbboxes,
+    emptylands,
+  } = useDataContext();
+  const culturegroups = useMemo(() => {
+    if (CardsNames) {
+      return CardsNames.map((group) => group[0][0]);
+    }
+  }, [CardsNames]);
+  const cultures = useMemo(() => {
+    if (CardsNames) {
+      return CardsNames.map((group) => group[1]).flat();
+    }
+  }, [CardsNames]);
+  const filteredculturegroups = useMemo(() => {
+    if (culturegroups) {
+      return culturegroups.filter((group) => {
+        if (!regionquery) {
+          return true;
+        } else {
+          return (
+            regionquery &&
+            group.toLowerCase().includes(regionquery.toLowerCase())
+          );
+        }
+      });
+    }
+  }, [culturegroups, regionquery]);
   const filteredCardNames = useMemo(() => {
     if (CardsNames) {
+      if (
+        regionquery &&
+        provincestats &&
+        culturegroups &&
+        filteredculturegroups &&
+        filteredculturegroups.length === 1
+      ) {
+        if (cardquery) {
+          return CardsNames[
+            culturegroups.indexOf(filteredculturegroups[0])
+          ][1].filter((culture) =>
+            culture.toLowerCase().includes(cardquery.toLowerCase())
+          );
+        } else {
+          return CardsNames[culturegroups.indexOf(filteredculturegroups[0])][1];
+        }
+      }
+
       if (cardquery) {
-        return CardsNames.filter((cardname) => {
-          return cardname[0][1].toLowerCase().includes(cardquery.toLowerCase());
-        });
+        return CardsNames.map((group) => {
+          return group[1].filter((culture) => {
+            return culture.toLowerCase().includes(cardquery.toLowerCase());
+          });
+        }).flat();
       } else {
-        return CardsNames;
+        return CardsNames.map((group) => group[1]).flat();
       }
     } else {
       return;
     }
-  }, [CardsNames, cardquery]);
-  const {
-    paths,
-    regionStateIds,
-    // statenames,
-    StateData,
-    areapaths,
-    areabboxes,
-    // oceania,
-    regionids,
-    regionbboxes,
-    emptylands,
-    // areabboxes,
-  } = useDataContext();
+  }, [CardsNames, cardquery, provincestats, statenames, regionquery]);
+
   const Image = useMemo(() => {
     if (
       regionStateIds &&
       rndnum &&
       StateData &&
-      // !imageinitizalied.current &&
       paths &&
       emptylands &&
       regionbboxes &&
       regionids &&
       areabboxes &&
-      areapaths[0]
+      areapaths[0] &&
+      CardsNames &&
+      provincestats
     ) {
-      // imageinitizalied.current = true;
-      // const areabboxes;
-      // console.log(areabboxes, rndnum, areabboxes[rndnum[0]]);
       const a = (
         <svg
           className="w-full h-full  "
@@ -85,32 +123,65 @@ const ProvinceGuessCards = ({ rndnum, CardsNames, provincestats }: Props) => {
           width="100%"
           height="100%"
         >
-          {regionids[rndnum[1]].map((provinceid) => {
-            return (
-              <path
-                d={String(paths[provinceid - 1][1])}
-                fill={
-                  StateData[rndnum[0]].includes(provinceid)
-                    ? "rgb(60, 60, 60)"
-                    : // ? "none"
-                      "rgb(45,45,45)"
-                }
-                stroke={
-                  StateData[rndnum[0]].includes(provinceid)
-                    ? "rgb(150,150,150)"
-                    : "rgb(50,50,50)"
-                }
-                strokeWidth={
-                  StateData[rndnum[0]].includes(provinceid) ? "0.5" : "1"
-                }
-                key={provinceid}
-                // className="hover:fill-amber-700"
-                // onClick={() => {
-                //   console.log(provinceid);
-                // }}
-              ></path>
-            );
-          })}
+          {rndnum[1] === 58
+            ? oceania.map((provinceid) => {
+                return (
+                  <path
+                    d={provinceid[1]}
+                    fill={
+                      StateData[rndnum[0]].includes(Number(provinceid[0]))
+                        ? correctguessedprovinces.includes(
+                            Number(provinceid[0])
+                          )
+                          ? "rgb(119, 221, 119)"
+                          : "rgb(60, 60, 60)"
+                        : // ? "none"
+                          "rgb(45,45,45)"
+                    }
+                    stroke={
+                      StateData[rndnum[0]].includes(Number(provinceid[0]))
+                        ? "rgb(150,150,150)"
+                        : "rgb(50,50,50)"
+                    }
+                    strokeWidth={
+                      StateData[rndnum[0]].includes(Number(provinceid[0]))
+                        ? "0.5"
+                        : "1"
+                    }
+                    key={Number(provinceid[0])}
+                    // className="hover:fill-amber-700"
+                    // onClick={() => {
+                    //   console.log(provinceid);
+                    // }}
+                  ></path>
+                );
+              })
+            : regionids[rndnum[1]].map((provinceid) => {
+                return (
+                  <path
+                    d={String(paths[provinceid - 1][1])}
+                    fill={
+                      StateData[rndnum[0]].includes(provinceid)
+                        ? correctguessedprovinces.includes(provinceid)
+                          ? "rgb(119, 221, 119)"
+                          : cardguesses.length === 6
+                          ? "rgb(177 64 62)"
+                          : "rgb(60, 60, 60)"
+                        : // ? "none"
+                          "rgb(45,45,45)"
+                    }
+                    stroke={
+                      StateData[rndnum[0]].includes(provinceid)
+                        ? "rgb(150,150,150)"
+                        : "rgb(50,50,50)"
+                    }
+                    strokeWidth={
+                      StateData[rndnum[0]].includes(provinceid) ? "0.5" : "1"
+                    }
+                    key={provinceid}
+                  ></path>
+                );
+              })}
           {areapaths.map((path, index) => {
             const areasplace = regionStateIds[rndnum[1]].indexOf(index);
             // console.log(index, rndnum[0]);
@@ -139,29 +210,22 @@ const ProvinceGuessCards = ({ rndnum, CardsNames, provincestats }: Props) => {
     regionbboxes,
     regionids,
     areapaths,
+    CardsNames,
+    provincestats,
+    correctguessedprovinces,
   ]);
 
+  // console.log(StateData)
   useEffect(() => {
     function getcorrectanswers() {
-      if (StateData && rndnum && CardsNames && provincestats) {
+      if (StateData && rndnum && provincestats) {
         hasinitialized.current = true;
         const tempanswers: string[] = [];
-
         for (let i = 0; i < 5; i++) {
           if (StateData[rndnum[0]][i] === 0) {
             break;
           } else {
-            tempanswers.push(
-              provincestats[StateData[rndnum[0]][i] - 1][
-                CardsNames.length === 26
-                  ? 3
-                  : CardsNames.length === 31
-                  ? 4
-                  : CardsNames.length === 369
-                  ? 2
-                  : 0
-              ]
-            );
+            tempanswers.push(provincestats[StateData[rndnum[0]][i] - 1][2]);
           }
         }
         return tempanswers;
@@ -171,16 +235,11 @@ const ProvinceGuessCards = ({ rndnum, CardsNames, provincestats }: Props) => {
     }
     // 1796 1996
     if (!hasinitialized.current) {
-      correctanswers.current = getcorrectanswers();
+      const temp = getcorrectanswers();
+      // correctanswers.current = undefined;
+      correctanswers.current = temp;
     }
-  }, [rndnum, StateData, CardsNames, provincestats]);
-  // useEffect(()=>{},[rndnum])
-  useEffect(() => {
-    correctanswers.current = undefined;
-    hasinitialized.current = false;
-    setcardguesses(["", "", "", "", "", "", "", "", "", "", "", ""]);
-    setiscardopened(false);
-  }, [rndnum]);
+  }, [rndnum, StateData, provincestats]);
   const uniquecorrectanswers: string[] = [];
   if (correctanswers.current) {
     for (let i = 0; i < correctanswers.current.length; i++) {
@@ -196,29 +255,42 @@ const ProvinceGuessCards = ({ rndnum, CardsNames, provincestats }: Props) => {
       }
     }
   }
+  useEffect(() => {
+    if (correctanswers.current) {
+      const temp: number[] = [];
+      for (let i = 0; i < cardguesses.length; i++) {
+        const temp2 = findCorrectProvinces(cardguesses[i]);
+        if (temp2) {
+          console.log(temp2);
+          temp.push(...temp2);
+        }
+      }
+      setcorrectguessedprovinces(temp);
+    }
+  }, [cardguesses]);
   // const uniquecorrectanswers =
   function handlesubmit() {
     if (CardsNames && cardquery && inputref.current) {
       const temp = [...cardguesses];
 
-      for (let i = 0; i < temp.length; i++) {
+      for (let i = 0; i <= temp.length; i++) {
         if (temp[i] === cardquery) {
           return;
-        } else if (temp[i] === "") {
+        } else if (temp.length === i) {
           temp[i] = cardquery;
-          const tempcorrect = findCorrectProvinces(cardquery);
+          // const tempcorrect = findCorrectProvinces(cardquery);
 
-          setcorrectguessedprovinces(() => {
-            if (correctguessedprovinces[0] > 0) {
-              return [...tempcorrect, ...correctguessedprovinces];
-            } else {
-              return tempcorrect;
-            }
-          });
+          // setcorrectguessedprovinces(() => {
+          //   if (correctguessedprovinces[0] > 0) {
+          //     return [...tempcorrect, ...correctguessedprovinces];
+          //   } else {
+          //     return tempcorrect;
+          //   }
+          // });
           break;
         }
       }
-      setcardguesses(temp);
+      onProvinceGuess(temp);
       inputref.current.value = "";
       setcardquery("");
     }
@@ -231,21 +303,103 @@ const ProvinceGuessCards = ({ rndnum, CardsNames, provincestats }: Props) => {
       provincestats &&
       correctanswers.current
     ) {
-      const temp: number[] = [];
+      const temp = [];
       for (let i = 0; i < correctanswers.current.length; i++) {
         if (correctanswers.current[i] === cardquery) {
           temp.push(StateData[rndnum[0]][i]);
         }
       }
       return temp;
-    } else {
-      return [-1];
     }
   }
   return (
     <>
-      <div className="flex flex-col w-9/10 ">
-        <button
+      <div className="flex flex-col w-9/10 pb-20">
+        {rndnum ? (
+          <div
+            className={
+              "flex flex-col justify-center items-center border-0 max-h-[1000px] overflow-hidden"
+            }
+          >
+            <div className="flex flex-row w-full h-30 items-start justify-evenly">
+              <div className="flex justify-center w-1/2 border-0 h-30">
+                {Image ? Image : ""}
+              </div>
+              {correctanswers &&
+              correctanswers.current?.length ===
+                correctguessedprovinces.length ? (
+                <div className=" w-9/10 h-10 rounded-xl text-sm mb-1  mt-1.5 bg-green-500 text-black items-center flex justify-evenly font-semibold transition-all scale-100">
+                  Cultures :{" "}
+                  {uniquecorrectanswers.map((uniquecorrectanswer, index) => {
+                    return <span key={index}>{uniquecorrectanswer} </span>;
+                  })}
+                </div>
+              ) : CardsNames && cardguesses && cardguesses.length === 6 ? (
+                <div className=" w-9/10  h-10 rounded-xl  mb-1 text-sm mt-1.5  bg-red-300 text-black items-center flex justify-evenly font-semibold">
+                  Cultures :{" "}
+                  {uniquecorrectanswers.map((uniquecorrectanswer, index) => {
+                    return <span key={index}>{uniquecorrectanswer} </span>;
+                  })}
+                </div>
+              ) : (
+                <div className="flex-row flex  justify-evenly">
+                  <div className="flex flex-col ">
+                    <InputandList
+                      inputref={regionref}
+                      setquery={setregionquery}
+                      statenames={culturegroups}
+                      filterednames={
+                        filteredculturegroups ? filteredculturegroups : [""]
+                      }
+                      widthofinput={"5/11"}
+                      placeholder="Culture Groups"
+                    ></InputandList>
+                    <InputandList
+                      inputref={inputref}
+                      setquery={setcardquery}
+                      statenames={cultures}
+                      filterednames={
+                        filteredCardNames ? filteredCardNames : [""]
+                      }
+                      widthofinput={"5/11"}
+                      placeholder="Cultures"
+                    ></InputandList>
+                  </div>
+                  <button
+                    className=" w-4/11 rounded-2xl mt-2 h-11 text-sm border-5 border-gray-800 bg-gray-700 z-50 cursor-pointer transition-all hover:scale-103 active:scale-90"
+                    onClick={handlesubmit}
+                    // onClick={handlesubmit}
+                  >
+                    GUESS
+                  </button>
+                </div>
+              )}
+            </div>
+
+            {CardsNames && cardguesses ? (
+              <CardGuesContainer
+                cardguesses={[
+                  ...cardguesses,
+                  ...Array(6 - cardguesses.length).fill(""),
+                ]}
+                correctsolutions={uniquecorrectanswers}
+              ></CardGuesContainer>
+            ) : (
+              ""
+            )}
+          </div>
+        ) : (
+          ""
+        )}
+      </div>
+    </>
+  );
+};
+
+export default CultureCard;
+
+{
+  /* <button
           onClick={() => {
             const temp = iscardopened;
             if (!temp) {
@@ -265,10 +419,10 @@ const ProvinceGuessCards = ({ rndnum, CardsNames, provincestats }: Props) => {
               ? "Development"
               : CardsNames.length === 31
               ? "Trade Good Guesser"
-              : CardsNames.length === 26
+              : CardsNames.length === 24
               ? "Religion Guesser"
-              : CardsNames.length === 369
-              ? "Culture Guesser"
+              : CardsNames.length === 16
+              ? "Terrain Guesser"
               : "Province Name Guesser"}
           </span>
           <div className="mr-[2%] w-6 h-6  text-center bg-[rgb(50,50,50)] rounded-full flex justify-center items-center">
@@ -296,135 +450,5 @@ const ProvinceGuessCards = ({ rndnum, CardsNames, provincestats }: Props) => {
               )}
             </span>
           </div>
-        </button>
-        {rndnum ? (
-          <div
-            id="card-container"
-            className={
-              iscardopened
-                ? "flex flex-col justify-center items-center border-0 transition-all duration-500 opacity-100 scale-100 max-h-[1000px] overflow-hidden"
-                : "flex flex-col justify-center items-center border-0 transition-all duration-500 opacity-0 scale-95 max-h-0 overflow-hidden"
-            }
-          >
-            <div className="flex justify-center w-full border-0 h-21">
-              {Image ? Image : ""}
-              {/* <img
-                src={`onlystates/${rndnum[0]}.png`}
-                className=" w-auto fixed h-20 z-0"
-              ></img>
-              {StateData && correctguessedprovinces[0] !== -1
-                ? correctguessedprovinces.map((id, index) => {
-                    return (
-                      <img
-                        key={index}
-                        src={`greenprovinces/${id}.png`}
-                        className=" fixed w-auto h-20 z-10"
-                      ></img>
-                    );
-                  })
-                : ""} */}
-            </div>
-
-            {correctanswers &&
-            correctanswers.current?.length ===
-              correctguessedprovinces.length ? (
-              <div className=" w-9/10 h-10 rounded-xl text-sm mb-1  mt-1.5 bg-green-500 text-black items-center flex justify-evenly font-semibold transition-all scale-100">
-                {!CardsNames
-                  ? "Development"
-                  : CardsNames.length === 31
-                  ? "Trade Goods"
-                  : CardsNames.length === 26
-                  ? "Religions"
-                  : CardsNames.length === 369
-                  ? "Cultures"
-                  : "Province Names"}
-                :{" "}
-                {uniquecorrectanswers.map((uniquecorrectanswer, index) => {
-                  return <span key={index}>{uniquecorrectanswer} </span>;
-                })}
-              </div>
-            ) : CardsNames &&
-              cardguesses[
-                CardsNames.length === 26
-                  ? 3
-                  : CardsNames.length === 31
-                  ? 5
-                  : CardsNames.length === 369
-                  ? 4
-                  : 9
-              ] !== "" ? (
-              <div className=" w-9/10  h-10 rounded-xl  mb-1 text-sm mt-1.5  bg-red-300 text-black items-center flex justify-evenly font-semibold">
-                {!CardsNames
-                  ? "Development"
-                  : CardsNames.length === 31
-                  ? "Trade Goods"
-                  : CardsNames.length === 26
-                  ? "Religions"
-                  : CardsNames.length === 369
-                  ? "Cultures"
-                  : "Province Names"}
-                :{" "}
-                {uniquecorrectanswers.map((uniquecorrectanswer, index) => {
-                  return <span key={index}>{uniquecorrectanswer} </span>;
-                })}
-              </div>
-            ) : (
-              <div className="flex-row flex  justify-evenly">
-                <InputandList
-                  inputref={inputref}
-                  setquery={setcardquery}
-                  statenames={CardsNames.map((line) => {
-                    return line[1].map((culture) => {
-                      return culture;
-                    });
-                  })}
-                  filterednames={filteredCardNames ? filteredCardNames : [""]}
-                  widthofinput={"5/11"}
-                  placeholder={
-                    !CardsNames
-                      ? "Development"
-                      : CardsNames.length === 31
-                      ? "Trade Goods"
-                      : CardsNames.length === 26
-                      ? "Religions"
-                      : CardsNames.length === 369
-                      ? "Cultures"
-                      : "Province Name"
-                  }
-                ></InputandList>
-                <button
-                  className=" w-4/11 rounded-2xl mt-2 h-11 text-sm border-5 border-gray-800 bg-gray-700 z-50 cursor-pointer transition-all hover:scale-103 active:scale-90"
-                  onClick={handlesubmit}
-                  // onClick={handlesubmit}
-                >
-                  GUESS
-                </button>
-              </div>
-            )}
-            {CardsNames ? (
-              <CardGuesContainer
-                cardguesses={cardguesses.slice(
-                  0,
-                  CardsNames.length === 26
-                    ? 4
-                    : CardsNames.length === 31
-                    ? 6
-                    : CardsNames.length === 369
-                    ? 5
-                    : 10
-                )}
-                correctsolutions={uniquecorrectanswers}
-              ></CardGuesContainer>
-            ) : (
-              ""
-            )}
-          </div>
-        ) : (
-          ""
-        )}
-      </div>
-    </>
-  );
-};
-
-export default ProvinceGuessCards;
+        </button> */
+}

@@ -28,8 +28,6 @@ Props) => {
   // const [cardquery, setcardquery] = useState<string | undefined>(undefined);
   const inputref = useRef<HTMLInputElement>(null);
   function handlesubmit(e: number) {
-    console.log(e, cardguesses);
-
     if (!cardguesses.includes(String(e))) {
       onProvinceGuess([...cardguesses, String(e)]);
       inputref.current!.value = "";
@@ -49,7 +47,6 @@ Props) => {
     emptylands,
     // areabboxes,
   } = useDataContext();
-  console.log(Development);
   const Image = useMemo(() => {
     if (
       regionStateIds &&
@@ -228,12 +225,12 @@ Props) => {
                   Average Development : {Development}
                 </div>
               ) : (
-                <div className="flex-row flex  justify-evenly">
+                <div className="flex-wrap flex  justify-evenly">
                   <input
                     placeholder="Average Development"
                     ref={inputref}
                     // type="number"
-                    className="border-2 h-10 mt-2 border-neutral-300"
+                    className="border-2 h-10 mt-2 w-50 border-neutral-300"
                   ></input>
                   <button
                     className=" w-4/11 rounded-2xl ml-2 mt-2 h-11 text-sm border-5 border-gray-800 bg-gray-700 z-50 cursor-pointer transition-all hover:scale-103 active:scale-90"

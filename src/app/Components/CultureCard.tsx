@@ -215,7 +215,6 @@ const CultureCard = ({
     correctguessedprovinces,
   ]);
 
-  // console.log(StateData)
   useEffect(() => {
     function getcorrectanswers() {
       if (StateData && rndnum && provincestats) {
@@ -261,7 +260,6 @@ const CultureCard = ({
       for (let i = 0; i < cardguesses.length; i++) {
         const temp2 = findCorrectProvinces(cardguesses[i]);
         if (temp2) {
-          console.log(temp2);
           temp.push(...temp2);
         }
       }
@@ -314,14 +312,14 @@ const CultureCard = ({
   }
   return (
     <>
-      <div className="flex flex-col w-9/10 pb-20">
+      <div className="flex flex-col w-9/10 ">
         {rndnum ? (
           <div
             className={
               "flex flex-col justify-center items-center border-0 max-h-[1000px] overflow-hidden"
             }
           >
-            <div className="flex flex-row w-full h-30 items-start justify-evenly">
+            <div className="flex flex-row w-full h-30 items-center justify-evenly">
               <div className="flex justify-center w-1/2 border-0 h-30">
                 {Image ? Image : ""}
               </div>
@@ -342,7 +340,7 @@ const CultureCard = ({
                   })}
                 </div>
               ) : (
-                <div className="flex-row flex  justify-evenly">
+                <div className="flex-row flex w-6/12 justify-evenly">
                   <div className="flex flex-col ">
                     <InputandList
                       inputref={regionref}
@@ -351,7 +349,7 @@ const CultureCard = ({
                       filterednames={
                         filteredculturegroups ? filteredculturegroups : [""]
                       }
-                      widthofinput={"5/11"}
+                      widthofinput={"40"}
                       placeholder="Culture Groups"
                     ></InputandList>
                     <InputandList
@@ -361,7 +359,7 @@ const CultureCard = ({
                       filterednames={
                         filteredCardNames ? filteredCardNames : [""]
                       }
-                      widthofinput={"5/11"}
+                      widthofinput={"40"}
                       placeholder="Cultures"
                     ></InputandList>
                   </div>
@@ -397,58 +395,3 @@ const CultureCard = ({
 };
 
 export default CultureCard;
-
-{
-  /* <button
-          onClick={() => {
-            const temp = iscardopened;
-            if (!temp) {
-              setTimeout(() => {
-                document.getElementById("card-container")?.scrollIntoView({
-                  behavior: "smooth",
-                  block: "start",
-                });
-              }, 200);
-            }
-            setiscardopened(!iscardopened);
-          }}
-          className="w-full h-11 mt-3 bg-[rgb(39,39,41)] rounded-xl cursor-pointer border-2 flex-row flex justify-between items-center border-[rgb(98,99,104)]"
-        >
-          <span className="ml-[15%]">
-            {!CardsNames
-              ? "Development"
-              : CardsNames.length === 31
-              ? "Trade Good Guesser"
-              : CardsNames.length === 24
-              ? "Religion Guesser"
-              : CardsNames.length === 16
-              ? "Terrain Guesser"
-              : "Province Name Guesser"}
-          </span>
-          <div className="mr-[2%] w-6 h-6  text-center bg-[rgb(50,50,50)] rounded-full flex justify-center items-center">
-            <span>
-              {iscardopened ? (
-                <svg width="10" height="7" viewBox="0 0 50 35 ">
-                  {" "}
-                  <path
-                    d="M 0 0 L 25 35 L 50 0"
-                    fill="none"
-                    stroke={`rgb(255 255 255)`}
-                    strokeWidth="8"
-                  />
-                </svg>
-              ) : (
-                <svg width="7" height="10" viewBox="0 0 35 50 ">
-                  {" "}
-                  <path
-                    d="M 35 0 L 0 25 L 35 50"
-                    fill="none"
-                    stroke={`rgb(255 255 255)`}
-                    strokeWidth="8"
-                  />
-                </svg>
-              )}
-            </span>
-          </div>
-        </button> */
-}

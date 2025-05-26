@@ -104,7 +104,6 @@ const CardContainer = () => {
 
         const developmentresponse = await fetch("developmentrgbs.json");
         const developmenttext = await developmentresponse.json();
-        console.log(developmenttext);
         setdevelopmentrgbs(developmenttext);
 
         // const religionnames[]
@@ -143,9 +142,9 @@ const CardContainer = () => {
     "Religion",
     "Terrains",
     "Developments",
-    "TradeGoods",
-    "province Names",
     "Cultures",
+    "TradeGoods",
+    "Names",
   ];
   const cards = useMemo(() => {
     return [
@@ -189,8 +188,20 @@ const CardContainer = () => {
         Development={developments && rndnum ? developments[rndnum[0]] : 0}
         provincestats={ProvinceStats}
       />,
-      <ProvinceGuessCards
+      <CultureCard
         key={3}
+        rndnum={rndnum}
+        CardsNames={Cultures!}
+        onProvinceGuess={(e) => {
+          const temp = [...cardguesses];
+          temp[currentcard] = [...e];
+          setcardguesses(temp);
+        }}
+        cardguesses={cardguesses[currentcard]}
+        provincestats={ProvinceStats}
+      ></CultureCard>,
+      <ProvinceGuessCards
+        key={4}
         rndnum={rndnum}
         Cardrgbs={tradegoodrgbs}
         onProvinceGuess={(e) => {
@@ -203,7 +214,7 @@ const CardContainer = () => {
         provincestats={ProvinceStats}
       />,
       <ProvinceGuessCards
-        key={4}
+        key={5}
         rndnum={rndnum}
         CardsNames={provinceNames}
         onProvinceGuess={(e) => {
@@ -214,18 +225,6 @@ const CardContainer = () => {
         cardguesses={cardguesses[currentcard]}
         provincestats={ProvinceStats}
       />,
-      <CultureCard
-        key={5}
-        rndnum={rndnum}
-        CardsNames={Cultures!}
-        onProvinceGuess={(e) => {
-          const temp = [...cardguesses];
-          temp[currentcard] = [...e];
-          setcardguesses(temp);
-        }}
-        cardguesses={cardguesses[currentcard]}
-        provincestats={ProvinceStats}
-      ></CultureCard>,
     ];
   }, [
     rndnum,
@@ -248,31 +247,49 @@ const CardContainer = () => {
   return (
     <>
       <div className="flex justify-center w-full flex-col items-center">
-        <div className="flex flex-wrap w-full h-full justify-evenly">
-          {buttons.map((name, index) => {
-            return (
-              <button
-                className={
-                  currentcard == index
-                    ? "h-10 w-30 bg-neutral-800 rounded-xl cursor-pointer transition-all duration-150 hover:scale-105 active:scale-90"
-                    : "h-10 w-30 bg-neutral-600 rounded-xl cursor-pointer transition-all duration-150  active:scale-90"
-                }
-                onClick={() => {
-                  setCurrentCard(index);
-                  console.log(index);
-                  console.log(name);
-                }}
-                key={index}
-              >
-                {name}
-              </button>
-            );
-          })}
-
-          {/* <button classNampe="h-10 w-30 bg-neutral-600"></button>
-          <button className="h-10 w-30 bg-neutral-600"></button> */}
+        <div className="flex  w-full h-full flex-wrap  justify-evenly pb-5">
+          <div className="flex  w-fill   h-full justify-evenly">
+            {buttons.slice(0, 3).map((name, index) => {
+              return (
+                <button
+                  className={
+                    currentcard == index
+                      ? "h-10 w-25 bg-neutral-800 rounded-xl cursor-pointer ml-2 transition-all duration-150 hover:scale-105 active:scale-90"
+                      : "h-10 w-25 bg-neutral-600 rounded-xl cursor-pointer ml-2 transition-all duration-150  active:scale-90"
+                  }
+                  onClick={() => {
+                    setCurrentCard(index);
+                  }}
+                  key={index}
+                >
+                  {name}
+                </button>
+              );
+            })}
+          </div>
+          <div className="flex  w-fit  h-full justify-evenly">
+            {buttons.slice(3, 6).map((name, index) => {
+              return (
+                <button
+                  className={
+                    currentcard == index + 3
+                      ? "h-10 w-25 bg-neutral-800 rounded-xl cursor-pointer ml-2 transition-all duration-150 hover:scale-105 active:scale-90"
+                      : "h-10 w-25 bg-neutral-600 rounded-xl cursor-pointer ml-2 transition-all duration-150  active:scale-90"
+                  }
+                  onClick={() => {
+                    setCurrentCard(index + 3);
+                  }}
+                  key={index}
+                >
+                  {name}
+                </button>
+              );
+            })}
+          </div>
         </div>
-        <div className="w-full h-full">{cards[currentcard]}</div>
+        <div className="w-full h-full">
+          <div>{cards[currentcard]}</div>
+        </div>
       </div>
     </>
   );

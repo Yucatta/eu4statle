@@ -44,11 +44,6 @@ const CultureCard = ({
       return CardsNames.map((group) => group[0][0]);
     }
   }, [CardsNames]);
-  const cultures = useMemo(() => {
-    if (CardsNames) {
-      return CardsNames.map((group) => group[1]).flat();
-    }
-  }, [CardsNames]);
   const filteredculturegroups = useMemo(() => {
     if (culturegroups) {
       return culturegroups.filter((group) => {

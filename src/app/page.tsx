@@ -2,7 +2,9 @@
 // import States from "./Components/States";
 import StateGuesses from "./Components/StateGuesses";
 import CardContainer from "./Components/CardContainer";
+import { useGameState } from "@/context/gamecontext";
 export default function Home() {
+  const { isgameover } = useGameState();
   return (
     <>
       <div className=" h-screen  flex justify-center items-start">
@@ -12,15 +14,7 @@ export default function Home() {
           </header>
           {/* <States></States> */}
           <StateGuesses></StateGuesses>
-          <CardContainer></CardContainer>
-          {/* <button
-            className=" w-50 rounded-2xl mt-2 h-11 text-sm border-5 border-gray-800 bg-gray-700 cursor-pointer transition-all hover:scale-105 active:scale-90"
-            onClick={() => {
-              ChangeRndNum();
-            }}
-          >
-            Retry
-          </button> */}
+          {isgameover ? <CardContainer></CardContainer> : ""}
         </div>
       </div>
     </>

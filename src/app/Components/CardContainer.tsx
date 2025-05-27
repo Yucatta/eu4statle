@@ -21,10 +21,9 @@ const CardContainer = () => {
   const [terrainrgbs, setterrainrgbs] = useState<string[]>();
   const [developmentrgbs, setdevelopmentrgbs] = useState<string[]>();
   const [Cultures, SetCultures] = useState<string[][][]>();
-  const [provinceNames, setProvinceNames] = useState<string[]>();
   const [developments, setdevelopments] = useState<number[]>();
   const [currentcard, setCurrentCard] = useState(0);
-  const { StateData } = useDataContext();
+  const { StateData, regionids } = useDataContext();
   const { rndnum } = useGameState();
   const [cardguesses, setcardguesses] = useState<string[][]>([
     [],
@@ -114,14 +113,7 @@ const CardContainer = () => {
     fetchdata();
   }, []);
   useEffect(() => {
-    const tempnames: string[] = [];
     if (ProvinceStats && StateData) {
-      for (let i = 0; i < ProvinceStats.length; i++) {
-        if (ProvinceStats[i][4] !== "a" && ProvinceStats[i][4] !== "") {
-          tempnames.push(ProvinceStats[i][0]);
-        }
-      }
-      setProvinceNames(tempnames);
       const tempdevs: number[] = [];
       for (let i = 0; i < 823; i++) {
         const statedev = [0, 0];
@@ -134,7 +126,7 @@ const CardContainer = () => {
         }
         tempdevs.push(Number((statedev[0] / statedev[1]).toFixed(2)));
       }
-
+      console.log(Math.max(...tempdevs));
       setdevelopments(tempdevs);
     }
   }, [ProvinceStats, rndnum, StateData]);
@@ -216,7 +208,13 @@ const CardContainer = () => {
       <ProvinceGuessCards
         key={5}
         rndnum={rndnum}
-        CardsNames={provinceNames}
+        CardsNames={
+          ProvinceStats && rndnum
+            ? regionids[rndnum[1]].map((id) => {
+                return ProvinceStats[id - 1][0];
+              })
+            : [""]
+        }
         onProvinceGuess={(e) => {
           const temp = [...cardguesses];
           temp[currentcard] = [...e];
@@ -235,7 +233,6 @@ const CardContainer = () => {
     TradeGoods,
     terrainrgbs,
     Terrains,
-    provinceNames,
     developments,
     cardguesses,
     currentcard,
@@ -243,48 +240,51 @@ const CardContainer = () => {
     developmentrgbs,
     Cultures,
     StateData,
+    regionids,
   ]);
   return (
     <>
-      <div className="flex justify-center w-full flex-col items-center">
-        <div className="flex  w-full h-full flex-wrap  justify-evenly pb-5">
-          <div className="flex  w-fill   h-full justify-evenly">
-            {buttons.slice(0, 3).map((name, index) => {
-              return (
-                <button
-                  className={
-                    currentcard == index
-                      ? "h-10 w-25 bg-neutral-800 rounded-xl cursor-pointer ml-2 transition-all duration-150 hover:scale-105 active:scale-90"
-                      : "h-10 w-25 bg-neutral-600 rounded-xl cursor-pointer ml-2 transition-all duration-150  active:scale-90"
-                  }
-                  onClick={() => {
-                    setCurrentCard(index);
-                  }}
-                  key={index}
-                >
-                  {name}
-                </button>
-              );
-            })}
-          </div>
-          <div className="flex  w-fit  h-full justify-evenly">
-            {buttons.slice(3, 6).map((name, index) => {
-              return (
-                <button
-                  className={
-                    currentcard == index + 3
-                      ? "h-10 w-25 bg-neutral-800 rounded-xl cursor-pointer ml-2 transition-all duration-150 hover:scale-105 active:scale-90"
-                      : "h-10 w-25 bg-neutral-600 rounded-xl cursor-pointer ml-2 transition-all duration-150  active:scale-90"
-                  }
-                  onClick={() => {
-                    setCurrentCard(index + 3);
-                  }}
-                  key={index}
-                >
-                  {name}
-                </button>
-              );
-            })}
+      <div className="flex justify-center w-full flex-col items-center ">
+        <div className="flex justify-center">
+          <div className="flex  w-full h-full flex-wrap  justify-center pb-5">
+            <div className="flex  w-fill   h-full justify-evenly">
+              {buttons.slice(0, 3).map((name, index) => {
+                return (
+                  <button
+                    className={
+                      currentcard == index
+                        ? "h-10 w-25 bg-neutral-800 rounded-xl cursor-pointer ml-3 transition-all duration-150 hover:scale-105 active:scale-90"
+                        : "h-10 w-25 bg-neutral-600 rounded-xl cursor-pointer ml-3 transition-all duration-150  active:scale-90"
+                    }
+                    onClick={() => {
+                      setCurrentCard(index);
+                    }}
+                    key={index}
+                  >
+                    {name}
+                  </button>
+                );
+              })}
+            </div>
+            <div className="flex  w-fit  h-full justify-evenly">
+              {buttons.slice(3, 6).map((name, index) => {
+                return (
+                  <button
+                    className={
+                      currentcard == index + 3
+                        ? "h-10 w-25 bg-neutral-800 rounded-xl cursor-pointer ml-3 transition-all duration-150 hover:scale-105 active:scale-90"
+                        : "h-10 w-25 bg-neutral-600 rounded-xl cursor-pointer ml-3 transition-all duration-150  active:scale-90"
+                    }
+                    onClick={() => {
+                      setCurrentCard(index + 3);
+                    }}
+                    key={index}
+                  >
+                    {name}
+                  </button>
+                );
+              })}
+            </div>
           </div>
         </div>
         <div className="w-full h-full">

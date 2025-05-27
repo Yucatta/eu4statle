@@ -1,7 +1,8 @@
-import React, { useRef, useMemo } from "react";
+import React, { useRef, useMemo, useState } from "react";
 // import InputandList from "./Input";
 import { useDataContext } from "@/context/DataContext";
 import CardGuesContainer from "./CardGuesContainer";
+import InputandList from "./Input";
 // import { stringify } from "querystring";
 // import { type } from "os";
 interface Props {
@@ -15,6 +16,19 @@ interface Props {
   onProvinceGuess: (e: string[]) => void;
   cardguesses: string[];
 }
+const cardnames = [
+  "3 - 5",
+  "5 - 7",
+  "7 - 9",
+  "9 - 11",
+  "11 - 13",
+  "13 - 15",
+  "15 - 17",
+  "17 - 19",
+  "19 - 21",
+  "21 - 23",
+];
+
 const DevelopmentCard = ({
   rndnum,
   Development,
@@ -25,12 +39,13 @@ const DevelopmentCard = ({
 }: // provincestats,
 // StateData,
 Props) => {
-  // const [cardquery, setcardquery] = useState<string | undefined>(undefined);
+  const [cardquery, setcardquery] = useState<string | undefined>(undefined);
   const inputref = useRef<HTMLInputElement>(null);
-  function handlesubmit(e: number) {
+  function handlesubmit(e: string) {
     if (!cardguesses.includes(String(e))) {
       onProvinceGuess([...cardguesses, String(e)]);
       inputref.current!.value = "";
+      setcardquery("");
       // setscardguesses([e, ...cardguesses.slice(0, 3)]);
     }
   }
@@ -47,6 +62,13 @@ Props) => {
     emptylands,
     // areabboxes,
   } = useDataContext();
+  const filterednames = useMemo(() => {
+    if (cardquery) {
+      return cardnames.filter((name) => name.includes(cardquery));
+    } else {
+      return cardnames;
+    }
+  }, [cardquery]);
   const Image = useMemo(() => {
     if (
       regionStateIds &&
@@ -82,9 +104,26 @@ Props) => {
                     d={provinceid[1]}
                     fill={
                       StateData[rndnum[0]].includes(Number(provinceid[0]))
-                        ? "rgb(60, 60, 60)"
-                        : // ? "none"
-                          "rgb(45,45,45)"
+                        ? (cardguesses
+                            .map((e) => {
+                              if (
+                                cardnames.indexOf(e) * 2 + 3 <= Development &&
+                                cardnames.indexOf(e) * 2 + 5 >= Development
+                              ) {
+                                return true;
+                              } else {
+                                return false;
+                              }
+                            })
+                            .includes(true) ||
+                            (Development && cardguesses.length === 4)) &&
+                          provincestats &&
+                          developmentrgbs
+                          ? developmentrgbs[
+                              provincestats[Number(provinceid[0]) - 1][1] - 3
+                            ]
+                          : "rgb(60, 60, 60)"
+                        : "rgb(45,45,45)"
                     }
                     stroke={
                       StateData[rndnum[0]].includes(Number(provinceid[0]))
@@ -127,15 +166,18 @@ Props) => {
                     d={String(paths[provinceid - 1][1])}
                     fill={
                       StateData[rndnum[0]].includes(provinceid)
-                        ? (cardguesses.filter((e) => {
-                            if (
-                              Development + 1 >= Number(e) &&
-                              Development - 1 <= Number(e) &&
-                              Development
-                            ) {
-                              return e;
-                            }
-                          }).length > 0 ||
+                        ? (cardguesses
+                            .map((e) => {
+                              if (
+                                cardnames.indexOf(e) * 2 + 3 <= Development &&
+                                cardnames.indexOf(e) * 2 + 5 >= Development
+                              ) {
+                                return true;
+                              } else {
+                                return false;
+                              }
+                            })
+                            .includes(true) ||
                             (Development && cardguesses.length === 4)) &&
                           provincestats &&
                           developmentrgbs
@@ -193,30 +235,29 @@ Props) => {
     provincestats,
     developmentrgbs,
   ]);
-  // console.log(cardguesses);
+  console.log(Development);
   return (
     <>
       <div className="flex flex-col w-9/10 ">
         {rndnum ? (
-          <div
-            className={
-              "flex flex-col justify-center items-center border-0 max-h-[1000px] overflow-hidden"
-            }
-          >
+          <div className="flex flex-col justify-center items-center border-0 max-h-[1000px] overflow-hidden">
             <div className="flex flex-row w-full h-30 items-start justify-evenly">
-              <div className="flex justify-center w-1/2 border-0 h-30">
+              <div className="flex justify-center w-1/3 border-0 h-30">
                 {Image ? Image : ""}
               </div>
 
-              {cardguesses.filter((e) => {
-                if (
-                  Development + 1 >= Number(e) &&
-                  Development - 1 <= Number(e) &&
-                  Development
-                ) {
-                  return e;
-                }
-              }).length > 0 ? (
+              {cardguesses
+                .map((e) => {
+                  if (
+                    cardnames.indexOf(e) * 2 + 3 <= Development &&
+                    cardnames.indexOf(e) * 2 + 5 >= Development
+                  ) {
+                    return true;
+                  } else {
+                    return false;
+                  }
+                })
+                .includes(true) ? (
                 <div className=" w-9/10 h-10 rounded-xl text-sm mb-1  mt-1.5 bg-green-500 text-black items-center flex justify-evenly font-semibold transition-all scale-100">
                   Average Development : {Development}
                 </div>
@@ -225,22 +266,24 @@ Props) => {
                   Average Development : {Development}
                 </div>
               ) : (
-                <div className="flex-wrap flex  justify-evenly">
-                  <input
-                    placeholder="Average Development"
-                    ref={inputref}
-                    // type="number"
-                    className="border-2 h-10 mt-2 w-50 border-neutral-300"
-                  ></input>
+                <div className="flex-col flex w-auto h-30 justify-center mt-0.5 itms-center">
+                  <InputandList
+                    inputref={inputref}
+                    statenames={cardnames}
+                    setquery={setcardquery}
+                    widthofinput="45"
+                    placeholder="AverageDevelopment"
+                    filterednames={filterednames}
+                  />
                   <button
-                    className=" w-4/11 rounded-2xl ml-2 mt-2 h-11 text-sm border-5 border-gray-800 bg-gray-700 z-50 cursor-pointer transition-all hover:scale-103 active:scale-90"
+                    className=" w-25 rounded-2xl ml-10 mt-2 h-11 text-sm border-5 border-gray-800 bg-gray-700 z-0 cursor-pointer transition-all hover:scale-103 active:scale-90"
                     onClick={() => {
                       // console.log("aaaaa", Development);
                       if (
                         inputref.current
                         // typeof inputref.current.value === "number"
                       ) {
-                        handlesubmit(Number(inputref.current.value));
+                        handlesubmit(inputref.current.value);
                       }
                     }}
                     // onClick={handlesubmit}
@@ -257,7 +300,30 @@ Props) => {
                   ...cardguesses,
                   ...Array(4 - cardguesses.length).fill(""),
                 ]}
-                correctsolutions={[`${Development}`]}
+                correctsolutions={
+                  // Development % 1
+                  //   ? Development % 2
+                  //     ? [
+                  //         `${Development} - ${Development + 2}`,
+                  //         `${Development - 2} - ${Development}`,
+                  //       ]
+                  //     : [`${Development - 1} - ${Development + 1}`]
+                  //   :
+                  Math.floor(Development) % 2
+                    ? [
+                        `${Math.floor(Development)} - ${
+                          Math.floor(Development) + 2
+                        }`,
+                        `${Math.floor(Development) - 2} - ${Math.floor(
+                          Development
+                        )}`,
+                      ]
+                    : [
+                        `${Math.floor(Development) - 1} - ${
+                          Math.floor(Development) + 1
+                        }`,
+                      ]
+                }
               ></CardGuesContainer>
             }
           </div>

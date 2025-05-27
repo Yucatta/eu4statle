@@ -23,10 +23,7 @@ const ProvinceGuessCards = ({
   onProvinceGuess,
 }: Props) => {
   const [cardquery, setcardquery] = useState<string | undefined>(undefined);
-  const [regionquery, setregionquery] = useState<string | undefined>(undefined);
   const inputref = useRef<HTMLInputElement>(null);
-  const regionref = useRef<HTMLInputElement>(null);
-  // const [cardguesses, setcardguesses] = useState<string[]>([]);
   const [correctguessedprovinces, setcorrectguessedprovinces] = useState([-1]);
   const hasinitialized = useRef(false);
   const correctanswers = useRef<string[] | undefined>(undefined);
@@ -42,42 +39,8 @@ const ProvinceGuessCards = ({
     regionbboxes,
     emptylands,
   } = useDataContext();
-  const regionindex = regionquery
-    ? statenames.slice(823, 896).indexOf(regionquery)
-    : -1;
-  const filteredregions = useMemo(() => {
-    return statenames.slice(823, 896).filter((regionname) => {
-      if (!regionquery) {
-        return true;
-      } else {
-        return (
-          regionquery &&
-          regionname.toLowerCase().includes(regionquery.toLowerCase())
-        );
-      }
-    });
-  }, [statenames, regionquery]);
-
   const filteredCardNames = useMemo(() => {
     if (CardsNames) {
-      if (regionquery && provincestats && regionindex !== -1) {
-        if (filteredregions.length === 1 && cardquery) {
-          return regionids[regionindex]
-            .map((id) => {
-              return provincestats[id - 1][0];
-            })
-            .filter((provincename) => {
-              return provincename
-                .toLowerCase()
-                .includes(cardquery.toLowerCase());
-            });
-        } else {
-          return regionids[regionindex].map((id) => {
-            return provincestats[id - 1][0];
-          });
-        }
-      }
-
       if (cardquery) {
         return CardsNames.filter((cardname) => {
           return cardname.toLowerCase().includes(cardquery.toLowerCase());
@@ -88,7 +51,7 @@ const ProvinceGuessCards = ({
     } else {
       return;
     }
-  }, [CardsNames, cardquery, provincestats, statenames, regionquery]);
+  }, [CardsNames, cardquery, provincestats, statenames]);
 
   const Image = useMemo(() => {
     if (
@@ -310,15 +273,6 @@ const ProvinceGuessCards = ({
           return;
         } else if (temp.length === i) {
           temp[i] = cardquery;
-          // const tempcorrect = findCorrectProvinces(cardquery);
-
-          // setcorrectguessedprovinces(() => {
-          //   if (correctguessedprovinces[0] > 0) {
-          //     return [...tempcorrect, ...correctguessedprovinces];
-          //   } else {
-          //     return tempcorrect;
-          //   }
-          // });
           break;
         }
       }
@@ -348,13 +302,9 @@ const ProvinceGuessCards = ({
     <>
       <div className="flex flex-col w-9/10 ">
         {rndnum ? (
-          <div
-            className={
-              "flex flex-col justify-center items-center border-0 max-h-[1000px] overflow-hidden"
-            }
-          >
+          <div className="flex flex-col justify-center items-center border-0 max-h-[1000px] overflow-hidden">
             <div className="flex flex-row w-full h-30 items-center justify-evenly">
-              <div className="flex justify-center w-1/2 border-0 h-30">
+              <div className="flex justify-center w-1/3 border-0 h-30">
                 {Image ? Image : ""}
               </div>
 
@@ -363,13 +313,8 @@ const ProvinceGuessCards = ({
               (correctanswers.current?.length ===
                 correctguessedprovinces.length ||
                 cardguesses.length ===
-                  (CardsNames.length === 24
-                    ? 4
-                    : CardsNames.length === 31
-                    ? 6
-                    : CardsNames.length === 16
-                    ? 5
-                    : 10)) ? (
+                  uniquecorrectanswers.length +
+                    (CardsNames.length > 50 ? 6 : 3)) ? (
                 <CorrectAnswers
                   isitwrong={
                     correctanswers &&
@@ -399,26 +344,8 @@ const ProvinceGuessCards = ({
                   }
                 ></CorrectAnswers>
               ) : (
-                <div
-                  className={
-                    CardsNames && CardsNames.length > 50
-                      ? "flex-row flex w-auto justify-center items-center"
-                      : "flex-col flex w-auto justify-center itms-center"
-                  }
-                >
+                <div className="flex-col flex w-auto justify-center itms-center">
                   <div className="flex flex-col ">
-                    {CardsNames && CardsNames.length > 50 ? (
-                      <InputandList
-                        inputref={regionref}
-                        setquery={setregionquery}
-                        statenames={statenames.slice(823, 896)}
-                        filterednames={filteredregions}
-                        widthofinput={"40"}
-                        placeholder="Regions"
-                      ></InputandList>
-                    ) : (
-                      ""
-                    )}
                     <InputandList
                       inputref={inputref}
                       setquery={setcardquery}
@@ -426,7 +353,7 @@ const ProvinceGuessCards = ({
                       filterednames={
                         filteredCardNames ? filteredCardNames : [""]
                       }
-                      widthofinput={"[70px]"}
+                      widthofinput={"50"}
                       placeholder={
                         !CardsNames
                           ? "Development"
@@ -434,8 +361,8 @@ const ProvinceGuessCards = ({
                           ? "Trade Goods"
                           : CardsNames.length === 24
                           ? "Religions"
-                          : CardsNames.length === 369
-                          ? "Cultures"
+                          : CardsNames.length === 16
+                          ? "Terrains"
                           : "Province Name"
                       }
                     ></InputandList>
@@ -456,13 +383,9 @@ const ProvinceGuessCards = ({
                 cardguesses={[
                   ...cardguesses,
                   ...Array(
-                    (CardsNames.length === 24
-                      ? 4
-                      : CardsNames.length === 31
-                      ? 6
-                      : CardsNames.length === 16
-                      ? 5
-                      : 10) - cardguesses.length
+                    uniquecorrectanswers.length +
+                      (CardsNames.length > 50 ? 6 : 3) -
+                      cardguesses.length
                   ).fill(""),
                 ]}
                 correctsolutions={uniquecorrectanswers}

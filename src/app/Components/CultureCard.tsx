@@ -320,7 +320,7 @@ const CultureCard = ({
             }
           >
             <div className="flex flex-row w-full h-30 items-center justify-evenly">
-              <div className="flex justify-center w-1/2 border-0 h-30">
+              <div className="flex justify-center w-1/3 border-0 h-30">
                 {Image ? Image : ""}
               </div>
               {correctanswers &&

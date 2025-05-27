@@ -246,15 +246,15 @@ const CardContainer = () => {
     <>
       <div className="flex justify-center w-full flex-col items-center ">
         <div className="flex justify-center">
-          <div className="flex  w-full h-full flex-wrap  justify-center pb-5">
+          <div className="flex  w-full h-full flex-wrap pt-2 justify-center space-y-4 pb-5">
             <div className="flex  w-fill   h-full justify-evenly">
               {buttons.slice(0, 3).map((name, index) => {
                 return (
                   <button
                     className={
                       currentcard == index
-                        ? "h-10 w-25 bg-neutral-800 rounded-xl cursor-pointer ml-3 transition-all duration-150 hover:scale-105 active:scale-90"
-                        : "h-10 w-25 bg-neutral-600 rounded-xl cursor-pointer ml-3 transition-all duration-150  active:scale-90"
+                        ? "h-10 w-25 bg-[rgb(15,25,55)] rounded-xl text-sm cursor-pointer ml-3 transition-all duration-150 scale-90 active:scale-80"
+                        : "h-10 w-25 bg-[rgb(23,54,105)] rounded-xl text-sm cursor-pointer ml-3 transition-all duration-150  active:scale-90"
                     }
                     onClick={() => {
                       setCurrentCard(index);
@@ -272,8 +272,8 @@ const CardContainer = () => {
                   <button
                     className={
                       currentcard == index + 3
-                        ? "h-10 w-25 bg-neutral-800 rounded-xl cursor-pointer ml-3 transition-all duration-150 hover:scale-105 active:scale-90"
-                        : "h-10 w-25 bg-neutral-600 rounded-xl cursor-pointer ml-3 transition-all duration-150  active:scale-90"
+                        ? "h-10 w-25 bg-[rgb(15,25,55)] rounded-xl text-sm cursor-pointer ml-3 transition-all duration-150 scale-90 active:scale-80"
+                        : "h-10 w-25 bg-[rgb(23,54,105)] rounded-xl text-sm cursor-pointer ml-3 transition-all duration-150  active:scale-90"
                     }
                     onClick={() => {
                       setCurrentCard(index + 3);
@@ -287,9 +287,9 @@ const CardContainer = () => {
             </div>
           </div>
         </div>
-        <div className="w-full h-full">
-          <div>{cards[currentcard]}</div>
-        </div>
+        {/* <div className="w-full h-full flex duration-200 transition-all scale-100"> */}
+        {cards[currentcard]}
+        {/* </div> */}
       </div>
     </>
   );

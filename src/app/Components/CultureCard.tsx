@@ -166,14 +166,14 @@ const CultureCard = ({
                           ? "rgb(119, 221, 119)"
                           : cardguesses.length === 6
                           ? "rgb(177 64 62)"
-                          : "rgb(60, 60, 60)"
+                          : "rgb(80, 80, 80)"
                         : // ? "none"
-                          "rgb(45,45,45)"
+                          "rgb(50,50,50)"
                     }
                     stroke={
                       StateData[rndnum[0]].includes(provinceid)
                         ? "rgb(150,150,150)"
-                        : "rgb(50,50,50)"
+                        : "rgb(40,40,40)"
                     }
                     strokeWidth={
                       StateData[rndnum[0]].includes(provinceid) ? "0.5" : "1"
@@ -345,7 +345,6 @@ const CultureCard = ({
                     <InputandList
                       inputref={regionref}
                       setquery={setregionquery}
-                      statenames={culturegroups}
                       filterednames={
                         filteredculturegroups ? filteredculturegroups : [""]
                       }
@@ -355,7 +354,6 @@ const CultureCard = ({
                     <InputandList
                       inputref={inputref}
                       setquery={setcardquery}
-                      statenames={cultures}
                       filterednames={
                         filteredCardNames ? filteredCardNames : [""]
                       }
@@ -364,7 +362,7 @@ const CultureCard = ({
                     ></InputandList>
                   </div>
                   <button
-                    className=" w-4/11 rounded-2xl mt-2 h-11 text-sm border-5 border-gray-800 bg-gray-700 z-50 cursor-pointer transition-all hover:scale-103 active:scale-90"
+                    className=" w-4/11 rounded-2xl mt-2 h-11 text-sm border-2 border-[rgb(16,50,35)] bg-[rgb(16,84,80)] z-50 cursor-pointer transition-all hover:scale-103 active:scale-90"
                     onClick={handlesubmit}
                     // onClick={handlesubmit}
                   >

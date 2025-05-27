@@ -145,14 +145,14 @@ const ProvinceGuessCards = ({
                             : correctguessedprovinces.includes(provinceid)
                             ? "rgb(119, 221, 119)"
                             : "rgb(177 64 62)"
-                          : "rgb(60, 60, 60)"
+                          : "rgb(80, 80, 80)"
                         : // ? "none"
-                          "rgb(45,45,45)"
+                          "rgb(50,50,50)"
                     }
                     stroke={
                       StateData[rndnum[0]].includes(provinceid)
                         ? "rgb(150,150,150)"
-                        : "rgb(50,50,50)"
+                        : "rgb(40,40,40)"
                     }
                     strokeWidth={
                       StateData[rndnum[0]].includes(provinceid) ? "0.5" : "1"
@@ -314,7 +314,13 @@ const ProvinceGuessCards = ({
                 correctguessedprovinces.length ||
                 cardguesses.length ===
                   uniquecorrectanswers.length +
-                    (CardsNames.length > 50 ? 6 : 3)) ? (
+                    (CardsNames.length === 24
+                      ? 3
+                      : CardsNames.length === 31
+                      ? 5
+                      : CardsNames.length === 16
+                      ? 4
+                      : 8)) ? (
                 <CorrectAnswers
                   isitwrong={
                     correctanswers &&
@@ -349,7 +355,6 @@ const ProvinceGuessCards = ({
                     <InputandList
                       inputref={inputref}
                       setquery={setcardquery}
-                      statenames={CardsNames}
                       filterednames={
                         filteredCardNames ? filteredCardNames : [""]
                       }
@@ -368,7 +373,7 @@ const ProvinceGuessCards = ({
                     ></InputandList>
                   </div>
                   <button
-                    className=" w-25 rounded-2xl mt-2 h-11 ml-10 text-sm border-5 border-gray-800 bg-gray-700 z-[5] cursor-pointer transition-all hover:scale-103 active:scale-90"
+                    className=" w-25 rounded-2xl mt-2 h-11 ml-10 text-sm border-2 border-[rgb(16,50,35)] bg-[rgb(16,84,80)] z-[5] cursor-pointer transition-all hover:scale-103 active:scale-90"
                     onClick={handlesubmit}
                     // onClick={handlesubmit}
                   >
@@ -384,7 +389,13 @@ const ProvinceGuessCards = ({
                   ...cardguesses,
                   ...Array(
                     uniquecorrectanswers.length +
-                      (CardsNames.length > 50 ? 6 : 3) -
+                      (CardsNames.length === 24
+                        ? 4
+                        : CardsNames.length === 31
+                        ? 6
+                        : CardsNames.length === 16
+                        ? 5
+                        : 9) -
                       cardguesses.length
                   ).fill(""),
                 ]}

@@ -478,7 +478,7 @@
 478,Argyn,6,Khazak,Sunni,Wool,Steppe
 479,Kerey,6,Khazak,Sunni,Copper,Steppe
 480,Kulunda,3,Kirgiz,Tengri,Unknown,Woods
-481,Bermuda,3,English,Protestant,Unknown,Grasslands
+481,Bermuda,3,No Culture,No Religion,Unknown,Grasslands
 482,Bahamas,5,Arawak,Animism,Unknown,Grasslands
 483,Turks Islands,7,Carib,Animism,Unknown,Grasslands
 484,Havana,11,Arawak,Animism,Unknown,Savannah
@@ -1092,15 +1092,15 @@
 1092,Bundjalung,8,Aboriginal,Alcheringa,Unknown,Savannah
 1093,Barunggam,3,Gamilaraay,Alcheringa,Unknown,Desert
 1094,Turrbal,5,Gamilaraay,Alcheringa,Naval Supplies,Drylands
-1095,Falklands,3,Francien,Catholic,Unknown,Coastline
-1096,Cape Verde,3,Portugese,Catholic,Unknown,Grasslands
+1095,Falklands,3,No Culture,No Religion,Unknown,Coastline
+1096,Cape Verde,3,No Culture,No Religion,Unknown,Grasslands
 1097,Fernando Po,5,Yorumba,Fetishist,Unknown,Grasslands
 1098,St. Helena,3,No Culture,No Religion,Unknown,Coastline
 1099,Socotra,4,Mahri,Coptic,Fish,Coastal Desert
-1100,Mahe,5,Francien,Catholic,Unknown,Coastline
-1101,Diego Garcia,3,Francien,Catholic,Unknown,Coastline
+1100,Mahe,5,No Culture,No Religion,Unknown,Coastline
+1101,Diego Garcia,3,No Culture,No Religion,Unknown,Coastline
 1102,Mauritius,11,No Culture,No Religion,Unknown,Coastline
-1103,Bourbon,11,Francien,Catholic,Unknown,Coastline
+1103,Bourbon,11,No Culture,No Religion,Unknown,Coastline
 1104,Eiriksfjord,3,Inuit,Totemism,Unknown,Glacial
 1105,Vestbygden,3,Inuit,Totemism,Unknown,Glacial
 1106,Te Tai Tokerau,10,Maori,Animism,Tropical Wood,Hills
@@ -1349,7 +1349,7 @@
 1349,Nicobar Isles,0,a,a,a,Ocean
 1350,Coast of Atjeh,0,a,a,a,Inland Ocean
 1351,Coast of Sumatra,0,a,a,a,Inland Ocean
-1352,Christmas Island,0,a,a,a,Inland Ocean
+1352,Christmas Island,3,No Culture,No Religion,Unknown,Inland Ocean
 1353,Coast of Java,0,a,a,a,Inland Ocean
 1354,Coast of Surabaya,0,a,a,a,Inland Ocean
 1355,Straits of Lombok,0,a,a,a,Inland Ocean
@@ -1995,8 +1995,8 @@
 1995,Micronesia,3,Polynesian,Animism,Unknown,Grasslands
 1795,Palau,3,Polynesian,Animism,Unknown,Grasslands
 1997,Midway,3,Polynesian,Animism,Unknown,Grasslands
-1998,Christmas Island,3,a,a,Unknown,Coastline
-1999,Cocos Island,3,a,a,Unknown,Coastline
+1998,Christmas Island,3,No Culture,No Religion,Unknown,Coastline
+1999,Cocos Island,3,No Culture,No Religion,Unknown,Coastline
 2000,Qinghai Lake,0,a,a,a,Ocean
 2001,Siling Lake,0,a,a,a,Ocean
 2002,Galapagos Islands,3,Cara,Animism,Unknown,Grasslands
@@ -2022,7 +2022,7 @@
 2022,Haida,3,Haida,Totemism,Fish,Forest
 2023,Munsee,6,Delaware,Totemism,Unknown,Hills
 2024,Ajuuran,3,Somali,Sunni,Fish,Coastal Desert
-2025,South Georgia,3,a,a,Unknown,Glacial
+2025,South Georgia,3,No Culture,No Religion,Unknown,Glacial
 2026,Tanjore,10,Tamil,Hinduism,Cloth,Farmlands
 2027,Arcot,8,Tamil,Hinduism,Iron,Hills
 2028,Mahur,5,Telegu,Hinduism,Tropical Wood,Jungle

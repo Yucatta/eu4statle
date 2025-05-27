@@ -122,13 +122,14 @@ Props) => {
                           ? developmentrgbs[
                               provincestats[Number(provinceid[0]) - 1][1] - 3
                             ]
-                          : "rgb(60, 60, 60)"
-                        : "rgb(45,45,45)"
+                          : "rgb(80, 80, 80)"
+                        : // ? "none"
+                          "rgb(50,50,50)"
                     }
                     stroke={
                       StateData[rndnum[0]].includes(Number(provinceid[0]))
                         ? "rgb(150,150,150)"
-                        : "rgb(50,50,50)"
+                        : "rgb(40,40,40)"
                     }
                     strokeWidth={
                       StateData[rndnum[0]].includes(Number(provinceid[0]))
@@ -136,31 +137,10 @@ Props) => {
                         : "1"
                     }
                     key={Number(provinceid[0])}
-                    // className="hover:fill-amber-700"
-                    // onClick={() => {
-                    //   console.log(provinceid);
-                    // }}
                   ></path>
                 );
               })
             : regionids[rndnum[1]].map((provinceid) => {
-                // console.log(developmentrgbs, provincestats);
-                if (
-                  StateData[rndnum[0]].includes(provinceid) &&
-                  developmentrgbs &&
-                  provincestats
-                ) {
-                  console.log(
-                    developmentrgbs,
-                    developmentrgbs[provincestats[provinceid - 1][1] - 3],
-                    provincestats[provinceid - 1][1] - 3,
-                    provinceid,
-                    "aaa"
-                  );
-                  // console.log(
-                  //   developmentrgbs[provincestats[provinceid - 1][1] - 3]
-                  // );
-                }
                 return (
                   <path
                     d={String(paths[provinceid - 1][1])}
@@ -196,9 +176,6 @@ Props) => {
                       StateData[rndnum[0]].includes(provinceid) ? "0.5" : "1"
                     }
                     key={provinceid}
-                    // className="hover:fill-amber-700"
-                    // onClick={() => {
-                    //   console.log(provinceid);
                     // }}
                   ></path>
                 );
@@ -235,7 +212,6 @@ Props) => {
     provincestats,
     developmentrgbs,
   ]);
-  console.log(Development);
   return (
     <>
       <div className="flex flex-col w-9/10 ">
@@ -269,14 +245,13 @@ Props) => {
                 <div className="flex-col flex w-auto h-30 justify-center mt-0.5 itms-center">
                   <InputandList
                     inputref={inputref}
-                    statenames={cardnames}
                     setquery={setcardquery}
                     widthofinput="45"
                     placeholder="AverageDevelopment"
                     filterednames={filterednames}
                   />
                   <button
-                    className=" w-25 rounded-2xl ml-10 mt-2 h-11 text-sm border-5 border-gray-800 bg-gray-700 z-0 cursor-pointer transition-all hover:scale-103 active:scale-90"
+                    className=" w-25 rounded-2xl ml-10 mt-2 h-11 text-sm border-2 border-[rgb(16,50,35)] bg-[rgb(16,84,80)] z-0 cursor-pointer transition-all hover:scale-103 active:scale-90"
                     onClick={() => {
                       // console.log("aaaaa", Development);
                       if (

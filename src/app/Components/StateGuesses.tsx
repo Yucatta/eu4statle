@@ -27,7 +27,7 @@ const StateGuesses = () => {
   const imageinitizalied = useRef(false);
   const guessid = useRef([-1, -1]);
   const svgRef = useRef(null);
-  const { rndnum } = useGameState();
+  const { rndnum, setisgameover } = useGameState();
 
   const {
     paths,
@@ -57,7 +57,7 @@ const StateGuesses = () => {
       if (rndnum[1] === 58) {
         const a = (
           <svg
-            className="w-full h-full  bg-[rgb(50,50,150)]"
+            className="w-full h-full  bg-[rgb(28,87,146)]"
             viewBox={
               // "0 0 5632 2048"
               `
@@ -79,7 +79,7 @@ const StateGuesses = () => {
                     StateData[rndnum[0]].includes(Number(provinceid[0]))
                       ? "rgb(190, 160, 255)"
                       : // ? "none"
-                        "rgb(50,50,50)"
+                        "rgb(70,70,70)"
                   }
                   stroke="white"
                   strokeWidth="0.5"
@@ -117,7 +117,7 @@ const StateGuesses = () => {
         // console.log("aaaaaaaaaaa");
         const a = (
           <svg
-            className="w-full h-full  bg-[rgb(20,50,80)]"
+            className="w-full h-full  bg-[rgb(28,87,146)]"
             viewBox={
               // "0 0 5632 2048"
               `
@@ -142,8 +142,8 @@ const StateGuesses = () => {
                       : emptylands.includes(+path[0] + 1)
                       ? "none"
                       : regionids[rndnum[1]].includes(+path[0] + 1)
-                      ? "rgb(50,50,50)"
-                      : "	rgb(30, 30, 30)"
+                      ? "rgb(70,70,70)"
+                      : "	rgb(50, 50, 50)"
                   }
                   // stroke={emptylands.includes(provinceid) ? "none" : "white"}
                   stroke={
@@ -151,7 +151,7 @@ const StateGuesses = () => {
                       ? "white"
                       : emptylands.includes(+path[0] + 1)
                       ? "none"
-                      : "rgb(35,35,35)"
+                      : "rgb(15,15,15)"
                   }
                   strokeWidth={
                     regionids[rndnum[1]].includes(+path[0] + 1)
@@ -301,6 +301,15 @@ const StateGuesses = () => {
           setstateguesses(temp);
           setstatequery("");
           stateinputref.current.value = "";
+          if (
+            temp[0][1] === rndnum[0] ||
+            temp[1][1] === rndnum[0] ||
+            temp[2][1] === rndnum[0] ||
+            temp[3][1] === rndnum[0] ||
+            temp[3][1] !== -1
+          ) {
+            setisgameover(true);
+          }
         }
       }
     }
@@ -338,7 +347,7 @@ const StateGuesses = () => {
           <span>Region:{statenames[823 + rndnum[1]]}</span>
         </div>
       ) : StateGuesses[3][1] !== -1 && statenames && rndnum ? (
-        <div className=" w-2/4  h-15 rounded-xl mt-1.5 mb-1   bg-red-300 text-white items-center flex justify-evenly font-semibold">
+        <div className=" w-2/4  h-15 rounded-xl mt-1.5 mb-1   bg-red-300 text-black items-center flex justify-evenly font-semibold">
           <span>State: {statenames[rndnum[0]]} </span>
           <span>Region:{statenames[823 + rndnum[1]]}</span>
         </div>
@@ -346,24 +355,21 @@ const StateGuesses = () => {
         <div className=" w-3/4  justify-between items-center flex  relative">
           <InputandList
             inputref={regioninputref}
-            statenames={statenames}
-            statesquery={regionsquery}
             setquery={setregionsquery}
             filterednames={filteredregionsnames ? filteredregionsnames : [""]}
             placeholder="Region"
-            widthofinput={"1/12"}
+            widthofinput="4/12"
           ></InputandList>
           <InputandList
             inputref={stateinputref}
-            placeholder="State (within region)"
-            statenames={statenames}
-            statesquery={statesquery}
+            placeholder="State "
             setquery={setstatequery}
             filterednames={filteredstatenames ? filteredstatenames : [""]}
-            widthofinput={"10/12"}
+            widthofinput="5/12"
           ></InputandList>
+
           <button
-            className=" w-2/12 rounded-2xl mt-2 h-11 text-sm border-5 border-gray-800 bg-gray-700 cursor-pointer transition-all hover:scale-105 active:scale-90"
+            className=" w-20 rounded-2xl mt-2 h-11 text-sm border-2 border-[rgb(16,50,35)] bg-[rgb(16,84,80)] cursor-pointer transition-all hover:scale-105 active:scale-90"
             onClick={handlesubmit}
           >
             GUESS
@@ -376,17 +382,6 @@ const StateGuesses = () => {
         guessid={guessid.current}
         StateGuesses={StateGuesses}
       ></GuessContainer>
-      {rndnum ? (
-        //  &&
-        // (StateGuesses[0][1] === rndnum[0] ||
-        //   StateGuesses[1][1] === rndnum[0] ||
-        //   StateGuesses[2][1] === rndnum[0] ||
-        //   StateGuesses[3][1] === rndnum[0] ||
-        //   StateGuesses[3][1] !== -1)
-        <></>
-      ) : (
-        ""
-      )}
     </>
   );
 };

@@ -161,20 +161,9 @@ const StateGuesses = () => {
                       : "1"
                   }
                   key={+path[0]}
-                  // className="hover:fill-amber-700"
-                  // onClick={() => {
-                  //   console.log(
-                  //     provinceid
-                  //     // paths.current[provinceid][0],
-                  //     // console.log(StateData[stateid])
-                  //   );
-                  // }}
                 ></path>
               );
 
-              // if (index < 5) {
-              //   console.log(b);
-              // }
               return b;
             })}
             {areapaths.map((path, index) => {
@@ -198,7 +187,6 @@ const StateGuesses = () => {
             })}
           </svg>
         );
-        // console.log(a);
         return a;
       }
     }
@@ -214,16 +202,13 @@ const StateGuesses = () => {
   ]);
 
   const filteredstatenames = useMemo(() => {
-    // console.log(!!statenames, !!query);
     if (statenames) {
       if (regionsquery) {
         const regionname = statenames.slice(823, 896).filter((region) => {
-          return region.toLowerCase().includes(regionsquery.toLowerCase());
+          return regionsquery.toLowerCase().includes(region.toLowerCase());
         });
-        console.log(regionname, statenames.indexOf(regionname[0]) - 823);
         if (regionname.length === 1 && regionStateIds) {
           const temp = [];
-          // console.log(regionStateIds[regionindex]);
           for (let i = 0; i < 21; i++) {
             if (
               regionStateIds[statenames.indexOf(regionname[0]) - 823][i] ||
@@ -238,7 +223,6 @@ const StateGuesses = () => {
               break;
             }
           }
-          // console.log(temp);
           if (statesquery) {
             return temp.filter((state) => {
               return state.toLowerCase().includes(statesquery.toLowerCase());
@@ -246,6 +230,8 @@ const StateGuesses = () => {
           } else {
             return temp;
           }
+        } else {
+          return statenames;
         }
       } else if (statesquery) {
         return statenames.slice(0, 823).filter((state) => {
@@ -260,7 +246,6 @@ const StateGuesses = () => {
   }, [statenames, regionStateIds, statesquery, regionsquery]);
 
   const filteredregionsnames = useMemo(() => {
-    // console.log(!!statenames, !!query);
     if (statenames) {
       if (regionsquery) {
         return statenames.slice(823, 896).filter((state) => {

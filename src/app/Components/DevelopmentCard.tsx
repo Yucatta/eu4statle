@@ -3,6 +3,7 @@ import React, { useRef, useMemo, useState } from "react";
 import { useDataContext } from "@/context/DataContext";
 import CardGuesContainer from "./CardGuesContainer";
 import InputandList from "./Input";
+import CorrectAnswers from "./Answers";
 // import { stringify } from "querystring";
 // import { type } from "os";
 interface Props {
@@ -236,15 +237,34 @@ Props) => {
                     return false;
                   }
                 })
-                .includes(true) ? (
-                <div className=" w-9/10 h-10 rounded-xl text-sm mb-1  mt-1.5 bg-green-500 text-black items-center flex justify-evenly font-semibold transition-all scale-100">
-                  Average Development : {Development}
-                </div>
-              ) : Development && cardguesses.length === 4 ? (
-                <div className=" w-9/10  h-10 rounded-xl  mb-1 text-sm mt-1.5  bg-red-300 text-black items-center flex justify-evenly font-semibold">
-                  Average Development : {Development}
-                </div>
+                .includes(true) &&
+              Development &&
+              cardguesses.length === 4 ? (
+                <CorrectAnswers
+                  correctanswers={<>Average Development : {Development}</>}
+                  isitwrong={cardguesses
+                    .map((e) => {
+                      if (
+                        cardnames.indexOf(e) * 2 + 3 <= Development &&
+                        cardnames.indexOf(e) * 2 + 5 >= Development
+                      ) {
+                        return true;
+                      } else {
+                        return false;
+                      }
+                    })
+                    .includes(true)}
+                ></CorrectAnswers>
               ) : (
+                // (
+                //   <div className=" w-9/10 h-10 rounded-xl text-sm mb-1  mt-1.5 bg-green-500 text-black items-center flex justify-evenly font-semibold transition-all scale-100">
+                //     Average Development : {Development}
+                //   </div>
+                // ) : Development && cardguesses.length === 4 ? (
+                //   <div className=" w-9/10  h-10 rounded-xl  mb-1 text-sm mt-1.5  bg-red-300 text-black items-center flex justify-evenly font-semibold">
+                //     Average Development : {Development}
+                //   </div>
+                // )
                 <div className="flex-col flex w-auto h-30 justify-center mt-0.5 itms-center">
                   <InputandList
                     inputref={inputref}

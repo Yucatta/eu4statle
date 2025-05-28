@@ -23,7 +23,6 @@ const InputandList = ({
   const inputclass = `w-${widthofinput}  pt-0 relative group`;
   useEffect(() => {
     function controlkey(e: KeyboardEvent) {
-      console.log(e.code);
       if (e.code === "ArrowUp" && focusedelement > 0) {
         setfocusedelement(focusedelement - 1);
       } else if (
@@ -38,18 +37,15 @@ const InputandList = ({
           })[0]
         ) {
           if (onSubmit) {
-            console.log("submitting", query);
             onSubmit();
           }
           inputref.current!.blur();
-          console.log("this is done");
         } else {
           setquery(filterednames[focusedelement]);
           inputref.current!.value = filterednames[focusedelement];
         }
       }
     }
-    console.log(focusedelement, filterednames.length);
     if (document.activeElement === inputref.current) {
       addEventListener("keydown", controlkey);
     }
@@ -59,7 +55,7 @@ const InputandList = ({
     return () => {
       removeEventListener("keydown", controlkey);
     };
-  }, [focusedelement, filterednames, query, update]);
+  }, [focusedelement, inputref.current, filterednames, query, update]);
   useEffect(() => {
     listref.current[focusedelement]?.scrollIntoView({
       block: "nearest",
@@ -101,7 +97,6 @@ const InputandList = ({
                   listref.current[index] = el;
                 }}
                 onMouseEnter={() => {
-                  console.log(index);
                   setfocusedelement(index);
                 }}
                 onMouseDown={() => {

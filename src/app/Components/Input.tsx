@@ -1,20 +1,71 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 interface Props {
   inputref: React.RefObject<HTMLInputElement | null>;
   setquery: (value: React.SetStateAction<string | undefined>) => void;
   filterednames: string[];
   widthofinput: string;
   placeholder: string;
+  query: string;
+  onSubmit?: () => void;
 }
 const InputandList = ({
   inputref,
   filterednames,
   setquery,
+  onSubmit,
   widthofinput,
+  query,
   placeholder,
 }: Props) => {
-  // const focusedelement = useRef(0);
+  const [focusedelement, setfocusedelement] = useState(0);
+  const [update, setupdate] = useState(0);
+  const listref = useRef<Array<HTMLLIElement | null>>([]);
   const inputclass = `w-${widthofinput}  pt-0 relative group`;
+  useEffect(() => {
+    function controlkey(e: KeyboardEvent) {
+      console.log(e.code);
+      if (e.code === "ArrowUp" && focusedelement > 0) {
+        setfocusedelement(focusedelement - 1);
+      } else if (
+        e.code === "ArrowDown" &&
+        focusedelement + 1 < filterednames.length
+      ) {
+        setfocusedelement(focusedelement + 1);
+      } else if (e.code === "Enter" && filterednames) {
+        if (
+          filterednames.filter((statename) => {
+            return query.includes(statename);
+          })[0]
+        ) {
+          if (onSubmit) {
+            console.log("submitting", query);
+            onSubmit();
+          }
+          inputref.current!.blur();
+          console.log("this is done");
+        } else {
+          setquery(filterednames[focusedelement]);
+          inputref.current!.value = filterednames[focusedelement];
+        }
+      }
+    }
+    console.log(focusedelement, filterednames.length);
+    if (document.activeElement === inputref.current) {
+      addEventListener("keydown", controlkey);
+    }
+    if (focusedelement >= filterednames.length && focusedelement != 0) {
+      setfocusedelement(filterednames.length - 1);
+    }
+    return () => {
+      removeEventListener("keydown", controlkey);
+    };
+  }, [focusedelement, filterednames, query, update]);
+  useEffect(() => {
+    listref.current[focusedelement]?.scrollIntoView({
+      block: "nearest",
+      behavior: "smooth",
+    });
+  }, [focusedelement, listref]);
   return (
     <div className={inputclass}>
       <input
@@ -22,6 +73,14 @@ const InputandList = ({
         ref={inputref}
         onChange={() => {
           setquery(inputref.current?.value);
+        }}
+        onClick={() => {
+          setupdate(update + 1);
+          setfocusedelement(0);
+        }}
+        onFocus={() => {
+          setupdate(update + 1);
+          setfocusedelement(0);
         }}
         // onMouseEnter={}
         className="w-full mt-3 h-10 border-2 bg-neutral-900 border-neutral-400 focus-within:"
@@ -32,8 +91,19 @@ const InputandList = ({
         {filterednames
           ? filterednames.map((item, index) => (
               <li
-                className="py-1 border-y-1 hover:bg-neutral-600 text-center cursor-pointer "
+                className={
+                  focusedelement === index
+                    ? "py-1 border-y-1 bg-neutral-600 text-center h-7 cursor-pointer "
+                    : "py-1 border-y-1  text-center h-7 cursor-pointer "
+                }
                 key={index}
+                ref={(el) => {
+                  listref.current[index] = el;
+                }}
+                onMouseEnter={() => {
+                  console.log(index);
+                  setfocusedelement(index);
+                }}
                 onMouseDown={() => {
                   setquery(item);
                   if (inputref.current) {

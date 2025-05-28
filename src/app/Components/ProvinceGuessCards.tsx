@@ -4,8 +4,8 @@ import InputandList from "./Input";
 import CardGuesContainer from "./CardGuesContainer";
 import { useDataContext } from "@/context/DataContext";
 import CorrectAnswers from "./Answers";
+import { useGameState } from "@/context/gamecontext";
 interface Props {
-  rndnum: number[] | undefined;
   CardsNames?: string[];
   Cardrgbs?: string[];
   provincestats:
@@ -15,7 +15,6 @@ interface Props {
   cardguesses: string[];
 }
 const ProvinceGuessCards = ({
-  rndnum,
   CardsNames,
   provincestats,
   Cardrgbs,
@@ -27,6 +26,7 @@ const ProvinceGuessCards = ({
   const [correctguessedprovinces, setcorrectguessedprovinces] = useState([-1]);
   const hasinitialized = useRef(false);
   const correctanswers = useRef<string[] | undefined>(undefined);
+  const { rndnum, isgameover } = useGameState();
   const {
     paths,
     regionStateIds,
@@ -87,14 +87,48 @@ const ProvinceGuessCards = ({
                     d={provinceid[1]}
                     fill={
                       StateData[rndnum[0]].includes(Number(provinceid[0]))
-                        ? "rgb(60, 60, 60)"
+                        ? correctguessedprovinces.includes(
+                            Number(provinceid[0])
+                          ) ||
+                          (correctanswers.current?.length ===
+                            correctguessedprovinces.length &&
+                            Cardrgbs) ||
+                          cardguesses.length ===
+                            (CardsNames.length === 24
+                              ? 4
+                              : CardsNames.length === 31
+                              ? 6
+                              : CardsNames.length === 16
+                              ? 5
+                              : 10)
+                          ? Cardrgbs &&
+                            provincestats &&
+                            CardsNames &&
+                            CardsNames.length < 35
+                            ? Cardrgbs[
+                                CardsNames.indexOf(
+                                  provincestats[Number(provinceid[0]) - 1][
+                                    CardsNames.length === 24
+                                      ? 3
+                                      : CardsNames.length === 31
+                                      ? 4
+                                      : 5
+                                  ]
+                                )
+                              ]
+                            : correctguessedprovinces.includes(
+                                Number(provinceid[0])
+                              )
+                            ? "rgb(119, 221, 119)"
+                            : "rgb(177 64 62)"
+                          : "rgb(80, 80, 80)"
                         : // ? "none"
-                          "rgb(45,45,45)"
+                          "rgb(50,50,50)"
                     }
                     stroke={
                       StateData[rndnum[0]].includes(Number(provinceid[0]))
                         ? "rgb(150,150,150)"
-                        : "rgb(50,50,50)"
+                        : "rgb(40,40,40)"
                     }
                     strokeWidth={
                       StateData[rndnum[0]].includes(Number(provinceid[0]))
@@ -353,7 +387,9 @@ const ProvinceGuessCards = ({
                 <div className="flex-col flex w-auto justify-center itms-center">
                   <div className="flex flex-col ">
                     <InputandList
+                      query={cardquery ? cardquery : ""}
                       inputref={inputref}
+                      onSubmit={handlesubmit}
                       setquery={setcardquery}
                       filterednames={
                         filteredCardNames ? filteredCardNames : [""]

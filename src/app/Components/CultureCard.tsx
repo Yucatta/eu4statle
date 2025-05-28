@@ -340,6 +340,7 @@ const CultureCard = ({
                     <InputandList
                       inputref={regionref}
                       setquery={setregionquery}
+                      query={regionquery ? regionquery : ""}
                       filterednames={
                         filteredculturegroups ? filteredculturegroups : [""]
                       }
@@ -349,6 +350,7 @@ const CultureCard = ({
                     <InputandList
                       inputref={inputref}
                       setquery={setcardquery}
+                      query={cardquery ? cardquery : ""}
                       filterednames={
                         filteredCardNames ? filteredCardNames : [""]
                       }

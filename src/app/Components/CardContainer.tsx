@@ -24,7 +24,7 @@ const CardContainer = () => {
   const [developments, setdevelopments] = useState<number[]>();
   const [currentcard, setCurrentCard] = useState(0);
   const { StateData, regionids } = useDataContext();
-  const { rndnum } = useGameState();
+  const { rndnum, setisgameover } = useGameState();
   const [cardguesses, setcardguesses] = useState<string[][]>([
     [],
     [],
@@ -33,6 +33,9 @@ const CardContainer = () => {
     [],
     [],
   ]);
+  useEffect(() => {
+    setisgameover(currentcard + 1);
+  }, [currentcard]);
   useEffect(() => {
     async function fetchdata() {
       try {
@@ -142,7 +145,6 @@ const CardContainer = () => {
     return [
       <ProvinceGuessCards
         key={0}
-        rndnum={rndnum}
         Cardrgbs={Religionrgbs}
         onProvinceGuess={(e) => {
           const temp = [...cardguesses];
@@ -155,7 +157,6 @@ const CardContainer = () => {
       />,
       <ProvinceGuessCards
         key={1}
-        rndnum={rndnum}
         onProvinceGuess={(e) => {
           const temp = [...cardguesses];
           temp[currentcard] = [...e];
@@ -194,7 +195,6 @@ const CardContainer = () => {
       ></CultureCard>,
       <ProvinceGuessCards
         key={4}
-        rndnum={rndnum}
         Cardrgbs={tradegoodrgbs}
         onProvinceGuess={(e) => {
           const temp = [...cardguesses];
@@ -207,7 +207,6 @@ const CardContainer = () => {
       />,
       <ProvinceGuessCards
         key={5}
-        rndnum={rndnum}
         CardsNames={
           ProvinceStats && rndnum
             ? regionids[rndnum[1]].map((id) => {

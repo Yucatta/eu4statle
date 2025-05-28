@@ -27,7 +27,7 @@ const StateGuesses = () => {
   const imageinitizalied = useRef(false);
   const guessid = useRef([-1, -1]);
   const svgRef = useRef(null);
-  const { rndnum, setisgameover } = useGameState();
+  const { rndnum, isgameover, setisgameover } = useGameState();
 
   const {
     paths,
@@ -39,8 +39,8 @@ const StateGuesses = () => {
     regionids,
     regionbboxes,
     emptylands,
-    // areabboxes,
   } = useDataContext();
+
   const Image = useMemo(() => {
     if (
       regionStateIds &&
@@ -273,6 +273,7 @@ const StateGuesses = () => {
       return;
     }
   }, [statenames, regionsquery]);
+
   function handlesubmit() {
     if (statenames && filteredstatenames && stateinputref.current && rndnum) {
       for (let i = 0; i < StateGuesses.length; i++) {
@@ -308,7 +309,7 @@ const StateGuesses = () => {
             temp[3][1] === rndnum[0] ||
             temp[3][1] !== -1
           ) {
-            setisgameover(true);
+            setisgameover(1);
           }
         }
       }
@@ -342,7 +343,7 @@ const StateGuesses = () => {
         StateGuesses[2][1] === rndnum[0] ||
         StateGuesses[3][1] === rndnum[0]) &&
       statenames ? (
-        <div className=" w-2/4  h-15 rounded-xl mt-1.5 mb-1   bg-green-500 text-white items-center flex justify-evenly font-semibold ">
+        <div className=" w-2/4  h-15 rounded-xl mt-1.5 mb-1   bg-green-500 text-black items-center flex justify-evenly font-semibold ">
           <span>State: {statenames[rndnum[0]]} </span>
           <span>Region:{statenames[823 + rndnum[1]]}</span>
         </div>
@@ -355,6 +356,7 @@ const StateGuesses = () => {
         <div className=" w-3/4  justify-between items-center flex  relative">
           <InputandList
             inputref={regioninputref}
+            query={regionsquery ? regionsquery : ""}
             setquery={setregionsquery}
             filterednames={filteredregionsnames ? filteredregionsnames : [""]}
             placeholder="Region"
@@ -362,6 +364,8 @@ const StateGuesses = () => {
           ></InputandList>
           <InputandList
             inputref={stateinputref}
+            query={statesquery ? statesquery : ""}
+            onSubmit={handlesubmit}
             placeholder="State "
             setquery={setstatequery}
             filterednames={filteredstatenames ? filteredstatenames : [""]}

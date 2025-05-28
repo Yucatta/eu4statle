@@ -41,9 +41,12 @@ const DevelopmentCard = ({
 Props) => {
   const [cardquery, setcardquery] = useState<string | undefined>(undefined);
   const inputref = useRef<HTMLInputElement>(null);
-  function handlesubmit(e: string) {
-    if (!cardguesses.includes(String(e))) {
-      onProvinceGuess([...cardguesses, String(e)]);
+  function handlesubmit() {
+    if (
+      inputref.current &&
+      !cardguesses.includes(String(inputref.current.value))
+    ) {
+      onProvinceGuess([...cardguesses, String(inputref.current.value)]);
       inputref.current!.value = "";
       setcardquery("");
       // setscardguesses([e, ...cardguesses.slice(0, 3)]);
@@ -124,12 +127,12 @@ Props) => {
                             ]
                           : "rgb(80, 80, 80)"
                         : // ? "none"
-                          "rgb(50,50,50)"
+                          "rgb(40,40,40)"
                     }
                     stroke={
                       StateData[rndnum[0]].includes(Number(provinceid[0]))
                         ? "rgb(150,150,150)"
-                        : "rgb(40,40,40)"
+                        : "rgb(50,50,50)"
                     }
                     strokeWidth={
                       StateData[rndnum[0]].includes(Number(provinceid[0]))
@@ -164,13 +167,13 @@ Props) => {
                           ? developmentrgbs[
                               provincestats[provinceid - 1][1] - 3
                             ]
-                          : "rgb(60, 60, 60)"
-                        : "rgb(45,45,45)"
+                          : "rgb(80,80,80)"
+                        : "rgb(50,50,50)"
                     }
                     stroke={
                       StateData[rndnum[0]].includes(provinceid)
                         ? "rgb(150,150,150)"
-                        : "rgb(50,50,50)"
+                        : "rgb(40,40,40)"
                     }
                     strokeWidth={
                       StateData[rndnum[0]].includes(provinceid) ? "0.5" : "1"
@@ -246,21 +249,15 @@ Props) => {
                   <InputandList
                     inputref={inputref}
                     setquery={setcardquery}
+                    onSubmit={handlesubmit}
+                    query={cardquery ? cardquery : ""}
                     widthofinput="45"
                     placeholder="AverageDevelopment"
                     filterednames={filterednames}
                   />
                   <button
                     className=" w-25 rounded-2xl ml-10 mt-2 h-11 text-sm border-2 border-[rgb(16,50,35)] bg-[rgb(16,84,80)] z-0 cursor-pointer transition-all hover:scale-103 active:scale-90"
-                    onClick={() => {
-                      // console.log("aaaaa", Development);
-                      if (
-                        inputref.current
-                        // typeof inputref.current.value === "number"
-                      ) {
-                        handlesubmit(inputref.current.value);
-                      }
-                    }}
+                    onClick={handlesubmit}
                     // onClick={handlesubmit}
                   >
                     GUESS

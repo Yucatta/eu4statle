@@ -4,7 +4,7 @@ import React, { useContext, useState, createContext, ReactNode } from "react";
 type gamecontexttype = {
   rndnum: number[] | undefined;
   setrndnum: React.Dispatch<React.SetStateAction<number[] | undefined>>;
-  isgameover: Number;
+  isgameover: number;
   setisgameover: React.Dispatch<React.SetStateAction<number>>;
 };
 

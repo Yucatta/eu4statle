@@ -27,7 +27,7 @@ const StateGuesses = () => {
   const imageinitizalied = useRef(false);
   const guessid = useRef([-1, -1]);
   const svgRef = useRef(null);
-  const { rndnum, isgameover, setisgameover } = useGameState();
+  const { rndnum, setisgameover } = useGameState();
 
   const {
     paths,

@@ -26,7 +26,7 @@ const ProvinceGuessCards = ({
   const [correctguessedprovinces, setcorrectguessedprovinces] = useState([-1]);
   const hasinitialized = useRef(false);
   const correctanswers = useRef<string[] | undefined>(undefined);
-  const { rndnum, isgameover } = useGameState();
+  const { rndnum } = useGameState();
   const {
     paths,
     regionStateIds,

@@ -138,7 +138,7 @@ const CardContainer = () => {
     "Terrains",
     "Developments",
     "Cultures",
-    "TradeGoods",
+    "Trade Goods",
     "Names",
   ];
   const cards = useMemo(() => {

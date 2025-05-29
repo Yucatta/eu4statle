@@ -320,14 +320,14 @@ const CultureCard = ({
                           return uniquecorrectanswers.some((answer) => {
                             return group[1].includes(answer);
                           });
-                        }).map((group) => (
-                          <span>{group[0]}</span>
+                        }).map((group, index) => (
+                          <span key={index}>{group[0]}</span>
                         ))}
                       </div>
                       <div>
                         Cultures:
-                        {uniquecorrectanswers.map((culture) => (
-                          <span>{culture} </span>
+                        {uniquecorrectanswers.map((culture, index) => (
+                          <span key={index}>{culture} </span>
                         ))}
                       </div>
                     </div>

@@ -195,7 +195,6 @@ Props) => {
     tradenodes,
     tradenodemembers,
   ]);
-  console.log(correctnode);
   return (
     <>
       <div className="flex flex-col w-9/10 ">

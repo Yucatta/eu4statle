@@ -4,7 +4,6 @@ import { useDataContext } from "@/context/DataContext";
 import CardGuesContainer from "./CardGuesContainer";
 import InputandList from "./Input";
 import CorrectAnswers from "./Answers";
-import Guesses from "./Guesses";
 // import { stringify } from "querystring";
 // import { type } from "os";
 interface Props {

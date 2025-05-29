@@ -293,7 +293,6 @@ const CultureCard = ({
       return temp;
     }
   }
-  console.log(CardsNames);
   return (
     <>
       <div className="flex flex-col w-9/10 ">

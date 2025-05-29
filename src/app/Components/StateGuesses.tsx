@@ -209,14 +209,19 @@ const StateGuesses = () => {
         });
         if (regionname.length === 1 && regionStateIds) {
           const temp = [];
+          console.log(regionname, statenames.indexOf(regionname[0]));
           for (let i = 0; i < 21; i++) {
             if (
-              regionStateIds[statenames.indexOf(regionname[0]) - 823][i] ||
+              regionStateIds[statenames.slice(823, 896).indexOf(regionname[0])][
+                i
+              ] ||
               !i
             ) {
               temp.push(
                 statenames[
-                  regionStateIds[statenames.indexOf(regionname[0]) - 823][i]
+                  regionStateIds[
+                    statenames.slice(823, 896).indexOf(regionname[0])
+                  ][i]
                 ]
               );
             } else {

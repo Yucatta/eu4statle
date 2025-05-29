@@ -30,7 +30,7 @@ const InputandList = ({
         focusedelement + 1 < filterednames.length
       ) {
         setfocusedelement(focusedelement + 1);
-      } else if (e.code === "Enter" && filterednames) {
+      } else if ((e.code === "Enter" || e.code === "Tab") && filterednames) {
         if (
           filterednames.filter((statename) => {
             return query.includes(statename);

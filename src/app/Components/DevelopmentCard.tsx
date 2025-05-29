@@ -238,7 +238,7 @@ Props) => {
                   }
                 })
                 .includes(true) ||
-              (Development && cardguesses.length === 4) ? (
+              (Development && cardguesses.length === 2) ? (
                 <CorrectAnswers
                   correctanswers={<>Average Development : {Development}</>}
                   isitwrong={cardguesses
@@ -280,7 +280,7 @@ Props) => {
               <CardGuesContainer
                 cardguesses={[
                   ...cardguesses,
-                  ...Array(4 - cardguesses.length).fill(""),
+                  ...Array(2 - cardguesses.length).fill(""),
                 ]}
                 correctsolutions={
                   // Development % 1

@@ -425,7 +425,7 @@ const ProvinceGuessCards = ({
                   ...cardguesses,
                   ...Array(
                     (CardsNames.length === 24
-                      ? 4
+                      ? uniquecorrectanswers.length + 1
                       : CardsNames.length === 31
                       ? 6
                       : CardsNames.length === 16

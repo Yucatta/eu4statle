@@ -24,8 +24,8 @@ export default function Home() {
           </header>
           {/* <States></States> */}
           <StateGuesses></StateGuesses>
-          {/* <CardContainer></CardContainer> */}
-          {isgameover ? <CardContainer></CardContainer> : ""}
+          <CardContainer></CardContainer>
+          {/* {isgameover ? <CardContainer></CardContainer> : ""} */}
           <div>
             {[0, 1, 2].map((index) => {
               return (

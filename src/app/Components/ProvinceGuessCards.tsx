@@ -144,6 +144,7 @@ const ProvinceGuessCards = ({
                 );
               })
             : regionids[rndnum[1]].map((provinceid) => {
+                // console.log(cardguesses);
                 return (
                   <path
                     d={String(paths[provinceid - 1][1])}

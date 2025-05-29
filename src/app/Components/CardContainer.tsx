@@ -6,6 +6,7 @@ import DevelopmentCard from "./DevelopmentCard";
 import { useDataContext } from "@/context/DataContext";
 import { useGameState } from "@/context/gamecontext";
 import CultureCard from "./CultureCard";
+import TradeNodes from "./tradenodes";
 // interface Props {
 //   // areabboxes: number[][];
 // }
@@ -22,10 +23,12 @@ const CardContainer = () => {
   const [developmentrgbs, setdevelopmentrgbs] = useState<string[]>();
   const [Cultures, SetCultures] = useState<string[][][]>();
   const [developments, setdevelopments] = useState<number[]>();
+  const [tradenodes, settradenodes] = useState<Array<[string, number[]]>>();
   const [currentcard, setCurrentCard] = useState(0);
   const { StateData, regionids } = useDataContext();
   const { rndnum, setisgameover } = useGameState();
   const [cardguesses, setcardguesses] = useState<string[][]>([
+    [],
     [],
     [],
     [],
@@ -108,6 +111,9 @@ const CardContainer = () => {
         const developmenttext = await developmentresponse.json();
         setdevelopmentrgbs(developmenttext);
 
+        const tradenoderesponse = await fetch("tradenodes.json");
+        const tradenodetext = await tradenoderesponse.json();
+        settradenodes(tradenodetext);
         // const religionnames[]
       } catch (error) {
         console.error("Error loading CSV file:", error);
@@ -137,11 +143,12 @@ const CardContainer = () => {
     "Terrains",
     "Developments",
     "Cultures",
+    "Trade Node",
     "Trade Goods",
     "Names",
   ];
   useEffect(() => {
-    setcardguesses([[], [], [], [], [], []]);
+    setcardguesses([[], [], [], [], [], [], []]);
     setCurrentCard(0);
   }, [rndnum]);
   const cards = useMemo(() => {
@@ -196,8 +203,21 @@ const CardContainer = () => {
         cardguesses={cardguesses[currentcard]}
         provincestats={ProvinceStats}
       ></CultureCard>,
-      <ProvinceGuessCards
+      <TradeNodes
         key={4}
+        rndnum={rndnum}
+        tradenodes={tradenodes ? tradenodes.map((node) => node[0]) : []}
+        provincestats={ProvinceStats}
+        cardguesses={cardguesses[currentcard]}
+        tradenodemembers={tradenodes ? tradenodes.map((node) => node[1]) : []}
+        onProvinceGuess={(e) => {
+          const temp = [...cardguesses];
+          temp[currentcard] = [...e];
+          setcardguesses(temp);
+        }}
+      ></TradeNodes>,
+      <ProvinceGuessCards
+        key={5}
         Cardrgbs={tradegoodrgbs}
         onProvinceGuess={(e) => {
           const temp = [...cardguesses];
@@ -209,7 +229,7 @@ const CardContainer = () => {
         provincestats={ProvinceStats}
       />,
       <ProvinceGuessCards
-        key={5}
+        key={6}
         CardsNames={
           ProvinceStats && rndnum
             ? regionids[rndnum[1]].map((id) => {
@@ -250,7 +270,7 @@ const CardContainer = () => {
         <div className="flex justify-center">
           <div className="flex  w-full h-full flex-wrap pt-2 justify-center space-y-4 pb-5">
             <div className="flex  w-fill   h-full justify-evenly">
-              {buttons.slice(0, 3).map((name, index) => {
+              {buttons.slice(0, 4).map((name, index) => {
                 return (
                   <button
                     className={
@@ -269,16 +289,16 @@ const CardContainer = () => {
               })}
             </div>
             <div className="flex  w-fit  h-full justify-evenly">
-              {buttons.slice(3, 6).map((name, index) => {
+              {buttons.slice(4, 7).map((name, index) => {
                 return (
                   <button
                     className={
-                      currentcard == index + 3
+                      currentcard == index + 4
                         ? "h-10 w-25 bg-[rgb(15,25,55)] rounded-xl text-sm cursor-pointer ml-3 transition-all duration-150 scale-90 active:scale-80"
                         : "h-10 w-25 bg-[rgb(23,54,105)] rounded-xl text-sm cursor-pointer ml-3 transition-all duration-150  active:scale-90"
                     }
                     onClick={() => {
-                      setCurrentCard(index + 3);
+                      setCurrentCard(index + 4);
                     }}
                     key={index}
                   >

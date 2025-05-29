@@ -129,10 +129,12 @@ const CultureCard = ({
                         ? correctguessedprovinces.includes(
                             Number(provinceid[0])
                           )
-                          ? "rgb(119, 221, 119)"
-                          : "rgb(60, 60, 60)"
+                          ? "rgb(63,255,0)"
+                          : cardguesses.length === 6
+                          ? "rgb(177 64 62)"
+                          : "rgb(80, 80, 80)"
                         : // ? "none"
-                          "rgb(45,45,45)"
+                          "rgb(50,50,50)"
                     }
                     stroke={
                       StateData[rndnum[0]].includes(Number(provinceid[0]))

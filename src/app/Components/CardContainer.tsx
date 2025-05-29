@@ -129,7 +129,6 @@ const CardContainer = () => {
         }
         tempdevs.push(Number((statedev[0] / statedev[1]).toFixed(2)));
       }
-      console.log(Math.max(...tempdevs));
       setdevelopments(tempdevs);
     }
   }, [ProvinceStats, rndnum, StateData]);
@@ -141,6 +140,10 @@ const CardContainer = () => {
     "Trade Goods",
     "Names",
   ];
+  useEffect(() => {
+    setcardguesses([[], [], [], [], [], []]);
+    setCurrentCard(0);
+  }, [rndnum]);
   const cards = useMemo(() => {
     return [
       <ProvinceGuessCards

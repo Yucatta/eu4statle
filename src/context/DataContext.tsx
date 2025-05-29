@@ -12,6 +12,7 @@ type DataContextType = {
   oceania: string[][];
   regionids: number[][];
   areabboxes: number[][];
+  diffuculty: number[][];
 };
 
 const DataContext = createContext<DataContextType | null>(null);

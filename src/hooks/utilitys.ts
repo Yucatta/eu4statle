@@ -4,11 +4,24 @@ import { useGameState } from "@/context/gamecontext";
 
 export default function useGameFunction() {
   const { setrndnum } = useGameState();
-  const { regionStateIds } = useDataContext();
-  function ChangeRndNum() {
-    setrndnum([39, 3]);
-    // const temp = Math.floor(Math.random() * 824);
-    // setrndnum([temp, findRegion(temp, temp)]);
+  const { regionStateIds, diffuculty } = useDataContext();
+  function ChangeRndNum(e: number) {
+    const today = new Date();
+    const start = new Date(2025, 4, 29);
+    // console.log(
+    //   Math.floor((Number(today) - Number(start)) / 24 / 60 / 60 / 1000),
+    //   diffuculty[e].length,
+    //   today,
+    //   start
+    // );
+    const temp =
+      diffuculty[e][
+        Math.floor(
+          ((Number(today) - Number(start)) / 24 / 60 / 60 / 1000) %
+            diffuculty[e].length
+        )
+      ];
+    setrndnum([temp, findRegion(temp, temp)]);
   }
   function findRegion(stateid: number, correctid: number) {
     if (regionStateIds) {

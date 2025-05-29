@@ -52,6 +52,7 @@ export default async function RootLayout({
               regionids: fetcheddata.regionids,
               paths: fetcheddata.paths,
               areabboxes: fetcheddata.areabboxes,
+              diffuculty: fetcheddata.diffuculty,
             }}
           >
             <GameStateProvider>{children}</GameStateProvider>

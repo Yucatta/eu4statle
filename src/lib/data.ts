@@ -14,6 +14,7 @@ interface AppData {
   regionids: number[][];
   areabboxes: number[][];
   paths: string[][];
+  diffuculty: number[][];
 }
 
 // --- Helper function to load and parse all data (runs once on module load) ---
@@ -123,9 +124,6 @@ function loadAllDataOnce(): AppData {
       },
     });
 
-    // --- Load JSON files (using synchronous read for simplicity here) ---
-    // If these files were very large, async read at startup might be considered,
-    // but for config-like files, sync is often fine.
     const oceania = JSON.parse(
       fs.readFileSync(path.join(root, "oceania.json"), "utf-8")
     );
@@ -138,12 +136,9 @@ function loadAllDataOnce(): AppData {
     const pathsJson = JSON.parse(
       fs.readFileSync(path.join(root, "completemap.json"), "utf-8")
     );
-    // console.log(regionidsJson);
-    // console.log(
-    //   "Completemap.json paths loaded, first item:",
-    //   pathsJson[0] ? pathsJson[0].slice(0, 50) + "..." : "empty"
-    // ); // Log a snippet
-
+    const diffuculty = JSON.parse(
+      fs.readFileSync(path.join(root, "areasbydiffuculty.json"), "utf-8")
+    );
     return {
       stateData: tempids,
       regionStateIds: tempids2,
@@ -155,6 +150,7 @@ function loadAllDataOnce(): AppData {
       regionids: regionidsJson,
       paths: Object.entries(pathsJson),
       areabboxes: tempids6,
+      diffuculty: diffuculty,
     };
   } catch (error) {
     console.error("Error loading application data:", error);
@@ -166,28 +162,11 @@ function loadAllDataOnce(): AppData {
   }
 }
 
-// --- Pre-load data when the module is initialized ---
-// This code runs ONCE when this module is first imported by your server.
 const appDataInstance = loadAllDataOnce();
 
-// --- Exported function to access the cached data ---
-// reactCache will ensure that even if loadAppData is called multiple times
-// within the same React server render pass, the `async () => appDataInstance`
-// part is only effectively run once per request, returning the already resolved promise.
 export const loadAppData = reactCache(async (): Promise<AppData> => {
-  // Simply return the data that was loaded at module initialization.
-  // No actual file I/O happens here on subsequent calls or requests.
   if (!appDataInstance) {
-    // This should ideally not happen if loadAllDataOnce succeeded.
-    // Handle error or re-throw.
     throw new Error("Application data not initialized.");
   }
   return appDataInstance;
 });
-
-// --- Example of how to use it (e.g., in a Server Component) ---
-// async function MyServerComponent() {
-//   const data = await loadAppData();
-//   // Use data.stateData, data.paths etc.
-//   return <div>{JSON.stringify(data.statenames)}</div>;
-// }

@@ -300,10 +300,9 @@ const StateGuesses = () => {
       }
     }
   }
-
   useEffect(() => {
     if (regionStateIds) {
-      ChangeRndNum();
+      ChangeRndNum(0);
     }
   }, [regionStateIds]);
   useEffect(() => {
@@ -328,14 +327,18 @@ const StateGuesses = () => {
         StateGuesses[2][1] === rndnum[0] ||
         StateGuesses[3][1] === rndnum[0]) &&
       statenames ? (
-        <div className=" w-2/4  h-15 rounded-xl mt-1.5 mb-1   bg-green-500 text-black items-center flex justify-evenly font-semibold ">
-          <span>State: {statenames[rndnum[0]]} </span>
-          <span>Region:{statenames[823 + rndnum[1]]}</span>
+        <div className=" w-2/  h-15 rounded-xl mt-1.5 mb-1 px-10  bg-green-500 text-black items-center flex justify-evenly font-semibold ">
+          <div className="flex-col flex">
+            <div>State: {statenames[rndnum[0]]} </div>
+            <div>Region: {statenames[823 + rndnum[1]]}</div>
+          </div>
         </div>
       ) : StateGuesses[3][1] !== -1 && statenames && rndnum ? (
         <div className=" w-2/4  h-15 rounded-xl mt-1.5 mb-1   bg-red-300 text-black items-center flex justify-evenly font-semibold">
-          <span>State: {statenames[rndnum[0]]} </span>
-          <span>Region:{statenames[823 + rndnum[1]]}</span>
+          <div className="flex-col flex">
+            <div>State: {statenames[rndnum[0]]} </div>
+            <div>Region: {statenames[823 + rndnum[1]]}</div>
+          </div>
         </div>
       ) : (
         <div className=" w-3/4  justify-between items-center flex  relative">

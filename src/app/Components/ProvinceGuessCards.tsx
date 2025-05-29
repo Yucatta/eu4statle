@@ -230,7 +230,6 @@ const ProvinceGuessCards = ({
     correctguessedprovinces,
   ]);
 
-  // console.log(StateData)
   useEffect(() => {
     function getcorrectanswers() {
       if (StateData && rndnum && CardsNames && provincestats) {
@@ -332,7 +331,6 @@ const ProvinceGuessCards = ({
       return temp;
     }
   }
-  console.log(CardsNames?.length, uniquecorrectanswers.length);
   return (
     <>
       <div className="flex flex-col w-9/10 ">

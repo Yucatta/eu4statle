@@ -262,7 +262,7 @@ Props) => {
                     onSubmit={handlesubmit}
                     query={cardquery ? cardquery : ""}
                     widthofinput="45"
-                    placeholder="AverageDevelopment"
+                    placeholder="Average Development"
                     filterednames={filterednames}
                   />
                   <button

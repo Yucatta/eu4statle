@@ -3,6 +3,7 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 import InputandList from "./Input";
 import CardGuesContainer from "./CardGuesContainer";
 import { useDataContext } from "@/context/DataContext";
+import CorrectAnswers from "./Answers";
 interface Props {
   rndnum: number[] | undefined;
   CardsNames: string[][][];
@@ -144,10 +145,6 @@ const CultureCard = ({
                         : "1"
                     }
                     key={Number(provinceid[0])}
-                    // className="hover:fill-amber-700"
-                    // onClick={() => {
-                    //   console.log(provinceid);
-                    // }}
                   ></path>
                 );
               })
@@ -158,7 +155,7 @@ const CultureCard = ({
                     fill={
                       StateData[rndnum[0]].includes(provinceid)
                         ? correctguessedprovinces.includes(provinceid)
-                          ? "rgb(119, 221, 119)"
+                          ? "rgb(63,255,0)"
                           : cardguesses.length === 6
                           ? "rgb(177 64 62)"
                           : "rgb(80, 80, 80)"
@@ -271,15 +268,6 @@ const CultureCard = ({
           return;
         } else if (temp.length === i) {
           temp[i] = cardquery;
-          // const tempcorrect = findCorrectProvinces(cardquery);
-
-          // setcorrectguessedprovinces(() => {
-          //   if (correctguessedprovinces[0] > 0) {
-          //     return [...tempcorrect, ...correctguessedprovinces];
-          //   } else {
-          //     return tempcorrect;
-          //   }
-          // });
           break;
         }
       }
@@ -305,6 +293,7 @@ const CultureCard = ({
       return temp;
     }
   }
+  console.log(CardsNames);
   return (
     <>
       <div className="flex flex-col w-9/10 ">
@@ -318,23 +307,44 @@ const CultureCard = ({
               <div className="flex justify-center w-1/3 border-0 h-30">
                 {Image ? Image : ""}
               </div>
-              {correctanswers &&
-              correctanswers.current?.length ===
-                correctguessedprovinces.length ? (
-                <div className=" w-9/10 h-10 rounded-xl text-sm mb-1  mt-1.5 bg-green-500 text-black items-center flex justify-evenly font-semibold transition-all scale-100">
-                  Cultures :{" "}
-                  {uniquecorrectanswers.map((uniquecorrectanswer, index) => {
-                    return <span key={index}>{uniquecorrectanswer} </span>;
-                  })}
-                </div>
-              ) : CardsNames && cardguesses && cardguesses.length === 6 ? (
-                <div className=" w-9/10  h-10 rounded-xl  mb-1 text-sm mt-1.5  bg-red-300 text-black items-center flex justify-evenly font-semibold">
-                  Cultures :{" "}
-                  {uniquecorrectanswers.map((uniquecorrectanswer, index) => {
-                    return <span key={index}>{uniquecorrectanswer} </span>;
-                  })}
-                </div>
+              {(correctanswers &&
+                correctanswers.current?.length ===
+                  correctguessedprovinces.length) ||
+              (CardsNames && cardguesses && cardguesses.length === 6) ? (
+                <CorrectAnswers
+                  correctanswers={
+                    <div className="flex-col">
+                      <div>
+                        Culture Group:
+                        {CardsNames.filter((group) => {
+                          return uniquecorrectanswers.some((answer) => {
+                            return group[1].includes(answer);
+                          });
+                        }).map((group) => group[0])}
+                      </div>
+                      <div>Cultures:{...uniquecorrectanswers}</div>
+                    </div>
+                  }
+                  isitwrong={
+                    correctanswers &&
+                    correctanswers.current?.length ===
+                      correctguessedprovinces.length
+                  }
+                ></CorrectAnswers>
               ) : (
+                //   <div className=" w-9/10 h-10 rounded-xl text-sm mb-1  mt-1.5 bg-green-500 text-black items-center flex justify-evenly font-semibold transition-all scale-100">
+                //     Cultures :{" "}
+                //     {uniquecorrectanswers.map((uniquecorrectanswer, index) => {
+                //       return <span key={index}>{uniquecorrectanswer} </span>;
+                //     })}
+                //   </div>
+                // ) : CardsNames && cardguesses && cardguesses.length === 6 ? (
+                //   <div className=" w-9/10  h-10 rounded-xl  mb-1 text-sm mt-1.5  bg-red-300 text-black items-center flex justify-evenly font-semibold">
+                //     Cultures :{" "}
+                //     {uniquecorrectanswers.map((uniquecorrectanswer, index) => {
+                //       return <span key={index}>{uniquecorrectanswer} </span>;
+                //     })}
+                //   </div>
                 <div className="flex-row flex w-6/12 justify-evenly">
                   <div className="flex flex-col ">
                     <InputandList

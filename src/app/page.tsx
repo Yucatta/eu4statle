@@ -20,6 +20,7 @@ export default function Home() {
           </header>
           {/* <States></States> */}
           <StateGuesses></StateGuesses>
+          {/* <CardContainer></CardContainer> */}
           {isgameover ? <CardContainer></CardContainer> : ""}
         </div>
       </div>

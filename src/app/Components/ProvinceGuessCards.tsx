@@ -100,7 +100,7 @@ const ProvinceGuessCards = ({
                               ? 6
                               : CardsNames.length === 16
                               ? 5
-                              : 10)
+                              : 9)
                           ? Cardrgbs &&
                             provincestats &&
                             CardsNames &&
@@ -160,7 +160,7 @@ const ProvinceGuessCards = ({
                               ? 6
                               : CardsNames.length === 16
                               ? 5
-                              : 10)
+                              : 9)
                           ? Cardrgbs &&
                             provincestats &&
                             CardsNames &&
@@ -177,7 +177,7 @@ const ProvinceGuessCards = ({
                                 )
                               ]
                             : correctguessedprovinces.includes(provinceid)
-                            ? "rgb(119, 221, 119)"
+                            ? "rgb(63,255,0)"
                             : "rgb(177 64 62)"
                           : "rgb(80, 80, 80)"
                         : // ? "none"
@@ -332,6 +332,7 @@ const ProvinceGuessCards = ({
       return temp;
     }
   }
+  console.log(CardsNames?.length, uniquecorrectanswers.length);
   return (
     <>
       <div className="flex flex-col w-9/10 ">
@@ -347,14 +348,13 @@ const ProvinceGuessCards = ({
               (correctanswers.current?.length ===
                 correctguessedprovinces.length ||
                 cardguesses.length ===
-                  uniquecorrectanswers.length +
-                    (CardsNames.length === 24
-                      ? 3
-                      : CardsNames.length === 31
-                      ? 5
-                      : CardsNames.length === 16
-                      ? 4
-                      : 8)) ? (
+                  (CardsNames.length === 24
+                    ? 4
+                    : CardsNames.length === 31
+                    ? 6
+                    : CardsNames.length === 16
+                    ? 5
+                    : 9)) ? (
                 <CorrectAnswers
                   isitwrong={
                     correctanswers &&
@@ -376,7 +376,9 @@ const ProvinceGuessCards = ({
                       {uniquecorrectanswers.map(
                         (uniquecorrectanswer, index) => {
                           return (
-                            <span key={index}>{uniquecorrectanswer} </span>
+                            <span key={index}>
+                              {uniquecorrectanswer + " "}{" "}
+                            </span>
                           );
                         }
                       )}
@@ -424,15 +426,13 @@ const ProvinceGuessCards = ({
                 cardguesses={[
                   ...cardguesses,
                   ...Array(
-                    uniquecorrectanswers.length +
-                      (CardsNames.length === 24
-                        ? 4
-                        : CardsNames.length === 31
-                        ? 6
-                        : CardsNames.length === 16
-                        ? 5
-                        : 9) -
-                      cardguesses.length
+                    (CardsNames.length === 24
+                      ? 4
+                      : CardsNames.length === 31
+                      ? 6
+                      : CardsNames.length === 16
+                      ? 5
+                      : 9) - cardguesses.length
                   ).fill(""),
                 ]}
                 correctsolutions={uniquecorrectanswers}

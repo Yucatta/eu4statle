@@ -6,8 +6,9 @@ export default function useGameFunction() {
   const { setrndnum } = useGameState();
   const { regionStateIds } = useDataContext();
   function ChangeRndNum() {
-    const temp = Math.floor(Math.random() * 824);
-    setrndnum([temp, findRegion(temp, temp)]);
+    setrndnum([39, 3]);
+    // const temp = Math.floor(Math.random() * 824);
+    // setrndnum([temp, findRegion(temp, temp)]);
   }
   function findRegion(stateid: number, correctid: number) {
     if (regionStateIds) {

@@ -221,7 +221,7 @@ Props) => {
       <div className="flex flex-col w-9/10 ">
         {rndnum ? (
           <div className="flex flex-col justify-center items-center border-0 max-h-[1000px] overflow-hidden">
-            <div className="flex flex-row w-full h-30 items-start justify-evenly">
+            <div className="flex flex-row w-full h-30 items-center justify-evenly">
               <div className="flex justify-center w-1/3 border-0 h-30">
                 {Image ? Image : ""}
               </div>
@@ -237,9 +237,8 @@ Props) => {
                     return false;
                   }
                 })
-                .includes(true) &&
-              Development &&
-              cardguesses.length === 4 ? (
+                .includes(true) ||
+              (Development && cardguesses.length === 4) ? (
                 <CorrectAnswers
                   correctanswers={<>Average Development : {Development}</>}
                   isitwrong={cardguesses
@@ -256,15 +255,6 @@ Props) => {
                     .includes(true)}
                 ></CorrectAnswers>
               ) : (
-                // (
-                //   <div className=" w-9/10 h-10 rounded-xl text-sm mb-1  mt-1.5 bg-green-500 text-black items-center flex justify-evenly font-semibold transition-all scale-100">
-                //     Average Development : {Development}
-                //   </div>
-                // ) : Development && cardguesses.length === 4 ? (
-                //   <div className=" w-9/10  h-10 rounded-xl  mb-1 text-sm mt-1.5  bg-red-300 text-black items-center flex justify-evenly font-semibold">
-                //     Average Development : {Development}
-                //   </div>
-                // )
                 <div className="flex-col flex w-auto h-30 justify-center mt-0.5 itms-center">
                   <InputandList
                     inputref={inputref}

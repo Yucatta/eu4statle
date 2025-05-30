@@ -8,12 +8,15 @@ import CultureCard from "./CultureCard";
 import TradeNodes from "./tradenodes";
 import ProvinceViewer from "./Provinceviewer";
 import { useProvinceDataContext } from "@/context/ProvinceDataContext";
+import CountryGuesser from "./CountryGuesser";
 const CardContainer = () => {
   const [developments, setdevelopments] = useState<number[]>();
   const [currentcard, setCurrentCard] = useState(0);
   const { StateData, regionids } = useDataContext();
   const { rndnum, setisgameover } = useGameState();
   const [cardguesses, setcardguesses] = useState<string[][]>([
+    [],
+    [],
     [],
     [],
     [],
@@ -40,6 +43,8 @@ const CardContainer = () => {
     terrainrgbs,
     Terrains,
     Cultures,
+    countries,
+    countryprovinces,
   } = useProvinceDataContext();
 
   useEffect(() => {
@@ -76,9 +81,10 @@ const CardContainer = () => {
     "Trade Centers",
     "Monuments",
     "Estuarys",
+    "Countries",
   ];
   useEffect(() => {
-    setcardguesses([[], [], [], [], [], [], [], [], [], [], []]);
+    setcardguesses([[], [], [], [], [], [], [], [], [], [], [], []]);
     setCurrentCard(0);
   }, [rndnum]);
   const cards = useMemo(() => {
@@ -176,6 +182,15 @@ const CardContainer = () => {
         cardguesses={cardguesses[currentcard]}
         provincestats={ProvinceStats}
       ></ProvinceViewer>,
+      <CountryGuesser
+        key={11}
+        Cardrgbs={countries.map((country) => country[0])}
+        onProvinceGuess={handleSubmit}
+        cardguesses={cardguesses[currentcard]}
+        countryprovinces={countryprovinces}
+        CardsNames={countries.map((country) => country[1])}
+        provincestats={ProvinceStats}
+      ></CountryGuesser>,
     ];
   }, [
     rndnum,
@@ -201,7 +216,7 @@ const CardContainer = () => {
       <div className="flex justify-center w-full flex-col items-center ">
         <div className="flex justify-center">
           <div className="flex  w-full h-full flex-wrap pt-2 justify-center space-y-4 pb-5">
-            {buttons.slice(0, 11).map((name, index) => {
+            {buttons.slice(0, 12).map((name, index) => {
               return (
                 <button
                   className={

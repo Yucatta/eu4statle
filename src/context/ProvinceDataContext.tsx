@@ -13,6 +13,8 @@ type DataContextType = {
   Cultures: string[][][];
   fortestuarycentermonument: number[][];
   tradenodes: [string, number[]][];
+  countries: string[][];
+  countryprovinces: number[][];
 };
 
 const DataContext = createContext<DataContextType | null>(null);

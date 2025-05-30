@@ -15,6 +15,8 @@ interface AppData {
   Cultures: string[][][];
   fortestuarycentermonument: number[][];
   tradenodes: [string, number[]][];
+  countries: string[][];
+  countryprovinces: number[][];
 }
 
 function loadAllDataOnce(): AppData {
@@ -67,6 +69,9 @@ function loadAllDataOnce(): AppData {
     const tradenodes = JSON.parse(
       fs.readFileSync(path.join(root, "tradenodes.json"), "utf-8")
     );
+    const countries: Array<[string, string, string, number[]]> = JSON.parse(
+      fs.readFileSync(path.join(root, "countryprovinces.json"), "utf-8")
+    );
     return {
       ProvinceStats: tempids,
       fortestuarycentermonument: tempfortstuff,
@@ -91,6 +96,8 @@ function loadAllDataOnce(): AppData {
       Cultures: cultures,
       developmentrgbs: development,
       tradenodes: tradenodes,
+      countries: countries.map((country) => country.slice(1, 3) as string[]),
+      countryprovinces: countries.map((country) => country[3]),
     };
   } catch (error) {
     console.error("Error loading application data:", error);

@@ -66,6 +66,8 @@ export default async function RootLayout({
                 tradegoodrgbs: fetcheddata2.tradegoodrgbs,
                 tradenodes: fetcheddata2.tradenodes,
                 Cultures: fetcheddata2.Cultures,
+                countries: fetcheddata2.countries,
+                countryprovinces: fetcheddata2.countryprovinces,
               }}
             >
               <GameStateProvider>{children}</GameStateProvider>

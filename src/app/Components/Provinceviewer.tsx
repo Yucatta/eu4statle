@@ -1,6 +1,5 @@
 import { useDataContext } from "@/context/DataContext";
 import { useGameState } from "@/context/gamecontext";
-import build from "next/dist/build";
 import React, { useEffect, useMemo, useState } from "react";
 interface Props {
   provincestats: Array<[string, number, string, string, string, string]>;
@@ -266,11 +265,11 @@ const ProvinceViewer = ({
             <>
               {useranswer - 1 ? (
                 <div className="w-auto p-2 rounded-md text-center text-md mb-2 bg-green-500 text-black font-semibold transition-all break-words">
-                  {statenames[rndnum![0]]} Doesn't have a {buildingname}
+                  {statenames[rndnum![0]]} {"Doesn't have a"} {buildingname}
                 </div>
               ) : (
                 <div className="w-auto p-2 rounded-md text-center text-md  mb-2 bg-red-300 text-black font-semibold transition-all break-words">
-                  {statenames[rndnum![0]]} Doesn't Have a {buildingname}
+                  {statenames[rndnum![0]]} {"Doesn't have a"} {buildingname}
                 </div>
               )}
             </>

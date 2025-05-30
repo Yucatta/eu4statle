@@ -1,6 +1,5 @@
 "use client";
 import React, { useEffect, useMemo, useState } from "react";
-import Papa from "papaparse";
 import ProvinceGuessCards from "./ProvinceGuessCards";
 import DevelopmentCard from "./DevelopmentCard";
 import { useDataContext } from "@/context/DataContext";
@@ -8,11 +7,7 @@ import { useGameState } from "@/context/gamecontext";
 import CultureCard from "./CultureCard";
 import TradeNodes from "./tradenodes";
 import ProvinceViewer from "./Provinceviewer";
-import {
-  ProvinceDataProvider,
-  useProvinceDataContext,
-} from "@/context/ProvinceDataContext";
-import { loadProvinceData } from "@/lib/provinces";
+import { useProvinceDataContext } from "@/context/ProvinceDataContext";
 const CardContainer = () => {
   const [developments, setdevelopments] = useState<number[]>();
   const [currentcard, setCurrentCard] = useState(0);

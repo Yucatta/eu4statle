@@ -4,17 +4,14 @@ import InputandList from "./Input";
 import CardGuesContainer from "./CardGuesContainer";
 import { useDataContext } from "@/context/DataContext";
 import CorrectAnswers from "./Answers";
+import { useGameState } from "@/context/gamecontext";
 interface Props {
-  rndnum: number[] | undefined;
   CardsNames: string[][][];
-  provincestats:
-    | Array<[string, number, string, string, string, string]>
-    | undefined;
+  provincestats: Array<[string, number, string, string, string, string]>;
   onProvinceGuess: (e: string[]) => void;
   cardguesses: string[];
 }
 const CultureCard = ({
-  rndnum,
   CardsNames,
   provincestats,
   cardguesses,
@@ -28,6 +25,7 @@ const CultureCard = ({
   const [correctguessedprovinces, setcorrectguessedprovinces] = useState([-1]);
   const hasinitialized = useRef(false);
   const correctanswers = useRef<string[] | undefined>(undefined);
+  const { rndnum } = useGameState();
   const {
     paths,
     regionStateIds,

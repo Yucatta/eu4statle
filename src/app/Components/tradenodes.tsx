@@ -4,21 +4,18 @@ import { useDataContext } from "@/context/DataContext";
 import CardGuesContainer from "./CardGuesContainer";
 import InputandList from "./Input";
 import CorrectAnswers from "./Answers";
+import { useGameState } from "@/context/gamecontext";
 // import { stringify } from "querystring";
 // import { type } from "os";
 interface Props {
-  rndnum: number[] | undefined;
   tradenodes: string[];
   tradenodemembers: number[][];
-  provincestats:
-    | Array<[string, number, string, string, string, string]>
-    | undefined;
+  provincestats: Array<[string, number, string, string, string, string]>;
   onProvinceGuess: (e: string[]) => void;
   cardguesses: string[];
 }
 
 const TradeNodes = ({
-  rndnum,
   onProvinceGuess,
   cardguesses,
   provincestats,
@@ -41,6 +38,7 @@ Props) => {
       // setscardguesses([e, ...cardguesses.slice(0, 3)]);
     }
   }
+  const { rndnum } = useGameState();
   const {
     paths,
     regionStateIds,

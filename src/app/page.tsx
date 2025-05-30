@@ -22,7 +22,6 @@ export default function Home() {
           <header className="h-10 w-full font-bold  bg-[rgb(4,5,9)] flex items-center justify-center border-b-2  ">
             EU4 STATLE
           </header>
-          {/* <States></States> */}
           <StateGuesses></StateGuesses>
           {/* <CardContainer></CardContainer> */}
           {isgameover ? <CardContainer></CardContainer> : ""}

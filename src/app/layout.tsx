@@ -5,6 +5,8 @@ import { StrictMode } from "react";
 import { GameStateProvider } from "@/context/gamecontext";
 import { DataProvider } from "@/context/DataContext";
 import { loadAppData } from "@/lib/data";
+import { loadProvinceData } from "@/lib/provinces";
+import { ProvinceDataProvider } from "@/context/ProvinceDataContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,15 +29,10 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const fetcheddata = await loadAppData();
+  const fetcheddata2 = await loadProvinceData();
   return (
     <html lang="en">
-      <head>
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8380618516555441"
-          crossOrigin="anonymous"
-        ></script>
-      </head>
+      <head></head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
@@ -55,7 +52,24 @@ export default async function RootLayout({
               diffuculty: fetcheddata.diffuculty,
             }}
           >
-            <GameStateProvider>{children}</GameStateProvider>
+            <ProvinceDataProvider
+              value={{
+                ProvinceStats: fetcheddata2.ProvinceStats,
+                fortestuarycentermonument:
+                  fetcheddata2.fortestuarycentermonument,
+                Religions: fetcheddata2.Religions,
+                Religionrgbs: fetcheddata2.Religionrgbs,
+                Terrains: fetcheddata2.Terrains,
+                terrainrgbs: fetcheddata2.terrainrgbs,
+                TradeGoods: fetcheddata2.TradeGoods,
+                developmentrgbs: fetcheddata2.developmentrgbs,
+                tradegoodrgbs: fetcheddata2.tradegoodrgbs,
+                tradenodes: fetcheddata2.tradenodes,
+                Cultures: fetcheddata2.Cultures,
+              }}
+            >
+              <GameStateProvider>{children}</GameStateProvider>
+            </ProvinceDataProvider>
           </DataProvider>
         </StrictMode>
       </body>

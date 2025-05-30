@@ -4,16 +4,14 @@ import { useDataContext } from "@/context/DataContext";
 import CardGuesContainer from "./CardGuesContainer";
 import InputandList from "./Input";
 import CorrectAnswers from "./Answers";
+import { useGameState } from "@/context/gamecontext";
 // import { stringify } from "querystring";
 // import { type } from "os";
 interface Props {
-  rndnum: number[] | undefined;
   Development: number;
   developmentrgbs?: string[];
-  provincestats:
-    | Array<[string, number, string, string, string, string]>
-    | undefined;
-  StateData: number[][] | undefined;
+  provincestats: Array<[string, number, string, string, string, string]>;
+  StateData: number[][];
   onProvinceGuess: (e: string[]) => void;
   cardguesses: string[];
 }
@@ -31,7 +29,6 @@ const cardnames = [
 ];
 
 const DevelopmentCard = ({
-  rndnum,
   Development,
   onProvinceGuess,
   developmentrgbs,
@@ -53,6 +50,7 @@ Props) => {
       // setscardguesses([e, ...cardguesses.slice(0, 3)]);
     }
   }
+  const { rndnum } = useGameState();
   const {
     paths,
     regionStateIds,
@@ -216,6 +214,7 @@ Props) => {
     provincestats,
     developmentrgbs,
   ]);
+  // console.log(Development % 1 );
   return (
     <>
       <div className="flex flex-col w-9/10 ">
@@ -283,22 +282,18 @@ Props) => {
                   ...Array(2 - cardguesses.length).fill(""),
                 ]}
                 correctsolutions={
-                  // Development % 1
-                  //   ? Development % 2
-                  //     ? [
-                  //         `${Development} - ${Development + 2}`,
-                  //         `${Development - 2} - ${Development}`,
-                  //       ]
-                  //     : [`${Development - 1} - ${Development + 1}`]
-                  //   :
-                  Math.floor(Development) % 2
+                  !(Development % 1)
+                    ? Development % 2
+                      ? [
+                          `${Development} - ${Development + 2}`,
+                          `${Development - 2} - ${Development}`,
+                        ]
+                      : [`${Development - 1} - ${Development + 1}`]
+                    : Math.floor(Development) % 2
                     ? [
                         `${Math.floor(Development)} - ${
                           Math.floor(Development) + 2
                         }`,
-                        `${Math.floor(Development) - 2} - ${Math.floor(
-                          Development
-                        )}`,
                       ]
                     : [
                         `${Math.floor(Development) - 1} - ${

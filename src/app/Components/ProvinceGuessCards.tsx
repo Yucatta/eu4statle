@@ -8,9 +8,7 @@ import { useGameState } from "@/context/gamecontext";
 interface Props {
   CardsNames?: string[];
   Cardrgbs?: string[];
-  provincestats:
-    | Array<[string, number, string, string, string, string]>
-    | undefined;
+  provincestats: Array<[string, number, string, string, string, string]>;
   onProvinceGuess: (e: string[]) => void;
   cardguesses: string[];
 }
@@ -58,7 +56,6 @@ const ProvinceGuessCards = ({
       regionStateIds &&
       rndnum &&
       StateData &&
-      // !imageinitizalied.current &&
       paths &&
       emptylands &&
       regionbboxes &&

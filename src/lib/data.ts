@@ -17,7 +17,6 @@ interface AppData {
   diffuculty: number[][];
 }
 
-// --- Helper function to load and parse all data (runs once on module load) ---
 function loadAllDataOnce(): AppData {
   console.log("Loading and parsing application data from files...");
   try {

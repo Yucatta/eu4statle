@@ -306,18 +306,9 @@ const ProvinceViewer = ({
             </div>
           ) : StateData[rndnum![0]].filter((id) => id && building[id - 1])
               .length ? (
-            2 - selectedprovinces.length &&
-            !(
-              StateData[rndnum![0]].filter((id) => id && building[id - 1])
-                .length === selectedprovinces.length
-            ) ? (
-              <div className="flex justify-center items-center  rounded-sm w-40 h-14 text-white  bg-[rgb(35,77,133)] ">
-                Guesses Left:
-                {2 - selectedprovinces.length}
-              </div>
-            ) : selectedprovinces.filter((id) => building[id - 1]).length ===
-              StateData[rndnum![0]].filter((id) => id && building[id - 1])
-                .length ? (
+            selectedprovinces.filter((id) => building[id - 1]).length ===
+            StateData[rndnum![0]].filter((id) => id && building[id - 1])
+              .length ? (
               <div className="flex justify-center items-center text-center rounded-sm w-40 h-14 text-black font-semibold bg-green-600">
                 {statenames[rndnum![0]]} Has{" "}
                 {
@@ -326,7 +317,7 @@ const ProvinceViewer = ({
                 }{" "}
                 {buildingname}
               </div>
-            ) : (
+            ) : selectedprovinces.length === 2 ? (
               <div className="flex justify-center items-center text-center rounded-sm w-40 h-14 text-black font-semibold bg-red-400">
                 {statenames[rndnum![0]]} Has{" "}
                 {
@@ -334,6 +325,15 @@ const ProvinceViewer = ({
                     .length
                 }{" "}
                 {buildingname}
+              </div>
+            ) : (
+              <div className="flex justify-center items-center  rounded-sm w-40 h-14 text-white  bg-[rgb(35,77,133)] ">
+                Guesses Left:
+                {StateData[rndnum![0]].filter((id) => id && building[id - 1])
+                  .length > 2
+                  ? StateData[rndnum![0]].filter((id) => id && building[id - 1])
+                      .length
+                  : 2 - selectedprovinces.length}
               </div>
             )
           ) : (

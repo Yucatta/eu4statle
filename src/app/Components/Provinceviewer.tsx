@@ -30,6 +30,10 @@ const ProvinceViewer = ({
   } = useDataContext();
   const [useranswer, setuseranswer] = useState(0);
   const [selectedprovinces, setselectedprovinces] = useState<number[]>([]);
+  const guesslimit =
+    StateData[rndnum![0]].filter((id) => id && building[id - 1]).length > 2
+      ? 3
+      : 2;
   const buildingname = currentbuilding
     ? currentbuilding == 1
       ? "Estuary"
@@ -69,13 +73,6 @@ const ProvinceViewer = ({
                 return (
                   <path
                     d={provinceid[1]}
-                    // fill={
-                    //   StateData[rndnum[0]].includes(Number(provinceid[0]))
-                    // ? correctnode && cardguesses.includes(correctnode[0])
-                    //   ?  "rgb(119, 221, 119)"
-                    //       : "rgb(60, 60, 60)"
-                    //     : "rgb(45,45,45)"
-                    // }
                     fill={
                       StateData[rndnum[0]].includes(Number(provinceid[0]))
                         ? selectedprovinces.includes(Number(provinceid[0])) &&
@@ -102,7 +99,8 @@ const ProvinceViewer = ({
                         StateData[rndnum[0]].includes(Number(provinceid[0])) &&
                         StateData[rndnum[0]].some((id) => {
                           return id && building[id - 1];
-                        })
+                        }) &&
+                        !selectedprovinces.includes(Number(provinceid[0]))
                       ) {
                         setselectedprovinces([
                           Number(provinceid[0]),
@@ -122,7 +120,7 @@ const ProvinceViewer = ({
                       StateData[rndnum[0]].includes(provinceid)
                         ? (selectedprovinces.includes(provinceid) &&
                             building[provinceid - 1]) ||
-                          (selectedprovinces.length === 2 &&
+                          (selectedprovinces.length === guesslimit &&
                             building[provinceid - 1])
                           ? "rgb(40,40,50)"
                           : selectedprovinces.includes(provinceid)
@@ -143,13 +141,7 @@ const ProvinceViewer = ({
                           return id && building[id - 1];
                         }) &&
                         !selectedprovinces.includes(provinceid) &&
-                        !(
-                          selectedprovinces.filter((id) => building[id - 1])
-                            .length ===
-                          StateData[rndnum[0]].filter(
-                            (id) => id && building[id - 1]
-                          ).length
-                        )
+                        selectedprovinces.length !== guesslimit
                       ) {
                         onProvinceGuess([...cardguesses, String(provinceid)]);
                         setselectedprovinces([
@@ -165,13 +157,7 @@ const ProvinceViewer = ({
                         return id && building[id - 1];
                       }) &&
                       !selectedprovinces.includes(provinceid) &&
-                      !(
-                        selectedprovinces.filter((id) => building[id - 1])
-                          .length ===
-                        StateData[rndnum[0]].filter(
-                          (id) => id && building[id - 1]
-                        ).length
-                      )
+                      selectedprovinces.length !== guesslimit
                         ? "cursor-pointer"
                         : ""
                     }
@@ -217,7 +203,6 @@ const ProvinceViewer = ({
     provincestats,
   ]);
   useEffect(() => {
-    console.log(cardguesses);
     setuseranswer(cardguesses.length ? Number(cardguesses[0]) : 0);
     if (cardguesses.length > 1) {
       setselectedprovinces(
@@ -317,7 +302,7 @@ const ProvinceViewer = ({
                 }{" "}
                 {buildingname}
               </div>
-            ) : selectedprovinces.length === 2 ? (
+            ) : selectedprovinces.length === guesslimit ? (
               <div className="flex justify-center items-center text-center rounded-sm w-40 h-14 text-black font-semibold bg-red-400">
                 {statenames[rndnum![0]]} Has{" "}
                 {
@@ -329,11 +314,7 @@ const ProvinceViewer = ({
             ) : (
               <div className="flex justify-center items-center  rounded-sm w-40 h-14 text-white  bg-[rgb(35,77,133)] ">
                 Guesses Left:
-                {StateData[rndnum![0]].filter((id) => id && building[id - 1])
-                  .length > 2
-                  ? StateData[rndnum![0]].filter((id) => id && building[id - 1])
-                      .length
-                  : 2 - selectedprovinces.length}
+                {guesslimit - selectedprovinces.length}
               </div>
             )
           ) : (

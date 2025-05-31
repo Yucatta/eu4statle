@@ -148,7 +148,7 @@ const StateGuesses = () => {
                   // stroke={emptylands.includes(provinceid) ? "none" : "white"}
                   stroke={
                     regionids[rndnum[1]].includes(+path[0] + 1)
-                      ? "white"
+                      ? "rgb(200,200,200)"
                       : emptylands.includes(+path[0] + 1)
                       ? "none"
                       : "rgb(15,15,15)"
@@ -177,7 +177,7 @@ const StateGuesses = () => {
                     stroke={
                       index === rndnum[0]
                         ? "rgb(80, 0, 100)"
-                        : "rgb(230,230,230)"
+                        : "rgb(150,150,150)"
                     }
                     strokeWidth={index === rndnum[0] ? "3" : "0.8"}
                     key={index}

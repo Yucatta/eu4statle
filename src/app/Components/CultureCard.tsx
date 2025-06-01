@@ -237,7 +237,7 @@ const CultureCard = ({
     } else {
       return [];
     }
-  }, [correctanswers]);
+  }, [correctanswers.current]);
 
   useEffect(() => {
     if (correctanswers.current) {

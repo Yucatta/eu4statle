@@ -219,7 +219,8 @@ const CountryGuesser = ({
     } else {
       return [];
     }
-  }, [correctanswers]);
+  }, [correctanswers.current]);
+  console.log(uniquecorrectanswers);
   const numberofguess = uniquecorrectanswers.length + 1;
   useEffect(() => {
     if (correctanswers.current) {

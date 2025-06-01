@@ -229,7 +229,7 @@ const ProvinceGuessCards = ({
     } else {
       return [];
     }
-  }, [correctanswers]);
+  }, [correctanswers.current]);
 
   useEffect(() => {
     if (correctanswers.current) {

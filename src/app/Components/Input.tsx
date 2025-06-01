@@ -18,7 +18,6 @@ const InputandList = ({
   const [focusedelement, setfocusedelement] = useState(0);
   const [update, setupdate] = useState(0);
   const listref = useRef<Array<HTMLLIElement | null>>([]);
-  const inputclass = ` `;
   useEffect(() => {
     function controlkey(e: KeyboardEvent) {
       if (e.code === "ArrowUp" && focusedelement > 0) {

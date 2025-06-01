@@ -214,15 +214,15 @@ const CardContainer = () => {
   return (
     <>
       <div className="flex justify-center w-full flex-col items-center ">
-        <div className="flex justify-center">
-          <div className="flex  w-full h-full flex-wrap pt-2 justify-center space-y-4 pb-5">
+        <div className="flex w-9/10 justify-center">
+          <div className="flex  w-full h-full flex-wrap pt-2 justify-evenly space-y-4 pb-5">
             {buttons.slice(0, 12).map((name, index) => {
               return (
                 <button
                   className={
                     currentcard == index
-                      ? "h-10 w-25 bg-[rgb(15,25,55)] rounded-xl text-sm  cursor-pointer ml-3 transition-all duration-150 scale-90 active:scale-80"
-                      : "h-10 w-25 bg-[rgb(23,54,105)] rounded-xl text-sm  cursor-pointer ml-3 transition-all duration-150  active:scale-90"
+                      ? "h-10 w-25 bg-[rgb(15,25,55)] rounded-xl text-md  cursor-pointer  transition-all duration-150 scale-90 active:scale-80"
+                      : "h-10 w-25 bg-[rgb(23,54,105)] rounded-xl text-md  cursor-pointer  transition-all duration-150  active:scale-90"
                   }
                   onClick={() => {
                     setCurrentCard(index);

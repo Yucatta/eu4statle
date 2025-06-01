@@ -26,7 +26,7 @@ const GuessContainer = ({
   // console.log(StateGuesses, rndnum);
 
   return (
-    <ol className="w-3/4   flex items-center z-1 flex-col mt-2">
+    <ol className="w-10/12   flex items-center z-1 flex-col mt-2">
       {(correctguessindex === -1
         ? StateGuesses
         : StateGuesses.slice(0, correctguessindex)

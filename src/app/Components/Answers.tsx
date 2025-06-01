@@ -17,11 +17,11 @@ Props) => {
   return (
     <>
       {isitwrong ? (
-        <div className="w-auto p-2 rounded-md text-center text-sm mb-1 mt-1.5 bg-green-500 text-black font-semibold transition-all break-words">
+        <div className="w-auto p-2 rounded-md text-center text-md mb-1 mt-1.5 bg-green-500 text-black font-semibold transition-all break-words">
           <span>{correctanswers}</span>
         </div>
       ) : (
-        <div className="w-auto p-2 rounded-md text-center text-sm mb-1 mt-1.5 bg-red-300 text-black font-semibold transition-all break-words">
+        <div className="w-auto p-2 rounded-md text-center text-md mb-1 mt-1.5 bg-red-300 text-black font-semibold transition-all break-words">
           {correctanswers}
         </div>
       )}

@@ -384,27 +384,29 @@ const ProvinceGuessCards = ({
               ) : (
                 <div className="flex-col flex w-auto justify-center itms-center">
                   <div className="flex flex-col ">
-                    <InputandList
-                      query={cardquery ? cardquery : ""}
-                      inputref={inputref}
-                      onSubmit={handlesubmit}
-                      setquery={setcardquery}
-                      filterednames={
-                        filteredCardNames ? filteredCardNames : [""]
-                      }
-                      widthofinput={"50"}
-                      placeholder={
-                        !CardsNames
-                          ? "Development"
-                          : CardsNames.length === 31
-                          ? "Trade Goods"
-                          : CardsNames.length === 24
-                          ? "Religions"
-                          : CardsNames.length === 16
-                          ? "Terrains"
-                          : "Province Name"
-                      }
-                    ></InputandList>
+                    <div className="w-50">
+                      <InputandList
+                        query={cardquery ? cardquery : ""}
+                        inputref={inputref}
+                        onSubmit={handlesubmit}
+                        setquery={setcardquery}
+                        filterednames={
+                          filteredCardNames ? filteredCardNames : [""]
+                        }
+                        widthofinput={"50"}
+                        placeholder={
+                          !CardsNames
+                            ? "Development"
+                            : CardsNames.length === 31
+                            ? "Trade Goods"
+                            : CardsNames.length === 24
+                            ? "Religions"
+                            : CardsNames.length === 16
+                            ? "Terrains"
+                            : "Province Name"
+                        }
+                      ></InputandList>
+                    </div>
                   </div>
                   <button
                     className=" w-25 rounded-2xl mt-2 h-11 ml-10 text-sm border-2 border-[rgb(16,50,35)] bg-[rgb(16,84,80)] z-[5] cursor-pointer transition-all hover:scale-103 active:scale-90"

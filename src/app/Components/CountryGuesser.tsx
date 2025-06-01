@@ -332,7 +332,7 @@ const CountryGuesser = ({
                 ></CorrectAnswers>
               ) : (
                 <div className="flex-col flex w-auto justify-center itms-center">
-                  <div className="flex flex-col ">
+                  <div className="flex w-50 flex-col ">
                     <InputandList
                       query={cardquery ? cardquery : ""}
                       inputref={inputref}
@@ -341,7 +341,6 @@ const CountryGuesser = ({
                       filterednames={
                         filteredCardNames ? filteredCardNames : [""]
                       }
-                      widthofinput={"50"}
                       placeholder={"Countries"}
                     ></InputandList>
                   </div>

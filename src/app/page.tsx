@@ -31,8 +31,8 @@ export default function Home() {
                 <button
                   className={
                     diffuculty == index
-                      ? "h-10 w-25 bg-[rgb(9,29,42)]  rounded-xl text-sm cursor-pointer ml-3 mt-6 transition-all duration-150 scale-90 active:scale-80"
-                      : "h-10 w-25 bg-[rgb(23,73,100)] rounded-xl text-sm cursor-pointer ml-3 mt-6 transition-all duration-150  active:scale-90"
+                      ? "h-10 w-25 bg-[rgb(9,29,42)]  rounded-xl text-md font-bold cursor-pointer ml-3 mt-6 transition-all duration-150 scale-90 active:scale-80"
+                      : "h-10 w-25 bg-[rgb(23,73,100)] rounded-xl text-md font-bold cursor-pointer ml-3 mt-6 transition-all duration-150  active:scale-90"
                   }
                   onClick={() => {
                     setdiffuclty(index);

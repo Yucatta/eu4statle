@@ -3,7 +3,6 @@ interface Props {
   inputref: React.RefObject<HTMLInputElement | null>;
   setquery: (value: React.SetStateAction<string | undefined>) => void;
   filterednames: string[];
-  widthofinput: string;
   placeholder: string;
   query: string;
   onSubmit?: () => void;
@@ -13,14 +12,13 @@ const InputandList = ({
   filterednames,
   setquery,
   onSubmit,
-  widthofinput,
   query,
   placeholder,
 }: Props) => {
   const [focusedelement, setfocusedelement] = useState(0);
   const [update, setupdate] = useState(0);
   const listref = useRef<Array<HTMLLIElement | null>>([]);
-  const inputclass = `w-${widthofinput}  pt-0 relative group`;
+  const inputclass = ` `;
   useEffect(() => {
     function controlkey(e: KeyboardEvent) {
       if (e.code === "ArrowUp" && focusedelement > 0) {
@@ -48,6 +46,8 @@ const InputandList = ({
           setquery(filterednames[focusedelement]);
           inputref.current!.value = filterednames[focusedelement];
         }
+      } else if (e.code === "Escape") {
+        inputref.current!.blur();
       }
     }
     if (document.activeElement === inputref.current) {
@@ -67,7 +67,7 @@ const InputandList = ({
     });
   }, [focusedelement, listref]);
   return (
-    <div className={inputclass}>
+    <div className="w-full pt-0 relative group">
       <input
         type="search"
         ref={inputref}
@@ -97,8 +97,8 @@ const InputandList = ({
                       ? "py-1 border-y-1 bg-neutral-600 text-center h-7 text-xs cursor-pointer "
                       : "py-1 border-y-1  text-center h-7 text-xs cursor-pointer "
                     : focusedelement === index
-                    ? "py-1 border-y-1 bg-neutral-600 text-center h-7 text-sm cursor-pointer "
-                    : "py-1 border-y-1  text-center h-7 text-sm cursor-pointer "
+                    ? "py-1 border-y-1 bg-neutral-600 text-center h-7 text-md font-semibold cursor-pointer "
+                    : "py-1 border-y-1  text-center h-7 text-md cursor-pointer "
                 }
                 key={index}
                 ref={(el) => {

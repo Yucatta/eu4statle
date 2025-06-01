@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Jost } from "next/font/google";
 import "./globals.css";
 import { StrictMode } from "react";
 import { GameStateProvider } from "@/context/gamecontext";
@@ -8,16 +8,10 @@ import { loadAppData } from "@/lib/data";
 import { loadProvinceData } from "@/lib/provinces";
 import { ProvinceDataProvider } from "@/context/ProvinceDataContext";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const jost = Jost({
+  variable: "--font-jost",
   subsets: ["latin"],
 });
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
   title: "EU4Statle",
   description: "EU4 State Guesser",
@@ -33,9 +27,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <head></head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={jost.variable}>
         <StrictMode>
           <DataProvider
             value={{

@@ -347,7 +347,6 @@ const CultureCard = ({
                       filterednames={
                         filteredculturegroups ? filteredculturegroups : [""]
                       }
-                      widthofinput={"40"}
                       placeholder="Culture Groups"
                     ></InputandList>
                     <InputandList
@@ -357,7 +356,6 @@ const CultureCard = ({
                       filterednames={
                         filteredCardNames ? filteredCardNames : [""]
                       }
-                      widthofinput={"40"}
                       placeholder="Cultures"
                       onSubmit={handlesubmit}
                     ></InputandList>

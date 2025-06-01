@@ -227,7 +227,6 @@ Props) => {
                       setquery={setcardquery}
                       onSubmit={handlesubmit}
                       query={cardquery ? cardquery : ""}
-                      widthofinput="45"
                       placeholder="Trade Node"
                       filterednames={filterednames}
                     />

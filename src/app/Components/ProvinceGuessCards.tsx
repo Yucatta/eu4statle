@@ -393,7 +393,6 @@ const ProvinceGuessCards = ({
                         filterednames={
                           filteredCardNames ? filteredCardNames : [""]
                         }
-                        widthofinput={"50"}
                         placeholder={
                           !CardsNames
                             ? "Development"

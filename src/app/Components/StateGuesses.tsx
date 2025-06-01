@@ -354,7 +354,6 @@ const StateGuesses = () => {
               setquery={setregionsquery}
               filterednames={filteredregionsnames ? filteredregionsnames : [""]}
               placeholder="Region"
-              widthofinput={"60"}
             ></InputandList>
           </div>
           <div className="w-1/3">
@@ -365,7 +364,6 @@ const StateGuesses = () => {
               placeholder="State "
               setquery={setstatequery}
               filterednames={filteredstatenames ? filteredstatenames : [""]}
-              widthofinput={"100"}
             ></InputandList>
           </div>
 

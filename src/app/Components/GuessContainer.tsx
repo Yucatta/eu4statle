@@ -1,4 +1,3 @@
-import React, { useMemo } from "react";
 import Guesses from "./Guesses";
 interface Props {
   StateGuesses: [string, number][];

@@ -8,7 +8,7 @@ import InputandList from "./Input";
 import { useDataContext } from "@/context/DataContext";
 import useGameFunction from "@/hooks/utilitys";
 const StateGuesses = () => {
-  const { ChangeRndNum, findRegion } = useGameFunction();
+  const { ChangeRndNum } = useGameFunction();
 
   const stateinputref = useRef<HTMLInputElement | null>(null);
   const regioninputref = useRef<HTMLInputElement | null>(null);

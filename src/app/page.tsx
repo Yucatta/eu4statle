@@ -5,8 +5,7 @@ import CardContainer from "./Components/CardContainer";
 import { useGameState } from "@/context/gamecontext";
 import useGameFunction from "@/hooks/utilitys";
 export default function Home() {
-  const { isgameover, setisgameover, diffuculty, setdiffuclty } =
-    useGameState();
+  const { isgameover, diffuculty, setdiffuclty } = useGameState();
   const { ChangeRndNum } = useGameFunction();
   return (
     <>

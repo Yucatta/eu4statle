@@ -320,7 +320,7 @@ const CultureCard = ({
                             return group[1].includes(answer);
                           });
                         }).map((group, index) => (
-                          <span key={index}>{group[0]}</span>
+                          <span key={index}>{group[0]} </span>
                         ))}
                       </div>
                       <div>
@@ -338,19 +338,6 @@ const CultureCard = ({
                   }
                 ></CorrectAnswers>
               ) : (
-                //   <div className=" w-9/10 h-10 rounded-xl text-sm mb-1  mt-1.5 bg-green-500 text-black items-center flex justify-evenly font-semibold transition-all scale-100">
-                //     Cultures :{" "}
-                //     {uniquecorrectanswers.map((uniquecorrectanswer, index) => {
-                //       return <span key={index}>{uniquecorrectanswer} </span>;
-                //     })}
-                //   </div>
-                // ) : CardsNames && cardguesses && cardguesses.length === 6 ? (
-                //   <div className=" w-9/10  h-10 rounded-xl  mb-1 text-sm mt-1.5  bg-red-300 text-black items-center flex justify-evenly font-semibold">
-                //     Cultures :{" "}
-                //     {uniquecorrectanswers.map((uniquecorrectanswer, index) => {
-                //       return <span key={index}>{uniquecorrectanswer} </span>;
-                //     })}
-                //   </div>
                 <div className="flex-row flex w-6/12 justify-evenly">
                   <div className="flex flex-col ">
                     <InputandList
@@ -372,6 +359,7 @@ const CultureCard = ({
                       }
                       widthofinput={"40"}
                       placeholder="Cultures"
+                      onSubmit={handlesubmit}
                     ></InputandList>
                   </div>
                   <button

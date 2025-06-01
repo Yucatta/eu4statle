@@ -5,6 +5,7 @@ import CardGuesContainer from "./CardGuesContainer";
 import { useDataContext } from "@/context/DataContext";
 import CorrectAnswers from "./Answers";
 import { useGameState } from "@/context/gamecontext";
+import AreaOutlines from "./AreaPaths";
 interface Props {
   CardsNames: string[];
   Cardrgbs: string[];
@@ -39,6 +40,7 @@ const CountryGuesser = ({
     regionbboxes,
     emptylands,
   } = useDataContext();
+
   const filteredCardNames = useMemo(() => {
     if (CardsNames) {
       if (cardquery) {
@@ -92,29 +94,15 @@ const CountryGuesser = ({
                           correctanswers.current?.length ===
                             correctguessedprovinces.length ||
                           cardguesses.length === 3
-                          ? Cardrgbs &&
-                            provincestats &&
-                            CardsNames &&
-                            CardsNames.length < 35
+                          ? Cardrgbs && provincestats && CardsNames
                             ? Cardrgbs[
-                                CardsNames.indexOf(
-                                  provincestats[Number(provinceid[0]) - 1][
-                                    CardsNames.length === 24
-                                      ? 3
-                                      : CardsNames.length === 31
-                                      ? 4
-                                      : 5
-                                  ]
+                                countryprovinces.findIndex((country) =>
+                                  country.includes(Number(provinceid[0]))
                                 )
                               ]
-                            : correctguessedprovinces.includes(
-                                Number(provinceid[0])
-                              )
-                            ? "rgb(119, 221, 119)"
                             : "rgb(177 64 62)"
                           : "rgb(80, 80, 80)"
-                        : // ? "none"
-                          "rgb(50,50,50)"
+                        : "rgb(50,50,50)"
                     }
                     stroke={
                       StateData[rndnum[0]].includes(Number(provinceid[0]))
@@ -127,15 +115,10 @@ const CountryGuesser = ({
                         : "1"
                     }
                     key={Number(provinceid[0])}
-                    // className="hover:fill-amber-700"
-                    // onClick={() => {
-                    //   console.log(provinceid);
-                    // }}
                   ></path>
                 );
               })
             : regionids[rndnum[1]].map((provinceid) => {
-                // console.log(cardguesses);
                 return (
                   <path
                     d={String(paths[provinceid - 1][1])}
@@ -153,8 +136,7 @@ const CountryGuesser = ({
                               ]
                             : "rgb(177 64 62)"
                           : "rgb(80, 80, 80)"
-                        : // ? "none"
-                          "rgb(50,50,50)"
+                        : "rgb(50,50,50)"
                     }
                     stroke={
                       StateData[rndnum[0]].includes(provinceid)
@@ -168,22 +150,7 @@ const CountryGuesser = ({
                   ></path>
                 );
               })}
-
-          {areapaths.map((path, index) => {
-            const areasplace = regionStateIds[rndnum[1]].indexOf(index);
-            // console.log(index, rndnum[0]);
-            if ((index !== 0 && areasplace + 1) || areasplace === 0) {
-              return (
-                <path
-                  d={String(path[1])}
-                  fill={"none"}
-                  stroke={index === rndnum[0] ? "rgb(80, 0, 100)" : "none"}
-                  strokeWidth="1.2"
-                  key={index}
-                ></path>
-              );
-            }
-          })}
+          <AreaOutlines></AreaOutlines>
         </svg>
       );
       return a;
@@ -233,21 +200,27 @@ const CountryGuesser = ({
       correctanswers.current = temp;
     }
   }, [rndnum, StateData, CardsNames, provincestats]);
-  const uniquecorrectanswers: string[] = [];
-  if (correctanswers.current) {
-    for (let i = 0; i < correctanswers.current.length; i++) {
-      let tempok = true;
-      for (let j = 0; j < uniquecorrectanswers.length; j++) {
-        if (uniquecorrectanswers[j] === correctanswers.current[i]) {
-          tempok = false;
-          break;
+  const uniquecorrectanswers: string[] = useMemo(() => {
+    if (correctanswers.current) {
+      const temp = [];
+      for (let i = 0; i < correctanswers.current.length; i++) {
+        let tempok = true;
+        for (let j = 0; j < temp.length; j++) {
+          if (temp[j] === correctanswers.current[i]) {
+            tempok = false;
+            break;
+          }
+        }
+        if (tempok) {
+          temp.push(correctanswers.current[i]);
         }
       }
-      if (tempok) {
-        uniquecorrectanswers.push(correctanswers.current[i]);
-      }
+      return temp;
+    } else {
+      return [];
     }
-  }
+  }, [correctanswers]);
+  const numberofguess = uniquecorrectanswers.length + 1;
   useEffect(() => {
     if (correctanswers.current) {
       const temp: number[] = [];
@@ -359,7 +332,7 @@ const CountryGuesser = ({
               <CardGuesContainer
                 cardguesses={[
                   ...cardguesses,
-                  ...Array(3 - cardguesses.length).fill(""),
+                  ...Array(numberofguess - cardguesses.length).fill(""),
                 ]}
                 correctsolutions={uniquecorrectanswers}
               ></CardGuesContainer>

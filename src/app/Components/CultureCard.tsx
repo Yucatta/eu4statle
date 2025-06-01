@@ -5,6 +5,7 @@ import CardGuesContainer from "./CardGuesContainer";
 import { useDataContext } from "@/context/DataContext";
 import CorrectAnswers from "./Answers";
 import { useGameState } from "@/context/gamecontext";
+import AreaOutlines from "./AreaPaths";
 interface Props {
   CardsNames: string[][][];
   provincestats: Array<[string, number, string, string, string, string]>;
@@ -174,21 +175,7 @@ const CultureCard = ({
                   ></path>
                 );
               })}
-          {areapaths.map((path, index) => {
-            const areasplace = regionStateIds[rndnum[1]].indexOf(index);
-            // console.log(index, rndnum[0]);
-            if ((index !== 0 && areasplace + 1) || areasplace === 0) {
-              return (
-                <path
-                  d={String(path[1])}
-                  fill={"none"}
-                  stroke={index === rndnum[0] ? "rgb(80, 0, 100)" : "none"}
-                  strokeWidth="1.2"
-                  key={index}
-                ></path>
-              );
-            }
-          })}
+          <AreaOutlines></AreaOutlines>
         </svg>
       );
       return a;
@@ -231,21 +218,27 @@ const CultureCard = ({
       correctanswers.current = temp;
     }
   }, [rndnum, StateData, provincestats]);
-  const uniquecorrectanswers: string[] = [];
-  if (correctanswers.current) {
-    for (let i = 0; i < correctanswers.current.length; i++) {
-      let tempok = true;
-      for (let j = 0; j < uniquecorrectanswers.length; j++) {
-        if (uniquecorrectanswers[j] === correctanswers.current[i]) {
-          tempok = false;
-          break;
+  const uniquecorrectanswers: string[] = useMemo(() => {
+    if (correctanswers.current) {
+      const temp = [];
+      for (let i = 0; i < correctanswers.current.length; i++) {
+        let tempok = true;
+        for (let j = 0; j < temp.length; j++) {
+          if (temp[j] === correctanswers.current[i]) {
+            tempok = false;
+            break;
+          }
+        }
+        if (tempok) {
+          temp.push(correctanswers.current[i]);
         }
       }
-      if (tempok) {
-        uniquecorrectanswers.push(correctanswers.current[i]);
-      }
+      return temp;
+    } else {
+      return [];
     }
-  }
+  }, [correctanswers]);
+
   useEffect(() => {
     if (correctanswers.current) {
       const temp: number[] = [];
@@ -258,21 +251,15 @@ const CultureCard = ({
       setcorrectguessedprovinces(temp);
     }
   }, [cardguesses]);
-  // const uniquecorrectanswers =
   function handlesubmit() {
-    if (CardsNames && cardquery && inputref.current) {
-      const temp = [...cardguesses];
-
-      for (let i = 0; i <= temp.length; i++) {
-        if (temp[i] === cardquery) {
-          return;
-        } else if (temp.length === i) {
-          temp[i] = cardquery;
-          break;
-        }
-      }
-      onProvinceGuess(temp);
-      inputref.current.value = "";
+    if (
+      inputref.current &&
+      filteredCardNames &&
+      !cardguesses.includes(String(inputref.current.value)) &&
+      filteredCardNames.length > 0
+    ) {
+      onProvinceGuess([...cardguesses, String(inputref.current.value)]);
+      inputref.current!.value = "";
       setcardquery("");
     }
   }

@@ -1,6 +1,7 @@
 import { useDataContext } from "@/context/DataContext";
 import { useGameState } from "@/context/gamecontext";
 import React, { useEffect, useMemo, useState } from "react";
+import AreaOutlines from "./AreaPaths";
 interface Props {
   provincestats: Array<[string, number, string, string, string, string]>;
   onProvinceGuess: (e: string[]) => void;
@@ -169,21 +170,7 @@ const ProvinceViewer = ({
                   ></path>
                 );
               })}
-          {areapaths.map((path, index) => {
-            const areasplace = regionStateIds[rndnum[1]].indexOf(index);
-            // console.log(index, rndnum[0]);
-            if ((index !== 0 && areasplace + 1) || areasplace === 0) {
-              return (
-                <path
-                  d={String(path[1])}
-                  fill={"none"}
-                  stroke={index === rndnum[0] ? "rgb(80, 0, 100)" : "none"}
-                  strokeWidth="1.2"
-                  key={index}
-                ></path>
-              );
-            }
-          })}
+          <AreaOutlines></AreaOutlines>
         </svg>
       );
       return a;

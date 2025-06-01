@@ -5,6 +5,9 @@ import CardGuesContainer from "./CardGuesContainer";
 import { useDataContext } from "@/context/DataContext";
 import CorrectAnswers from "./Answers";
 import { useGameState } from "@/context/gamecontext";
+import useGameFunction from "@/hooks/utilitys";
+import AreaOutlines from "./AreaPaths";
+import SvgPath from "./SvgPath";
 interface Props {
   CardsNames?: string[];
   Cardrgbs?: string[];
@@ -50,21 +53,33 @@ const ProvinceGuessCards = ({
       return;
     }
   }, [CardsNames, cardquery, provincestats, statenames]);
-
+  const guesslimit = CardsNames
+    ? CardsNames.length === 24
+      ? 4
+      : CardsNames.length === 31
+      ? 6
+      : CardsNames.length === 16
+      ? 5
+      : 9
+    : 10;
+  const cardname = !CardsNames
+    ? "Development"
+    : CardsNames.length === 31
+    ? "Trade Goods"
+    : CardsNames.length === 24
+    ? "Religions"
+    : CardsNames.length === 16
+    ? "Terrains"
+    : "Province Name";
+  const cardlocation = CardsNames
+    ? CardsNames.length === 24
+      ? 3
+      : CardsNames.length === 31
+      ? 4
+      : 5
+    : 0;
   const Image = useMemo(() => {
-    if (
-      regionStateIds &&
-      rndnum &&
-      StateData &&
-      paths &&
-      emptylands &&
-      regionbboxes &&
-      regionids &&
-      areabboxes &&
-      areapaths[0] &&
-      CardsNames &&
-      provincestats
-    ) {
+    if (rndnum && CardsNames && provincestats) {
       const a = (
         <svg
           className="w-full h-full  "
@@ -90,26 +105,12 @@ const ProvinceGuessCards = ({
                           (correctanswers.current?.length ===
                             correctguessedprovinces.length &&
                             Cardrgbs) ||
-                          cardguesses.length ===
-                            (CardsNames.length === 24
-                              ? 4
-                              : CardsNames.length === 31
-                              ? 6
-                              : CardsNames.length === 16
-                              ? 5
-                              : 9)
-                          ? Cardrgbs &&
-                            provincestats &&
-                            CardsNames &&
-                            CardsNames.length < 35
+                          cardguesses.length === guesslimit
+                          ? Cardrgbs && CardsNames.length < 35
                             ? Cardrgbs[
                                 CardsNames.indexOf(
                                   provincestats[Number(provinceid[0]) - 1][
-                                    CardsNames.length === 24
-                                      ? 3
-                                      : CardsNames.length === 31
-                                      ? 4
-                                      : 5
+                                    cardlocation
                                   ]
                                 )
                               ]
@@ -133,82 +134,38 @@ const ProvinceGuessCards = ({
                         : "1"
                     }
                     key={Number(provinceid[0])}
-                    // className="hover:fill-amber-700"
-                    // onClick={() => {
-                    //   console.log(provinceid);
-                    // }}
                   ></path>
                 );
               })
             : regionids[rndnum[1]].map((provinceid) => {
-                // console.log(cardguesses);
                 return (
-                  <path
-                    d={String(paths[provinceid - 1][1])}
-                    fill={
+                  <SvgPath
+                    fillcolor={
                       StateData[rndnum[0]].includes(provinceid)
                         ? correctguessedprovinces.includes(provinceid) ||
                           (correctanswers.current?.length ===
                             correctguessedprovinces.length &&
                             Cardrgbs) ||
-                          cardguesses.length ===
-                            (CardsNames.length === 24
-                              ? 4
-                              : CardsNames.length === 31
-                              ? 6
-                              : CardsNames.length === 16
-                              ? 5
-                              : 9)
-                          ? Cardrgbs &&
-                            provincestats &&
-                            CardsNames &&
-                            CardsNames.length < 35
+                          cardguesses.length === guesslimit
+                          ? Cardrgbs && CardsNames.length < 35
                             ? Cardrgbs[
                                 CardsNames.indexOf(
-                                  provincestats[provinceid - 1][
-                                    CardsNames.length === 24
-                                      ? 3
-                                      : CardsNames.length === 31
-                                      ? 4
-                                      : 5
-                                  ]
+                                  provincestats[provinceid - 1][cardlocation]
                                 )
                               ]
                             : correctguessedprovinces.includes(provinceid)
                             ? "rgb(63,255,0)"
                             : "rgb(177 64 62)"
                           : "rgb(80, 80, 80)"
-                        : // ? "none"
-                          "rgb(50,50,50)"
+                        : "rgb(50,50,50)"
                     }
-                    stroke={
-                      StateData[rndnum[0]].includes(provinceid)
-                        ? "rgb(150,150,150)"
-                        : "rgb(40,40,40)"
-                    }
-                    strokeWidth={
-                      StateData[rndnum[0]].includes(provinceid) ? "0.5" : "1"
-                    }
+                    path={String(paths[provinceid - 1][1])}
+                    provinceid={provinceid}
                     key={provinceid}
-                  ></path>
+                  ></SvgPath>
                 );
               })}
-
-          {areapaths.map((path, index) => {
-            const areasplace = regionStateIds[rndnum[1]].indexOf(index);
-            // console.log(index, rndnum[0]);
-            if ((index !== 0 && areasplace + 1) || areasplace === 0) {
-              return (
-                <path
-                  d={String(path[1])}
-                  fill={"none"}
-                  stroke={index === rndnum[0] ? "rgb(80, 0, 100)" : "none"}
-                  strokeWidth="1.2"
-                  key={index}
-                ></path>
-              );
-            }
-          })}
+          <AreaOutlines></AreaOutlines>
         </svg>
       );
       return a;
@@ -233,21 +190,12 @@ const ProvinceGuessCards = ({
       if (StateData && rndnum && CardsNames && provincestats) {
         hasinitialized.current = true;
         const tempanswers: string[] = [];
-        // console.log(StateData, rndnum, CardsNames, provincestats);
         for (let i = 0; i < 5; i++) {
           if (StateData[rndnum[0]][i] === 0) {
             break;
           } else {
             tempanswers.push(
-              provincestats[StateData[rndnum[0]][i] - 1][
-                CardsNames.length === 24
-                  ? 3
-                  : CardsNames.length === 31
-                  ? 4
-                  : CardsNames.length === 16
-                  ? 5
-                  : 0
-              ]
+              provincestats[StateData[rndnum[0]][i] - 1][cardlocation]
             );
           }
         }
@@ -262,26 +210,28 @@ const ProvinceGuessCards = ({
       correctanswers.current = temp;
     }
   }, [rndnum, StateData, CardsNames, provincestats]);
-  // useEffect(()=>{},[rndnum])
-  // useEffect(() => {
-  //   correctanswers.current = undefined;
-  //   hasinitialized.current = false;
-  // }, [rndnum]);
-  const uniquecorrectanswers: string[] = [];
-  if (correctanswers.current) {
-    for (let i = 0; i < correctanswers.current.length; i++) {
-      let tempok = true;
-      for (let j = 0; j < uniquecorrectanswers.length; j++) {
-        if (uniquecorrectanswers[j] === correctanswers.current[i]) {
-          tempok = false;
-          break;
+
+  const uniquecorrectanswers: string[] = useMemo(() => {
+    if (correctanswers.current) {
+      const temp = [];
+      for (let i = 0; i < correctanswers.current.length; i++) {
+        let tempok = true;
+        for (let j = 0; j < temp.length; j++) {
+          if (temp[j] === correctanswers.current[i]) {
+            tempok = false;
+            break;
+          }
+        }
+        if (tempok) {
+          temp.push(correctanswers.current[i]);
         }
       }
-      if (tempok) {
-        uniquecorrectanswers.push(correctanswers.current[i]);
-      }
+      return temp;
+    } else {
+      return [];
     }
-  }
+  }, [correctanswers]);
+
   useEffect(() => {
     if (correctanswers.current) {
       const temp: number[] = [];
@@ -294,21 +244,15 @@ const ProvinceGuessCards = ({
       setcorrectguessedprovinces(temp);
     }
   }, [cardguesses]);
-  // const uniquecorrectanswers =
   function handlesubmit() {
-    if (CardsNames && cardquery && inputref.current) {
-      const temp = [...cardguesses];
-
-      for (let i = 0; i <= temp.length; i++) {
-        if (temp[i] === cardquery) {
-          return;
-        } else if (temp.length === i) {
-          temp[i] = cardquery;
-          break;
-        }
-      }
-      onProvinceGuess(temp);
-      inputref.current.value = "";
+    if (
+      inputref.current &&
+      filteredCardNames &&
+      !cardguesses.includes(String(inputref.current.value)) &&
+      filteredCardNames.length > 0
+    ) {
+      onProvinceGuess([...cardguesses, String(inputref.current.value)]);
+      inputref.current!.value = "";
       setcardquery("");
     }
   }
@@ -343,14 +287,7 @@ const ProvinceGuessCards = ({
               CardsNames &&
               (correctanswers.current?.length ===
                 correctguessedprovinces.length ||
-                cardguesses.length ===
-                  (CardsNames.length === 24
-                    ? 4
-                    : CardsNames.length === 31
-                    ? 6
-                    : CardsNames.length === 16
-                    ? 5
-                    : 9)) ? (
+                cardguesses.length === guesslimit) ? (
                 <CorrectAnswers
                   isitwrong={
                     correctanswers &&
@@ -359,16 +296,7 @@ const ProvinceGuessCards = ({
                   }
                   correctanswers={
                     <>
-                      {!CardsNames
-                        ? "Development"
-                        : CardsNames.length === 31
-                        ? "Trade Goods"
-                        : CardsNames.length === 24
-                        ? "Religions"
-                        : CardsNames.length === 16
-                        ? "Terrains"
-                        : "Province Names"}
-                      :{" "}
+                      {cardname}:{" "}
                       {uniquecorrectanswers.map(
                         (uniquecorrectanswer, index) => {
                           return (
@@ -393,24 +321,13 @@ const ProvinceGuessCards = ({
                         filterednames={
                           filteredCardNames ? filteredCardNames : [""]
                         }
-                        placeholder={
-                          !CardsNames
-                            ? "Development"
-                            : CardsNames.length === 31
-                            ? "Trade Goods"
-                            : CardsNames.length === 24
-                            ? "Religions"
-                            : CardsNames.length === 16
-                            ? "Terrains"
-                            : "Province Name"
-                        }
+                        placeholder={cardname}
                       ></InputandList>
                     </div>
                   </div>
                   <button
                     className=" w-25 rounded-2xl mt-2 h-11 ml-10 text-sm border-2 border-[rgb(16,50,35)] bg-[rgb(16,84,80)] z-[5] cursor-pointer transition-all hover:scale-103 active:scale-90"
                     onClick={handlesubmit}
-                    // onClick={handlesubmit}
                   >
                     GUESS
                   </button>
@@ -422,15 +339,7 @@ const ProvinceGuessCards = ({
               <CardGuesContainer
                 cardguesses={[
                   ...cardguesses,
-                  ...Array(
-                    (CardsNames.length === 24
-                      ? uniquecorrectanswers.length + 1
-                      : CardsNames.length === 31
-                      ? 6
-                      : CardsNames.length === 16
-                      ? 5
-                      : 9) - cardguesses.length
-                  ).fill(""),
+                  ...Array(guesslimit - cardguesses.length).fill(""),
                 ]}
                 correctsolutions={uniquecorrectanswers}
               ></CardGuesContainer>

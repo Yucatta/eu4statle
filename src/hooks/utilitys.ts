@@ -39,5 +39,23 @@ export default function useGameFunction() {
     }
     return -1;
   }
-  return { ChangeRndNum, findRegion };
+  function handlesubmit(
+    inputref: React.RefObject<HTMLInputElement | null>,
+    filterednames: string[],
+    setcardquery: (value: React.SetStateAction<string | undefined>) => void,
+    onProvinceGuess: (e: string[]) => void,
+    cardguesses: string[]
+  ) {
+    if (
+      inputref.current &&
+      filterednames &&
+      !cardguesses.includes(String(inputref.current.value)) &&
+      filterednames.length > 0
+    ) {
+      onProvinceGuess([...cardguesses, String(inputref.current.value)]);
+      inputref.current!.value = "";
+      setcardquery("");
+    }
+  }
+  return { ChangeRndNum, findRegion, handlesubmit };
 }

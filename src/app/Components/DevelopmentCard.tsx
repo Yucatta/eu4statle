@@ -5,6 +5,8 @@ import CardGuesContainer from "./CardGuesContainer";
 import InputandList from "./Input";
 import CorrectAnswers from "./Answers";
 import { useGameState } from "@/context/gamecontext";
+import AreaOutlines from "./AreaPaths";
+import SvgPath from "./SvgPath";
 // import { stringify } from "querystring";
 // import { type } from "os";
 interface Props {
@@ -87,7 +89,7 @@ Props) => {
       // imageinitizalied.current = true;
       // const areabboxes;
       // console.log(areabboxes, rndnum, areabboxes[rndnum[0]]);
-      const a = (
+      return (
         <svg
           className="w-full h-full"
           viewBox={`
@@ -102,22 +104,15 @@ Props) => {
           {rndnum[1] === 58
             ? oceania.map((provinceid) => {
                 return (
-                  <path
-                    d={provinceid[1]}
-                    fill={
+                  <SvgPath
+                    fillcolor={
                       StateData[rndnum[0]].includes(Number(provinceid[0]))
-                        ? (cardguesses
-                            .map((e) => {
-                              if (
-                                cardnames.indexOf(e) * 2 + 3 <= Development &&
-                                cardnames.indexOf(e) * 2 + 5 >= Development
-                              ) {
-                                return true;
-                              } else {
-                                return false;
-                              }
-                            })
-                            .includes(true) ||
+                        ? (cardguesses.some((e) => {
+                            return (
+                              cardnames.indexOf(e) * 2 + 3 <= Development &&
+                              cardnames.indexOf(e) * 2 + 5 >= Development
+                            );
+                          }) ||
                             (Development && cardguesses.length === 4)) &&
                           provincestats &&
                           developmentrgbs
@@ -125,41 +120,25 @@ Props) => {
                               provincestats[Number(provinceid[0]) - 1][1] - 3
                             ]
                           : "rgb(80, 80, 80)"
-                        : // ? "none"
-                          "rgb(40,40,40)"
+                        : "rgb(40,40,40)"
                     }
-                    stroke={
-                      StateData[rndnum[0]].includes(Number(provinceid[0]))
-                        ? "rgb(150,150,150)"
-                        : "rgb(50,50,50)"
-                    }
-                    strokeWidth={
-                      StateData[rndnum[0]].includes(Number(provinceid[0]))
-                        ? "0.5"
-                        : "1"
-                    }
+                    path={provinceid[1]}
+                    provinceid={Number(provinceid[0])}
                     key={Number(provinceid[0])}
-                  ></path>
+                  ></SvgPath>
                 );
               })
             : regionids[rndnum[1]].map((provinceid) => {
                 return (
-                  <path
-                    d={String(paths[provinceid - 1][1])}
-                    fill={
+                  <SvgPath
+                    fillcolor={
                       StateData[rndnum[0]].includes(provinceid)
-                        ? (cardguesses
-                            .map((e) => {
-                              if (
-                                cardnames.indexOf(e) * 2 + 3 <= Development &&
-                                cardnames.indexOf(e) * 2 + 5 >= Development
-                              ) {
-                                return true;
-                              } else {
-                                return false;
-                              }
-                            })
-                            .includes(true) ||
+                        ? (cardguesses.some((e) => {
+                            return (
+                              cardnames.indexOf(e) * 2 + 3 <= Development &&
+                              cardnames.indexOf(e) * 2 + 5 >= Development
+                            );
+                          }) ||
                             (Development && cardguesses.length === 4)) &&
                           provincestats &&
                           developmentrgbs
@@ -169,37 +148,15 @@ Props) => {
                           : "rgb(80,80,80)"
                         : "rgb(50,50,50)"
                     }
-                    stroke={
-                      StateData[rndnum[0]].includes(provinceid)
-                        ? "rgb(150,150,150)"
-                        : "rgb(40,40,40)"
-                    }
-                    strokeWidth={
-                      StateData[rndnum[0]].includes(provinceid) ? "0.5" : "1"
-                    }
+                    path={String(paths[provinceid - 1][1])}
+                    provinceid={provinceid}
                     key={provinceid}
-                    // }}
-                  ></path>
+                  ></SvgPath>
                 );
               })}
-          {areapaths.map((path, index) => {
-            const areasplace = regionStateIds[rndnum[1]].indexOf(index);
-            // console.log(index, rndnum[0]);
-            if ((index !== 0 && areasplace + 1) || areasplace === 0) {
-              return (
-                <path
-                  d={String(path[1])}
-                  fill={"none"}
-                  stroke={index === rndnum[0] ? "rgb(80, 0, 100)" : "none"}
-                  strokeWidth="1.2"
-                  key={index}
-                ></path>
-              );
-            }
-          })}
+          <AreaOutlines></AreaOutlines>
         </svg>
       );
-      return a;
     }
   }, [
     regionStateIds,

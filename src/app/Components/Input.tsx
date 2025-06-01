@@ -91,13 +91,9 @@ const InputandList = ({
           ? filterednames.map((item, index) => (
               <li
                 className={
-                  typeof window !== "undefined" && window.innerWidth < 550
-                    ? focusedelement === index
-                      ? "py-1 border-y-1 bg-neutral-600 text-center h-7 text-xs cursor-pointer "
-                      : "py-1 border-y-1  text-center h-7 text-xs cursor-pointer "
-                    : focusedelement === index
-                    ? "py-1 border-y-1 bg-neutral-600 text-center h-7 text-md font-semibold cursor-pointer "
-                    : "py-1 border-y-1  text-center h-7 text-md cursor-pointer "
+                  focusedelement === index
+                    ? "py-1 border-y-1 bg-neutral-600 text-center h-7 text-xs sm:text-base sm:font-semibold cursor-pointer "
+                    : "py-1 border-y-1  text-center h-7 text-xs sm:text-base cursor-pointer "
                 }
                 key={index}
                 ref={(el) => {

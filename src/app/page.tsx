@@ -23,8 +23,8 @@ export default function Home() {
             EU4 STATLE
           </header>
           <StateGuesses></StateGuesses>
-          {/* <CardContainer></CardContainer> */}
-          {isgameover ? <CardContainer></CardContainer> : ""}
+          <CardContainer></CardContainer>
+          {/* {isgameover ? <CardContainer></CardContainer> : ""} */}
           <div>
             {[0, 1, 2].map((index) => {
               return (

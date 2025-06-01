@@ -1,12 +1,11 @@
 import React, { useRef, useMemo, useState } from "react";
-// import InputandList from "./Input";
 import { useDataContext } from "@/context/DataContext";
 import CardGuesContainer from "./CardGuesContainer";
 import InputandList from "./Input";
 import CorrectAnswers from "./Answers";
 import { useGameState } from "@/context/gamecontext";
-// import { stringify } from "querystring";
-// import { type } from "os";
+import AreaOutlines from "./AreaPaths";
+import SvgPath from "./SvgPath";
 interface Props {
   tradenodes: string[];
   tradenodemembers: number[][];
@@ -21,28 +20,25 @@ const TradeNodes = ({
   provincestats,
   tradenodes,
   tradenodemembers,
-}: // provincestats,
-// StateData,
-Props) => {
+}: Props) => {
   const [cardquery, setcardquery] = useState<string | undefined>(undefined);
 
   const inputref = useRef<HTMLInputElement>(null);
   function handlesubmit() {
     if (
       inputref.current &&
-      !cardguesses.includes(String(inputref.current.value))
+      !cardguesses.includes(String(inputref.current.value)) &&
+      filterednames.length > 0
     ) {
       onProvinceGuess([...cardguesses, String(inputref.current.value)]);
       inputref.current!.value = "";
       setcardquery("");
-      // setscardguesses([e, ...cardguesses.slice(0, 3)]);
     }
   }
   const { rndnum } = useGameState();
   const {
     paths,
     regionStateIds,
-    // statenames,
     StateData,
     areapaths,
     areabboxes,
@@ -50,7 +46,6 @@ Props) => {
     regionids,
     regionbboxes,
     emptylands,
-    // areabboxes,
   } = useDataContext();
   const correctnode: [string, number] | undefined = useMemo(() => {
     if (tradenodes && tradenodemembers && rndnum && StateData) {
@@ -84,7 +79,7 @@ Props) => {
       areabboxes &&
       areapaths[0]
     ) {
-      const a = (
+      return (
         <svg
           className="w-full h-full"
           viewBox={`
@@ -98,17 +93,24 @@ Props) => {
         >
           {rndnum[1] === 58
             ? oceania.map((provinceid) => {
+                <SvgPath
+                  provinceid={Number(provinceid[0])}
+                  fillcolor={
+                    StateData[rndnum[0]].includes(Number(provinceid[0]))
+                      ? correctnode && cardguesses.includes(correctnode[0])
+                        ? "rgb(63,255,0)"
+                        : cardguesses.length === 2
+                        ? "rgb(177 64 62)"
+                        : "rgb(80, 80, 80)"
+                      : // ? "none"
+                        "rgb(50,50,50)"
+                  }
+                  path={provinceid[1]}
+                ></SvgPath>;
                 return (
-                  <path
-                    d={provinceid[1]}
-                    // fill={
-                    //   StateData[rndnum[0]].includes(Number(provinceid[0]))
-                    // ? correctnode && cardguesses.includes(correctnode[0])
-                    //   ?  "rgb(119, 221, 119)"
-                    //       : "rgb(60, 60, 60)"
-                    //     : "rgb(45,45,45)"
-                    // }
-                    fill={
+                  <SvgPath
+                    provinceid={Number(provinceid[0])}
+                    fillcolor={
                       StateData[rndnum[0]].includes(Number(provinceid[0]))
                         ? correctnode && cardguesses.includes(correctnode[0])
                           ? "rgb(63,255,0)"
@@ -118,65 +120,32 @@ Props) => {
                         : // ? "none"
                           "rgb(50,50,50)"
                     }
-                    stroke={
-                      StateData[rndnum[0]].includes(Number(provinceid[0]))
-                        ? "rgb(150,150,150)"
-                        : "rgb(50,50,50)"
-                    }
-                    strokeWidth={
-                      StateData[rndnum[0]].includes(Number(provinceid[0]))
-                        ? "0.5"
-                        : "1"
-                    }
+                    path={provinceid[1]}
                     key={Number(provinceid[0])}
-                  ></path>
+                  ></SvgPath>
                 );
               })
             : regionids[rndnum[1]].map((provinceid) => {
                 return (
-                  <path
-                    d={String(paths[provinceid - 1][1])}
-                    fill={
+                  <SvgPath
+                    provinceid={provinceid}
+                    fillcolor={
                       StateData[rndnum[0]].includes(provinceid)
                         ? correctnode && cardguesses.includes(correctnode[0])
                           ? "rgb(63,255,0)"
                           : cardguesses.length === 2
                           ? "rgb(177 64 62)"
                           : "rgb(80, 80, 80)"
-                        : // ? "none"
-                          "rgb(50,50,50)"
+                        : "rgb(50,50,50)"
                     }
-                    stroke={
-                      StateData[rndnum[0]].includes(provinceid)
-                        ? "rgb(150,150,150)"
-                        : "rgb(40,40,40)"
-                    }
-                    strokeWidth={
-                      StateData[rndnum[0]].includes(provinceid) ? "0.5" : "1"
-                    }
+                    path={String(paths[provinceid - 1][1])}
                     key={provinceid}
-                    // }}
-                  ></path>
+                  ></SvgPath>
                 );
               })}
-          {areapaths.map((path, index) => {
-            const areasplace = regionStateIds[rndnum[1]].indexOf(index);
-            // console.log(index, rndnum[0]);
-            if ((index !== 0 && areasplace + 1) || areasplace === 0) {
-              return (
-                <path
-                  d={String(path[1])}
-                  fill={"none"}
-                  stroke={index === rndnum[0] ? "rgb(80, 0, 100)" : "none"}
-                  strokeWidth="1.2"
-                  key={index}
-                ></path>
-              );
-            }
-          })}
+          <AreaOutlines></AreaOutlines>
         </svg>
       );
-      return a;
     }
   }, [
     regionStateIds,

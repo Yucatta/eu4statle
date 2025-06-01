@@ -18,7 +18,6 @@ interface AppData {
 }
 
 function loadAllDataOnce(): AppData {
-  console.log("Loading and parsing application data from files...");
   try {
     const root = process.cwd() + "/public";
 

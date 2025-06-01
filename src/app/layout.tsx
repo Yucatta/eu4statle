@@ -7,6 +7,7 @@ import { DataProvider } from "@/context/DataContext";
 import { loadAppData } from "@/lib/data";
 import { loadProvinceData } from "@/lib/provinces";
 import { ProvinceDataProvider } from "@/context/ProvinceDataContext";
+import { Analytics } from "@vercel/analytics/next";
 
 const jost = Jost({
   variable: "--font-jost",
@@ -65,6 +66,7 @@ export default async function RootLayout({
               <GameStateProvider>{children}</GameStateProvider>
             </ProvinceDataProvider>
           </DataProvider>
+          <Analytics />
         </StrictMode>
       </body>
     </html>

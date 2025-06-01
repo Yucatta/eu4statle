@@ -5,7 +5,6 @@ import CardGuesContainer from "./CardGuesContainer";
 import { useDataContext } from "@/context/DataContext";
 import CorrectAnswers from "./Answers";
 import { useGameState } from "@/context/gamecontext";
-import useGameFunction from "@/hooks/utilitys";
 import AreaOutlines from "./AreaPaths";
 import SvgPath from "./SvgPath";
 interface Props {

@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
 interface props {
-  thisguess: [string | number, number];
+  thisguess: [string, number];
   coordinates: number[];
 }
 const Guesses = ({ thisguess, coordinates }: props) => {
@@ -16,7 +16,6 @@ const Guesses = ({ thisguess, coordinates }: props) => {
         Math.sin(Δφ / 2) * Math.sin(Δφ / 2) +
         Math.cos(φ1) * Math.cos(φ2) * Math.sin(Δλ / 2) * Math.sin(Δλ / 2);
       const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-      // console.log(coordinates);
       return Math.floor(R * c);
     } else {
       return;
@@ -31,8 +30,6 @@ const Guesses = ({ thisguess, coordinates }: props) => {
             coordinates[0] - coordinates[2]
           ) * 180
         ) / Math.PI;
-      // console.log(a);
-      // console.log(coordinates);
       if (a >= 0) {
         if (a <= 22.5) {
           return "➡️";
@@ -62,11 +59,10 @@ const Guesses = ({ thisguess, coordinates }: props) => {
       return;
     }
   }, [coordinates]);
-  // console.log(direction, "direction");
 
   return (
     <>
-      {typeof thisguess[0] === "string" ? (
+      {thisguess[0] ? (
         <div className="w-full h-11 flex flex-row justify-between mb-1">
           <span className="h-full rounded-xl w-1/2 border-2 border-neutral-300 mb-1 bg-gray-900 text flex justify-center items-center">
             {thisguess[0]}

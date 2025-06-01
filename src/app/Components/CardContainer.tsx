@@ -9,28 +9,15 @@ import TradeNodes from "./tradenodes";
 import ProvinceViewer from "./Provinceviewer";
 import { useProvinceDataContext } from "@/context/ProvinceDataContext";
 import CountryGuesser from "./CountryGuesser";
+
 const CardContainer = () => {
   const [developments, setdevelopments] = useState<number[]>();
   const [currentcard, setCurrentCard] = useState(0);
   const { StateData, regionids } = useDataContext();
-  const { rndnum, setisgameover } = useGameState();
-  const [cardguesses, setcardguesses] = useState<string[][]>([
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-  ]);
-  useEffect(() => {
-    setisgameover(currentcard + 1);
-  }, [currentcard]);
+  const { rndnum, diffuculty, isgameover } = useGameState();
+  const [cardguesses, setcardguesses] = useState<string[][][]>(() =>
+    Array(3).fill(Array(12).fill([]))
+  );
   const {
     ProvinceStats,
     Religions,
@@ -65,8 +52,8 @@ const CardContainer = () => {
     }
   }, [ProvinceStats, rndnum, StateData]);
   function handleSubmit(e: string[]) {
-    const temp = [...cardguesses];
-    temp[currentcard] = [...e];
+    const temp = cardguesses.map((card) => [...card]);
+    temp[diffuculty][currentcard] = [...e];
     setcardguesses(temp);
   }
   const buttons = [
@@ -84,8 +71,14 @@ const CardContainer = () => {
     "Countries",
   ];
   useEffect(() => {
-    setcardguesses([[], [], [], [], [], [], [], [], [], [], [], []]);
-    setCurrentCard(0);
+    if (currentcard) {
+      setCurrentCard(0);
+    } else {
+      setCurrentCard(11);
+      setTimeout(() => {
+        setCurrentCard(0);
+      }, 20);
+    }
   }, [rndnum]);
   const cards = useMemo(() => {
     return [
@@ -93,14 +86,14 @@ const CardContainer = () => {
         key={0}
         Cardrgbs={Religionrgbs}
         onProvinceGuess={handleSubmit}
-        cardguesses={cardguesses[currentcard]}
+        cardguesses={cardguesses[diffuculty][currentcard]}
         CardsNames={Religions}
         provincestats={ProvinceStats}
       />,
       <ProvinceGuessCards
         key={1}
         onProvinceGuess={handleSubmit}
-        cardguesses={cardguesses[currentcard]}
+        cardguesses={cardguesses[diffuculty][currentcard]}
         Cardrgbs={terrainrgbs}
         CardsNames={Terrains}
         provincestats={ProvinceStats}
@@ -110,7 +103,7 @@ const CardContainer = () => {
         developmentrgbs={developmentrgbs}
         StateData={StateData}
         onProvinceGuess={handleSubmit}
-        cardguesses={cardguesses[currentcard]}
+        cardguesses={cardguesses[diffuculty][currentcard]}
         Development={developments && rndnum ? developments[rndnum[0]] : 0}
         provincestats={ProvinceStats}
       />,
@@ -118,14 +111,14 @@ const CardContainer = () => {
         key={3}
         CardsNames={Cultures!}
         onProvinceGuess={handleSubmit}
-        cardguesses={cardguesses[currentcard]}
+        cardguesses={cardguesses[diffuculty][currentcard]}
         provincestats={ProvinceStats}
       ></CultureCard>,
       <TradeNodes
         key={4}
         tradenodes={tradenodes.map((node) => node[0])}
         provincestats={ProvinceStats}
-        cardguesses={cardguesses[currentcard]}
+        cardguesses={cardguesses[diffuculty][currentcard]}
         tradenodemembers={tradenodes ? tradenodes.map((node) => node[1]) : []}
         onProvinceGuess={handleSubmit}
       ></TradeNodes>,
@@ -133,7 +126,7 @@ const CardContainer = () => {
         key={5}
         Cardrgbs={tradegoodrgbs}
         onProvinceGuess={handleSubmit}
-        cardguesses={cardguesses[currentcard]}
+        cardguesses={cardguesses[diffuculty][currentcard]}
         CardsNames={TradeGoods}
         provincestats={ProvinceStats}
       />,
@@ -147,7 +140,7 @@ const CardContainer = () => {
             : [""]
         }
         onProvinceGuess={handleSubmit}
-        cardguesses={cardguesses[currentcard]}
+        cardguesses={cardguesses[diffuculty][currentcard]}
         provincestats={ProvinceStats}
       />,
       <ProvinceViewer
@@ -155,7 +148,7 @@ const CardContainer = () => {
         building={fortestuarycentermonument.map((row) => row[0])}
         currentbuilding={0}
         onProvinceGuess={handleSubmit}
-        cardguesses={cardguesses[currentcard]}
+        cardguesses={cardguesses[diffuculty][currentcard]}
         provincestats={ProvinceStats}
       ></ProvinceViewer>,
       <ProvinceViewer
@@ -163,7 +156,7 @@ const CardContainer = () => {
         building={fortestuarycentermonument.map((row) => row[2])}
         currentbuilding={2}
         onProvinceGuess={handleSubmit}
-        cardguesses={cardguesses[currentcard]}
+        cardguesses={cardguesses[diffuculty][currentcard]}
         provincestats={ProvinceStats}
       ></ProvinceViewer>,
       <ProvinceViewer
@@ -171,7 +164,7 @@ const CardContainer = () => {
         building={fortestuarycentermonument.map((row) => row[3])}
         currentbuilding={3}
         onProvinceGuess={handleSubmit}
-        cardguesses={cardguesses[currentcard]}
+        cardguesses={cardguesses[diffuculty][currentcard]}
         provincestats={ProvinceStats}
       ></ProvinceViewer>,
       <ProvinceViewer
@@ -179,14 +172,14 @@ const CardContainer = () => {
         building={fortestuarycentermonument.map((row) => row[1])}
         currentbuilding={1}
         onProvinceGuess={handleSubmit}
-        cardguesses={cardguesses[currentcard]}
+        cardguesses={cardguesses[diffuculty][currentcard]}
         provincestats={ProvinceStats}
       ></ProvinceViewer>,
       <CountryGuesser
         key={11}
         Cardrgbs={countries.map((country) => country[0])}
         onProvinceGuess={handleSubmit}
-        cardguesses={cardguesses[currentcard]}
+        cardguesses={cardguesses[diffuculty][currentcard]}
         countryprovinces={countryprovinces}
         CardsNames={countries.map((country) => country[1])}
         provincestats={ProvinceStats}
@@ -213,30 +206,34 @@ const CardContainer = () => {
   ]);
   return (
     <>
-      <div className="flex justify-center w-full flex-col items-center ">
-        <div className="flex w-9/10 justify-center">
-          <div className="flex  w-full h-full flex-wrap pt-2 justify-evenly space-y-4 pb-5">
-            {buttons.slice(0, 12).map((name, index) => {
-              return (
-                <button
-                  className={
-                    currentcard == index
-                      ? "h-10 w-25 bg-[rgb(15,25,55)] rounded-xl text-md  cursor-pointer  transition-all duration-150 scale-90 active:scale-80"
-                      : "h-10 w-25 bg-[rgb(23,54,105)] rounded-xl text-md  cursor-pointer  transition-all duration-150  active:scale-90"
-                  }
-                  onClick={() => {
-                    setCurrentCard(index);
-                  }}
-                  key={index}
-                >
-                  {name}
-                </button>
-              );
-            })}
+      {isgameover ? (
+        <div className="flex justify-center w-full flex-col items-center ">
+          <div className="flex w-9/10 justify-center">
+            <div className="flex  w-full h-full flex-wrap pt-2 justify-evenly space-y-4 pb-5">
+              {buttons.slice(0, 12).map((name, index) => {
+                return (
+                  <button
+                    className={
+                      currentcard == index
+                        ? "h-10 w-25 bg-[rgb(15,25,55)] rounded-xl text-md  cursor-pointer  transition-all duration-150 scale-90 active:scale-80"
+                        : "h-10 w-25 bg-[rgb(23,54,105)] rounded-xl text-md  cursor-pointer  transition-all duration-150  active:scale-90"
+                    }
+                    onClick={() => {
+                      setCurrentCard(index);
+                    }}
+                    key={index}
+                  >
+                    {name}
+                  </button>
+                );
+              })}
+            </div>
           </div>
+          {cards[currentcard]}
         </div>
-        {cards[currentcard]}
-      </div>
+      ) : (
+        ""
+      )}
     </>
   );
 };

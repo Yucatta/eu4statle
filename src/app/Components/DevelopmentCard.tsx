@@ -44,12 +44,16 @@ Props) => {
   function handlesubmit() {
     if (
       inputref.current &&
-      !cardguesses.includes(String(inputref.current.value))
+      filterednames &&
+      !cardguesses.includes(String(inputref.current.value)) &&
+      inputref.current &&
+      filterednames.some((cardname) =>
+        inputref.current!.value.toLowerCase().includes(cardname.toLowerCase())
+      )
     ) {
       onProvinceGuess([...cardguesses, String(inputref.current.value)]);
       inputref.current!.value = "";
       setcardquery("");
-      // setscardguesses([e, ...cardguesses.slice(0, 3)]);
     }
   }
   const { rndnum } = useGameState();

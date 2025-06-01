@@ -4,10 +4,9 @@ import StateGuesses from "./Components/StateGuesses";
 import CardContainer from "./Components/CardContainer";
 import { useGameState } from "@/context/gamecontext";
 import useGameFunction from "@/hooks/utilitys";
-import { useState } from "react";
 export default function Home() {
-  const { isgameover, setisgameover } = useGameState();
-  const [diffuculty, setdiffuclty] = useState(0);
+  const { isgameover, setisgameover, diffuculty, setdiffuclty } =
+    useGameState();
   const { ChangeRndNum } = useGameFunction();
   return (
     <>
@@ -23,8 +22,8 @@ export default function Home() {
             EU4 STATLE
           </header>
           <StateGuesses></StateGuesses>
-          {/* <CardContainer></CardContainer> */}
-          {isgameover ? <CardContainer></CardContainer> : ""}
+          <CardContainer></CardContainer>
+          {/* {isgameover ? <CardContainer></CardContainer> : ""} */}
           <div>
             {[0, 1, 2].map((index) => {
               return (
@@ -37,7 +36,6 @@ export default function Home() {
                   onClick={() => {
                     setdiffuclty(index);
                     ChangeRndNum(index);
-                    setisgameover(0);
                   }}
                   key={index}
                 >

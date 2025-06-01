@@ -27,8 +27,12 @@ const TradeNodes = ({
   function handlesubmit() {
     if (
       inputref.current &&
+      filterednames &&
       !cardguesses.includes(String(inputref.current.value)) &&
-      filterednames.length > 0
+      inputref.current &&
+      filterednames.some((cardname) =>
+        inputref.current!.value.toLowerCase().includes(cardname.toLowerCase())
+      )
     ) {
       onProvinceGuess([...cardguesses, String(inputref.current.value)]);
       inputref.current!.value = "";
@@ -203,7 +207,6 @@ const TradeNodes = ({
                   <button
                     className=" w-25 rounded-2xl ml-10 mt-2 h-11 text-sm border-2 border-[rgb(16,50,35)] bg-[rgb(16,84,80)] z-0 cursor-pointer transition-all hover:scale-103 active:scale-90"
                     onClick={handlesubmit}
-                    // onClick={handlesubmit}
                   >
                     GUESS
                   </button>

@@ -16,19 +16,13 @@ const StateGuesses = () => {
   const [regionsquery, setregionsquery] = useState<string | undefined>(
     undefined
   );
-  const [StateGuesses, setstateguesses] = useState<
-    Array<[string | number, number]>
-  >([
-    [0, -1],
-    [0, -1],
-    [0, -1],
-    [0, -1],
-  ]);
+  const [StateGuesses, setstateguesses] = useState<[string, number][][]>(
+    Array(3).fill([])
+  );
   const imageinitizalied = useRef(false);
   const guessid = useRef([-1, -1]);
   const svgRef = useRef(null);
-  const { rndnum, setisgameover } = useGameState();
-
+  const { rndnum, diffuculty, setisgameover } = useGameState();
   const {
     paths,
     regionStateIds,
@@ -40,20 +34,8 @@ const StateGuesses = () => {
     regionbboxes,
     emptylands,
   } = useDataContext();
-
   const Image = useMemo(() => {
-    if (
-      regionStateIds &&
-      rndnum &&
-      StateData &&
-      !imageinitizalied.current &&
-      paths &&
-      emptylands &&
-      regionbboxes &&
-      regionids &&
-      areapaths[0]
-    ) {
-      // imageinitizalied.current = true;
+    if (rndnum && !imageinitizalied.current) {
       if (rndnum[1] === 58) {
         const a = (
           <svg
@@ -265,43 +247,33 @@ const StateGuesses = () => {
   }, [statenames, regionsquery]);
 
   function handlesubmit() {
-    if (statenames && filteredstatenames && stateinputref.current && rndnum) {
-      for (let i = 0; i < StateGuesses.length; i++) {
-        if (StateGuesses[i][0] === statesquery) {
-          return;
-        }
-      }
-      if (statesquery) {
-        for (let i = 0; i < statenames.length; i++) {
-          if (statenames[i].toLowerCase() === statesquery.toLocaleLowerCase()) {
-            guessid.current = [i, findRegion(i, rndnum[0])];
-            break;
-          } else {
-            guessid.current[0] = -1;
-          }
-        }
-        if (guessid.current[0] >= 0) {
-          const temp = StateGuesses;
-          for (let i = 0; i < temp.length; i++) {
-            if (typeof temp[i][0] !== "string") {
-              temp[i][0] = statenames[guessid.current[0]];
-              temp[i][1] = guessid.current[0];
-              break;
-            }
-          }
-          setstateguesses(temp);
-          setstatequery("");
-          stateinputref.current.value = "";
-          if (
-            temp[0][1] === rndnum[0] ||
-            temp[1][1] === rndnum[0] ||
-            temp[2][1] === rndnum[0] ||
-            temp[3][1] === rndnum[0] ||
-            temp[3][1] !== -1
-          ) {
-            setisgameover(1);
-          }
-        }
+    if (
+      filteredstatenames &&
+      stateinputref.current &&
+      filteredstatenames.some((statename) =>
+        stateinputref
+          .current!.value.toLowerCase()
+          .includes(statename.toLowerCase())
+      ) &&
+      !StateGuesses[diffuculty].some((guess) =>
+        guess[0]
+          .toLocaleLowerCase()
+          .includes(stateinputref.current!.value.toLowerCase())
+      )
+    ) {
+      const temp: [string, number][][] = StateGuesses.map((arr) => [...arr]);
+
+      const thestate = filteredstatenames.filter((statename) =>
+        stateinputref
+          .current!.value.toLowerCase()
+          .includes(statename.toLowerCase())
+      )[0];
+      temp[diffuculty].push([thestate, statenames.indexOf(thestate)]);
+
+      setstateguesses(temp);
+      setstatequery("");
+      stateinputref.current.value = "";
+      if (rndnum && rndnum[0] === statenames.indexOf(thestate)) {
       }
     }
   }
@@ -311,15 +283,21 @@ const StateGuesses = () => {
     }
   }, [regionStateIds]);
   useEffect(() => {
-    setstateguesses([
-      [0, -1],
-      [0, -1],
-      [0, -1],
-      [0, -1],
-    ]);
     setstatequery("");
     setregionsquery("");
-  }, [rndnum]);
+    if (stateinputref.current && regioninputref.current) {
+      stateinputref.current.value = "";
+      regioninputref.current.value = "";
+    }
+    if (
+      rndnum &&
+      StateGuesses[diffuculty].some((guess) => rndnum[0] === guess[1])
+    ) {
+      setisgameover(1);
+    } else {
+      setisgameover(0);
+    }
+  }, [diffuculty, StateGuesses, rndnum]);
   return (
     <>
       <div className="w-10/12 h-[45vh] p-0 mt-[2vh] bg-[rgb(50,50,50)] ">
@@ -327,10 +305,7 @@ const StateGuesses = () => {
         {Image ? Image : ""}
       </div>
       {rndnum &&
-      (StateGuesses[0][1] === rndnum[0] ||
-        StateGuesses[1][1] === rndnum[0] ||
-        StateGuesses[2][1] === rndnum[0] ||
-        StateGuesses[3][1] === rndnum[0]) &&
+      StateGuesses[diffuculty].some((guess) => guess[1] === rndnum[0]) &&
       statenames ? (
         <div className=" w-2/4  h-15 rounded-xl mt-1.5 mb-1 px-10 text-lg bg-green-500 text-black items-center flex justify-evenly font-semibold ">
           <div className="flex-col flex">
@@ -338,7 +313,7 @@ const StateGuesses = () => {
             <div>Region: {statenames[823 + rndnum[1]]}</div>
           </div>
         </div>
-      ) : StateGuesses[3][1] !== -1 && statenames && rndnum ? (
+      ) : StateGuesses[diffuculty].length === 4 && statenames && rndnum ? (
         <div className=" w-2/4  h-15 rounded-xl mt-1.5 mb-1 text-lg   bg-red-300 text-black items-center flex justify-evenly font-semibold">
           <div className="flex-col flex">
             <div>State: {statenames[rndnum[0]]} </div>
@@ -379,7 +354,10 @@ const StateGuesses = () => {
         StateData={StateData}
         rndnum={rndnum}
         guessid={guessid.current}
-        StateGuesses={StateGuesses}
+        StateGuesses={[
+          ...StateGuesses[diffuculty],
+          ...Array(4 - StateGuesses[diffuculty].length).fill(["", -1]),
+        ]}
       ></GuessContainer>
     </>
   );

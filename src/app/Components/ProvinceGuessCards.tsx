@@ -248,13 +248,17 @@ const ProvinceGuessCards = ({
       inputref.current &&
       filteredCardNames &&
       !cardguesses.includes(String(inputref.current.value)) &&
-      filteredCardNames.length > 0
+      inputref.current &&
+      filteredCardNames.some((cardname) =>
+        inputref.current!.value.toLowerCase().includes(cardname.toLowerCase())
+      )
     ) {
       onProvinceGuess([...cardguesses, String(inputref.current.value)]);
       inputref.current!.value = "";
       setcardquery("");
     }
   }
+
   function findCorrectProvinces(cardquery: string) {
     if (
       CardsNames &&

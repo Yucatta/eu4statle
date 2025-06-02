@@ -1,7 +1,10 @@
 import { useDataContext } from "@/context/DataContext";
 import { useGameState } from "@/context/gamecontext";
 import React from "react";
-const AreaOutlines = () => {
+interface Props {
+  strokewidth?: string;
+}
+const AreaOutlines = ({}: Props) => {
   const { rndnum } = useGameState();
   const { regionStateIds, areapaths } = useDataContext();
   return (

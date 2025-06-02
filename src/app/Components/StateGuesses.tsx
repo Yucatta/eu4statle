@@ -21,7 +21,6 @@ const StateGuesses = () => {
   );
   const imageinitizalied = useRef(false);
   const guessid = useRef([-1, -1]);
-  const svgRef = useRef(null);
   const { rndnum, diffuculty, setisgameover } = useGameState();
   const {
     paths,
@@ -48,7 +47,6 @@ const StateGuesses = () => {
               } ${regionbboxes[rndnum[1]][3] - regionbboxes[rndnum[1]][1]}
               `
             }
-            ref={svgRef}
             xmlns="http://www.w3.org/2000/svg"
             width="100%"
             height="100%"
@@ -66,10 +64,6 @@ const StateGuesses = () => {
                   stroke="white"
                   strokeWidth="0.5"
                   key={Number(provinceid[0])}
-                  // className="hover:fill-amber-700"
-                  // onClick={() => {
-                  //   console.log(provinceid);
-                  // }}
                 ></path>
               );
             })}
@@ -96,7 +90,6 @@ const StateGuesses = () => {
         );
         return a;
       } else {
-        // console.log("aaaaaaaaaaa");
         const a = (
           <svg
             className="w-full h-full  bg-[rgb(28,87,146)]"
@@ -108,13 +101,11 @@ const StateGuesses = () => {
               } ${regionbboxes[rndnum[1]][3] - regionbboxes[rndnum[1]][1]}
               `
             }
-            ref={svgRef}
             xmlns="http://www.w3.org/2000/svg"
             width="100%"
             height="100%"
           >
             {paths.map((path) => {
-              // console.log(path[1], index);
               const b = (
                 <path
                   d={String(path[1])}
@@ -127,7 +118,6 @@ const StateGuesses = () => {
                       ? "rgb(70,70,70)"
                       : "	rgb(50, 50, 50)"
                   }
-                  // stroke={emptylands.includes(provinceid) ? "none" : "white"}
                   stroke={
                     regionids[rndnum[1]].includes(+path[0] + 1)
                       ? "rgb(200,200,200)"
@@ -150,7 +140,6 @@ const StateGuesses = () => {
             })}
             {areapaths.map((path, index) => {
               const areasplace = regionStateIds[rndnum[1]].indexOf(index);
-              // console.log(index, rndnum[0]);
               if ((index !== 0 && areasplace + 1) || areasplace === 0) {
                 return (
                   <path
@@ -269,12 +258,9 @@ const StateGuesses = () => {
           .includes(statename.toLowerCase())
       )[0];
       temp[diffuculty].push([thestate, statenames.indexOf(thestate)]);
-
       setstateguesses(temp);
       setstatequery("");
       stateinputref.current.value = "";
-      if (rndnum && rndnum[0] === statenames.indexOf(thestate)) {
-      }
     }
   }
   useEffect(() => {
@@ -298,6 +284,14 @@ const StateGuesses = () => {
       setisgameover(0);
     }
   }, [diffuculty, StateGuesses, rndnum]);
+  useEffect(() => {
+    setstatequery("");
+    setregionsquery("");
+    if (stateinputref.current && regioninputref.current) {
+      stateinputref.current.value = "";
+      regioninputref.current.value = "";
+    }
+  }, [diffuculty, rndnum]);
   return (
     <>
       <div className="w-10/12 h-[45vh] p-0 mt-[2vh] bg-[rgb(50,50,50)] ">

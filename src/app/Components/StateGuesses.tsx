@@ -7,6 +7,7 @@ import InputandList from "./Input";
 // import fetchCsvData from "@/utils/fetchcsv";
 import { useDataContext } from "@/context/DataContext";
 import useGameFunction from "@/hooks/utilitys";
+import CorrectAnswers from "./Answers";
 const StateGuesses = () => {
   const { ChangeRndNum } = useGameFunction();
 
@@ -270,10 +271,8 @@ const StateGuesses = () => {
   }, [regionStateIds]);
   useEffect(() => {
     setstatequery("");
-    setregionsquery("");
-    if (stateinputref.current && regioninputref.current) {
+    if (stateinputref.current) {
       stateinputref.current.value = "";
-      regioninputref.current.value = "";
     }
     if (
       rndnum &&
@@ -299,22 +298,36 @@ const StateGuesses = () => {
         {Image ? Image : ""}
       </div>
       {rndnum &&
-      StateGuesses[diffuculty].some((guess) => guess[1] === rndnum[0]) &&
+      (StateGuesses[diffuculty].some((guess) => guess[1] === rndnum[0]) ||
+        StateGuesses[diffuculty].length === 4) &&
       statenames ? (
-        <div className=" w-2/4  h-15 rounded-xl mt-1.5 mb-1 px-10 text-lg bg-green-500 text-black items-center flex justify-evenly font-semibold ">
-          <div className="flex-col flex">
-            <div>State: {statenames[rndnum[0]]} </div>
-            <div>Region: {statenames[823 + rndnum[1]]}</div>
-          </div>
-        </div>
-      ) : StateGuesses[diffuculty].length === 4 && statenames && rndnum ? (
-        <div className=" w-2/4  h-15 rounded-xl mt-1.5 mb-1 text-lg   bg-red-300 text-black items-center flex justify-evenly font-semibold">
-          <div className="flex-col flex">
-            <div>State: {statenames[rndnum[0]]} </div>
-            <div>Region: {statenames[823 + rndnum[1]]}</div>
-          </div>
-        </div>
+        <CorrectAnswers
+          isitwrong={StateGuesses[diffuculty].some(
+            (guess) => guess[1] === rndnum[0]
+          )}
+          correctanswers={
+            <div className="flex-col flex text-lg font-bold px-8">
+              <div>State: {statenames[rndnum[0]]} </div>
+              <div>Region: {statenames[823 + rndnum[1]]}</div>
+            </div>
+          }
+        ></CorrectAnswers>
       ) : (
+        //  (
+        //   <div className=" w-2/4  h-15 rounded-xl mt-1.5 mb-1 px-10 text-lg bg-green-500 text-black items-center flex justify-evenly font-semibold ">
+        // <div className="flex-col flex">
+        //   <div>State: {statenames[rndnum[0]]} </div>
+        //   <div>Region: {statenames[823 + rndnum[1]]}</div>
+        // </div>
+        //   </div>
+        // ) : StateGuesses[diffuculty].length === 4 && statenames && rndnum ? (
+        //   <div className=" w-2/4  h-15 rounded-xl mt-1.5 mb-1 text-lg   bg-red-300 text-black items-center flex justify-evenly font-semibold">
+        //     <div className="flex-col flex">
+        //       <div>State: {statenames[rndnum[0]]} </div>
+        //       <div>Region: {statenames[823 + rndnum[1]]}</div>
+        //     </div>
+        //   </div>
+        // )
         <div className=" w-10/12  justify-evenly mt-1 items-center flex  relative">
           <div className="w-1/4">
             <InputandList

@@ -276,7 +276,8 @@ const StateGuesses = () => {
     }
     if (
       rndnum &&
-      StateGuesses[diffuculty].some((guess) => rndnum[0] === guess[1])
+      (StateGuesses[diffuculty].some((guess) => rndnum[0] === guess[1]) ||
+        StateGuesses[diffuculty].length === 4)
     ) {
       setisgameover(1);
     } else {

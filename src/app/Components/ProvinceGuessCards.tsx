@@ -7,7 +7,6 @@ import CorrectAnswers from "./Answers";
 import { useGameState } from "@/context/gamecontext";
 import AreaOutlines from "./AreaPaths";
 import SvgPath from "./SvgPath";
-import StateGuesses from "./StateGuesses";
 interface Props {
   CardsNames?: string[];
   Cardrgbs?: string[];

@@ -7,6 +7,7 @@ import CorrectAnswers from "./Answers";
 import { useGameState } from "@/context/gamecontext";
 import AreaOutlines from "./AreaPaths";
 import SvgPath from "./SvgPath";
+import StateGuesses from "./StateGuesses";
 interface Props {
   CardsNames?: string[];
   Cardrgbs?: string[];
@@ -75,8 +76,12 @@ const ProvinceGuessCards = ({
       ? 3
       : CardsNames.length === 31
       ? 4
-      : 5
+      : CardsNames.length === 16
+      ? 5
+      : 0
     : 0;
+  console.log(cardlocation, provincestats[5][cardlocation], CardsNames?.length);
+  // console.log(CardsNames);
   const Image = useMemo(() => {
     if (rndnum && CardsNames && provincestats) {
       const a = (

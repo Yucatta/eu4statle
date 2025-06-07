@@ -80,8 +80,6 @@ const ProvinceGuessCards = ({
       ? 5
       : 0
     : 0;
-  console.log(cardlocation, provincestats[5][cardlocation], CardsNames?.length);
-  // console.log(CardsNames);
   const Image = useMemo(() => {
     if (rndnum && CardsNames && provincestats) {
       const a = (

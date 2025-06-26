@@ -295,7 +295,6 @@ const StateGuesses = () => {
   return (
     <>
       <div className="w-10/12 h-[45vh] p-0 mt-[2vh] bg-[rgb(50,50,50)] ">
-        {/* {SvgImage} */}
         {Image ? Image : ""}
       </div>
       {rndnum &&
@@ -314,21 +313,6 @@ const StateGuesses = () => {
           }
         ></CorrectAnswers>
       ) : (
-        //  (
-        //   <div className=" w-2/4  h-15 rounded-xl mt-1.5 mb-1 px-10 text-lg bg-green-500 text-black items-center flex justify-evenly font-semibold ">
-        // <div className="flex-col flex">
-        //   <div>State: {statenames[rndnum[0]]} </div>
-        //   <div>Region: {statenames[823 + rndnum[1]]}</div>
-        // </div>
-        //   </div>
-        // ) : StateGuesses[diffuculty].length === 4 && statenames && rndnum ? (
-        //   <div className=" w-2/4  h-15 rounded-xl mt-1.5 mb-1 text-lg   bg-red-300 text-black items-center flex justify-evenly font-semibold">
-        //     <div className="flex-col flex">
-        //       <div>State: {statenames[rndnum[0]]} </div>
-        //       <div>Region: {statenames[823 + rndnum[1]]}</div>
-        //     </div>
-        //   </div>
-        // )
         <div className=" w-10/12  justify-evenly mt-1 items-center flex  relative">
           <div className="w-1/4">
             <InputandList
@@ -351,7 +335,7 @@ const StateGuesses = () => {
           </div>
 
           <button
-            className=" w-20 rounded-2xl mt-2 h-11 font-semibold text-md border-2 border-[rgb(16,50,35)] bg-[rgb(16,84,80)] cursor-pointer transition-all hover:scale-105 active:scale-90"
+            className=" w-20 rounded-2xl mt-2 h-11 font-semibold text-md border-2 border-[rgb(16,50,35)] to-[rgb(11,81,76)] from-[rgb(36,210,198)] bg-gradient-to-r cursor-pointer transition-all hover:scale-105 active:scale-90"
             onClick={handlesubmit}
           >
             GUESS

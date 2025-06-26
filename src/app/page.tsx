@@ -1,12 +1,10 @@
 "use client";
-// import States from "./Components/States";
 import StateGuesses from "./Components/StateGuesses";
 import CardContainer from "./Components/CardContainer";
 import { useGameState } from "@/context/gamecontext";
-import useGameFunction from "@/hooks/utilitys";
+import Button from "./Components/Button";
 export default function Home() {
-  const { isgameover, diffuculty, setdiffuclty } = useGameState();
-  const { ChangeRndNum } = useGameFunction();
+  const { isgameover } = useGameState();
   return (
     <>
       <div className=" h-screen  flex justify-center items-start">
@@ -22,26 +20,10 @@ export default function Home() {
           </header>
           <StateGuesses></StateGuesses>
           <CardContainer></CardContainer>
-          {/* {isgameover ? <CardContainer></CardContainer> : ""} */}
           <div>
-            {[0, 1, 2].map((index) => {
-              return (
-                <button
-                  className={
-                    diffuculty == index
-                      ? "h-10 w-25 bg-[rgb(9,29,42)]  rounded-xl text-md font-bold cursor-pointer ml-3 mt-6 transition-all duration-150 scale-90 active:scale-80"
-                      : "h-10 w-25 bg-[rgb(23,73,100)] rounded-xl text-md font-bold cursor-pointer ml-3 mt-6 transition-all duration-150  active:scale-90"
-                  }
-                  onClick={() => {
-                    setdiffuclty(index);
-                    ChangeRndNum(index);
-                  }}
-                  key={index}
-                >
-                  {index === 2 ? "Hard" : index ? "Normal" : "Easy"}
-                </button>
-              );
-            })}
+            {[0, 1, 2].map((index) => (
+              <Button index={index}></Button>
+            ))}
           </div>
         </div>
       </div>

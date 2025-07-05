@@ -51,10 +51,26 @@ const CardContainer = () => {
       setdevelopments(tempdevs);
     }
   }, [ProvinceStats, rndnum, StateData]);
+
+  useEffect(() => {
+    const localstorage = localStorage.getItem("CardGuesses");
+    if (localstorage) {
+      const temp = JSON.parse(localstorage);
+      const epochTime = new Date().setHours(0, 0, 0, 0);
+      if (epochTime - temp[1] < 86400000) {
+        setcardguesses(temp[0]);
+      }
+    }
+  }, []);
+
   function handleSubmit(e: string[]) {
     const temp = cardguesses.map((card) => [...card]);
     temp[diffuculty][currentcard] = [...e];
     setcardguesses(temp);
+    localStorage.setItem(
+      "CardGuesses",
+      JSON.stringify([temp, new Date().setHours(0, 0, 0, 0)])
+    );
   }
   const buttons = [
     "Religion",

@@ -7,7 +7,6 @@ import { useDataContext } from "@/context/DataContext";
 import useGameFunction from "@/hooks/utilitys";
 import CorrectAnswers from "./Answers";
 
-// const localstorage = localStorage.getItem("StateGuesses");
 const StateGuesses = () => {
   const { ChangeRndNum } = useGameFunction();
 
@@ -40,14 +39,11 @@ const StateGuesses = () => {
         const a = (
           <svg
             className="w-full h-full  bg-[rgb(28,87,146)]"
-            viewBox={
-              // "0 0 5632 2048"
-              `
+            viewBox={`
               ${regionbboxes[rndnum[1]][0]} ${regionbboxes[rndnum[1]][1]}  ${
-                regionbboxes[rndnum[1]][2] - regionbboxes[rndnum[1]][0]
-              } ${regionbboxes[rndnum[1]][3] - regionbboxes[rndnum[1]][1]}
-              `
-            }
+              regionbboxes[rndnum[1]][2] - regionbboxes[rndnum[1]][0]
+            } ${regionbboxes[rndnum[1]][3] - regionbboxes[rndnum[1]][1]}
+              `}
             xmlns="http://www.w3.org/2000/svg"
             width="100%"
             height="100%"
@@ -260,10 +256,24 @@ const StateGuesses = () => {
       )[0];
       temp[diffuculty].push([thestate, statenames.indexOf(thestate)]);
       setstateguesses(temp);
+      localStorage.setItem(
+        "StateGuesses",
+        JSON.stringify([temp, new Date().setHours(0, 0, 0, 0)])
+      );
       setstatequery("");
       stateinputref.current.value = "";
     }
   }
+  useEffect(() => {
+    const localstorage = localStorage.getItem("StateGuesses");
+    if (localstorage) {
+      const temp = JSON.parse(localstorage);
+      const epochTime = new Date().setHours(0, 0, 0, 0);
+      if (epochTime - temp[1] < 86400000) {
+        setstateguesses(temp[0]);
+      }
+    }
+  }, []);
   useEffect(() => {
     if (regionStateIds) {
       ChangeRndNum(0);
@@ -335,7 +345,8 @@ const StateGuesses = () => {
           </div>
 
           <button
-            className=" w-20 rounded-2xl mt-2 h-11 font-semibold text-md border-2 border-[rgb(16,50,35)] to-[rgb(11,81,76)] from-[rgb(36,210,198)] bg-gradient-to-r cursor-pointer transition-all hover:scale-105 active:scale-90"
+            className=" w-20 rounded-2xl mt-2 h-11 font-semibold text-md border-2 border-[rgb(16,50,35)] to-[rgb(4,150,140)]
+             from-[rgb(36,210,198)] bg-gradient-to-t cursor-pointer transition-all hover:bg-gradient-to-b hover:scale-105 active:scale-90"
             onClick={handlesubmit}
           >
             GUESS

@@ -8,12 +8,6 @@ export default function useGameFunction() {
   function ChangeRndNum(e: number) {
     const today = new Date();
     const start = new Date(2025, 4, 29);
-    // console.log(
-    //   Math.floor((Number(today) - Number(start)) / 24 / 60 / 60 / 1000),
-    //   diffuculty[e].length,
-    //   today,
-    //   start
-    // );
     const temp =
       diffuculty[e][
         Math.floor(

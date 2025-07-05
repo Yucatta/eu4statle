@@ -22,7 +22,7 @@ export default function Home() {
           <CardContainer></CardContainer>
           <div>
             {[0, 1, 2].map((index) => (
-              <Button index={index}></Button>
+              <Button index={index} key={index}></Button>
             ))}
           </div>
         </div>

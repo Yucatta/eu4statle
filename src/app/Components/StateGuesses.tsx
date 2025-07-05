@@ -7,7 +7,7 @@ import { useDataContext } from "@/context/DataContext";
 import useGameFunction from "@/hooks/utilitys";
 import CorrectAnswers from "./Answers";
 
-const localstorage = localStorage.getItem("StateGuesses");
+// const localstorage = localStorage.getItem("StateGuesses");
 const StateGuesses = () => {
   const { ChangeRndNum } = useGameFunction();
 

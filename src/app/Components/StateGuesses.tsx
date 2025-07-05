@@ -1,13 +1,13 @@
 "use client";
 import React, { useEffect, useMemo, useRef, useState } from "react";
-// import Papa from "papaparse";
 import { useGameState } from "@/context/gamecontext";
 import GuessContainer from "./GuessContainer";
 import InputandList from "./Input";
-// import fetchCsvData from "@/utils/fetchcsv";
 import { useDataContext } from "@/context/DataContext";
 import useGameFunction from "@/hooks/utilitys";
 import CorrectAnswers from "./Answers";
+
+const localstorage = localStorage.getItem("StateGuesses");
 const StateGuesses = () => {
   const { ChangeRndNum } = useGameFunction();
 

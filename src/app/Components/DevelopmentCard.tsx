@@ -36,9 +36,7 @@ const DevelopmentCard = ({
   developmentrgbs,
   cardguesses,
   provincestats,
-}: // provincestats,
-// StateData,
-Props) => {
+}: Props) => {
   const [cardquery, setcardquery] = useState<string | undefined>(undefined);
   const inputref = useRef<HTMLInputElement>(null);
   function handlesubmit() {

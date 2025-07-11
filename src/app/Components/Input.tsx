@@ -66,7 +66,7 @@ const InputandList = ({
     });
   }, [focusedelement, listref]);
   return (
-    <div className="w-full pt-0 relative group">
+    <div className="w-full pt-0 relative group" style={{}}>
       <input
         type="search"
         ref={inputref}
@@ -81,12 +81,11 @@ const InputandList = ({
           setupdate(update + 1);
           setfocusedelement(0);
         }}
-        // onMouseEnter={}
         className="w-full mt-3 h-10 border-2 bg-neutral-900 border-neutral-400 focus-within:"
         placeholder={placeholder}
       />
 
-      <ul className="absolute top-full left-0  w-full bg-neutral-900 justify-center  border-2 overflow-y-auto  transition hidden  text-sm z-10 max-h-40 group-focus-within:block">
+      <ul className="absolute scrollbar-hide top-full left-0  w-full bg-neutral-900 justify-center  border-2 overflow-y-auto  transition hidden  text-sm z-10 max-h-40 group-focus-within:block">
         {filterednames
           ? filterednames.map((item, index) => (
               <li

@@ -280,7 +280,7 @@ const ProvinceGuessCards = ({
   }
   return (
     <>
-      <div className="flex flex-col w-9/10 ">
+      <div className="flex flex-col sm:w-11/12 w-19/20 ">
         {rndnum ? (
           <div className="flex flex-col justify-center items-center border-0 max-h-[1000px] overflow-hidden">
             <div className="flex flex-row w-full h-30 items-center justify-evenly">

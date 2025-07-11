@@ -12,7 +12,7 @@ const GuessContainer = ({
   rndnum,
 }: Props) => {
   return (
-    <ol className="w-10/12   flex items-center z-1 flex-col mt-2">
+    <ol className="sm:w-5/6 w-[95%]   flex items-center z-1 flex-col mt-2">
       {StateGuesses.map((stateguess, index) => (
         <Guesses
           thisguess={[stateguess[0], guessid[0]]}

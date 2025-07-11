@@ -224,7 +224,7 @@ const CardContainer = () => {
     <>
       {isgameover ? (
         <div className="flex justify-center w-full flex-col items-center ">
-          <div className="flex w-9/10 justify-center">
+          <div className="flex sm:w-11/12 w-[95%] justify-center">
             <div className="flex  w-full h-full flex-wrap pt-2 justify-evenly space-y-4 pb-5">
               {buttons.slice(0, 12).map((name, index) => {
                 return (

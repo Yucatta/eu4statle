@@ -279,6 +279,79 @@ const StateGuesses = () => {
       ChangeRndNum(0);
     }
   }, [regionStateIds]);
+
+  function guessDistributionlocalstorage() {
+    const localstorage = localStorage.getItem("GuessDistributioneu4statle");
+    const epochTime = new Date().setHours(0, 0, 0, 0);
+    if (localstorage) {
+      const temp = JSON.parse(localstorage);
+      if (epochTime - temp[diffuculty][6] >= 86400000) {
+        temp[diffuculty]++;
+        temp[diffuculty][6] = epochTime;
+        localStorage.setItem(
+          "GuessDistributioneu4statle",
+          JSON.stringify(temp)
+        );
+      }
+    } else {
+      const temp = [0, 0, 0].map(() => [
+        ...Array(5).fill(0),
+        new Date().setHours(-24, 0, 0, 0),
+      ]);
+      temp[diffuculty][StateGuesses[diffuculty].length]++;
+      temp[diffuculty][6] = epochTime;
+
+      localStorage.setItem("GuessDistributioneu4statle", JSON.stringify(temp));
+    }
+  }
+
+  function timespalyedstorage() {
+    const localstorage = localStorage.getItem("TimesPlayedeu4statle");
+    const epochTime = new Date().setHours(0, 0, 0, 0);
+    if (localstorage) {
+      const temp = JSON.parse(localstorage);
+      if (epochTime - temp[1] >= 86400000) {
+        temp[diffuculty]++;
+        localStorage.setItem(
+          "TimesPlayedeu4statle",
+          JSON.stringify([temp, new Date().setHours(0, 0, 0, 0)])
+        );
+      }
+    } else {
+      const temp = [0, 0, 0].map(() => [0, new Date().setHours(-24, 0, 0, 0)]);
+      temp[diffuculty] = [1, epochTime];
+      localStorage.setItem("TimesPlayedeu4statle", JSON.stringify(epochTime));
+    }
+  }
+  function streakstorage() {
+    const localstorage = localStorage.getItem("eu4statlestreak");
+    const epochTime = new Date().setHours(0, 0, 0, 0);
+    if (localstorage) {
+      const temp = JSON.parse(localstorage);
+      if (epochTime - temp[diffuculty][1] >= 86400000) {
+        if (epochTime - temp[1] >= 86400000 * 2) {
+          temp[diffuculty][0] = 1;
+          temp[diffuculty][3] = new Date().setHours(0, 0, 0, 0);
+          localStorage.setItem("eu4statlestreak", JSON.stringify(temp));
+        } else {
+          temp[diffuculty][0]++;
+          if (temp[diffuculty][0] > temp[diffuculty][1]) {
+            temp[diffuculty][1] = temp[diffuculty][0];
+          }
+          localStorage.setItem("eu4statlestreak", JSON.stringify(temp));
+        }
+      }
+    } else {
+      const temp = [0, 0, 0].map(() => [
+        0,
+        0,
+        new Date().setHours(-24, 0, 0, 0),
+      ]);
+      temp[diffuculty] = [1, 1, new Date().setHours(0, 0, 0, 0)];
+      localStorage.setItem("eu4statlestreak", JSON.stringify(temp));
+    }
+  }
+
   useEffect(() => {
     setstatequery("");
     if (stateinputref.current) {
@@ -290,6 +363,10 @@ const StateGuesses = () => {
         StateGuesses[diffuculty].length === 4)
     ) {
       setisgameover(1);
+      guessDistributionlocalstorage();
+      timespalyedstorage();
+      streakstorage();
+      const asdasd = "";
     } else {
       setisgameover(0);
     }
@@ -304,7 +381,7 @@ const StateGuesses = () => {
   }, [diffuculty, rndnum]);
   return (
     <>
-      <div className="w-10/12 h-[45vh] p-0 mt-[2vh] bg-[rgb(50,50,50)] ">
+      <div className="h-[45vh] sm:w-5/6 w-[95%] p-0 mt-[2vh] bg-[rgb(50,50,50)] ">
         {Image ? Image : ""}
       </div>
       {rndnum &&
@@ -323,7 +400,7 @@ const StateGuesses = () => {
           }
         ></CorrectAnswers>
       ) : (
-        <div className=" w-10/12  justify-evenly mt-1 items-center flex  relative">
+        <div className=" sm:w-5/6 w-full  justify-evenly mt-1 items-center flex  relative">
           <div className="w-1/4">
             <InputandList
               inputref={regioninputref}
@@ -345,8 +422,9 @@ const StateGuesses = () => {
           </div>
 
           <button
-            className=" w-20 rounded-2xl mt-2 h-11 font-semibold text-md border-2 border-[rgb(16,50,35)] to-[rgb(4,150,140)]
-             from-[rgb(36,210,198)] bg-gradient-to-t cursor-pointer transition-all hover:bg-gradient-to-b hover:scale-105 active:scale-90"
+            className=" w-20 rounded-2xl mt-2 h-11 font-semibold text-md to-[rgb(132,3,168)]
+             from-[rgb(150,10,175)] shadow-md shadow-[rgba(150,10,175,0.3)]
+             bg-gradient-to-b cursor-pointer transition-all hover:bg-gradient-to-t hover:scale-105 active:scale-90"
             onClick={handlesubmit}
           >
             GUESS

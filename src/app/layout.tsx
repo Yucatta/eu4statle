@@ -8,6 +8,7 @@ import { loadAppData } from "@/lib/data";
 import { loadProvinceData } from "@/lib/provinces";
 import { ProvinceDataProvider } from "@/context/ProvinceDataContext";
 import { Analytics } from "@vercel/analytics/next";
+import Header from "./Components/Header";
 
 const jost = Jost({
   variable: "--font-jost",
@@ -63,7 +64,18 @@ export default async function RootLayout({
                 countryprovinces: fetcheddata2.countryprovinces,
               }}
             >
-              <GameStateProvider>{children}</GameStateProvider>
+              <GameStateProvider>
+                <div className=" h-screen  flex justify-center items-start">
+                  <div
+                    className={
+                      "w-[clamp(0px,977px,100vw)] mt-15 h-auto min-h-screen bg-[rgb(29,29,29)] flex flex-col items-center  pb-20  "
+                    }
+                  >
+                    <Header></Header>
+                    {children}
+                  </div>
+                </div>
+              </GameStateProvider>
             </ProvinceDataProvider>
           </DataProvider>
           <Analytics />

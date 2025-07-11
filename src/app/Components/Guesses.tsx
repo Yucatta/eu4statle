@@ -63,16 +63,22 @@ const Guesses = ({ thisguess, coordinates }: props) => {
   return (
     <>
       {thisguess[0] ? (
-        <div className="w-full h-11 flex flex-row text-xl font-semibold justify-between mb-1">
+        <div className="w-full h-11 flex flex-row sm:text-xl text-lg font-semibold justify-between mb-1">
           <span className="h-full rounded-xl w-1/2 border-2 border-neutral-300 mb-1 bg-gray-900 text flex justify-center items-center">
             {thisguess[0]}
           </span>
           <span className="h-full rounded-xl w-3/14 border-2 border-neutral-300 mb-1 bg-gray-900 text flex justify-center items-center">
             {distance}KM
           </span>
-          <span className="h-full w-20 rounded-xl  border-2 border-neutral-300 mb-1 bg-gray-900 text flex justify-center items-center">
-            {!distance ? "✅" : direction}
-          </span>
+          {!distance ? (
+            <div className="h-full w-20 rounded-xl  border-2 border-neutral-300 mb-1 bg-gray-900 text flex justify-center items-center">
+              <img src={"/logo/checkmark.svg"} className="w-7"></img>
+            </div>
+          ) : (
+            <span className="h-full w-20 rounded-xl  border-2 border-neutral-300 mb-1 bg-gray-900 text flex justify-center items-center">
+              {direction}
+            </span>
+          )}
         </div>
       ) : (
         <div className="w-full h-11 rounded-md mb-1 bg-neutral-700 text flex justify-center items-center">

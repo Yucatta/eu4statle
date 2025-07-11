@@ -22,7 +22,10 @@ body {
   font-family: var(--font-jost), sans-serif;
   color: rgb(229, 229, 229);
 }
-
-*::-webkit-scrollbar {
-  width: 0;
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

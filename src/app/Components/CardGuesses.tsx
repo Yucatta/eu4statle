@@ -18,7 +18,7 @@ const CardGuesses = ({ thisguess, correctsolutions }: Props) => {
             {thisguess}
           </div>
           <img
-            src={"/logo/checkmark.svg"}
+            src={"/Logo/checkmark.svg"}
             className="w-3/12 self-center h-9  rounded-lg mb-1.5  border-neutral-300  bg-gray-900 border-2 text flex justify-center items-center"
           ></img>
         </div>
@@ -28,7 +28,7 @@ const CardGuesses = ({ thisguess, correctsolutions }: Props) => {
             {thisguess}
           </div>
           <img
-            src={"/logo/x.svg"}
+            src={"/Logo/x.svg"}
             className="w-3/12 self-center h-9  rounded-lg mb-1.5  border-neutral-300  bg-gray-900 border-2 text flex justify-center items-center"
           ></img>
         </div>

@@ -72,7 +72,7 @@ const Guesses = ({ thisguess, coordinates }: props) => {
           </span>
           {!distance ? (
             <div className="h-full w-20 rounded-xl  border-2 border-neutral-300 mb-1 bg-gray-900 text flex justify-center items-center">
-              <img src={"/logo/checkmark.svg"} className="w-7"></img>
+              <img src={"/Logo/checkmark.svg"} className="w-7"></img>
             </div>
           ) : (
             <span className="h-full w-20 rounded-xl  border-2 border-neutral-300 mb-1 bg-gray-900 text flex justify-center items-center">

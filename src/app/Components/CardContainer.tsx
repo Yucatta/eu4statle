@@ -231,8 +231,8 @@ const CardContainer = () => {
                   <button
                     className={
                       currentcard == index
-                        ? "h-10 w-25 bg-[rgb(15,25,55)] rounded-xl text-md  cursor-pointer  transition-all duration-150 scale-90 active:scale-80"
-                        : "h-10 w-25 bg-[rgb(23,54,105)] rounded-xl text-md  cursor-pointer  transition-all duration-150  active:scale-90"
+                        ? "h-10 w-25 bg-[rgb(89,15,153)] rounded-xl text-md  cursor-pointer  transition-all duration-150 scale-90 active:scale-80"
+                        : "h-10 w-25 bg-[rgb(103,50,191)] rounded-xl text-md  cursor-pointer  transition-all duration-150  active:scale-90"
                     }
                     onClick={() => {
                       setCurrentCard(index);

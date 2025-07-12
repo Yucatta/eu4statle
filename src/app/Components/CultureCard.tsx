@@ -348,11 +348,12 @@ const CultureCard = ({
                     ></InputandList>
                   </div>
                   <button
-                    className=" w-4/11 rounded-2xl mt-2 h-11 text-sm border-2 border-[rgb(16,50,35)] bg-[rgb(16,84,80)] z-50 cursor-pointer transition-all hover:scale-103 active:scale-90"
+                    className=" w-10 rounded-lg mt-2  h-25 font-semibold text-md to-[rgb(132,3,168)]
+             from-[rgb(150,10,175)] shadow-md shadow-[rgba(150,10,175,0.3)] justify-center items-center flex
+             bg-gradient-to-b cursor-pointer transition-all hover:bg-gradient-to-t hover:scale-105 active:scale-90"
                     onClick={handlesubmit}
-                    // onClick={handlesubmit}
                   >
-                    GUESS
+                    <img src={"/Logo/rightarrow.svg"} className="w-6"></img>
                   </button>
                 </div>
               )}

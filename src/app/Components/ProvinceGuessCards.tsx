@@ -315,7 +315,7 @@ const ProvinceGuessCards = ({
                   }
                 ></CorrectAnswers>
               ) : (
-                <div className="flex-col flex w-auto justify-center itms-center">
+                <div className="flex-col flex w-auto justify-center items-center">
                   <div className="flex flex-col ">
                     <div className="w-50">
                       <InputandList
@@ -331,10 +331,12 @@ const ProvinceGuessCards = ({
                     </div>
                   </div>
                   <button
-                    className=" w-25 rounded-2xl mt-2 h-11 ml-10 text-sm border-2 border-[rgb(16,50,35)] bg-[rgb(16,84,80)] z-[5] cursor-pointer transition-all hover:scale-103 active:scale-90"
+                    className=" w-20 rounded-lg mt-2 h-11 font-semibold text-md to-[rgb(132,3,168)]
+             from-[rgb(150,10,175)] shadow-md shadow-[rgba(150,10,175,0.3)] flex justify-center items-center
+             bg-gradient-to-b cursor-pointer transition-all hover:bg-gradient-to-t hover:scale-105 active:scale-90"
                     onClick={handlesubmit}
                   >
-                    GUESS
+                    <img src={"/Logo/rightarrow.svg"} className="w-6"></img>
                   </button>
                 </div>
               )}

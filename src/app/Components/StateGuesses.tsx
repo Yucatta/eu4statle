@@ -428,11 +428,11 @@ const StateGuesses = () => {
 
           <button
             className=" w-20 rounded-2xl mt-2 h-11 font-semibold text-md to-[rgb(132,3,168)]
-             from-[rgb(150,10,175)] shadow-md shadow-[rgba(150,10,175,0.3)]
+             from-[rgb(150,10,175)] shadow-md shadow-[rgba(150,10,175,0.3)] flex justify-center items-center
              bg-gradient-to-b cursor-pointer transition-all hover:bg-gradient-to-t hover:scale-105 active:scale-90"
             onClick={handlesubmit}
           >
-            GUESS
+            <img src={"/Logo/rightarrow.svg"} className="w-6"></img>
           </button>
         </div>
       )}

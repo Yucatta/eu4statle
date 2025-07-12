@@ -21,7 +21,7 @@ const StateGuesses = () => {
   );
   const imageinitizalied = useRef(false);
   const guessid = useRef([-1, -1]);
-  const { rndnum, diffuculty, setisgameover } = useGameState();
+  const { rndnum, diffuculty, setisgameover, setdiffuclty } = useGameState();
   const {
     paths,
     regionStateIds,
@@ -266,13 +266,24 @@ const StateGuesses = () => {
   }
   useEffect(() => {
     const localstorage = localStorage.getItem("StateGuesses");
+    const epochTime = new Date().setHours(0, 0, 0, 0);
     if (localstorage) {
       const temp = JSON.parse(localstorage);
-      const epochTime = new Date().setHours(0, 0, 0, 0);
       if (epochTime - temp[1] < 86400000) {
         setstateguesses(temp[0]);
       }
     }
+    const streaka = localStorage.getItem("eu4statlestreak");
+    if (streaka) {
+      const stearak: number[][] = JSON.parse(streaka);
+      stearak.map((dif) =>
+        epochTime - dif[2] >= 2 * 86400000
+          ? [0, dif[1], new Date().setHours(-24, 0, 0, 0)]
+          : dif
+      );
+      localStorage.setItem("eu4statlestreak", JSON.stringify(stearak));
+    }
+    setdiffuclty(0);
   }, []);
   useEffect(() => {
     if (regionStateIds) {
@@ -285,9 +296,19 @@ const StateGuesses = () => {
     const epochTime = new Date().setHours(0, 0, 0, 0);
     if (localstorage) {
       const temp = JSON.parse(localstorage);
-      if (epochTime - temp[diffuculty][6] >= 86400000) {
-        temp[diffuculty]++;
-        temp[diffuculty][6] = epochTime;
+      console.log(temp, "bbbb");
+
+      if (epochTime - temp[diffuculty][5] >= 86400000) {
+        if (
+          StateGuesses[diffuculty].some(
+            (guess) => rndnum && guess[1] === rndnum[0]
+          )
+        ) {
+          temp[diffuculty][StateGuesses[diffuculty].length - 1]++;
+        } else {
+          temp[diffuculty][4]++;
+        }
+        temp[diffuculty][5] = epochTime;
         localStorage.setItem(
           "GuessDistributioneu4statle",
           JSON.stringify(temp)
@@ -298,48 +319,33 @@ const StateGuesses = () => {
         ...Array(5).fill(0),
         new Date().setHours(-24, 0, 0, 0),
       ]);
-      temp[diffuculty][StateGuesses[diffuculty].length]++;
-      temp[diffuculty][6] = epochTime;
-
+      if (
+        StateGuesses[diffuculty].some(
+          (guess) => rndnum && guess[1] === rndnum[0]
+        )
+      ) {
+        temp[diffuculty][StateGuesses[diffuculty].length - 1]++;
+      } else {
+        temp[diffuculty][4]++;
+      }
+      temp[diffuculty][5] = epochTime;
+      console.log(temp, "aaa");
       localStorage.setItem("GuessDistributioneu4statle", JSON.stringify(temp));
     }
   }
 
-  function timespalyedstorage() {
-    const localstorage = localStorage.getItem("TimesPlayedeu4statle");
-    const epochTime = new Date().setHours(0, 0, 0, 0);
-    if (localstorage) {
-      const temp = JSON.parse(localstorage);
-      if (epochTime - temp[1] >= 86400000) {
-        temp[diffuculty]++;
-        localStorage.setItem(
-          "TimesPlayedeu4statle",
-          JSON.stringify([temp, new Date().setHours(0, 0, 0, 0)])
-        );
-      }
-    } else {
-      const temp = [0, 0, 0].map(() => [0, new Date().setHours(-24, 0, 0, 0)]);
-      temp[diffuculty] = [1, epochTime];
-      localStorage.setItem("TimesPlayedeu4statle", JSON.stringify(epochTime));
-    }
-  }
   function streakstorage() {
     const localstorage = localStorage.getItem("eu4statlestreak");
     const epochTime = new Date().setHours(0, 0, 0, 0);
     if (localstorage) {
       const temp = JSON.parse(localstorage);
-      if (epochTime - temp[diffuculty][1] >= 86400000) {
-        if (epochTime - temp[1] >= 86400000 * 2) {
-          temp[diffuculty][0] = 1;
-          temp[diffuculty][3] = new Date().setHours(0, 0, 0, 0);
-          localStorage.setItem("eu4statlestreak", JSON.stringify(temp));
-        } else {
-          temp[diffuculty][0]++;
-          if (temp[diffuculty][0] > temp[diffuculty][1]) {
-            temp[diffuculty][1] = temp[diffuculty][0];
-          }
-          localStorage.setItem("eu4statlestreak", JSON.stringify(temp));
+      if (epochTime - temp[diffuculty][2] >= 86400000) {
+        temp[diffuculty][0]++;
+        if (temp[diffuculty][0] > temp[diffuculty][1]) {
+          temp[diffuculty][1] = temp[diffuculty][0];
         }
+        temp[diffuculty][2] = epochTime;
+        localStorage.setItem("eu4statlestreak", JSON.stringify(temp));
       }
     } else {
       const temp = [0, 0, 0].map(() => [
@@ -364,13 +370,12 @@ const StateGuesses = () => {
     ) {
       setisgameover(1);
       guessDistributionlocalstorage();
-      timespalyedstorage();
       streakstorage();
-      const asdasd = "";
     } else {
       setisgameover(0);
     }
   }, [diffuculty, StateGuesses, rndnum]);
+
   useEffect(() => {
     setstatequery("");
     setregionsquery("");

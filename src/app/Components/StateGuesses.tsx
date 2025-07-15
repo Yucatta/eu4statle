@@ -241,10 +241,10 @@ const StateGuesses = () => {
           .current!.value.toLowerCase()
           .includes(statename.toLowerCase())
       ) &&
-      !StateGuesses[diffuculty].some((guess) =>
-        guess[0]
-          .toLocaleLowerCase()
-          .includes(stateinputref.current!.value.toLowerCase())
+      !StateGuesses[diffuculty].some(
+        (guess) =>
+          guess[0].toLocaleLowerCase() ===
+          stateinputref.current!.value.toLowerCase()
       )
     ) {
       const temp: [string, number][][] = StateGuesses.map((arr) => [...arr]);
@@ -276,12 +276,13 @@ const StateGuesses = () => {
     const streaka = localStorage.getItem("eu4statlestreak");
     if (streaka) {
       const stearak: number[][] = JSON.parse(streaka);
-      stearak.map((dif) =>
+
+      const temp = stearak.map((dif) =>
         epochTime - dif[2] >= 2 * 86400000
-          ? [0, dif[1], new Date().setHours(-24, 0, 0, 0)]
+          ? [0, dif[1], epochTime - 86400000]
           : dif
       );
-      localStorage.setItem("eu4statlestreak", JSON.stringify(stearak));
+      localStorage.setItem("eu4statlestreak", JSON.stringify(temp));
     }
     setdiffuclty(0);
   }, []);

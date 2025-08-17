@@ -3,7 +3,7 @@ import { useDataContext } from "@/context/DataContext";
 import { useGameState } from "@/context/gamecontext";
 
 export default function useGameFunction() {
-  const { setrndnum } = useGameState();
+  const { selectedDate, setrndnum } = useGameState();
   const { regionStateIds, diffuculty } = useDataContext();
   function ChangeRndNum(e: number) {
     const today = new Date();
@@ -11,7 +11,8 @@ export default function useGameFunction() {
     const temp =
       diffuculty[e][
         Math.floor(
-          ((Number(today) - Number(start)) / 24 / 60 / 60 / 1000) %
+          ((Number(today) - Number(start)) / 24 / 60 / 60 / 1000 -
+            selectedDate) %
             diffuculty[e].length
         )
       ];

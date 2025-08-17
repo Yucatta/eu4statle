@@ -2,12 +2,14 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
+import DayNavigation from "./DayNavigation";
 
 const Header = () => {
   const pathname = usePathname();
   return (
     <div className=" border-b-4 w-[clamp(0px,977px,100vw)] bg-[rgb(29,29,29)] font-bold absolute  border-[rgb(64,31,128)] flex flex-col items-center h-15 top-0">
       <div className="flex items-center justify-center w-full absolute  sm:w-5/6">
+        <DayNavigation></DayNavigation>
         <Link
           href={"/"}
           style={{ textShadow: "4px 4px 8px rgba(0,0,0,1)" }}

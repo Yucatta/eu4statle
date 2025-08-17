@@ -10,6 +10,8 @@ type gamecontexttype = {
   setdiffuclty: React.Dispatch<React.SetStateAction<number>>;
   diffucultyindex: number;
   setdiffucltyindex: React.Dispatch<React.SetStateAction<number>>;
+  selectedDate: number;
+  setSelectedDate: React.Dispatch<React.SetStateAction<number>>;
 };
 
 const Gamecontext = createContext<gamecontexttype | null>(null);
@@ -19,6 +21,7 @@ export function GameStateProvider({ children }: { children: ReactNode }) {
   const [diffuculty, setdiffuclty] = useState(0);
   const [isgameover, setisgameover] = useState(0);
   const [diffucultyindex, setdiffucltyindex] = useState(0);
+  const [selectedDate, setSelectedDate] = useState(0);
   return (
     <Gamecontext.Provider
       value={{
@@ -30,6 +33,8 @@ export function GameStateProvider({ children }: { children: ReactNode }) {
         setisgameover,
         setdiffucltyindex,
         diffucultyindex,
+        selectedDate,
+        setSelectedDate,
       }}
     >
       {children}

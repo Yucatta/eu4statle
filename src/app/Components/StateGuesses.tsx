@@ -21,7 +21,8 @@ const StateGuesses = () => {
   );
   const imageinitizalied = useRef(false);
   const guessid = useRef([-1, -1]);
-  const { rndnum, diffuculty, setisgameover, setdiffuclty } = useGameState();
+  const { rndnum, diffuculty, setisgameover, setdiffuclty, selectedDate } =
+    useGameState();
   const {
     paths,
     regionStateIds,
@@ -265,14 +266,20 @@ const StateGuesses = () => {
     }
   }
   useEffect(() => {
-    const localstorage = localStorage.getItem("StateGuesses");
-    const epochTime = new Date().setHours(0, 0, 0, 0);
-    if (localstorage) {
-      const temp = JSON.parse(localstorage);
-      if (epochTime - temp[1] < 86400000) {
-        setstateguesses(temp[0]);
+    setstateguesses(Array(3).fill([]));
+    if (!selectedDate) {
+      const epochTime = new Date().setHours(0, 0, 0, 0);
+      const localstorage = localStorage.getItem("StateGuesses");
+      if (localstorage) {
+        const temp = JSON.parse(localstorage);
+        if (epochTime - temp[1] < 86400000) {
+          setstateguesses(temp[0]);
+        }
       }
     }
+  }, [selectedDate]);
+  useEffect(() => {
+    const epochTime = new Date().setHours(0, 0, 0, 0);
     const streaka = localStorage.getItem("eu4statlestreak");
     if (streaka) {
       const stearak: number[][] = JSON.parse(streaka);
@@ -370,8 +377,10 @@ const StateGuesses = () => {
         StateGuesses[diffuculty].length === 4)
     ) {
       setisgameover(1);
-      guessDistributionlocalstorage();
-      streakstorage();
+      if (!selectedDate) {
+        guessDistributionlocalstorage();
+        streakstorage();
+      }
     } else {
       setisgameover(0);
     }

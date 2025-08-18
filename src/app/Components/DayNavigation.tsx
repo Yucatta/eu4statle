@@ -6,7 +6,7 @@ const DayNavigation = () => {
   const { selectedDate, diffuculty, setSelectedDate } = useGameState();
   const { ChangeRndNum } = useGameFunction();
   const currentDate = new Date();
-  const maximumDays = Math.min(
+  const maximumDays = Math.floor(
     (Number(currentDate) - Number(new Date(2025, 4, 29))) /
       (24 * 60 * 60 * 1000)
   );
@@ -17,8 +17,8 @@ const DayNavigation = () => {
   }, [selectedDate]);
   return (
     <div
-      className="flex flex-row w-30 justify-center absolute select-none"
-      style={{ left: "clamp(0px,40px,4vw)" }}
+      className="flex flex-row w-25 sm:w-30 justify-center items-center sm:text-base text-sm top-3.5 absolute select-none"
+      style={{ left: "clamp(0px,10px,1vw)" }}
     >
       {selectedDate < maximumDays && (
         <svg
@@ -28,7 +28,10 @@ const DayNavigation = () => {
           strokeWidth="2"
           className="w-6 h-6 absolute left-0 cursor-pointer"
           aria-hidden="true"
-          onClick={() => setSelectedDate((prev) => prev + 1)}
+          onClick={() => {
+            console.log("!!!");
+            setSelectedDate((prev) => prev + 1);
+          }}
         >
           <path
             strokeLinecap="round"
@@ -37,10 +40,12 @@ const DayNavigation = () => {
           />
         </svg>
       )}
-      <div>
-        {selecteDateFormat.getDate()}
-        {"   "}
-        {selecteDateFormat.toLocaleString("default", { month: "long" })}
+      <div className="pointer-events-none flex-col items-center justify-center flex">
+        <div>
+          {selecteDateFormat.getDate()}{" "}
+          {selecteDateFormat.toLocaleString("default", { month: "long" })}
+        </div>
+        <div>#{maximumDays - selectedDate}</div>
       </div>
       {selectedDate > 0 && (
         <svg
@@ -50,7 +55,10 @@ const DayNavigation = () => {
           strokeWidth="2"
           className="w-6 h-6 absolute right-0 cursor-pointer"
           aria-hidden="true"
-          onClick={() => setSelectedDate((prev) => prev - 1)}
+          onClick={() => {
+            console.log("!!!");
+            setSelectedDate((prev) => prev - 1);
+          }}
         >
           <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
         </svg>

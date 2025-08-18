@@ -14,7 +14,7 @@ const CardContainer = () => {
   const [developments, setdevelopments] = useState<number[]>();
   const [currentcard, setCurrentCard] = useState(0);
   const { StateData, regionids } = useDataContext();
-  const { rndnum, diffuculty, isgameover } = useGameState();
+  const { rndnum, diffuculty, isgameover, selectedDate } = useGameState();
   const [cardguesses, setcardguesses] = useState<string[][][]>(() =>
     Array(3).fill(Array(12).fill([]))
   );
@@ -53,15 +53,18 @@ const CardContainer = () => {
   }, [ProvinceStats, rndnum, StateData]);
 
   useEffect(() => {
-    const localstorage = localStorage.getItem("CardGuesses");
-    if (localstorage) {
-      const temp = JSON.parse(localstorage);
-      const epochTime = new Date().setHours(0, 0, 0, 0);
-      if (epochTime - temp[1] < 86400000) {
-        setcardguesses(temp[0]);
+    setcardguesses(Array(3).fill(Array(12).fill([])));
+    if (!selectedDate) {
+      const localstorage = localStorage.getItem("CardGuesses");
+      if (localstorage) {
+        const temp = JSON.parse(localstorage);
+        const epochTime = new Date().setHours(0, 0, 0, 0);
+        if (epochTime - temp[1] < 86400000) {
+          setcardguesses(temp[0]);
+        }
       }
     }
-  }, []);
+  }, [selectedDate]);
 
   function handleSubmit(e: string[]) {
     const temp = cardguesses.map((card) => [...card]);

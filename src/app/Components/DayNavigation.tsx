@@ -17,7 +17,7 @@ const DayNavigation = () => {
   }, [selectedDate]);
   return (
     <div
-      className="flex flex-row w-25 sm:w-30 justify-center items-center sm:text-base text-sm top-3.5 absolute select-none"
+      className="flex flex-row w-25 sm:w-35 justify-center items-center sm:text-base text-xs top-3.5 sm:top-2.5 absolute select-none"
       style={{ left: "clamp(0px,10px,1vw)" }}
     >
       {selectedDate < maximumDays && (
@@ -29,7 +29,6 @@ const DayNavigation = () => {
           className="w-6 h-6 absolute left-0 cursor-pointer"
           aria-hidden="true"
           onClick={() => {
-            console.log("!!!");
             setSelectedDate((prev) => prev + 1);
           }}
         >
@@ -53,10 +52,9 @@ const DayNavigation = () => {
           fill="none"
           stroke="currentColor"
           strokeWidth="2"
-          className="w-6 h-6 absolute right-0 cursor-pointer"
+          className="w-6 h-6 absolute right-0 z-9999 cursor-pointer"
           aria-hidden="true"
           onClick={() => {
-            console.log("!!!");
             setSelectedDate((prev) => prev - 1);
           }}
         >

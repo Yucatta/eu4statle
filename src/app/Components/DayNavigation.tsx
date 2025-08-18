@@ -1,6 +1,6 @@
 import { useGameState } from "@/context/gamecontext";
 import useGameFunction from "@/hooks/utilitys";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 
 const DayNavigation = () => {
   const { selectedDate, diffuculty, setSelectedDate } = useGameState();
